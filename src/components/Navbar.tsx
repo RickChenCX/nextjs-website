@@ -22,6 +22,9 @@ export default function Navbar() {
       <Link href="/mysqlDemo">
         <a>mysql demo</a>
       </Link>
+      <Link href="/unAuth">
+        <a>unAuth page</a>
+      </Link>
     </nav>
   );
 }

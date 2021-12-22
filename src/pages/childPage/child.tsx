@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image, { ImageProps } from 'next/image'
-import Link from 'next/link'
+import Image, { ImageProps } from "next/image";
+import Link from "next/link";
 
 interface ChildProps {
   title: string;
@@ -9,12 +9,12 @@ interface ChildProps {
   numberList: number[];
 }
 const myLoader = ({ src, width, quality }: ImageProps) => {
-  return `https://flexi-boss-static-dev.reinventventures.com/${src}`
-}
+  return `https://flexi-boss-static-dev.reinventventures.com/${src}`;
+};
 /**
  * 静态生成example
- * @param props 
- * @returns 
+ * @param props
+ * @returns
  */
 function Child(props: ChildProps) {
   return (
@@ -29,7 +29,7 @@ function Child(props: ChildProps) {
           <a>返回</a>
         </Link>
         <div>{props?.title}</div>
-        
+
         <Image
           loader={myLoader}
           src={props.testImg}
@@ -38,22 +38,18 @@ function Child(props: ChildProps) {
           height={500}
         />
         <ul>
-        {props.numberList.map((item, i) => {
-          return <li key={i}>
-            item{item}
-          </li>
-        })}
+          {props.numberList.map((item, i) => {
+            return <li key={i}>item{item}</li>;
+          })}
         </ul>
-       
       </main>
     </div>
   );
 }
 
 export async function getStaticProps() {
-
-  const res = await fetch(`http://127.0.0.1:8080/some`)
-  const data = await res.json()
+  const res = await fetch(`http://127.0.0.1:8080/some`);
+  const data = await res.json();
 
   return {
     props: data, // will be passed to the page component as props

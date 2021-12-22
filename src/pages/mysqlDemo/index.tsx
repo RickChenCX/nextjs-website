@@ -33,33 +33,35 @@ export default function MysqlDemo() {
   return (
     <div>
       <Head>
-        <title>say hello page</title>
-        <meta name="description" content="this is a say hello page" />
+        <title>mysql demo</title>
+        <meta name="description" content="this is a  mysql demo page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
         <Link href="/">
           <a>
-            {" "}
-            <button>返回</button>{" "}
+            <button>返回</button>
           </a>
         </Link>
         <div>从mysql数据库获取的数据渲染</div>
         <ul>
           {data.map((item, i) => {
             return (
-              <li key={i}>
-                <p>{item.title}</p>
-                <textarea name="" id="" cols={30} rows={10}>
+              <li key={i} style={{borderBottom: "1px solid #eee"}}>
+                <div>
+                  <p>{item.title}</p>
+
+                  <Image
+                    loader={myLoader}
+                    src={item.imgUrl}
+                    alt="Picture of the author"
+                    width={50}
+                    height={50}
+                  />
+                </div>
+                <textarea name="" id="" cols={30} rows={5}>
                   {item.description}
                 </textarea>
-                <Image
-                  loader={myLoader}
-                  src={item.imgUrl}
-                  alt="Picture of the author"
-                  width={500}
-                  height={500}
-                />
               </li>
             );
           })}
