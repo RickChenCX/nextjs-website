@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from './Navbar.module.css';
+import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   return (
@@ -18,6 +18,9 @@ export default function Navbar() {
       </Link>
       <Link href="/ssrFile/2">
         <a>ssr page2</a>
+      </Link>
+      <Link href="/mysqlDemo">
+        <a>mysql demo</a>
       </Link>
     </nav>
   );
