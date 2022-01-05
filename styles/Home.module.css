@@ -114,3 +114,9 @@
     flex-direction: column;
   }
 }
+
+.btn {
+  background-color: var(--mainColor);
+  font-family: system-ui;
+  overflow-wrap: break-word;
+}
