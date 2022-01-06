@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Navbar from './Navbar'
+import Navbar from './Navbar/index'
 import Footer from './Footer'
 import type { AppProps } from "next/app";
 import React, { ReactElement, ReactNode } from 'react'
@@ -20,8 +20,10 @@ export default function Layout({ children }: LayoutProps): ReactElement {
         />
       </Head>
       <div className={styles.container}>
-        <Navbar />
-        <main className={styles.main}>{children}</main>
+        <main className={styles.main}>
+          <Navbar />
+          {children}
+          </main>
       </div>
       <Footer />
     </div>
