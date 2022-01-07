@@ -1,7 +1,8 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import type { ReactElement } from 'react'
-import Layout from "components/Layout"
+import type { ReactElement } from "react";
+import Layout from "components/Layout";
+import { Button } from "antd";
 
 export default function Page() {
   return (
@@ -16,17 +17,15 @@ export default function Page() {
         <h1>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+        <Button size="large" className="m-4" type="primary">
+          ant design button
+        </Button>
         <div>当前环境变量：{process.env.NEXT_PUBLIC_ENV_VARIABLE}</div>
       </main>
     </div>
   );
-};
-
+}
 
 Page.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <Layout>
-      {page}
-    </Layout>
-  )
-}
+  return <Layout>{page}</Layout>;
+};

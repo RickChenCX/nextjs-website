@@ -25,6 +25,7 @@ export default function Navbar() {
             key={i}
             className="sm:px-6 sm:py-2 xs:mx-4 xs:py-6 xs:border-b xs:border-grayLine"
             onClick={handleChangeSubNav}
+            
           >
             <div className="flex items-baseline xs:justify-between">
               <span>{navItem.name}</span>
