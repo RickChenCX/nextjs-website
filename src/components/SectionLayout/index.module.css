@@ -1,0 +1,13 @@
+.layoutContainer{
+    display: flex;
+    justify-content:flex-start;
+}
+.layoutSideSection{
+    width: 345px;
+    background: "#eee";
+}
+.layoutContent{
+    display: flex;
+    flex: 1;
+    flex-flow: column;
+}
