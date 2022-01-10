@@ -14,13 +14,13 @@ export default function Page() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main>
-        <h1>
+        {/* {/* <h1>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-        <Button size="large" className="m-4" type="primary">
+        </h1> */}
+        {/* <Button size="large" className="m-4" type="primary">
           ant design button
-        </Button>
-        <div>当前环境变量：{process.env.NEXT_PUBLIC_ENV_VARIABLE}</div>
+        </Button> */}
+        <div>当前环境变量：{process.env.NEXT_PUBLIC_ENV_VARIABLE}</div> 
       </main>
     </div>
   );

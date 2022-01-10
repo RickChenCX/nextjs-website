@@ -2,12 +2,13 @@ import { useState, useCallback } from "react";
 import Link from "next/link";
 import styles from "./index.module.css";
 import Image, { ImageProps } from "next/image";
-import Logo from "images/logo.png";
+import Logo from "images/logo1.png";
 import navConfig, { NavConfigItem } from "./nav.config";
-
+import ProductNavItem from "./ProductNavItem";
 export default function Navbar() {
   const [currentSubNav, setCurrentSubNav] = useState<string>();
   const [showMobileNav, setShowMobileNav] = useState<boolean>(false);
+
   const handleChangeSubNav = useCallback(
     (e) => {
       if (e.target.outerText === currentSubNav) {
@@ -25,7 +26,6 @@ export default function Navbar() {
             key={i}
             className="sm:px-6 sm:py-2 xs:mx-4 xs:py-6 xs:border-b xs:border-grayLine"
             onClick={handleChangeSubNav}
-            
           >
             <div className="flex items-baseline xs:justify-between">
               <span>{navItem.name}</span>
@@ -63,14 +63,15 @@ export default function Navbar() {
                 )}
               </span>
             </div>
-
-            <ul
-              className={`sm:absolute sm:w-screen sm:mt-5 sm:left-0 bg-white  ${
+            <div
+              className={`sm:absolute sm:z-10 sm:bg-black sm:bg-opacity-40 sm:w-screen sm:h-54 sm:left-0 sm:mt-5 ${
                 currentSubNav === navItem.name ? "" : "hidden"
               }`}
+             
             >
-              {navItemRender(navItem.children)}
-            </ul>
+                <ProductNavItem items={navItem.children} />
+             
+            </div>
           </li>
         );
       }
@@ -101,7 +102,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sm:py-2 sm:px-8 xs:py-2 xs:px-4 xs:justify-between w-full flex items-center`}
+      className={`sm:py-2 sm:px-8 xs:py-2 xs:px-4 xs:justify-between w-full flex items-center absolute z-10 top-0 bg-opacity-0`}
     >
       <div className="flex items-center">
         <span className="sm:hidden xs:mr-4" onClick={handleMobileNav}>
@@ -117,13 +118,13 @@ export default function Navbar() {
             <path d="M23 18.52H1V20.28H23V18.52Z" fill="#0D0D0D" />
           </svg>
         </span>
-        <Image src={Logo} alt="logo" width={68} height={24} className="pr-6" />
+        <Image src={Logo} alt="logo" width={68} height={24} />
       </div>
 
       <ul
-        className={`sm:flex sm:items-center sm:grow font-medium ${
+        className={`sm:flex sm:items-center sm:grow font-medium sm:text-sm xs:text-base sm:ml-6 bg-white ${
           showMobileNav
-            ? "xs:absolute xs:z-10 xs:w-screen xs:h-screen xs:top-0 bg-white xs:right-0 xs:overflow-hidden"
+            ? "xs:absolute xs:z-20  xs:top-0 xs:right-0 xs:overflow-hidden xs:w-full top-0"
             : "xs:hidden"
         } `}
       >
@@ -144,8 +145,13 @@ export default function Navbar() {
         </li>
         {navItemRender(navConfig)}
       </ul>
-      <button className="px-6 py-2 ml-4 max-h-10 text-white bg-primary ">
-        book demo
+      <button
+        className={`px-6 py-2 ml-4 max-h-10 text-white  sm:text-sm xs:text-base border border-solid border-white xs:hidden`}
+      >
+        Contact Us
+      </button>
+      <button className="px-6 py-2 ml-4 max-h-10 text-white bg-primary sm:text-sm xs:text-base border border-solid border-primary">
+        Book Free Demo
       </button>
     </nav>
   );
