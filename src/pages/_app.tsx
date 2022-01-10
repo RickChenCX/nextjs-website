@@ -4,6 +4,8 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import type { ReactElement, ReactNode } from "react";
 import type { NextPage } from "next";
+import "tailwindcss/tailwind.css";
+import 'antd/dist/antd.css';
 // import "tailwindcss/tailwind.css";
 import Layout from "components/Layout";
 

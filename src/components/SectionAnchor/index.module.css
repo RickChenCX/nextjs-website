@@ -1,0 +1,26 @@
+.activeColor{
+    color: #5528FF
+}
+.activeColor:before {
+    content: "";
+    background-color: #5409ff;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.9rem;
+    left: 0;
+}
+.normolColor{
+    color: #0D0D0D;
+}
+.normolColor:before {
+    content: "";
+    background-color: #0D0D0D;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.9rem;
+    left: 0;
+}
