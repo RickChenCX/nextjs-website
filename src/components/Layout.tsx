@@ -1,17 +1,16 @@
-import Head from 'next/head'
-import Navbar from './Navbar/index'
-import Footer from './Footer'
+import Head from "next/head";
+import Navbar from "./Navbar/index";
+import Footer from "./Footer";
 import type { AppProps } from "next/app";
-import React, { ReactElement, ReactNode } from 'react'
-import styles from './Layout.module.css';
-
+import React, { ReactElement, ReactNode } from "react";
+import styles from "./Layout.module.css";
 
 interface LayoutProps {
-  children: ReactNode
+  children: ReactNode;
 }
 export default function Layout({ children }: LayoutProps): ReactElement {
   return (
-    <div className={styles.wrapper}>
+    <div className="w-full h-full">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -20,12 +19,12 @@ export default function Layout({ children }: LayoutProps): ReactElement {
         />
       </Head>
       <div className={styles.container}>
-        <main className={styles.main}>
+        <main className="w-full h-full">
           <Navbar />
           {children}
-          </main>
+        </main>
       </div>
       <Footer />
     </div>
-  )
+  );
 }
