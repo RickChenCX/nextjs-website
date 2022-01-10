@@ -20,14 +20,14 @@ const navConfig: NavConfigItem[] = [
         children: [
             {
                 name: "BOSS Flex",
-                path: "/ssrFile/1",
+                path: "/",
                 group: 1,
                 groupInnerId: 0,
                 desc: "this is a test text"
             },
             {
                 name: "BOSS Tenant Engage",
-                path: "/ssrFile/2",
+                path: "/",
                 group: 1,
                 groupInnerId: 1,
                 desc: "this is a test text, hhhhh "
@@ -36,7 +36,7 @@ const navConfig: NavConfigItem[] = [
     },
     {
         name: "about",
-        path: "/mysqlDemo",
+        path: "/",
         group: 2,
     },
     {

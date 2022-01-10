@@ -18,6 +18,50 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
+## How to configure navigaion
+path ``` src/components/Navbar/nav.conig.ts ```
+you can edit this file by this format
+```
+[
+    {
+        name: "Home",
+        path: "/",
+        group: 0,
+    },
+    {
+        name: "Products",
+        group: 1,
+        children: [
+            {
+                name: "BOSS Flex",
+                path: "/",
+                group: 1,
+                groupInnerId: 0,
+                desc: "this is a test text"
+            },
+            {
+                name: "BOSS Tenant Engage",
+                path: "/",
+                group: 1,
+                groupInnerId: 1,
+                desc: "this is a test text, hhhhh "
+            },
+        ]
+    },
+    {
+        name: "about",
+        path: "/",
+        group: 2,
+    },
+    {
+        name: "LOG IN",
+        path: "/",
+        group: 3,
+        flag: "login"
+    },
+]
+
+```
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

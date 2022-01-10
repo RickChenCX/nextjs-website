@@ -26,6 +26,4 @@ export default function Page() {
   );
 }
 
-Page.getLayout = function getLayout(page: ReactElement) {
-  return <Layout>{page}</Layout>;
-};
+

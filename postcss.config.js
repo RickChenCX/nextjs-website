@@ -2,6 +2,7 @@
 // https://tailwindcss.com/docs/using-with-preprocessors
 module.exports = {
   plugins: {
+    "postcss-import": {},
     'postcss-flexbugs-fixes': {},
     'postcss-preset-env': {
       autoprefixer: {
@@ -13,6 +14,5 @@ module.exports = {
       },
     },
     tailwindcss: {},
-    "postcss-import": {},
   },
 };
