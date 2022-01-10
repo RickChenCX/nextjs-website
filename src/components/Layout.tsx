@@ -19,12 +19,14 @@ export default function Layout({ children }: LayoutProps): ReactElement {
         />
       </Head>
       <div className={styles.container}>
-        <main className="w-full h-full">
+        <main className={`${styles.main} min-h-screen bg-white`}>
           <Navbar />
-          {children}
+          <div className="max-w-screen-1440 flex justify-center h-full w-full ">
+            {children}
+          </div>
+          <Footer />
         </main>
       </div>
-      <Footer />
     </div>
   );
 }

@@ -12,9 +12,24 @@ module.exports = {
       ...defaultTheme.screens,
     },
     extend: {
+      fontSize: {
+        "3xxl": [
+          "2rem",
+          {
+            lineHeight: "2.5rem",
+          },
+        ],
+      },
+      listStyleType: {
+        square: "square",
+      },
       colors: {
         primary: "#5528FF",
         grayLine: "#CCCCCC",
+        neutral5: "#D9D9D9",
+        neutral12: "#0D0D0D",
+        neutral9: "#404040",
+        neutral7: "#7F7F7F",
       },
       rotate: {
         135: "135deg",
@@ -24,6 +39,15 @@ module.exports = {
       },
       backgroundImage: {
         "home-banner": "url('./src/images/homeBanner.png)",
+      },
+      width: {
+        1376: "calc(100vw - 4rem)",
+      },
+      maWindth: {
+        1440: "90rem",
+      },
+      height: {
+        54: "calc(100vh - 54px)",
       },
     },
   },
