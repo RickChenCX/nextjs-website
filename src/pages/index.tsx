@@ -21,7 +21,7 @@ export default function Page() {
           className={`w-full ${styles.banner} bg-center bg-cover bg-no-repeat relative`}
         >
           <div className={`${styles.bannerContainer} absolute`}>
-            <h1 className={` text-white font-roboto font-thin`}>
+            <h1 className={` text-white font-roboto font-thin sm:text-7xxl sm:w-5725 sm:h-52 lg:h-full`}>
               Powering Flex & Hybrid Workspaces
             </h1>
             <h3 className="text-sm text-white font-roboto mb-6">

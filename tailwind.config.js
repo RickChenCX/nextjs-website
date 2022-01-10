@@ -19,6 +19,18 @@ module.exports = {
             lineHeight: "2.5rem",
           },
         ],
+        "5xxl": [
+          "2rem",
+          {
+            lineHeight: "2.5rem",
+          },
+        ],
+        "7xxl": [
+          "5.5rem",
+          {
+            lineHeight: "6.5rem",
+          },
+        ],
       },
       listStyleType: {
         square: "square",
@@ -42,6 +54,7 @@ module.exports = {
       },
       width: {
         1376: "calc(100vw - 4rem)",
+        5725: "57.25rem"
       },
       maWindth: {
         1440: "90rem",
