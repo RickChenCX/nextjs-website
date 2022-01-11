@@ -1,7 +1,6 @@
 import { useState, useCallback } from "react";
 import Link from "next/link";
-import styles from "./index.module.css";
-import Image, { ImageProps } from "next/image";
+import Image from "next/image";
 import Logo from "images/logo1.png";
 import navConfig, { NavConfigItem } from "./nav.config";
 import ProductNavItem from "./ProductNavItem";
