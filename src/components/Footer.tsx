@@ -1,11 +1,11 @@
 import styles from "./Footer.module.css";
 import Image from "next/image";
-// import Vercel from "../..//vercel.svg";
+import ArrowUp from "../svgs/ArrowUp.svg";
 export default function Footer() {
   return (
-    <footer>
+    <footer className="flex p-5 bg-black">
       footer
-      {/* <Vercel /> */}
+      <ArrowUp />
     </footer>
   );
 }
