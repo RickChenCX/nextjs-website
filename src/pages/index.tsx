@@ -258,7 +258,7 @@ export default function Page() {
           </div>
           <div className={`w-3/6`}>
             <div className={`${styles.aaaaa}`}>
-              <div className={`flex`}>
+              <div className={`flex ${styles.fffff}`}>
                 <div className={`${styles.bbbbb}`}>
                   <Image
                     src="/images/home-section5-img1.png"
@@ -276,7 +276,7 @@ export default function Page() {
                   </p>
                 </div>
               </div>
-              <div className={`flex`}>
+              <div className={`flex ${styles.fffff}`}>
                 <div className={`${styles.bbbbb}`}>
                   <Image
                     src="/images/home-section5-img2.png"
@@ -294,7 +294,7 @@ export default function Page() {
                   </p>
                 </div>
               </div>
-              <div className={`flex`}>
+              <div className={`flex ${styles.fffff}`}>
                 <div className={`${styles.bbbbb}`}>
                   <Image
                     src="/images/home-section5-img3.png"
@@ -311,7 +311,7 @@ export default function Page() {
                   </p>
                 </div>
               </div>
-              <div className={`flex`}>
+              <div className={`flex ${styles.fffff}`}>
                 <div className={`${styles.bbbbb}`}>
                   <Image
                     src="/images/home-section5-img4.png"
@@ -329,6 +329,14 @@ export default function Page() {
               </div>
             </div>
           </div>
+        </section>
+        <section className={`${styles.homeSectionSix}`}>
+          <Image
+            src="/images/breakImage.png"
+            alt="BOSS Flex"
+            width={1440}
+            height={480}
+          />
         </section>
       </main>
     </div>
