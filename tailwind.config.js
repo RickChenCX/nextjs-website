@@ -27,9 +27,9 @@ module.exports = {
           },
         ],
         "5xxl": [
-          "2rem",
+          "3.5rem",
           {
-            lineHeight: "2.5rem",
+            lineHeight: "4.5rem",
           },
         ],
         "7xxl": [
@@ -49,7 +49,8 @@ module.exports = {
         neutral12: "#0D0D0D",
         neutral9: "#404040",
         neutral7: "#7F7F7F",
-        bg1: "#E5E5E5",
+        neutral10: "#2C2C2C",
+        bg1: "#fafafa",
       },
       rotate: {
         135: "135deg",
@@ -68,6 +69,7 @@ module.exports = {
         155: "9.6875rem",
         152: "9.5rem",
         300: "18.75rem",
+        944: "59rem",
       },
       maxWidth: {
         1440: "90rem",
@@ -75,6 +77,10 @@ module.exports = {
       height: {
         54: "calc(100vh - 54px)",
         600: "37.5rem",
+        685: "42.8125rem",
+      },
+      backgroundSize:{
+        "100%": "100%"
       },
     },
   },
