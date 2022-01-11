@@ -18,34 +18,44 @@ export default function Page() {
       </Head>
       <main className="w-full h-full">
         <section
-          className={`w-full ${styles.banner} bg-center bg-cover bg-no-repeat relative`}
+          className={`w-full h-600 ${styles.banner} bg-home-banner bg-center bg-cover bg-no-repeat relative`}
         >
-          <div className={`${styles.bannerContainer} absolute`}>
-            <h1 className={` text-white font-roboto font-thin sm:text-7xxl sm:w-5725 sm:h-52 lg:h-full`}>
+          <div
+            className={`${styles.bannerContainer} absolute top-119 sm:left-1/10`}
+          >
+            <h2
+              className={`text-white font-roboto font-thin sm:text-7xxl max-w-5xl sm:h-52 m-o`}
+            >
               Powering Flex & Hybrid Workspaces
-            </h1>
-            <h3 className="text-sm text-white font-roboto mb-6">
+            </h2>
+            <h3 className="text-sm text-white font-roboto my-6 leading-snug font-light">
               BOSS - Business Operating System for Space - helps you to automate
               workspace processes, manage tenant lifecycles and streamline flex
               & hybrid workspace operations. With BOSS, you can strengthen a
               gratifying customer experience and boost retention.
-              <h4 className="text-sm text-white font-roboto mt-1">
+              <p className="text-sm text-white font-roboto mt-1">
                 In turn, maximize your business revenue while ensuring accuracy
                 and efficiency.
-              </h4>
+              </p>
             </h3>
             <div>
-              <Button
-                type="primary"
-                className={`mr-4 text-sm ${styles.leftButton}`}
+              <button
+                className={`border border-solid border-primary w-155 h-10 mr-4 text-white bg-primary sm:text-sm xs:text-base `}
               >
                 What is BOSS
                 <PlayCircleOutlined className={styles.playIcon} />
-              </Button>
-              <Button ghost className={`text-sm ${styles.rightButton}`}>
+              </button>
+              <button className="border border-solid border-white w-152 h-10 text-white sm:text-sm xs:text-base  xs:hidden">
                 Book Free Demo
-              </Button>
+              </button>
             </div>
+          </div>
+        </section>
+        <section className="w-full h-full flex justify-center">
+          <div className={`bg-home-bg ${styles.sectionTwo}`}>
+            <div
+              className={`flex items-center ${styles.sectionTwoContent}`}
+            ></div>
           </div>
         </section>
       </main>

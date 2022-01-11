@@ -9,11 +9,16 @@ module.exports = {
   theme: {
     screens: {
       xs: { max: "639px" },
-      maxmd: { max: "767px"},
-      maxlg: {max: "1023px"},
+      maxmd: { max: "767px" },
+      maxlg: { max: "1023px" },
       ...defaultTheme.screens,
     },
     extend: {
+      inset: {
+        119: "7.4375rem",
+        "1/10": "10%",
+        "1/6": "15%",
+      },
       fontSize: {
         "3xxl": [
           "2rem",
@@ -53,16 +58,20 @@ module.exports = {
       },
       backgroundImage: {
         "home-banner": "url('./src/images/homeBanner.png)",
+        "home-bg": "url('/public/home-bg.png')",
       },
       width: {
         1376: "calc(100vw - 4rem)",
-        5725: "57.25rem"
+        916: "57.25rem",
+        155: "9.6875rem",
+        152: "9.5rem",
       },
       maWindth: {
         1440: "90rem",
       },
       height: {
         54: "calc(100vh - 54px)",
+        600: "37.5rem",
       },
     },
   },

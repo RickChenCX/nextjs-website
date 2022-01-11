@@ -1,37 +1,28 @@
 .banner {
-  height: 37.5rem;
   background-image: url('./../images/homeBanner.png');
 }
 
 .bannerContainer {
-  top: 125px;
-  left: 190px;
-}
-
-.bannerContainer h1 {
-  width: 57.25rem;
-  height: 13rem;
-  /* font-size: 5.5rem;
-  line-height: 6.5rem; */
 }
 
 .bannerContainer h3 {
-  width: 816px;
-  height: 96px;
-  line-height: 22px;
-  font-weight: 300;
+  max-width: 69rem; /** 1104 */
 }
 
 .playIcon {
-  font-size: 18px;
+  margin-left: 0.5625rem;
+  font-size: 1.125rem;
   vertical-align: baseline;
 }
 
-.leftButton {
-  width: 155px;
-  height: 40px;
+.sectionTwo {
+  background-image: url('./../images/home-bg.png');
+  height: 1033px;
 }
-.rightButton {
-  width: 152px;
-  height: 40px;
+
+.sectionTwoContent {
+  width: 1122px;
+  height: 1049px;
+  border: 1px solid #d9d9d9;
+  border-color: red;
 }
