@@ -24,11 +24,10 @@ export default function Navbar() {
         return (
           <li
             key={i}
-            className="sm:px-6 sm:py-2 xs:mx-4 xs:py-6 xs:border-b xs:border-grayLine"
-            onClick={handleChangeSubNav}
+            className="lg:px-6 lg:py-2 maxlg:mx-4 maxlg:py-6 maxlg:border-b maxlg:border-grayLine"
           >
-            <div className="flex items-baseline xs:justify-between">
-              <span>{navItem.name}</span>
+            <div className="flex items-baseline maxlg:justify-between" onClick={handleChangeSubNav}>
+              <span className={`${showMobileNav ?"text-black": "text-white"}cursor-pointer`}>{navItem.name}</span>
               <span className="pl-2">
                 {currentSubNav === navItem.name ? (
                   <svg
@@ -42,7 +41,7 @@ export default function Navbar() {
                       fillRule="evenodd"
                       clipRule="evenodd"
                       d="M1.32878 12L11 2.58666L20.6712 12L22 10.7066L11 0L0 10.7067L1.32878 12Z"
-                      fill="#0D0D0D"
+                      fill={showMobileNav ? "#0D0D0D" : "#ffffff"}
                     />
                   </svg>
                 ) : (
@@ -57,20 +56,19 @@ export default function Navbar() {
                       fillRule="evenodd"
                       clipRule="evenodd"
                       d="M1.32878 0L11 9.41334L20.6712 2.91632e-05L22 1.29338L11 12L0 1.29335L1.32878 0Z"
-                      fill="#0D0D0D"
+                      fill={showMobileNav ? "#0D0D0D" : "#ffffff"}
                     />
                   </svg>
                 )}
               </span>
             </div>
             <div
-              className={`sm:absolute sm:z-10 sm:bg-black sm:bg-opacity-40 sm:w-screen sm:h-54 sm:left-0 sm:mt-5 ${
+              className={`lg:absolute lg:z-10 lg:bg-black lg:bg-opacity-40 lg:w-screen lg:h-54 lg:left-0 lg:mt-5 ${
                 currentSubNav === navItem.name ? "" : "hidden"
               }`}
              
             >
                 <ProductNavItem items={navItem.children} />
-             
             </div>
           </li>
         );
@@ -78,16 +76,16 @@ export default function Navbar() {
       return (
         <li
           key={i}
-          className={`sm:px-6 sm:py-2 relative xs:py-6 xs:mx-4 xs:border-b xs:border-grayLine ${
-            navItem.flag === "login" ? "sm:grow sm:text-right" : ""
+          className={`lg:px-6 lg:py-2 relative maxlg:py-6 maxlg:mx-4 maxlg:border-b maxlg:border-grayLine ${
+            navItem.flag === "login" ? "lg:grow lg:text-right" : ""
           }`}
         >
           {navItem.path ? (
             <Link href={navItem?.path}>
-              <a>{navItem.name}</a>
+              <a className={ showMobileNav ?"text-black": "text-white"}>{navItem.name}</a>
             </Link>
           ) : (
-            <span className="cursor-pointer">{navItem.name}</span>
+            <span className={`${showMobileNav ?"text-black": "text-white"}cursor-pointer`}>{navItem.name}</span>
           )}
         </li>
       );
@@ -102,10 +100,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sm:py-2 sm:px-8 xs:py-2 xs:px-4 xs:justify-between w-full flex items-center absolute z-10 top-0 bg-opacity-0`}
+      className={`lg:py-2 lg:px-8 maxlg:py-2 maxlg:px-4 maxlg:justify-between w-full flex items-center absolute z-10 top-0 bg-opacity-0`}
     >
       <div className="flex items-center">
-        <span className="sm:hidden xs:mr-4" onClick={handleMobileNav}>
+        <span className="lg:hidden maxlg:mr-4" onClick={handleMobileNav}>
           <svg
             width="16"
             height="16"
@@ -122,13 +120,13 @@ export default function Navbar() {
       </div>
 
       <ul
-        className={`sm:flex sm:items-center sm:grow font-medium sm:text-sm xs:text-base sm:ml-6 bg-white ${
+        className={`lg:flex lg:items-center lg:grow font-medium lg:text-sm maxlg:text-base maxlg:ml-6 mb-0   ${
           showMobileNav
-            ? "xs:absolute xs:z-20  xs:top-0 xs:right-0 xs:overflow-hidden xs:w-full top-0"
-            : "xs:hidden"
+            ? "maxlg:absolute maxlg:z-20  maxlg:top-0 maxlg:right-0 maxlg:overflow-hidden maxlg:w-full top-0 bg-white"
+            : "maxlg:hidden"
         } `}
       >
-        <li className="sm:hidden xs:pb-8 xs:pt-4 xs:px-4  xs:flex xs:justify-end xs:items-center ">
+        <li className="lg:hidden maxlg:pb-8 maxlg:pt-4 maxlg:px-4  maxlg:flex maxlg:justify-end maxlg:items-center  ">
           <svg
             width="14"
             height="14"
@@ -146,11 +144,11 @@ export default function Navbar() {
         {navItemRender(navConfig)}
       </ul>
       <button
-        className={`px-6 py-2 ml-4 max-h-10 text-white  sm:text-sm xs:text-base border border-solid border-white xs:hidden`}
+        className={`px-6 py-2 ml-4 max-h-10 text-white  lg:text-sm maxlg:text-base border border-solid border-white maxlg:hidden`}
       >
         Contact Us
       </button>
-      <button className="px-6 py-2 ml-4 max-h-10 text-white bg-primary sm:text-sm xs:text-base border border-solid border-primary">
+      <button className="px-6 py-2 ml-4 max-h-10 text-white bg-primary lg:text-sm maxlg:text-base border border-solid border-primary">
         Book Free Demo
       </button>
     </nav>

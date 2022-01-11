@@ -8,7 +8,7 @@ interface ProductNavItemProps {
 function ProductNavItem({ items }: ProductNavItemProps) {
   return (
     <ul
-      className={`sm:absolute sm:z-20 bg-white  mx-8 sm:flex sm:w-1376 sm:self-center sm:justify-center xs:mt-8`}
+      className={`lg:absolute lg:z-20 bg-white  mx-8 lg:flex lg:w-1376 lg:self-center lg:justify-center maxlg:mt-8`}
       onClick={(e) => {
         e.stopPropagation();
       }}
@@ -18,9 +18,9 @@ function ProductNavItem({ items }: ProductNavItemProps) {
             return (
               <li
                 key={i}
-                className="border-solid border-l border-neutral5 sm:pl-8 sm:ml-20 sm:my-10 pl-4 "
+                className="border-solid border-l border-neutral5 lg:pl-8 lg:ml-20 lg:my-10 pl-4 "
               >
-                <div className="text-neutral12   font-normal mb-4 text-2xl sm:text-3xxl  xs:flex items-baseline">
+                <div className="text-neutral12   font-normal mb-4 text-2xl lg:text-3xxl  maxlg:flex items-baseline">
                   {item.name}
                   <svg
                     width="12"
@@ -28,7 +28,7 @@ function ProductNavItem({ items }: ProductNavItemProps) {
                     viewBox="0 0 12 12"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="m-2 sm:hidden"
+                    className="m-2 lg:hidden"
                   >
                     <path
                       fillRule="evenodd"
@@ -39,12 +39,12 @@ function ProductNavItem({ items }: ProductNavItemProps) {
                   </svg>
                 </div>
                 <p
-                  className="text-neutral9 font-normal sm:text-base text-sm mb-8 "
+                  className="text-neutral9 font-normal lg:text-base text-sm mb-8 "
                   style={{ maxWidth: "464px" }}
                 >
                   {item.desc}
                 </p>
-                <ul className="mb-8 xs:hidden">
+                <ul className="mb-8 maxlg:hidden">
                   {item.children?.map((subItem, s) => {
                     return (
                       <li
@@ -58,7 +58,7 @@ function ProductNavItem({ items }: ProductNavItemProps) {
                 </ul>
                 {item.extraPath ? (
                   <Link href={item.extraPath}>
-                    <a className="text-primary text-sm font-medium flex items-baseline xs:hidden">
+                    <a className="text-primary text-sm font-medium flex items-baseline maxlg:hidden">
                       See All Features
                       <svg
                         width="12"
