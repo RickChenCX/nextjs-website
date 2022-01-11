@@ -92,7 +92,7 @@ const navConfig: NavConfigItem[] = [
         group: "2",
     },
     {
-        name: "LOG IN",
+        name: "Log In",
         path: "/",
         group: "3",
         flag: "login"

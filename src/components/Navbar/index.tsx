@@ -1,13 +1,19 @@
 import { useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-// import Logo from "images/logo1.png";
 import navConfig, { NavConfigItem } from "./nav.config";
 import ProductNavItem from "./ProductNavItem";
-export default function Navbar() {
+
+interface NavbarProps {
+  isBgTransparent?: boolean;
+  logoType?: "primary" | "white";
+}
+export default function Navbar({
+  isBgTransparent = true,
+  logoType = "white",
+}: NavbarProps) {
   const [currentSubNav, setCurrentSubNav] = useState<string>();
   const [showMobileNav, setShowMobileNav] = useState<boolean>(false);
-
   const handleChangeSubNav = useCallback(
     (e) => {
       if (e.target.outerText === currentSubNav) {
@@ -25,8 +31,19 @@ export default function Navbar() {
             key={i}
             className="lg:px-6 lg:py-2 maxlg:mx-4 maxlg:py-6 maxlg:border-b maxlg:border-grayLine"
           >
-            <div className="flex items-baseline maxlg:justify-between" onClick={handleChangeSubNav}>
-              <span className={`${showMobileNav ?"text-black": "text-white"} cursor-pointer`}>{navItem.name}</span>
+            <div
+              className="flex items-baseline maxlg:justify-between"
+              onClick={handleChangeSubNav}
+            >
+              <span
+                className={`${
+                  showMobileNav || !isBgTransparent
+                    ? "text-black"
+                    : "text-white"
+                } cursor-pointer`}
+              >
+                {navItem.name}
+              </span>
               <span className="pl-2">
                 {currentSubNav === navItem.name ? (
                   <svg
@@ -40,7 +57,11 @@ export default function Navbar() {
                       fillRule="evenodd"
                       clipRule="evenodd"
                       d="M1.32878 12L11 2.58666L20.6712 12L22 10.7066L11 0L0 10.7067L1.32878 12Z"
-                      fill={showMobileNav ? "#0D0D0D" : "#ffffff"}
+                      fill={
+                        showMobileNav || !isBgTransparent
+                          ? "#0D0D0D"
+                          : "#ffffff"
+                      }
                     />
                   </svg>
                 ) : (
@@ -55,7 +76,11 @@ export default function Navbar() {
                       fillRule="evenodd"
                       clipRule="evenodd"
                       d="M1.32878 0L11 9.41334L20.6712 2.91632e-05L22 1.29338L11 12L0 1.29335L1.32878 0Z"
-                      fill={showMobileNav ? "#0D0D0D" : "#ffffff"}
+                      fill={
+                        showMobileNav || !isBgTransparent
+                          ? "#0D0D0D"
+                          : "#ffffff"
+                      }
                     />
                   </svg>
                 )}
@@ -65,9 +90,8 @@ export default function Navbar() {
               className={`lg:absolute lg:z-10 lg:bg-black lg:bg-opacity-40 lg:w-screen lg:h-54 lg:left-0 lg:mt-5 ${
                 currentSubNav === navItem.name ? "" : "hidden"
               }`}
-             
             >
-                <ProductNavItem items={navItem.children} />
+              <ProductNavItem items={navItem.children} />
             </div>
           </li>
         );
@@ -81,10 +105,24 @@ export default function Navbar() {
         >
           {navItem.path ? (
             <Link href={navItem?.path}>
-              <a className={ showMobileNav ?"text-black": "text-white"}>{navItem.name}</a>
+              <a
+                className={
+                  showMobileNav || !isBgTransparent
+                    ? "text-black"
+                    : "text-white"
+                }
+              >
+                {navItem.name}
+              </a>
             </Link>
           ) : (
-            <span className={`${showMobileNav ?"text-black": "text-white"}cursor-pointer`}>{navItem.name}</span>
+            <span
+              className={`${
+                showMobileNav || !isBgTransparent ? "text-black" : "text-white"
+              }cursor-pointer`}
+            >
+              {navItem.name}
+            </span>
           )}
         </li>
       );
@@ -99,9 +137,13 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`lg:py-2 lg:px-8 maxlg:py-2 maxlg:px-4 maxlg:justify-between w-full flex items-center absolute z-10 top-0 bg-opacity-0`}
+      className={`lg:py-2 lg:px-8 maxlg:py-2 maxlg:px-4 maxlg:justify-between w-full flex items-center absolute z-10 top-0 ${
+        isBgTransparent
+          ? "bg-opacity-0"
+          : "bg-opacity-100 bg-white border-b boder-b-grayLine"
+      }`}
     >
-      <div className="flex items-center">
+      <div className="flex items-center ">
         <span className="lg:hidden maxlg:mr-4" onClick={handleMobileNav}>
           <svg
             width="16"
@@ -115,9 +157,15 @@ export default function Navbar() {
             <path d="M23 18.52H1V20.28H23V18.52Z" fill="#0D0D0D" />
           </svg>
         </span>
-        <Image src="/images/logo1.png" alt="logo" width={68} height={24} />
+        <Image
+          src={
+            logoType === "primary" ? "/images/logo.png" : "/images/logo1.png"
+          }
+          alt="logo"
+          width={68}
+          height={24}
+        />
       </div>
-
       <ul
         className={`lg:flex lg:items-center lg:grow font-medium lg:text-sm maxlg:text-base maxlg:ml-6 mb-0   ${
           showMobileNav
@@ -143,11 +191,21 @@ export default function Navbar() {
         {navItemRender(navConfig)}
       </ul>
       <button
-        className={`px-6 py-2 ml-4 max-h-10 text-white  lg:text-sm maxlg:text-base border border-solid border-white maxlg:hidden`}
+        className={`px-6 py-2 ml-4 max-h-10   lg:text-sm maxlg:text-base border border-solid  maxlg:hidden ${
+          isBgTransparent
+            ? "text-white border-white"
+            : "text-primary border-primary"
+        }`}
       >
         Contact Us
       </button>
-      <button className="px-6 py-2 ml-4 max-h-10 text-white bg-primary lg:text-sm maxlg:text-base border border-solid border-primary">
+      <button
+        className={`px-6 py-2 ml-4 max-h-10  lg:text-sm maxlg:text-base border border-solid  ${
+          isBgTransparent
+            ? "border-white text-primary bg-white"
+            : "border-primary text-white bg-primary"
+        }`}
+      >
         Book Free Demo
       </button>
     </nav>

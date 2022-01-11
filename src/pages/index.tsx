@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.css";
 import type { ReactElement } from "react";
 import Layout from "components/Layout";
 import Image from "next/image";
-import homeBanner from "images/homeBanner.png";
+import homeBanner from "images/vercel.svg";
 import { Button } from "antd";
 import { PlayCircleOutlined } from "@ant-design/icons";
 
