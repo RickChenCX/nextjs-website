@@ -5,10 +5,7 @@ import Layout from "components/Layout";
 import Image from "next/image";
 import { PlayCircleOutlined } from "@ant-design/icons";
 import { Carousel } from "antd";
-<<<<<<< HEAD
 import Union from "./../svgs/Union.svg";
-=======
->>>>>>> 3eda85c (feat：homepage- update ui)
 
 const contentStyle = {
   height: "160px",
