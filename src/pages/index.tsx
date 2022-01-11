@@ -5,6 +5,7 @@ import Layout from "components/Layout";
 import Image from "next/image";
 import { PlayCircleOutlined } from "@ant-design/icons";
 import { Carousel } from "antd";
+import Union from "./../svgs/Union.svg";
 
 const contentStyle = {
   height: "160px",
@@ -136,21 +137,7 @@ export default function Page() {
                   <span className={`text-primary ${styles.ff}`}>
                     Learn more
                   </span>
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 12 12"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="m-1"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M1.94786 1H11L11 10.1109H10.1379L10.1379 2.44002L1.59342 11L1 10.3704L9.48729 1.86771L1.94786 1.86771V1Z"
-                      fill="#5528FF"
-                    />
-                  </svg>
+                  <Union />
                 </div>
               </div>
               <div
@@ -195,21 +182,7 @@ export default function Page() {
                   <span className={`text-primary ${styles.ff}`}>
                     Learn more
                   </span>
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 12 12"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="m-1"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M1.94786 1H11L11 10.1109H10.1379L10.1379 2.44002L1.59342 11L1 10.3704L9.48729 1.86771L1.94786 1.86771V1Z"
-                      fill="#5528FF"
-                    />
-                  </svg>
+                  <Union />
                 </div>
               </div>
             </div>
@@ -284,11 +257,75 @@ export default function Page() {
             </button>
           </div>
           <div className={`w-3/6`}>
-            <div className={`flex`}>
-              <div>tupian</div>
-              <div>
-                <h3>Microservices Architecture</h3>
-                <p>Customizable / Scalable / Resilient & Robust / Expedient</p>
+            <div className={`${styles.aaaaa}`}>
+              <div className={`flex`}>
+                <div className={`${styles.bbbbb}`}>
+                  <Image
+                    src="/images/home-section5-img1.png"
+                    alt="BOSS Flex"
+                    width={80}
+                    height={80}
+                  />
+                </div>
+                <div className={`${styles.ccccc}`}>
+                  <h3 className={`${styles.ddddd}`}>
+                    Microservices Architecture
+                  </h3>
+                  <p className={`${styles.eeeee} mb-0`}>
+                    Customizable / Scalable / Resilient & Robust / Expedient
+                  </p>
+                </div>
+              </div>
+              <div className={`flex`}>
+                <div className={`${styles.bbbbb}`}>
+                  <Image
+                    src="/images/home-section5-img2.png"
+                    alt="BOSS Flex"
+                    width={80}
+                    height={80}
+                  />
+                </div>
+                <div className={`${styles.ccccc}`}>
+                  <h3 className={`${styles.ddddd}`}>
+                    Cloud Computing Technology
+                  </h3>
+                  <p className={`${styles.eeeee}`}>
+                    Cost-effective / Secure / Flexible / Unlimited Storage
+                  </p>
+                </div>
+              </div>
+              <div className={`flex`}>
+                <div className={`${styles.bbbbb}`}>
+                  <Image
+                    src="/images/home-section5-img3.png"
+                    alt="BOSS Flex"
+                    width={80}
+                    height={80}
+                  />
+                </div>
+                <div className={`${styles.ccccc}`}>
+                  <h3 className={`${styles.ddddd}`}>API-Driven Development</h3>
+                  <p className={`${styles.eeeee}`}>
+                    More Integrations / Higher Connectivity / Cost-saving /
+                    Efficiency
+                  </p>
+                </div>
+              </div>
+              <div className={`flex`}>
+                <div className={`${styles.bbbbb}`}>
+                  <Image
+                    src="/images/home-section5-img4.png"
+                    alt="BOSS Flex"
+                    width={80}
+                    height={80}
+                  />
+                </div>
+                <div className={`${styles.ccccc}`}>
+                  <h3 className={`${styles.ddddd}`}>Super-App Framework</h3>
+                  <p className={`${styles.eeeee}`}>
+                    More Revenue / More Features / More Usage / More Data
+                  </p>
+                </div>
               </div>
             </div>
           </div>
