@@ -1,6 +1,7 @@
 module.exports = {
     presets: ["next/babel"],
     plugins: [
+        ["inline-react-svg"],
         [
             "import",
             {
@@ -20,5 +21,6 @@ module.exports = {
             },
             "@ant-design/icons",
         ],
+        
     ],
 };
