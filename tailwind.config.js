@@ -49,6 +49,7 @@ module.exports = {
         neutral12: "#0D0D0D",
         neutral9: "#404040",
         neutral7: "#7F7F7F",
+        bg1: "#E5E5E5",
       },
       rotate: {
         135: "135deg",
@@ -59,14 +60,16 @@ module.exports = {
       backgroundImage: {
         "home-banner": "url('./src/images/homeBanner.png)",
         "home-bg": "url('/public/home-bg.png')",
+        "404_title": "url(/images/404_title.png)",
       },
       width: {
         1376: "calc(100vw - 4rem)",
         916: "57.25rem",
         155: "9.6875rem",
         152: "9.5rem",
+        300: "18.75rem",
       },
-      maWindth: {
+      maxWidth: {
         1440: "90rem",
       },
       height: {

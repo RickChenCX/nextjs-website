@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "images/logo1.png";
+// import Logo from "images/logo1.png";
 import navConfig, { NavConfigItem } from "./nav.config";
 import ProductNavItem from "./ProductNavItem";
 export default function Navbar() {
@@ -26,7 +26,7 @@ export default function Navbar() {
             className="lg:px-6 lg:py-2 maxlg:mx-4 maxlg:py-6 maxlg:border-b maxlg:border-grayLine"
           >
             <div className="flex items-baseline maxlg:justify-between" onClick={handleChangeSubNav}>
-              <span className={`${showMobileNav ?"text-black": "text-white"}cursor-pointer`}>{navItem.name}</span>
+              <span className={`${showMobileNav ?"text-black": "text-white"} cursor-pointer`}>{navItem.name}</span>
               <span className="pl-2">
                 {currentSubNav === navItem.name ? (
                   <svg
@@ -115,7 +115,7 @@ export default function Navbar() {
             <path d="M23 18.52H1V20.28H23V18.52Z" fill="#0D0D0D" />
           </svg>
         </span>
-        <Image src={Logo} alt="logo" width={68} height={24} />
+        <Image src="/images/logo1.png" alt="logo" width={68} height={24} />
       </div>
 
       <ul
