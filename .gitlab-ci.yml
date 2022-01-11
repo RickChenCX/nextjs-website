@@ -1,0 +1,53 @@
+stages:
+  - install
+  - build
+  - deploy
+image: node:14.17.0
+
+default:
+  tags:
+    - dockermachine
+    - reinvent
+    - autoscaling
+
+cache:
+  key:
+    files:
+      - yarn.lock
+  policy: pull-push
+  untracked: true
+
+install:
+  stage: install
+  script:
+    - yarn
+  cache:
+    key:
+      files:
+        - yarn.lock
+    policy: pull-push
+    paths:
+      - node_modules
+
+.build_common:
+  stage: build
+
+build_dev:
+  extends: .build_common
+  only:
+    - master
+    - /^release/.*$/
+    - /^feature/.*$/
+  script:
+    - yarn next build
+
+build_production:
+  extends: .build_common
+  only:
+    - master
+    - tags
+    - release
+  script:
+    - yarn next build
+
+
