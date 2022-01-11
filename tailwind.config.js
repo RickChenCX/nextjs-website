@@ -43,7 +43,7 @@ module.exports = {
         "5xxl": [
           "3.5rem",
           {
-            lineHeight: "4.5rem",
+            lineHeight: "2.875rem",
           },
         ],
         "7xxl": [
@@ -126,6 +126,10 @@ module.exports = {
         },
       },
     },
+    borderColor: (theme) => ({
+      ...theme("colors"),
+      default: "#D9D9D9",
+    }),
   },
   plugins: [],
 };
