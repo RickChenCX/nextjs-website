@@ -1,8 +1,16 @@
 stages:
+  - prepare
   - install
   - build
+  - package
   - deploy
 image: node:14.17.0
+
+
+variables:
+  APOLLO_APP_ID: $CI_PROJECT_NAME
+  CI_REGISTRY: 900133445010.dkr.ecr.ap-southeast-1.amazonaws.com
+  IMAGE_RETENION_COUNT: 1000
 
 default:
   tags:
@@ -17,6 +25,28 @@ cache:
   policy: pull-push
   untracked: true
 
+prepare:
+  stage: prepare
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+  script:
+    - IMAGE_NAME=`echo $CI_PROJECT_PATH | tr '[:upper:]' '[:lower:]'`
+    - IMAGE_RETENION_COUNT=$IMAGE_RETENION_COUNT
+    - IMAGE_REPO="$CI_REGISTRY/$IMAGE_NAME"
+    - aws ecr create-repository  --region ap-southeast-1 --repository-name $IMAGE_NAME &> /dev/null || echo "ecr repo already exist"
+    - aws ecr put-lifecycle-policy --region ap-southeast-1 --repository-name $IMAGE_NAME --lifecycle-policy-text "{\"rules\":[{\"rulePriority\":1,\"description\":\"keep some\",\"selection\":{\"tagStatus\":\"tagged\",\"tagPrefixList\":[\"branch\"],\"countType\":\"imageCountMoreThan\",\"countNumber\":$IMAGE_RETENION_COUNT},\"action\":{\"type\":\"expire\"}}]}"
+    - echo ewogICJWZXJzaW9uIjogIjIwMDgtMTAtMTciLAogICJTdGF0ZW1lbnQiOiBbCiAgICB7CiAgICAgICJTaWQiOiAiQWxsb3dQdXNoUHVsbCIsCiAgICAgICJFZmZlY3QiOiAiQWxsb3ciLAogICAgICAiUHJpbmNpcGFsIjogewogICAgICAgICJBV1MiOiAiYXJuOmF3czppYW06Ojg4Mjc3Nzg4NTEzNDpyb290IgogICAgICB9LAogICAgICAiQWN0aW9uIjogWwogICAgICAgICJlY3I6R2V0RG93bmxvYWRVcmxGb3JMYXllciIsCiAgICAgICAgImVjcjpCYXRjaEdldEltYWdlIiwKICAgICAgICAiZWNyOkJhdGNoQ2hlY2tMYXllckF2YWlsYWJpbGl0eSIsCiAgICAgICAgImVjcjpQdXRJbWFnZSIsCiAgICAgICAgImVjcjpJbml0aWF0ZUxheWVyVXBsb2FkIiwKICAgICAgICAiZWNyOlVwbG9hZExheWVyUGFydCIsCiAgICAgICAgImVjcjpDb21wbGV0ZUxheWVyVXBsb2FkIgogICAgICBdCiAgICB9CiAgXQp9Cg== | base64 -d > ecr-policy.json
+    - aws ecr set-repository-policy --region ap-southeast-1 --repository-name $IMAGE_NAME --policy-text file://ecr-policy.json
+    - ECR_AUTH_TOKEN=`aws ecr get-login-password --region ap-southeast-1`
+    - CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain reinvent --domain-owner 900133445010 --query authorizationToken --output text`
+    - echo "IMAGE_REPO=$IMAGE_REPO" >> build.env
+    - echo "IMAGE_TAG=$IMAGE_REPO:$CI_COMMIT_SHORT_SHA" >> build.env
+    - echo "ECR_AUTH_TOKEN=$ECR_AUTH_TOKEN" >> build.env
+    - echo "CODEARTIFACT_AUTH_TOKEN=$CODEARTIFACT_AUTH_TOKEN" >> build.env
+  artifacts:
+    reports:
+      dotenv: build.env
+  cache: { }
+
 install:
   stage: install
   script:
@@ -29,11 +59,19 @@ install:
     paths:
       - node_modules
 
-.build_common:
+.build_artifacts:
   stage: build
+  artifacts:
+    name: "$CI_JOB_STAGE-$CI_JOB_NAME-$CI_COMMIT_REF_SLUG"
+    when: on_success
+    expire_in: 1d
+    paths:
+      - public/
+      - package.json
+      - .next/
 
 build_dev:
-  extends: .build_common
+  extends: .build_artifacts
   only:
     - master
     - /^release/.*$/
@@ -42,7 +80,7 @@ build_dev:
     - yarn next build
 
 build_production:
-  extends: .build_common
+  extends: .build_artifacts
   only:
     - master
     - tags
@@ -50,4 +88,20 @@ build_production:
   script:
     - yarn next build
 
-
+docker-build:
+  image: docker:19.03.11
+  stage: package
+  services:
+    - docker:19.03.11-dind
+  script:
+    - ls 
+    # - docker login -u AWS -p $ECR_AUTH_TOKEN $CI_REGISTRY
+    # - docker pull $IMAGE_REPO:latest || true
+    # - docker build --cache-from $IMAGE_REPO:latest --tag $IMAGE_TAG --tag $IMAGE_REPO:latest --tag $IMAGE_REPO:branch-$CI_COMMIT_SHORT_SHA .
+    # - if [ $CI_COMMIT_REF_NAME != "master" ]; then docker push $IMAGE_REPO:branch-$CI_COMMIT_SHORT_SHA; fi
+    # - docker push $IMAGE_TAG
+    # - docker push $IMAGE_REPO:latest
+  only:
+    - /^release/.*$/
+    - /^hotfix/.*$/
+    - master
