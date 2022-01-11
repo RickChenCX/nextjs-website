@@ -1,7 +1,36 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import type { ReactElement } from "react";
+import Layout from "components/Layout";
+import Image from "next/image";
 import { PlayCircleOutlined } from "@ant-design/icons";
+import { Carousel } from "antd";
 
+const contentStyle = {
+  height: "160px",
+  color: "#fff",
+  lineHeight: "160px",
+  textAlign: "center",
+  background: "#364d79",
+};
+
+const SectionTwoBossFlexData = [
+  "Streamlined customer management from leads to move-in",
+  "Scalable deal types & automated processes throughout the contract lifecycle",
+  "Flexible product package set up with configurable rules",
+  "Interactive floor plans with real-time occupancy info",
+  "Automated billing & invoicing with flexible payment options",
+  "Customizable dashboard to maximize business results",
+];
+
+const SectionTwoBossTenantEngage = [
+  "White-label tenant app to connect with tenants as a brand",
+  "Real-time room & desk booking across buildings",
+  "Public availability to expand revenue source",
+  "Centralized view of account-based tenants",
+  "Full-spectrum content management system to enrich tenant engagement",
+  "Various add-on service options with flexible payment options",
+];
 export default function Page() {
   return (
     <div className="w-full h-full">
@@ -19,7 +48,7 @@ export default function Page() {
             className={`${styles.bannerContainer} absolute top-119 sm:left-1/10`}
           >
             <h2
-              className={`text-white font-roboto font-thin sm:text-7xxl max-w-5xl sm:h-52 m-o`}
+              className={`text-white font-roboto font-thin sm:text-7xxl max-w-5xl mb-0`}
             >
               Powering Flex & Hybrid Workspaces
             </h2>
@@ -46,12 +75,223 @@ export default function Page() {
             </div>
           </div>
         </section>
-        <section className="w-full h-full flex justify-center">
-          {/* <div className={`bg-home-bg ${styles.sectionTwo}`}>
-            <div
-              className={`flex items-center ${styles.sectionTwoContent}`}
-            ></div>
-          </div> */}
+        {/* ======= section 2 ========== */}
+        <section
+          className={`w-full flex justify-center bg-home-bg ${styles.sectionTwo}`}
+        >
+          <div className={`${styles.sectionTwoContent}`}>
+            {/* 头部 */}
+            <div className={`bg-primary1 py-8`}>
+              <h4 className={`text-white font-roboto text-base text-center`}>
+                Products
+              </h4>
+              <h3
+                className={`text-white font-roboto text-4xxl text-center ${styles.sectionTwoTitle}`}
+              >
+                The leading software for flex & hybrid workspace management and
+                tenant engagement
+              </h3>
+            </div>
+            {/* 内容 */}
+            <div className={`bg-white flex`}>
+              <div
+                className={`border-r border-solid border-default w-3/6 float-left`}
+              >
+                <div className={`${styles.aa}`}>
+                  <h3 className={`text-center text-primary mb-0 ${styles.bb}`}>
+                    BOSS Flex
+                  </h3>
+                  <p className={`text-center font-roboto ${styles.cc}`}>
+                    A property management and tenant engagement platform for
+                    flex & hybrid coworking spaces.
+                  </p>
+                </div>
+                <Image
+                  src="/images/home-section2-1.png"
+                  alt="BOSS Flex"
+                  width={560}
+                  height={320}
+                />
+                <div className={`${styles.dd}`}>
+                  {SectionTwoBossFlexData.map((item, index) => (
+                    <p key={index} className={`mb-0`}>
+                      <Image
+                        src="/images/vector.png"
+                        alt="BOSS Flex"
+                        width={16}
+                        height={13}
+                      />
+                      <span className={`${styles.ee}`}>{item}</span>
+                    </p>
+                  ))}
+                </div>
+                <div className="flex align-center justify-center">
+                  <button
+                    className={`border border-solid border-primary w-155 h-10 text-white bg-primary sm:text-sm xs:text-base mb-6`}
+                  >
+                    Book Free Demo
+                  </button>
+                </div>
+                <div className="flex align-center justify-center ">
+                  <span className={`text-primary ${styles.ff}`}>
+                    Learn more
+                  </span>
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="m-1"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M1.94786 1H11L11 10.1109H10.1379L10.1379 2.44002L1.59342 11L1 10.3704L9.48729 1.86771L1.94786 1.86771V1Z"
+                      fill="#5528FF"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div
+                className={`border-r border-solid border-default w-3/6 float-left`}
+              >
+                <div className={`${styles.aa}`}>
+                  <h3 className={`text-center text-primary mb-0 ${styles.bb}`}>
+                    BOSS Tenant Engage
+                  </h3>
+                  <p className={`text-center font-roboto ${styles.cc}`}>
+                    A tenant engagement platform to delight tenants and boost
+                    customer satisfaction.
+                  </p>
+                </div>
+                <Image
+                  src="/images/home-section2-2.png"
+                  alt="BOSS Flex"
+                  width={560}
+                  height={320}
+                />
+                <div className={`${styles.dd}`}>
+                  {SectionTwoBossTenantEngage.map((item, index) => (
+                    <p key={index} className={`mb-0`}>
+                      <Image
+                        src="/images/vector.png"
+                        alt="BOSS Flex"
+                        width={16}
+                        height={13}
+                      />
+                      <span className={`${styles.ee}`}>{item}</span>
+                    </p>
+                  ))}
+                </div>
+                <div className="flex align-center justify-center">
+                  <button
+                    className={`border border-solid border-primary w-155 h-10 text-white bg-primary sm:text-sm xs:text-base mb-6`}
+                  >
+                    Book Free Demo
+                  </button>
+                </div>
+                <div className="flex align-center justify-center ">
+                  <span className={`text-primary ${styles.ff}`}>
+                    Learn more
+                  </span>
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="m-1"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M1.94786 1H11L11 10.1109H10.1379L10.1379 2.44002L1.59342 11L1 10.3704L9.48729 1.86771L1.94786 1.86771V1Z"
+                      fill="#5528FF"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* ===== section3 ======= */}
+        <section className={`bg-white ${styles.sectionThree}`}>
+          <div className={`${styles.sectionThreeContent}`}>
+            <p className={`${styles.aaa}`}>Solutions for you</p>
+            <div className={`${styles.ddd} clear-both`}>
+              <div className={`${styles.bbb} float-left`}>
+                Revolutionizing Flex & Hybrid Workspace Management & Business
+              </div>
+              <div className={`${styles.ccc} float-left`}>
+                <p>
+                  Revolutionize your end-to-end customer journey management —
+                  starting all the way from leads acquisition, contract approval
+                  workflow to tenant engagement.
+                </p>
+                <p className={`mb-0`}>
+                  Create fulfilling experiences to increase customer retention
+                  and revenue.
+                </p>
+              </div>
+            </div>
+          </div>
+          <Image
+            src="/images/home-section3.png"
+            alt="BOSS Flex"
+            width={1140}
+            height={675}
+          />
+        </section>
+        {/* ==== section 4 ===== */}
+        <section className={`w-full bg-home-section4-bg ${styles.sectionFour}`}>
+          {/* 头部 */}
+          <div className={`bg-primary1 py-8`}>
+            <h4 className={`text-white font-roboto text-base text-center`}>
+              Highlights
+            </h4>
+            <h3
+              className={`text-white font-roboto text-4xxl text-center ${styles.sectionTwoTitle}`}
+            >
+              Flexibility, scalability and user experience to empower business
+              growth
+            </h3>
+          </div>
+          {/* lunbo */}
+          <div>
+            <Carousel>
+              <div>
+                <h3>1</h3>
+              </div>
+              <div>
+                <h3>2</h3>
+              </div>
+            </Carousel>
+          </div>
+        </section>
+        {/* ======= section 5======= */}
+        <section className={`w-full flex ${styles.sectionFive}`}>
+          <div className={`w-3/6`}>
+            <p className={`${styles.aaaa}`}>Technology</p>
+            <p className={`${styles.bbbb}`}>
+              Competitive software powered by the modern engineering
+              infrastructure
+            </p>
+            <button
+              className={`border border-solid border-primary w-155 h-10 text-white bg-primary sm:text-sm xs:text-base mb-6`}
+            >
+              Book Free Demo
+            </button>
+          </div>
+          <div className={`w-3/6`}>
+            <div className={`flex`}>
+              <div>tupian</div>
+              <div>
+                <h3>Microservices Architecture</h3>
+                <p>Customizable / Scalable / Resilient & Robust / Expedient</p>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
     </div>

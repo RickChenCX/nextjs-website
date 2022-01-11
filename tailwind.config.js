@@ -29,10 +29,10 @@ module.exports = {
             lineHeight: "2.5rem",
           },
         ],
-        "5xxl": [
-          "3.5rem",
+        "4xxl": [
+          "2.5rem",
           {
-            lineHeight: "4.5rem",
+            lineHeight: "2.875rem",
           },
         ],
         "7xxl": [
@@ -47,6 +47,7 @@ module.exports = {
       },
       colors: {
         primary: "#5528FF",
+        primary1: "#4C18DB",
         grayLine: "#CCCCCC",
         neutral5: "#D9D9D9",
         neutral12: "#0D0D0D",
@@ -62,8 +63,9 @@ module.exports = {
         roboto: ["Roboto"],
       },
       backgroundImage: {
-        "home-banner": "url('./src/images/homeBanner.png)",
-        "home-bg": "url('/public/home-bg.png')",
+        "home-banner": "url(/images/homeBanner.png)",
+        "home-bg": "url(/images/home-bg.png)",
+        "home-section4-bg": "url(/images/home-section4-bg.png)",
         "404_title": "url(/images/404_title.png)",
       },
       width: {
@@ -100,6 +102,10 @@ module.exports = {
         },
       },
     },
+    borderColor: (theme) => ({
+      ...theme("colors"),
+      default: "#D9D9D9",
+    }),
   },
   plugins: [],
 };
