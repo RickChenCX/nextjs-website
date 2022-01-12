@@ -6,7 +6,6 @@ stages:
   - deploy
 image: node:14.17.0
 
-
 variables:
   APOLLO_APP_ID: $CI_PROJECT_NAME
   CI_REGISTRY: 900133445010.dkr.ecr.ap-southeast-1.amazonaws.com
@@ -88,20 +87,31 @@ build_production:
   script:
     - yarn next build
 
-docker-build:
+.docker-build:
   image: docker:19.03.11
   stage: package
   services:
     - docker:19.03.11-dind
   script:
-    - ls -a
-    # - docker login -u AWS -p $ECR_AUTH_TOKEN $CI_REGISTRY
-    # - docker pull $IMAGE_REPO:latest || true
-    # - docker build --cache-from $IMAGE_REPO:latest --tag $IMAGE_TAG --tag $IMAGE_REPO:latest --tag $IMAGE_REPO:branch-$CI_COMMIT_SHORT_SHA .
-    # - if [ $CI_COMMIT_REF_NAME != "master" ]; then docker push $IMAGE_REPO:branch-$CI_COMMIT_SHORT_SHA; fi
-    # - docker push $IMAGE_TAG
-    # - docker push $IMAGE_REPO:latest
+    # - ls -a
+    - docker login -u AWS -p $ECR_AUTH_TOKEN $CI_REGISTRY
+    - docker pull $IMAGE_REPO:latest || true
+    - docker build --cache-from $IMAGE_REPO:latest --build-arg NODE_ENV=$NODE_ENV --tag $IMAGE_TAG --tag $IMAGE_REPO:latest --tag $IMAGE_REPO:branch-$CI_COMMIT_SHORT_SHA .
+    - if [ $CI_COMMIT_REF_NAME != "master" ]; then docker push $IMAGE_REPO:branch-$CI_COMMIT_SHORT_SHA; fi
+    - docker push $IMAGE_TAG
+    - docker push $IMAGE_REPO:latest
   only:
     - /^release/.*$/
     - /^hotfix/.*$/
     - master
+
+package_dev:
+  extends: .docker-build
+  variables:
+    NODE_ENV: dev
+  only:
+    - master
+    - /^release/.*$/
+    - /^feature/.*$/
+
+

@@ -2,22 +2,18 @@
 FROM node:16-alpine AS runner
 WORKDIR /app
 
-ENV NODE_ENV production
+ARG NODE_ENV=production
+ENV NODE_ENV ${NODE_ENV}
 
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nextjs -u 1001
+COPY ./package.json ./package.json
+COPY ./next.config.js ./
+COPY ./.env* ./
 
-# You only need to copy next.config.js if you are NOT using the default configuration
-# COPY --from=builder /app/next.config.js ./
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/package.json ./package.json
+COPY ./public ./public
+COPY ./.next ./.next
+COPY ./node_modules ./node_modules
 
-# Automatically leverage output traces to reduce image size 
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
-USER nextjs
+# USER nextjs
 
 EXPOSE 3000
 
@@ -28,4 +24,4 @@ ENV PORT 3000
 # Uncomment the following line in case you want to disable telemetry.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
-CMD ["node", "server.js"]
+CMD ["npm", "start"]
