@@ -6,6 +6,9 @@ module.exports = {
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
+  corePlugins: {
+    accessibility: false,
+  },
   theme: {
     screens: {
       xs: { max: "639px" },
@@ -79,8 +82,22 @@ module.exports = {
         600: "37.5rem",
         685: "42.8125rem",
       },
-      backgroundSize:{
-        "100%": "100%"
+      backgroundSize: {
+        "100%": "100%",
+      },
+      animation: {
+        rotate180: "arrowSpin1 500ms forwards",
+        rotate0: "arrowSpin2 500ms forwards",
+      },
+      keyframes: {
+        arrowSpin1: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(180deg)" },
+        },
+        arrowSpin2: {
+          "0%": { transform: "rotate(180deg)" },
+          "100%": { transform: "rotate(0deg)" },
+        },
       },
     },
   },

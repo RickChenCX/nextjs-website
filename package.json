@@ -13,10 +13,10 @@
     "antd": "^4.18.2",
     "babel-plugin-import": "^1.13.3",
     "bad-words": "^3.0.4",
+    "jshint": "^2.13.3",
     "next": "12.0.7",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "serverless-mysql": "^1.5.4",
     "swr": "^1.1.1"
   },
   "browserslist": [
@@ -34,11 +34,13 @@
     "eslint": "8.4.1",
     "eslint-config-next": "12.0.7",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.4",
     "postcss": "^8.4.5",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^14.0.2",
     "postcss-preset-env": "^7.2.0",
+    "prettier": "2.5.1",
     "tailwindcss": "^3.0.9",
     "typescript": "4.5.4"
   }
