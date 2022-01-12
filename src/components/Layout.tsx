@@ -20,9 +20,7 @@ export default function Layout({ children }: LayoutProps): ReactElement {
       <div className="w-full h-full">
         <main className={` min-h-screen bg-white`}>
           <Navbar />
-          <div className="flex justify-center h-full ">
-            {children}
-          </div>
+          <div className="flex justify-center h-full ">{children}</div>
           <Footer />
         </main>
       </div>

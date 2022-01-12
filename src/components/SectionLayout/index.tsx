@@ -3,7 +3,7 @@ import { AnchorProps } from "antd/lib/anchor";
 import React, { ReactElement, ReactNode } from "react";
 import { ProductType } from "components/SectionAnchor/index.d";
 import SectionAnchor from "components/SectionAnchor";
-import styles from './index.module.css';
+import styles from "./index.module.css";
 
 interface SectionLayoutProps {
   type: ProductType;

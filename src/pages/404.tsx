@@ -14,13 +14,13 @@ export default function Custom404() {
       <main className="lg:bg-bg1 w-screen h-screen flex items-center">
         <article className="lg:w-944 my-0 mx-auto bg-white lg:h-4/6  flex flex-col justify-center items-center maxlg:mx-6">
           <div className="bg-404_title lg:w-300 maxlg:h-16 lg:h-20 maxlg:w-48 bg-no-repeat lg:bg-100% maxlg:bg-100% mb-4"></div>
-          <h1 className="font-roboto lg:text-8xl maxlg:text-5xxl font-thin text-neutral10  ">
+          <div className=" lg:text-8xl maxlg:text-5xxl font-thin text-neutral10  ">
             404
-          </h1>
-          <h3 className="font-roboto lg:text-5xxl maxlg:text-3xxl font-extralight	 text-neutral10  italic">
+          </div>
+          <div className=" lg:text-5xxl maxlg:text-3xxl font-extralight	 text-neutral10  italic">
             Sorry, page not found.
-          </h3>
-          <p className="font-roboto font-normal text-base lg:w-3/5 text-center mt-6">
+          </div>
+          <p className=" font-normal text-base lg:w-3/5 text-center mt-6">
             The page you are looking for doesn’t exist or an error occurred. Go
             back, or head over to Home to choose a new direction.
           </p>

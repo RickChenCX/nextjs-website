@@ -1,10 +1,5 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import type { ReactElement } from "react";
-import Layout from "components/Layout";
-import Image from "next/image";
-import homeBanner from "images/vercel.svg";
-import { Button } from "antd";
 import { PlayCircleOutlined } from "@ant-design/icons";
 
 export default function Page() {
@@ -52,11 +47,11 @@ export default function Page() {
           </div>
         </section>
         <section className="w-full h-full flex justify-center">
-          <div className={`bg-home-bg ${styles.sectionTwo}`}>
+          {/* <div className={`bg-home-bg ${styles.sectionTwo}`}>
             <div
               className={`flex items-center ${styles.sectionTwoContent}`}
             ></div>
-          </div>
+          </div> */}
         </section>
       </main>
     </div>
