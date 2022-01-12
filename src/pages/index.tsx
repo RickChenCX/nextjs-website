@@ -6,6 +6,7 @@ import Image from "next/image";
 import { PlayCircleOutlined } from "@ant-design/icons";
 import { Carousel } from "antd";
 import Union from "./../svgs/Union.svg";
+import { SectionTwoBossFlexData, SectionTwoBossTenantEngage, HomePageSectionFiveData } from './constant';
 
 const contentStyle = {
   height: "160px",
@@ -15,23 +16,6 @@ const contentStyle = {
   background: "#364d79",
 };
 
-const SectionTwoBossFlexData = [
-  "Streamlined customer management from leads to move-in",
-  "Scalable deal types & automated processes throughout the contract lifecycle",
-  "Flexible product package set up with configurable rules",
-  "Interactive floor plans with real-time occupancy info",
-  "Automated billing & invoicing with flexible payment options",
-  "Customizable dashboard to maximize business results",
-];
-
-const SectionTwoBossTenantEngage = [
-  "White-label tenant app to connect with tenants as a brand",
-  "Real-time room & desk booking across buildings",
-  "Public availability to expand revenue source",
-  "Centralized view of account-based tenants",
-  "Full-spectrum content management system to enrich tenant engagement",
-  "Various add-on service options with flexible payment options",
-];
 export default function Page() {
   return (
     <div className="w-full h-full">
@@ -278,87 +262,29 @@ export default function Page() {
                 </button>
               </div>
               <div className={`text-base maxmd:pt-8 `}>
-                <div className={`flex mb-6`}>
-                  <div>
-                    <Image
-                      src="/images/home-section5-img1.png"
-                      alt="BOSS Flex"
-                      width={80}
-                      height={80}
-                    />
+                {HomePageSectionFiveData.map((item, index) => (
+                  <div key={index} className={`flex  ${index < 3 ? 'mb-6' : ''}`}>
+                    <div>
+                      <Image
+                        src={item.url}
+                        alt="BOSS Flex"
+                        width={80}
+                        height={80}
+                      />
+                    </div>
+                    <div className={`pb-6 ml-4 border-b border-solid md:w-464`}>
+                      <h3
+                        className={`md:text-3xxl text-xl font-normal text-neutral12`}
+                      >
+                        {item.title}
+                      </h3>
+                      <p className={`text-neutral8 mb-0 text-base font-normal`}>
+                        {item.content}
+                      </p>
+                    </div>
                   </div>
-                  <div className={`pb-6 ml-4 border-b border-solid md:w-464`}>
-                    <h3
-                      className={`md:text-3xxl text-xl font-normal text-neutral12`}
-                    >
-                      Microservices Architecture
-                    </h3>
-                    <p className={`text-neutral8 mb-0 text-base font-normal`}>
-                      Customizable / Scalable / Resilient & Robust / Expedient
-                    </p>
-                  </div>
-                </div>
-                <div className={`flex mb-6`}>
-                  <div>
-                    <Image
-                      src="/images/home-section5-img2.png"
-                      alt="BOSS Flex"
-                      width={80}
-                      height={80}
-                    />
-                  </div>
-                  <div className={`pb-6 ml-4 border-b border-solid md:w-464`}>
-                    <h3
-                      className={`md:text-3xxl text-xl font-normal text-neutral12`}
-                    >
-                      Cloud Computing Technology
-                    </h3>
-                    <p className={`text-neutral8 mb-0 text-base font-normal`}>
-                      Cost-effective / Secure / Flexible / Unlimited Storage
-                    </p>
-                  </div>
-                </div>
-                <div className={`flex mb-6`}>
-                  <div>
-                    <Image
-                      src="/images/home-section5-img3.png"
-                      alt="BOSS Flex"
-                      width={80}
-                      height={80}
-                    />
-                  </div>
-                  <div className={`pb-6 ml-4 border-b border-solid md:w-464`}>
-                    <h3
-                      className={`md:text-3xxl text-xl font-normal text-neutral12`}
-                    >
-                      API-Driven Development
-                    </h3>
-                    <p className={`text-neutral8 mb-0 text-base font-normal`}>
-                      More Integrations / Higher Connectivity / Cost-saving /
-                      Efficiency
-                    </p>
-                  </div>
-                </div>
-                <div className={`flex`}>
-                  <div>
-                    <Image
-                      src="/images/home-section5-img4.png"
-                      alt="BOSS Flex"
-                      width={80}
-                      height={80}
-                    />
-                  </div>
-                  <div className={`pb-6 ml-4 border-b border-solid md:w-464`}>
-                    <h3
-                      className={`md:text-3xxl text-xl font-normal text-neutral12`}
-                    >
-                      Super-App Framework
-                    </h3>
-                    <p className={`text-neutral8 mb-0 text-base font-normal`}>
-                      More Revenue / More Features / More Usage / More Data
-                    </p>
-                  </div>
-                </div>
+
+                ))}
               </div>
             </div>
           </div>
