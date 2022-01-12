@@ -6,6 +6,7 @@ import Image from "next/image";
 import { PlayCircleOutlined } from "@ant-design/icons";
 import { Carousel } from "antd";
 import Union from "./../svgs/Union.svg";
+import pic from "./../images/breakImage.png";
 
 const contentStyle = {
   height: "160px",
@@ -370,7 +371,9 @@ export default function Page() {
             layout="intrinsic"
             width={1440}
             height={480}
+            className="align-bottom"
           />
+          {/* <img src="./../images/breakImage.png" alt="" /> */}
         </section>
       </main>
     </div>

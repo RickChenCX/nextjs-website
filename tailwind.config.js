@@ -126,10 +126,6 @@ module.exports = {
         },
       },
     },
-    borderColor: (theme) => ({
-      ...theme("colors"),
-      default: "#D9D9D9",
-    }),
   },
   plugins: [],
 };
