@@ -7,8 +7,6 @@ import { PlayCircleOutlined } from "@ant-design/icons";
 import { Carousel } from "antd";
 import Union from "./../svgs/Union.svg";
 
-import pic from "./../images/breakImage.png";
-
 const contentStyle = {
   height: "160px",
   color: "#fff",
