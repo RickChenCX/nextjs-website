@@ -32,9 +32,7 @@ metadata:
 spec:
   hosts:
 {{ if .Values.istio.hosts }}
-# {{- range $index, $host := .Values.istio.hosts }}
   - {{ .Values.istio.hosts }}
-# {{- end }}
 {{ else }}
   - {{ include "chart.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local
 {{ end }}
