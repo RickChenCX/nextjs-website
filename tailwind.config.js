@@ -16,6 +16,10 @@ module.exports = {
       maxlg: { max: "1023px" },
       ...defaultTheme.screens,
     },
+    backgroundColor: (theme) => ({
+      ...theme("colors"),
+      bgOne: "#F5F5F5",
+    }),
     extend: {
       inset: {
         119: "7.4375rem",
@@ -35,6 +39,12 @@ module.exports = {
             lineHeight: "2.875rem",
           },
         ],
+        "5xxl": [
+          "3.5rem",
+          {
+            lineHeight: "4.5rem",
+          },
+        ],
         "7xxl": [
           "5.5rem",
           {
@@ -50,10 +60,12 @@ module.exports = {
         primary1: "#4C18DB",
         grayLine: "#CCCCCC",
         neutral5: "#D9D9D9",
+        neutral8: "#595959",
         neutral12: "#0D0D0D",
         neutral9: "#404040",
         neutral7: "#7F7F7F",
         neutral10: "#2C2C2C",
+        borderColor: "#ccc",
         bg1: "#fafafa",
       },
       rotate: {
@@ -70,19 +82,28 @@ module.exports = {
       },
       width: {
         1376: "calc(100vw - 4rem)",
+        1122: "70.125rem",
         916: "57.25rem",
         155: "9.6875rem",
         152: "9.5rem",
         300: "18.75rem",
+        464: "29rem",
         944: "59rem",
       },
       maxWidth: {
         1440: "90rem",
+        882: "55.125rem",
+        642: "40.125rem",
+        464: "29rem",
+        434: "27.125rem",
+        270: "16.875rem",
+        172: "10.75rem",
       },
       height: {
         54: "calc(100vh - 54px)",
         600: "37.5rem",
         685: "42.8125rem",
+        1035: "64.6875",
       },
       backgroundSize: {
         "100%": "100%",
@@ -102,10 +123,6 @@ module.exports = {
         },
       },
     },
-    borderColor: (theme) => ({
-      ...theme("colors"),
-      default: "#D9D9D9",
-    }),
   },
   plugins: [],
 };
