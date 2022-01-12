@@ -3,10 +3,10 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
-containerPort: 8080
+containerPort: 3000
 
 image:
-  repository: registry.gitlab.com/reinventventurespteltd/co-working-opera/crm-service
+  repository: registry.gitlab.com/reinventventurespteltd/super-apps/boss-website
   tag: latest
   pullPolicy: IfNotPresent
 
@@ -15,7 +15,7 @@ imagePullSecrets:
 
 serviceAccount:
   # Specifies whether a service account should be created
-  create: true
+  create: false
   # Annotations to add to the service account
   annotations:
     eks.amazonaws.com/role-arn: arn:aws:iam::900133445010:role/my-service-a
@@ -36,8 +36,8 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 8080
-  targetPort: 8080
+  port: 3000
+  targetPort: 3000
 
 
 ingress:
@@ -51,7 +51,7 @@ ingress:
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-southeast-1:900133445010:certificate/1fcca55f-c3bd-478d-8cf7-0ab87c84f70a
     alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}'
   hosts:
-    - host: flexi-service-dev.reinventventures.com
+    - host: www-dev.getbossbuilding.com
       paths:
         path: /*
 
@@ -94,14 +94,12 @@ appmesh:
 
 istio:
   enabled: false
-  gatewayenabled: true
-  hosts: api-dev.reinventventures.com
+  gatewayname: getbossbuilding-gateway
+  hosts: www-dev.getbossbuilding.com
+  gateway:
+    enabled: false
+  
 
 env:
-  # apollo app id
-  APP_ID: "crm-service"
-  # apollo meta server url
-  APOLLO_META: "http://configservice.apollo:8080"
-  # spring active profile
-  SPRING_PROFILES_ACTIVE: "reinvent-dev"
-  APOLLO_BOOTSTRAP_ENABLED: "'true'"
+  # node run env
+  NODE_ENV: "production"

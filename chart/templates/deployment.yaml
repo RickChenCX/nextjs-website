@@ -40,14 +40,14 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /actuator/info
+              path: /
               port: {{ .Values.containerPort }}
             initialDelaySeconds: {{ .Values.liveness.initialDelaySeconds }}
             periodSeconds: {{ .Values.liveness.periodSeconds }}
             failureThreshold: {{ .Values.liveness.failureThreshold }}
           readinessProbe:
             httpGet:
-              path: /actuator/info
+              path: /
               port: {{ .Values.containerPort }}
             initialDelaySeconds: {{ .Values.readiness.initialDelaySeconds }}
             periodSeconds: {{ .Values.readiness.periodSeconds }}

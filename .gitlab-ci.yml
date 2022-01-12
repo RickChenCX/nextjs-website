@@ -114,4 +114,47 @@ package_dev:
     - /^release/.*$/
     - /^feature/.*$/
 
+.k8s-deploy:
+  image:
+    name: alpine/helm:3.1.3
+    entrypoint: [""]
+  stage: deploy
+  variables:
+    NODE_ENV: production
+    K8S_NAMESPACE: boss
+    HOST_NAME: "www-dev.getbossbuilding.com"
+    ISTIO_ENABLED: "true"
+  before_script:
+    - HELM_VARIABLES="--set"
+    - HELM_VARIABLES="$HELM_VARIABLES image.repository=$IMAGE_REPO"
+    - HELM_VARIABLES="$HELM_VARIABLES,image.tag=$CI_COMMIT_SHORT_SHA"
+    - HELM_VARIABLES="$HELM_VARIABLES,istio.enabled=$ISTIO_ENABLED"
+    - HELM_VARIABLES="$HELM_VARIABLES,fullnameOverride=$CI_PROJECT_NAME"
+    - HELM_VARIABLES="$HELM_VARIABLES,env.NODE_ENV=$NODE_ENV"
+    - export HELM_OPTIONS=$HELM_VARIABLES$(if [ "$CI_HELM_DEBUG" = true ]; then echo " --debug"; else echo ""; fi)
+    - helm lint chart $HELM_OPTIONS # make sure helm being configured correctly
+  script:
+    - echo "$HELM_OPTIONS"
+    - echo "$K8S_NAMESPACE"
+    - helm upgrade --install --force $CI_PROJECT_NAME chart -n $K8S_NAMESPACE $HELM_OPTIONS --dry-run # print helm details by dry run
+    - helm upgrade --install --force $CI_PROJECT_NAME chart -n $K8S_NAMESPACE $HELM_OPTIONS
+  environment:
+    name: $ENVIRONMENT
+    url: https://$HOST_NAME
+  only:
+    - not_existed_branch
+  allow_failure: false
 
+# deploy to dev
+dev-deploy:
+  extends: .k8s-deploy
+  variables:
+    NODE_ENV: production
+    K8S_NAMESPACE: boss
+    HOST_NAME: "www-dev.getbossbuilding.com"
+    ISTIO_ENABLED: "true"
+  only:
+    - master
+    - /^release/.*$/
+    - /^feature/.*$/
+  # when: manual
