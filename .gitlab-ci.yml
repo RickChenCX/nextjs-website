@@ -138,9 +138,6 @@ package_dev:
     - echo "$K8S_NAMESPACE"
     - helm upgrade --install --force $CI_PROJECT_NAME chart -n $K8S_NAMESPACE $HELM_OPTIONS --dry-run # print helm details by dry run
     - helm upgrade --install --force $CI_PROJECT_NAME chart -n $K8S_NAMESPACE $HELM_OPTIONS
-  environment:
-    name: $ENVIRONMENT
-    url: https://$HOST_NAME
   only:
     - not_existed_branch
   allow_failure: false
