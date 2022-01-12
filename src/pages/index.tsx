@@ -6,6 +6,7 @@ import Image from "next/image";
 import { PlayCircleOutlined } from "@ant-design/icons";
 import { Carousel } from "antd";
 import Union from "./../svgs/Union.svg";
+
 import pic from "./../images/breakImage.png";
 
 const contentStyle = {
@@ -44,13 +45,13 @@ export default function Page() {
       </Head>
       <main className="w-full h-full">
         <section
-          className={`w-full h-600 ${styles.banner} bg-home-banner bg-center bg-cover bg-no-repeat relative`}
+          className={`w-full h-600 bg-home-banner maxmd:bg-home-banner-mobile  bg-center bg-cover bg-no-repeat relative`}
         >
           <div
-            className={`${styles.bannerContainer} absolute top-119 sm:left-1/10`}
+            className={`${styles.bannerContainer} absolute md:top-119 top-90 left-5 md:left-1/10`}
           >
             <h2
-              className={`text-white font-roboto font-thin sm:text-7xxl max-w-5xl mb-0`}
+              className={`text-white font-roboto font-thin md:text-7xxl text-5xxl md:max-w-5xl max-w-343 mb-0`}
             >
               Powering Flex & Hybrid Workspaces
             </h2>
@@ -66,12 +67,12 @@ export default function Page() {
             </h3>
             <div>
               <button
-                className={`border border-solid border-primary w-155 h-10 mr-4 text-white bg-primary sm:text-sm xs:text-base `}
+                className={`border border-solid border-primary w-155 h-10 mr-4 text-white bg-primary md:text-sm xs:text-base `}
               >
                 What is BOSS
                 <PlayCircleOutlined className={styles.playIcon} />
               </button>
-              <button className="border border-solid border-white w-152 h-10 text-white sm:text-sm xs:text-base  maxmd:hidden">
+              <button className="border border-solid border-white w-152 h-10 text-white md:text-sm xs:text-base  maxmd:hidden">
                 Book Free Demo
               </button>
             </div>
@@ -79,9 +80,9 @@ export default function Page() {
         </section>
         {/* ********************************** */}
         <section
-          className={`w-full flex justify-center md:bg-home-bg md:h-1035 ${styles.sectionTwo}`}
+          className={`w-full flex justify-center md:bg-home-bg md:h-1035`}
         >
-          <div className={`mt-14 md:w-1122 ${styles.sectionTwoContent}`}>
+          <div className={`md:mt-14 md:w-1122`}>
             <div className={`bg-primary1 py-8`}>
               <h4 className={`text-white font-roboto text-base text-center`}>
                 Products
@@ -133,7 +134,7 @@ export default function Page() {
                 </div>
                 <div className="flex align-center justify-center maxmd:hidden">
                   <button
-                    className={`border border-solid border-primary w-155 h-10 text-white bg-primary sm:text-sm xs:text-base mb-6`}
+                    className={`border border-solid border-primary w-155 h-10 text-white bg-primary md:text-sm xs:text-base mb-6`}
                   >
                     Book Free Demo
                   </button>
@@ -184,7 +185,7 @@ export default function Page() {
                 </div>
                 <div className="flex align-center justify-center maxmd:hidden">
                   <button
-                    className={`border border-solid border-primary w-155 h-10 text-white bg-primary sm:text-sm xs:text-base mb-6`}
+                    className={`border border-solid border-primary w-155 h-10 text-white bg-primary md:text-sm xs:text-base mb-6`}
                   >
                     Book Free Demo
                   </button>
@@ -202,7 +203,7 @@ export default function Page() {
         {/* ********************************** */}
         {/* ===== section3 ======= */}
         <section className={`bg-white md:mt-16 md:py-10 md:px-40 py-10 px-4`}>
-          <div className={`${styles.sectionThreeContent}`}>
+          <div>
             <p className={`text-xl font-normal mb-4 text-neutral9`}>
               Solutions for you
             </p>
@@ -235,7 +236,7 @@ export default function Page() {
           />
         </section>
         {/* ==== section 4 ===== */}
-        <section className={`w-full bg-home-section4-bg ${styles.sectionFour}`}>
+        <section className={`w-full bg-home-section4-bg`}>
           <div className={`bg-primary1 py-8 maxmd:px-4`}>
             <h4 className={`text-white font-roboto text-base md:text-center`}>
               Highlights
@@ -259,10 +260,8 @@ export default function Page() {
           </div>
         </section>
         {/* ======= section 5======= */}
-        <section
-          className={`w-full md:py-10 md:px-40 py-10 px-4 ${styles.sectionFive}`}
-        >
-          <div className={`${styles.sectionThreeContent}`}>
+        <section className={`w-full md:py-10 md:px-40 py-10 px-4`}>
+          <div>
             <p className={`text-xl font-normal mb-4 text-neutral9`}>
               Technology
             </p>
@@ -275,7 +274,7 @@ export default function Page() {
                   infrastructure
                 </div>
                 <button
-                  className={`md:mt-28 border border-solid border-primary w-155 h-10 text-white bg-primary sm:text-sm xs:text-base mb-6 maxmd:hidden`}
+                  className={`md:mt-28 border border-solid border-primary w-155 h-10 text-white bg-primary md:text-sm xs:text-base mb-6 maxmd:hidden`}
                 >
                   Book Free Demo
                 </button>
@@ -366,16 +365,14 @@ export default function Page() {
             </div>
           </div>
         </section>
-        <section className={`${styles.homeSectionSix}`}>
+        <section className="flex align-bottom">
           <Image
             src="/images/breakImage.png"
             alt="BOSS Flex"
             layout="intrinsic"
             width={1440}
             height={480}
-            className="align-bottom"
           />
-          {/* <img src="./../images/breakImage.png" alt="" /> */}
         </section>
       </main>
     </div>

@@ -23,6 +23,7 @@ module.exports = {
     extend: {
       inset: {
         119: "7.4375rem",
+        90: "5.625rem",
         "1/10": "10%",
         "1/6": "15%",
       },
@@ -76,6 +77,7 @@ module.exports = {
       },
       backgroundImage: {
         "home-banner": "url(/images/homeBanner.png)",
+        "home-banner-mobile": "url(/images/homeBanner-mobile.png)",
         "home-bg": "url(/images/home-bg.png)",
         "home-section4-bg": "url(/images/home-section4-bg.png)",
         "404_title": "url(/images/404_title.png)",
@@ -96,6 +98,7 @@ module.exports = {
         642: "40.125rem",
         464: "29rem",
         434: "27.125rem",
+        343: "21.4375rem",
         270: "16.875rem",
         172: "10.75rem",
       },
@@ -103,7 +106,7 @@ module.exports = {
         54: "calc(100vh - 54px)",
         600: "37.5rem",
         685: "42.8125rem",
-        1035: "64.6875",
+        1035: "64.6875rem",
       },
       backgroundSize: {
         "100%": "100%",
