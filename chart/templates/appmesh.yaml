@@ -1,0 +1,51 @@
+{{- if .Values.appmesh.create -}}
+apiVersion: appmesh.k8s.aws/v1beta2
+kind: VirtualNode
+metadata:
+  name: {{ include "chart.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app: {{ include "chart.fullname" . }}
+  listeners:
+    - portMapping:
+        port: 8080
+        protocol: http
+  serviceDiscovery:
+    dns:
+      hostname: {{ include "chart.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local
+---
+apiVersion: appmesh.k8s.aws/v1beta2
+kind: VirtualRouter
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: {{ include "chart.fullname" . }}-virtual-router
+spec:
+  listeners:
+    - portMapping:
+        port: 8080
+        protocol: http
+  routes:
+    - name: {{ include "chart.fullname" . }}-route
+      httpRoute:
+        match:
+          prefix: /
+        action:
+          weightedTargets:
+            - virtualNodeRef:
+                name: {{ include "chart.fullname" . }}
+              weight: 1
+---
+apiVersion: appmesh.k8s.aws/v1beta2
+kind: VirtualService
+metadata:
+  name: {{ include "chart.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  awsName: {{ include "chart.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local
+  provider:
+    virtualRouter:
+      virtualRouterRef:
+        name: {{ include "chart.fullname" . }}-virtual-router
+{{- end -}}
