@@ -129,6 +129,7 @@ package_dev:
     - HELM_VARIABLES="$HELM_VARIABLES image.repository=$IMAGE_REPO"
     - HELM_VARIABLES="$HELM_VARIABLES,image.tag=$CI_COMMIT_SHORT_SHA"
     - HELM_VARIABLES="$HELM_VARIABLES,istio.enabled=$ISTIO_ENABLED"
+    - HELM_VARIABLES="$HELM_VARIABLES,istio.hosts=$HOST_NAME"
     - HELM_VARIABLES="$HELM_VARIABLES,fullnameOverride=$CI_PROJECT_NAME"
     - HELM_VARIABLES="$HELM_VARIABLES,env.NODE_ENV=$NODE_ENV"
     - export HELM_OPTIONS=$HELM_VARIABLES$(if [ "$CI_HELM_DEBUG" = true ]; then echo " --debug"; else echo ""; fi)
