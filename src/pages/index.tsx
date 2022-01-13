@@ -236,7 +236,7 @@ export default function Page() {
               </div>
             </div>
           </div>
-          <div className="maxlg:hidden">
+          <div className="maxmd:hidden">
             <Image
               src="/images/home-section3.png"
               alt="BOSS Flex"
@@ -244,7 +244,7 @@ export default function Page() {
               height={675}
             />
           </div>
-          <div className="lg:hidden">
+          <div className="md:hidden">
             <Image
               src="/images/home-section3-mobile.png"
               alt="BOSS Flex"
@@ -269,10 +269,26 @@ export default function Page() {
           <div>
             <Carousel>
               <div>
-                <h3>1</h3>
+                <h3
+                  style={{
+                    height: "160px",
+                    lineHeight: "160px",
+                    textAlign: "center",
+                  }}
+                >
+                  1
+                </h3>
               </div>
               <div>
-                <h3>2</h3>
+                <h3
+                  style={{
+                    height: "160px",
+                    lineHeight: "160px",
+                    textAlign: "center",
+                  }}
+                >
+                  2
+                </h3>
               </div>
             </Carousel>
           </div>
