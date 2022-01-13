@@ -1,3 +1,9 @@
 module.exports = {
-  extends: ["next/core-web-vitals", "plugin:prettier/recommended", "prettier"],
+  extends: [
+    "react-app",
+    "plugin:prettier/recommended",
+    "prettier/react",
+    "prettier/@typescript-eslint",
+    "prettier/standard",
+  ],
 };
