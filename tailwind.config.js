@@ -28,11 +28,11 @@ module.exports = {
         "1/6": "15%",
       },
       fontSize: {
-        "xxs": [
+        xxs: [
           "0.625rem",
           {
             lineHeight: "1.125rem",
-            letterSpacing: '-0.02rem',
+            letterSpacing: "-0.02rem",
           },
         ],
         "3xxl": [
@@ -50,7 +50,7 @@ module.exports = {
         "5xxl": [
           "3.5rem",
           {
-            lineHeight: "2.875rem",
+            lineHeight: "4.5rem",
           },
         ],
         "7xxl": [
@@ -96,6 +96,7 @@ module.exports = {
         1376: "calc(100vw - 4rem)",
         1122: "70.125rem",
         916: "57.25rem",
+        800: "50rem",
         155: "9.6875rem",
         152: "9.5rem",
         300: "18.75rem",
@@ -106,6 +107,7 @@ module.exports = {
       },
       maxWidth: {
         1440: "90rem",
+        1056: "66rem",
         882: "55.125rem",
         642: "40.125rem",
         464: "29rem",
@@ -117,6 +119,7 @@ module.exports = {
       height: {
         54: "calc(100vh - 54px)",
         600: "37.5rem",
+        620: "38.75rem",
         685: "42.8125rem",
         1035: "64.6875rem",
       },

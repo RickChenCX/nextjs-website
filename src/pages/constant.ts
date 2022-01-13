@@ -1,3 +1,11 @@
+export const HomePageSectionOneData = {
+  title: "Powering Flex & Hybrid Workspaces",
+  paragraph1:
+    "BOSS - Business Operating System for Space - helps you to automate workspace processes, manage tenant lifecycles and streamline flex & hybrid workspace operations. With BOSS, you can strengthen a gratifying customer experience and boost retention.",
+  paragraph2:
+    "In turn, maximize your business revenue while ensuring accuracy and efficiency.",
+};
+
 export const SectionTwoBossFlexData = [
   "Streamlined customer management from leads to move-in",
   "Scalable deal types & automated processes throughout the contract lifecycle",
@@ -29,12 +37,13 @@ export const HomePageSectionFiveData = [
   },
   {
     title: "API-Driven Development",
-    content: "More Integrations / Higher Connectivity / Cost-saving / Efficiency",
+    content:
+      "More Integrations / Higher Connectivity / Cost-saving / Efficiency",
     url: "/images/home-section5-img3.png",
   },
   {
     title: "Super-App Framework",
     content: "More Revenue / More Features / More Usage / More Data",
     url: "/images/home-section5-img4.png",
-  }
-]
+  },
+];

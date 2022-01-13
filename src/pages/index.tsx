@@ -1,26 +1,24 @@
+import { useState, useCallback } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import type { ReactElement } from "react";
-import Layout from "components/Layout";
 import Image from "next/image";
 import { PlayCircleOutlined } from "@ant-design/icons";
 import { Carousel } from "antd";
 import Union from "./../svgs/Union.svg";
+import ShowMoreIcon from "./../svgs/add-icon.svg";
 import {
+  HomePageSectionOneData,
   SectionTwoBossFlexData,
   SectionTwoBossTenantEngage,
   HomePageSectionFiveData,
 } from "./constant";
 
-const contentStyle = {
-  height: "160px",
-  color: "#fff",
-  lineHeight: "160px",
-  textAlign: "center",
-  background: "#364d79",
-};
-
 export default function Page() {
+  const [isShowMore, setIsShowMore] = useState<boolean>(false);
+  const handleShowMore = useCallback(() => {
+    setIsShowMore(true);
+  }, [isShowMore]);
+
   return (
     <div className="w-full h-full">
       <Head>
@@ -29,31 +27,53 @@ export default function Page() {
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <main className="w-full h-full">
+      <div>
         <section
-          className={`w-full h-600 bg-home-banner maxlg:bg-home-banner-mobile  bg-center bg-cover bg-no-repeat relative`}
+          className={`w-full bg-home-banner maxlg:bg-home-banner-mobile bg-center bg-cover bg-no-repeat lg:flex lg:justify-center lg:py-32`}
         >
-          <div
-            className={`${styles.bannerContainer} absolute lg:top-119 top-90 left-5 lg:left-1/10`}
-          >
+          <div className={`maxlg:px-4 lg:w-800 xl:w-1122`}>
             <h2
               className={`text-white font-roboto font-thin lg:text-7xxl text-5xxl lg:max-w-5xl max-w-343 mb-0`}
             >
-              Powering Flex & Hybrid Workspaces
+              {HomePageSectionOneData.title}
             </h2>
-            <h3 className="text-sm text-white font-roboto my-6 leading-snug font-light">
-              BOSS - Business Operating System for Space - helps you to automate
-              workspace processes, manage tenant lifecycles and streamline flex
-              & hybrid workspace operations. With BOSS, you can strengthen a
-              gratifying customer experience and boost retention.
-              <p className="text-sm text-white font-roboto mt-1">
-                In turn, maximize your business revenue while ensuring accuracy
-                and efficiency.
+            <h3
+              className={`maxlg:hidden text-sm text-white font-roboto my-6 leading-snug font-normal lg:max-w-1056`}
+            >
+              {HomePageSectionOneData.paragraph1}
+              <p className="text-sm text-white font-roboto mt-1.5 mb-0">
+                {HomePageSectionOneData.paragraph2}
               </p>
             </h3>
+            <div className="lg:hidden mt-6">
+              <div className={`${isShowMore ? "hidden" : ""}`}>
+                <h3
+                  className={`hidden text-sm text-white font-roboto leading-snug font-normal mb-3 ${styles.textOverflow}`}
+                >
+                  {HomePageSectionOneData.paragraph1}
+                </h3>
+              </div>
+              <h3
+                className={`${
+                  isShowMore ? "" : "hidden"
+                } text-sm text-white font-roboto leading-snug font-normal mb-3`}
+              >
+                {HomePageSectionOneData.paragraph1}
+                <p className="text-sm text-white font-roboto mt-1.5 mb-0">
+                  {HomePageSectionOneData.paragraph2}
+                </p>
+              </h3>
+              <button
+                className={`${isShowMore ? "hidden" : ""} text-white text-sm`}
+                onClick={handleShowMore}
+              >
+                <span className="float-left pr-1.5">Show More</span>
+                <ShowMoreIcon className="mt-1" />
+              </button>
+            </div>
             <div>
               <button
-                className={`border border-solid border-primary w-155 h-10 mr-4 text-white bg-primary lg:text-sm xs:text-base `}
+                className={`border border-solid border-primary w-155 h-10 mr-4 text-white bg-primary lg:text-sm xs:text-base maxlg:mt-32`}
               >
                 What is BOSS
                 <PlayCircleOutlined className={styles.playIcon} />
@@ -64,6 +84,8 @@ export default function Page() {
             </div>
           </div>
         </section>
+      </div>
+      <main className={`max-w-1440 h-full ${styles.marginAuto}`}>
         {/* ********************************** */}
         <section
           className={`w-full flex justify-center lg:bg-home-bg lg:h-1035`}
@@ -74,7 +96,7 @@ export default function Page() {
                 Products
               </h4>
               <h3
-                className={`text-white font-roboto md:text-4xxl text-2xl text-center md:max-w-882 font-normal maxmd:font-light ${styles.sectionTwoTitle}`}
+                className={`text-white font-roboto lg:text-4xxl text-2xl text-center lg:max-w-882 font-normal maxlg:font-light ${styles.marginAuto}`}
               >
                 The leading software for flex & hybrid workspace management and
                 tenant engagement
@@ -238,7 +260,7 @@ export default function Page() {
               Highlights
             </h4>
             <h3
-              className={`text-white font-roboto md:text-4xxl text-2xl md:text-center md:max-w-882 font-normal maxmd:font-light ${styles.sectionTwoTitle}`}
+              className={`text-white font-roboto lg:text-4xxl text-2xl lg:text-center lg:max-w-882 font-normal maxlg:font-light ${styles.marginAuto}`}
             >
               Flexibility, scalability and user experience to empower business
               growth
@@ -305,7 +327,7 @@ export default function Page() {
             </div>
           </div>
         </section>
-        <section className="flex align-bottom">
+        <section className="flex justify-center align-bottom">
           <Image
             src="/images/breakImage.png"
             alt="BOSS Flex"
