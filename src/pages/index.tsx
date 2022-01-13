@@ -6,7 +6,11 @@ import Image from "next/image";
 import { PlayCircleOutlined } from "@ant-design/icons";
 import { Carousel } from "antd";
 import Union from "./../svgs/Union.svg";
-import { SectionTwoBossFlexData, SectionTwoBossTenantEngage, HomePageSectionFiveData } from './constant';
+import {
+  SectionTwoBossFlexData,
+  SectionTwoBossTenantEngage,
+  HomePageSectionFiveData,
+} from "./constant";
 
 const contentStyle = {
   height: "160px",
@@ -27,13 +31,13 @@ export default function Page() {
       </Head>
       <main className="w-full h-full">
         <section
-          className={`w-full h-600 bg-home-banner maxmd:bg-home-banner-mobile  bg-center bg-cover bg-no-repeat relative`}
+          className={`w-full h-600 bg-home-banner maxlg:bg-home-banner-mobile  bg-center bg-cover bg-no-repeat relative`}
         >
           <div
-            className={`${styles.bannerContainer} absolute md:top-119 top-90 left-5 md:left-1/10`}
+            className={`${styles.bannerContainer} absolute lg:top-119 top-90 left-5 lg:left-1/10`}
           >
             <h2
-              className={`text-white font-roboto font-thin md:text-7xxl text-5xxl md:max-w-5xl max-w-343 mb-0`}
+              className={`text-white font-roboto font-thin lg:text-7xxl text-5xxl lg:max-w-5xl max-w-343 mb-0`}
             >
               Powering Flex & Hybrid Workspaces
             </h2>
@@ -49,12 +53,12 @@ export default function Page() {
             </h3>
             <div>
               <button
-                className={`border border-solid border-primary w-155 h-10 mr-4 text-white bg-primary md:text-sm xs:text-base `}
+                className={`border border-solid border-primary w-155 h-10 mr-4 text-white bg-primary lg:text-sm xs:text-base `}
               >
                 What is BOSS
                 <PlayCircleOutlined className={styles.playIcon} />
               </button>
-              <button className="border border-solid border-white w-152 h-10 text-white md:text-sm xs:text-base  maxmd:hidden">
+              <button className="border border-solid border-white w-152 h-10 text-white lg:text-sm xs:text-base  maxlg:hidden">
                 Book Free Demo
               </button>
             </div>
@@ -62,9 +66,9 @@ export default function Page() {
         </section>
         {/* ********************************** */}
         <section
-          className={`w-full flex justify-center md:bg-home-bg md:h-1035`}
+          className={`w-full flex justify-center lg:bg-home-bg lg:h-1035`}
         >
-          <div className={`md:mt-14 md:w-1122`}>
+          <div className={`lg:mt-14 lg:w-1122`}>
             <div className={`bg-primary1 py-8`}>
               <h4 className={`text-white font-roboto text-base text-center`}>
                 Products
@@ -76,18 +80,18 @@ export default function Page() {
                 tenant engagement
               </h3>
             </div>
-            <div className="md:bg-white bg-bgOne grid grid-cols-1 md:grid-cols-2 maxmd:p-4">
+            <div className="lg:bg-white bg-bgOne grid grid-cols-1 lg:grid-cols-2 maxlg:p-4">
               <div
-                className={`bg-white box-border border border-solid border-default py-8 maxmd:mb-4`}
+                className={`bg-white box-border border border-solid border-default py-8 maxlg:mb-4`}
               >
-                <div className={`px-12 maxmd:px-6`}>
+                <div className={`px-12 maxlg:px-6`}>
                   <h3
-                    className={`text-center text-primary text-3xxl maxmd:text-2xl pb-2`}
+                    className={`text-center text-primary text-3xxl maxlg:text-2xl pb-2`}
                   >
                     BOSS Flex
                   </h3>
                   <p
-                    className={`text-center font-roboto text-base text-neutral7 md:w-max-434`}
+                    className={`text-center font-roboto text-base text-neutral7 lg:w-max-434`}
                   >
                     A property management and tenant engagement platform for
                     flex & hybrid coworking spaces.
@@ -99,7 +103,7 @@ export default function Page() {
                   width={560}
                   height={320}
                 />
-                <div className={`md:pl-12 maxmd:p-4 maxmd:mb-8 mb-14`}>
+                <div className={`lg:pl-12 maxlg:p-4 maxlg:mb-8 mb-14`}>
                   {SectionTwoBossFlexData.map((item, index) => (
                     <p key={index} className={`mb-0`}>
                       <Image
@@ -114,9 +118,9 @@ export default function Page() {
                     </p>
                   ))}
                 </div>
-                <div className="flex align-center justify-center maxmd:hidden">
+                <div className="flex align-center justify-center maxlg:hidden">
                   <button
-                    className={`border border-solid border-primary w-155 h-10 text-white bg-primary md:text-sm xs:text-base mb-6`}
+                    className={`border border-solid border-primary w-155 h-10 text-white bg-primary lg:text-sm xs:text-base mb-6`}
                   >
                     Book Free Demo
                   </button>
@@ -129,16 +133,16 @@ export default function Page() {
                 </div>
               </div>
               <div
-                className={`bg-white box-border border md:border-l-0 border-solid border-default py-8`}
+                className={`bg-white box-border border lg:border-l-0 border-solid border-default py-8`}
               >
-                <div className={`px-12 maxmd:px-6`}>
+                <div className={`px-12 maxlg:px-6`}>
                   <h3
-                    className={`text-center text-primary text-3xxl maxmd:text-2xl pb-2`}
+                    className={`text-center text-primary text-3xxl maxlg:text-2xl pb-2`}
                   >
                     BOSS Tenant Engage
                   </h3>
                   <p
-                    className={`text-center font-roboto text-base text-neutral7 md:w-max-434`}
+                    className={`text-center font-roboto text-base text-neutral7 lg:w-max-434`}
                   >
                     A tenant engagement platform to delight tenants and boost
                     customer satisfaction.
@@ -150,7 +154,7 @@ export default function Page() {
                   width={560}
                   height={320}
                 />
-                <div className={`md:pl-12 maxmd:p-4 maxmd:mb-8 mb-14`}>
+                <div className={`lg:pl-12 maxlg:p-4 maxlg:mb-8 mb-14`}>
                   {SectionTwoBossTenantEngage.map((item, index) => (
                     <p key={index} className={`mb-0`}>
                       <Image
@@ -165,9 +169,9 @@ export default function Page() {
                     </p>
                   ))}
                 </div>
-                <div className="flex align-center justify-center maxmd:hidden">
+                <div className="flex align-center justify-center maxlg:hidden">
                   <button
-                    className={`border border-solid border-primary w-155 h-10 text-white bg-primary md:text-sm xs:text-base mb-6`}
+                    className={`border border-solid border-primary w-155 h-10 text-white bg-primary lg:text-sm xs:text-base mb-6`}
                   >
                     Book Free Demo
                   </button>
@@ -184,20 +188,20 @@ export default function Page() {
         </section>
         {/* ********************************** */}
         {/* ===== section3 ======= */}
-        <section className={`bg-white md:mt-16 md:py-10 md:px-40 py-10 px-4`}>
+        <section className={`bg-white lg:mt-16 lg:py-10 lg:px-40 py-10 px-4`}>
           <div>
             <p className={`text-xl font-normal mb-4 text-neutral9`}>
               Solutions for you
             </p>
             <div
-              className={`md:grid md:grid-cols-2 border-b border-solid pb-6 border-borderColor`}
+              className={`lg:grid lg:grid-cols-2 border-b border-solid pb-6 border-borderColor`}
             >
               <div
-                className={`md:text-5xxl text-xl font-roboto font-light md:max-w-642 max-w-172 italic`}
+                className={`lg:text-5xxl text-xl font-roboto font-light lg:max-w-642 max-w-172 italic`}
               >
                 Revolutionizing Flex & Hybrid Workspace Management & Business
               </div>
-              <div className={`md:pt-16 md:pl-12 pt-6 text-base max-w-464`}>
+              <div className={`lg:pt-16 lg:pl-12 pt-6 text-base max-w-464`}>
                 <p className="font-light">
                   Revolutionize your end-to-end customer journey management —
                   starting all the way from leads acquisition, contract approval
@@ -210,17 +214,27 @@ export default function Page() {
               </div>
             </div>
           </div>
-          <Image
-            src="/images/home-section3.png"
-            alt="BOSS Flex"
-            width={1140}
-            height={675}
-          />
+          <div className="maxlg:hidden">
+            <Image
+              src="/images/home-section3.png"
+              alt="BOSS Flex"
+              width={1140}
+              height={675}
+            />
+          </div>
+          <div className="lg:hidden">
+            <Image
+              src="/images/home-section3-mobile.png"
+              alt="BOSS Flex"
+              width={344}
+              height={400}
+            />
+          </div>
         </section>
         {/* ==== section 4 ===== */}
         <section className={`w-full bg-home-section4-bg`}>
-          <div className={`bg-primary1 py-8 maxmd:px-4`}>
-            <h4 className={`text-white font-roboto text-base md:text-center`}>
+          <div className={`bg-primary1 py-8 maxlg:px-4`}>
+            <h4 className={`text-white font-roboto text-base lg:text-center`}>
               Highlights
             </h4>
             <h3
@@ -242,28 +256,31 @@ export default function Page() {
           </div>
         </section>
         {/* ======= section 5======= */}
-        <section className={`w-full md:py-10 md:px-40 py-10 px-4`}>
+        <section className={`w-full lg:py-10 lg:px-40 py-10 px-4`}>
           <div>
             <p className={`text-xl font-normal mb-4 text-neutral9`}>
               Technology
             </p>
-            <div className={`md:grid md:grid-cols-2`}>
+            <div className={`lg:grid lg:grid-cols-2`}>
               <div>
                 <div
-                  className={`md:text-5xxl text-xl font-roboto font-light md:max-w-464 max-w-270 italic`}
+                  className={`lg:text-5xxl text-xl font-roboto font-light lg:max-w-464 max-w-270 italic`}
                 >
                   Competitive software powered by the modern engineering
                   infrastructure
                 </div>
                 <button
-                  className={`md:mt-28 border border-solid border-primary w-155 h-10 text-white bg-primary md:text-sm xs:text-base mb-6 maxmd:hidden`}
+                  className={`lg:mt-28 border border-solid border-primary w-155 h-10 text-white bg-primary lg:text-sm xs:text-base mb-6 maxlg:hidden`}
                 >
                   Book Free Demo
                 </button>
               </div>
-              <div className={`text-base maxmd:pt-8 `}>
+              <div className={`text-base maxlg:pt-8 `}>
                 {HomePageSectionFiveData.map((item, index) => (
-                  <div key={index} className={`flex  ${index < 3 ? 'mb-6' : ''}`}>
+                  <div
+                    key={index}
+                    className={`flex  ${index < 3 ? "mb-6" : ""}`}
+                  >
                     <div>
                       <Image
                         src={item.url}
@@ -272,9 +289,9 @@ export default function Page() {
                         height={80}
                       />
                     </div>
-                    <div className={`pb-6 ml-4 border-b border-solid md:w-464`}>
+                    <div className={`pb-6 ml-4 border-b border-solid lg:w-464`}>
                       <h3
-                        className={`md:text-3xxl text-xl font-normal text-neutral12`}
+                        className={`lg:text-3xxl text-xl font-normal text-neutral12`}
                       >
                         {item.title}
                       </h3>
@@ -283,7 +300,6 @@ export default function Page() {
                       </p>
                     </div>
                   </div>
-
                 ))}
               </div>
             </div>

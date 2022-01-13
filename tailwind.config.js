@@ -28,6 +28,13 @@ module.exports = {
         "1/6": "15%",
       },
       fontSize: {
+        "xxs": [
+          "0.625rem",
+          {
+            lineHeight: "1.125rem",
+            letterSpacing: '-0.02rem',
+          },
+        ],
         "3xxl": [
           "2rem",
           {
@@ -80,6 +87,8 @@ module.exports = {
         "home-banner-mobile": "url(/images/homeBanner-mobile.png)",
         "home-bg": "url(/images/home-bg.png)",
         "home-section4-bg": "url(/images/home-section4-bg.png)",
+        "home-footer": "url(/images/home-footer1.png)",
+        "home-footer-mobile": "url(/images/home-footer1-mobile.png)",
         "404_title": "url(/images/404_title.png)",
       },
       width: {
