@@ -29,7 +29,7 @@ export default function Page() {
       </Head>
       <div>
         <section
-          className={`w-full bg-home-banner maxlg:bg-home-banner-mobile bg-center bg-cover bg-no-repeat lg:flex lg:justify-center lg:py-32`}
+          className={`w-full bg-home-banner maxlg:bg-home-banner-mobile bg-center bg-cover bg-no-repeat lg:flex lg:justify-center lg:py-32 maxlg:pt-32 maxlg:pb-10`}
         >
           <div className={`maxlg:px-4 lg:w-800 xl:w-1122`}>
             <h2
@@ -48,7 +48,7 @@ export default function Page() {
             <div className="lg:hidden mt-6">
               <div className={`${isShowMore ? "hidden" : ""}`}>
                 <h3
-                  className={`hidden text-sm text-white font-roboto leading-snug font-normal mb-3 ${styles.textOverflow}`}
+                  className={`text-sm text-white font-roboto leading-snug font-normal mb-3 ${styles.textOverflow}`}
                 >
                   {HomePageSectionOneData.paragraph1}
                 </h3>
