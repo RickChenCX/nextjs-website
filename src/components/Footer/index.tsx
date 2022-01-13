@@ -75,7 +75,7 @@ export default function Footer() {
             </button>
           </div>
           <p className="text-xs text-neutral7 mb-0 pt-2">You may unsubscribe at any time. For more information please review our
-            <span className="text-neutral12 text-sm">Privacy Policy</span>.
+            <a className="text-neutral12 text-sm">&nbsp;&nbsp;Privacy Policy</a>.
           </p>
           <div className="lg:hidden mt-2 mb-20">
             <button className="border border-solid border-primary w-155 h-10 text-white bg-primary sm:text-sm xs:text-base">

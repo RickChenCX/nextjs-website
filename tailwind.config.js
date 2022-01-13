@@ -90,6 +90,7 @@ module.exports = {
         "home-footer": "url(/images/home-footer1.png)",
         "home-footer-mobile": "url(/images/home-footer1-mobile.png)",
         "404_title": "url(/images/404_title.png)",
+        "login-bg-mobile": "url(/images/login-bg-mobile.png)",
       },
       width: {
         1376: "calc(100vw - 4rem)",
