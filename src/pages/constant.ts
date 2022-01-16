@@ -6,6 +6,36 @@ export const HomePageSectionOneData = {
     "In turn, maximize your business revenue while ensuring accuracy and efficiency.",
 };
 
+export const HomePageSectionTwoData = [
+  {
+    title: "BOSS Flex",
+    content: "A property management and tenant engagement platform for flex & hybrid coworking spaces.",
+    url: "/images/home-section2-1.png",
+    desc: [
+      "Streamlined customer management from leads to move-in",
+      "Scalable deal types & automated processes throughout the contract lifecycle",
+      "Flexible product package set up with configurable rules",
+      "Interactive floor plans with real-time occupancy info",
+      "Automated billing & invoicing with flexible payment options",
+      "Customizable dashboard to maximize business results",
+    ]
+  },
+  {
+    title: "BOSS Tenant Engage",
+    content: "A tenant engagement platform to delight tenants and boost customer satisfaction.",
+    url: "/images/home-section2-2.png",
+    desc: [
+      "White-label tenant app to connect with tenants as a brand",
+      "Real-time room & desk booking across buildings",
+      "Public availability to expand revenue source",
+      "Centralized view of account-based tenants",
+      "Full-spectrum content management system to enrich tenant engagement",
+      "Various add-on service options with flexible payment options",
+    ]
+  }
+]
+
+
 export const SectionTwoBossFlexData = [
   "Streamlined customer management from leads to move-in",
   "Scalable deal types & automated processes throughout the contract lifecycle",
@@ -23,6 +53,18 @@ export const SectionTwoBossTenantEngage = [
   "Full-spectrum content management system to enrich tenant engagement",
   "Various add-on service options with flexible payment options",
 ];
+
+export const HomePageSectionFourData = {
+  images: [
+    {
+      urllList: ["/images/home-section4-lunbo1.png", "/images/home-section4-lunbo2.png", "/images/home-section4-lunbo3.png"]
+    },
+    {
+      urllList: ["/images/home-section4-lunbo4.png", "/images/home-section4-lunbo5.png", "/images/home-section4-lunbo6.png"]
+    }
+  ]
+
+}
 
 export const HomePageSectionFiveData = [
   {

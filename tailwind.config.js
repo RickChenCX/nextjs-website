@@ -21,6 +21,9 @@ module.exports = {
       bgOne: "#F5F5F5",
     }),
     extend: {
+      margin: {
+        120: "7.5rem"
+      },
       inset: {
         119: "7.4375rem",
         90: "5.625rem",
@@ -87,8 +90,10 @@ module.exports = {
         "home-banner-mobile": "url(/images/homeBanner-mobile.png)",
         "home-bg": "url(/images/home-bg.png)",
         "home-section4-bg": "url(/images/home-section4-bg.png)",
-        "home-footer": "url(/images/home-footer1.png)",
-        "home-footer-mobile": "url(/images/home-footer1-mobile.png)",
+        "home-footer": "url(/images/home-footer.png)",
+        "home-footer-mobile": "url(/images/home-footer-mobile.png)",
+        "about-footer": "url(/images/about-footer.png)",
+        "about-footer-mobile": "url(/images/about-footer-mobile.png)",
         "404_title": "url(/images/404_title.png)",
         "login-bg-mobile": "url(/images/login-bg-mobile.png)",
       },
@@ -100,6 +105,7 @@ module.exports = {
         155: "9.6875rem",
         152: "9.5rem",
         300: "18.75rem",
+        420: "26.25rem",
         464: "29rem",
         488: "30.5rem",
         560: "35rem",

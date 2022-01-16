@@ -1,34 +1,94 @@
 import Image from "next/image";
 import { FooterListData } from "./constant";
+import BookFreeDemoButton from './../BookFreeDemoButton';
+import EmailSvg from './../../svgs/email.svg';
+import AddressSvg from './../../svgs/address.svg';
 
-export default function Footer() {
+interface IFooterProps {
+  from?: "homePage" | "aboutPage"
+}
+
+export default function Footer({ from = "homePage" }: IFooterProps) {
   return (
     <footer>
-      <section className="bg-home-footer maxlg:bg-home-footer-mobile flex justify-center lg:py-14 py-10 maxlg:pl-4">
-        <div className={`lg:grid lg:grid-cols-3 lg:gap-28`}>
-          <div className="lg:col-span-2">
-            <h3 className="text-white mb-0 lg:text-5xxl text-3xxl font-light lg:w-560">
-              Ready to get started?
-            </h3>
-            <p className="mb-0 text-base text-neutral7 font-normal lg:w-560">
-              Take the first step to run your workspace business with the
-              leading space management software today.
-            </p>
+      {from === "homePage" ? (
+        <section className="bg-home-footer maxlg:bg-home-footer-mobile flex justify-center lg:py-14 py-10 maxlg:pl-4">
+          <div className={`lg:grid lg:grid-cols-3 lg:gap-28`}>
+            <div className="lg:col-span-2">
+              <h3 className="text-white mb-0 lg:text-5xxl text-3xxl font-light lg:w-560">
+                Ready to get started?
+              </h3>
+              <p className="mb-0 text-base text-neutral7 font-normal lg:w-560">
+                Take the first step to run your workspace business with the
+                leading space management software today.
+              </p>
+            </div>
+            <div className="maxlg:flex maxlg:mt-16">
+              <div className="lg:mb-6 maxlg:mr-2">
+                <BookFreeDemoButton textColor="primary" bgColor="white" />
+              </div>
+              <div>
+                <button className="border border-solid border-white w-152 h-10 text-white lg:text-sm maxlg:text-base">
+                  Contact us
+                </button>
+              </div>
+            </div>
           </div>
-          <div className="maxlg:flex maxlg:mt-16">
-            <div className="lg:mb-6 maxlg:mr-2">
-              <button className="border border-solid border-primary w-155 h-10 text-primary bg-white lg:text-sm maxlg:text-base">
-                Book Free Demo
-              </button>
+        </section>
+      ) : (
+        <section className="bg-about-footer maxlg:bg-about-footer-mobile flex justify-center py-16 maxlg:px-6">
+          <div className={`maxlg:hidden lg:grid lg:grid-cols-2 lg:gap-24`}>
+            <div>
+              <Image
+                src="/images/Map.png"
+                alt="map"
+                width={369}
+                height={282}
+              />
+            </div>
+            <div className="mt-120">
+              <h3 className="text-white mb-0 lg:text-5xxl text-3xxl font-light mb-8">
+                Our Offices
+              </h3>
+              <div>
+                <div className="flex pb-2">
+                  <EmailSvg className="mt-1" />
+                  <div className="text-base text-white font-normal pl-3">contact@reinventventures.com</div>
+                </div>
+                <div className="flex">
+                  <AddressSvg className="mt-1" />
+                  <div className="text-base text-white font-normal pl-3">We are based in Singpore, China and Taiwan.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="lg:hidden">
+            <div>
+              <h3 className="text-white mb-0 lg:text-5xxl text-3xxl font-light">
+                Our Offices
+              </h3>
+              <div className="my-8">
+                <div className="flex pb-2">
+                  <EmailSvg className="mt-1" />
+                  <span className="text-base text-white font-normal pl-3">contact@reinventventures.com</span>
+                </div>
+                <div className="flex">
+                  <AddressSvg className="mt-1" />
+                  <span className="text-base text-white font-normal pl-3">We are based in Singpore, China and Taiwan.</span>
+                </div>
+              </div>
             </div>
             <div>
-              <button className="border border-solid border-white w-152 h-10 text-white lg:text-sm maxlg:text-base">
-                Contact us
-              </button>
+              <Image
+                src="/images/Map-mobile.png"
+                alt="map"
+                width={327}
+                height={250}
+              />
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
       <section className="flex lg:p-8 py-8 px-4">
         <div className="maxlg:hidden">
           <Image

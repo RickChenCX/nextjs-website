@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
@@ -6,18 +6,37 @@ import { PlayCircleOutlined } from "@ant-design/icons";
 import { Carousel } from "antd";
 import Union from "./../svgs/Union.svg";
 import ShowMoreIcon from "./../svgs/add-icon.svg";
+import ArrowBackLeft from "./../svgs/ArrowBack-left.svg"
+import ArrowBackRight from "./../svgs/ArrowBack-right.svg"
+import LearnMoreButton from './../components/LearnMoreButton';
+import BookFreeDemoButton from './../components/BookFreeDemoButton'
+
 import {
   HomePageSectionOneData,
+  HomePageSectionTwoData,
   SectionTwoBossFlexData,
   SectionTwoBossTenantEngage,
+  HomePageSectionFourData,
   HomePageSectionFiveData,
 } from "./constant";
 
 export default function Page() {
   const [isShowMore, setIsShowMore] = useState<boolean>(false);
+  const [isFirstBanner, setIsFirstBanner] = useState<boolean>(true);
+  const carouselRef = useRef(null);
   const handleShowMore = useCallback(() => {
     setIsShowMore(true);
   }, [isShowMore]);
+
+  const handlePrev = useCallback(() => {
+    setIsFirstBanner(true);
+    (carouselRef.current as any)?.prev();
+  }, [])
+
+  const handleNext = useCallback(() => {
+    setIsFirstBanner(false);
+    (carouselRef.current as any)?.next();
+  }, [])
 
   return (
     <div className="w-full h-full">
@@ -54,9 +73,8 @@ export default function Page() {
                 </h3>
               </div>
               <h3
-                className={`${
-                  isShowMore ? "" : "hidden"
-                } text-sm text-white font-roboto leading-snug font-normal mb-3`}
+                className={`${isShowMore ? "" : "hidden"
+                  } text-sm text-white font-roboto leading-snug font-normal mb-3`}
               >
                 {HomePageSectionOneData.paragraph1}
                 <p className="text-sm text-white font-roboto mt-1.5 mb-0">
@@ -78,9 +96,9 @@ export default function Page() {
                 What is BOSS
                 <PlayCircleOutlined className={styles.playIcon} />
               </button>
-              <button className="border border-solid border-white w-152 h-10 text-white lg:text-sm xs:text-base  maxlg:hidden">
-                Book Free Demo
-              </button>
+              <div className="inline-block maxlg:hidden">
+                <BookFreeDemoButton />
+              </div>
             </div>
           </div>
         </section>
@@ -103,114 +121,60 @@ export default function Page() {
               </h3>
             </div>
             <div className="lg:bg-white bg-bgOne grid grid-cols-1 lg:grid-cols-2 maxlg:p-4">
-              <div
-                className={`bg-white box-border border border-solid border-default py-8 maxlg:mb-4`}
-              >
-                <div className={`px-12 maxlg:px-6`}>
-                  <h3
-                    className={`text-center text-primary text-3xxl maxlg:text-2xl pb-2`}
-                  >
-                    BOSS Flex
-                  </h3>
-                  <p
-                    className={`text-center font-roboto text-base text-neutral7 lg:w-max-434`}
-                  >
-                    A property management and tenant engagement platform for
-                    flex & hybrid coworking spaces.
-                  </p>
-                </div>
-                <Image
-                  src="/images/home-section2-1.png"
-                  alt="BOSS Flex"
-                  width={560}
-                  height={320}
-                />
-                <div className={`lg:pl-12 maxlg:p-4 maxlg:mb-8 mb-14`}>
-                  {SectionTwoBossFlexData.map((item, index) => (
-                    <p key={index} className={`mb-0`}>
-                      <Image
-                        src="/images/vector.png"
-                        alt="BOSS Flex"
-                        width={16}
-                        height={13}
-                      />
-                      <span className={`text-base text-neutral12 pb-2 pl-2.5`}>
-                        {item}
-                      </span>
+              {HomePageSectionTwoData.map((item, index1) => (
+                <div
+                  key={index1}
+                  className={`bg-white box-border border border-solid border-default py-8 ${index1 === 0 ? "maxlg:mb-4" : "lg:border-l-0"}`}
+                >
+                  <div className={`px-12 maxlg:px-6`}>
+                    <h3
+                      className={`text-center text-primary text-3xxl maxlg:text-2xl pb-2`}
+                    >
+                      {item.title}
+                    </h3>
+                    <p
+                      className={`text-center font-roboto text-base text-neutral7 lg:w-max-434`}
+                    >
+                      {item.content}
                     </p>
-                  ))}
+                  </div>
+                  <Image
+                    src={item.url}
+                    alt={item.title}
+                    width={560}
+                    height={320}
+                  />
+                  <div className={`lg:px-11 maxlg:p-4 maxlg:mb-8 mb-14`}>
+                    {item.desc.map((item, index2) => (
+                      <div key={index2} className={`mb-0 flex`}>
+                        <div>
+                          <Image
+                            src="/images/vector.png"
+                            alt="vector"
+                            width={16}
+                            height={13}
+                          />
+                        </div>
+                        <span className={`text-base text-neutral12 pb-2 pl-2.5`}>
+                          {item}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex align-center justify-center mb-6 maxlg:hidden">
+                    <BookFreeDemoButton borderColor="primary" bgColor="primary" />
+                  </div>
+                  <div className="lg:flex lg:align-center lg:justify-center maxlg:ml-9">
+                    <LearnMoreButton />
+                  </div>
                 </div>
-                <div className="flex align-center justify-center maxlg:hidden">
-                  <button
-                    className={`border border-solid border-primary w-155 h-10 text-white bg-primary lg:text-sm xs:text-base mb-6`}
-                  >
-                    Book Free Demo
-                  </button>
-                </div>
-                <div className="flex align-center justify-center ">
-                  <span className={`text-primary text-sm text-center`}>
-                    Learn more
-                  </span>
-                  <Union />
-                </div>
-              </div>
-              <div
-                className={`bg-white box-border border lg:border-l-0 border-solid border-default py-8`}
-              >
-                <div className={`px-12 maxlg:px-6`}>
-                  <h3
-                    className={`text-center text-primary text-3xxl maxlg:text-2xl pb-2`}
-                  >
-                    BOSS Tenant Engage
-                  </h3>
-                  <p
-                    className={`text-center font-roboto text-base text-neutral7 lg:w-max-434`}
-                  >
-                    A tenant engagement platform to delight tenants and boost
-                    customer satisfaction.
-                  </p>
-                </div>
-                <Image
-                  src="/images/home-section2-2.png"
-                  alt="BOSS Flex"
-                  width={560}
-                  height={320}
-                />
-                <div className={`lg:pl-12 maxlg:p-4 maxlg:mb-8 mb-14`}>
-                  {SectionTwoBossTenantEngage.map((item, index) => (
-                    <p key={index} className={`mb-0`}>
-                      <Image
-                        src="/images/vector.png"
-                        alt="BOSS Flex"
-                        width={16}
-                        height={13}
-                      />
-                      <span className={`text-base text-neutral12 pb-2 pl-2.5`}>
-                        {item}
-                      </span>
-                    </p>
-                  ))}
-                </div>
-                <div className="flex align-center justify-center maxlg:hidden">
-                  <button
-                    className={`border border-solid border-primary w-155 h-10 text-white bg-primary lg:text-sm xs:text-base mb-6`}
-                  >
-                    Book Free Demo
-                  </button>
-                </div>
-                <div className="flex align-center justify-center ">
-                  <span className={`text-primary text-sm text-center`}>
-                    Learn more
-                  </span>
-                  <Union />
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
         {/* ********************************** */}
         {/* ===== section3 ======= */}
-        <section className={`bg-white lg:mt-16 lg:py-10 lg:px-40 py-10 px-4`}>
+        <section className={`bg-white lg:mt-36 lg:py-10 lg:px-40 py-10 px-4`}>
           <div>
             <p className={`text-xl font-normal mb-4 text-neutral9`}>
               Solutions for you
@@ -239,7 +203,7 @@ export default function Page() {
           <div className="maxmd:hidden">
             <Image
               src="/images/home-section3.png"
-              alt="BOSS Flex"
+              alt="section3"
               width={1140}
               height={675}
             />
@@ -247,50 +211,56 @@ export default function Page() {
           <div className="md:hidden">
             <Image
               src="/images/home-section3-mobile.png"
-              alt="BOSS Flex"
+              alt="section3"
               width={344}
               height={400}
             />
           </div>
         </section>
         {/* ==== section 4 ===== */}
-        <section className={`w-full bg-home-section4-bg`}>
-          <div className={`bg-primary1 py-8 maxlg:px-4`}>
+        <section className={`w-full bg-home-section4-bg pt-12 pb-9`}>
+          <div className={`bg-primary1 pb-8 maxlg:px-4`}>
             <h4 className={`text-white font-roboto text-base lg:text-center`}>
               Highlights
             </h4>
             <h3
               className={`text-white font-roboto lg:text-4xxl text-2xl lg:text-center lg:max-w-882 font-normal maxlg:font-light ${styles.marginAuto}`}
             >
-              Flexibility, scalability and user experience to empower business
-              growth
+              Flexibility, scalability and user experience to empower business growth
             </h3>
           </div>
-          <div>
-            <Carousel>
-              <div>
-                <h3
-                  style={{
-                    height: "160px",
-                    lineHeight: "160px",
-                    textAlign: "center",
-                  }}
-                >
-                  1
-                </h3>
-              </div>
-              <div>
-                <h3
-                  style={{
-                    height: "160px",
-                    lineHeight: "160px",
-                    textAlign: "center",
-                  }}
-                >
-                  2
-                </h3>
-              </div>
+          <div className="maxlg:hidden">
+            <Carousel dots={false} ref={carouselRef}>
+              {HomePageSectionFourData.images.map((item, index1) => (
+                <div key={index1}>
+                  <div className="flex justify-center">
+                    {item.urllList.map((temp, index2) => (
+                      <div key={index2} className={`${index2 !== 0 ? "pl-10" : ""}`}>
+                        <Image
+                          key={index2}
+                          src={temp}
+                          width={322}
+                          height={562}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </Carousel>
+            <div className="flex justify-center pt-8">
+              {isFirstBanner ? (
+                <>
+                  <ArrowBackLeft className="inline-block mr-6" />
+                  <ArrowBackRight className="inline-block cursor-pointer" onClick={handleNext} />
+                </>
+              ) : (
+                <>
+                  <ArrowBackLeft className="inline-block cursor-pointer mr-6" onClick={handlePrev} />
+                  <ArrowBackRight className="inline-block" />
+                </>
+              )}
+            </div>
           </div>
         </section>
         {/* ======= section 5======= */}
@@ -307,11 +277,9 @@ export default function Page() {
                   Competitive software powered by the modern engineering
                   infrastructure
                 </div>
-                <button
-                  className={`lg:mt-28 border border-solid border-primary w-155 h-10 text-white bg-primary lg:text-sm xs:text-base mb-6 maxlg:hidden`}
-                >
-                  Book Free Demo
-                </button>
+                <div className="lg:mt-28 mb-6 maxlg:hidden">
+                  <BookFreeDemoButton borderColor="primary" bgColor="primary" />
+                </div>
               </div>
               <div className={`text-base maxlg:pt-8 `}>
                 {HomePageSectionFiveData.map((item, index) => (
@@ -322,7 +290,7 @@ export default function Page() {
                     <div>
                       <Image
                         src={item.url}
-                        alt="BOSS Flex"
+                        alt=""
                         width={80}
                         height={80}
                       />
@@ -344,13 +312,22 @@ export default function Page() {
           </div>
         </section>
         <section className="flex justify-center align-bottom">
-          <Image
-            src="/images/breakImage.png"
-            alt="BOSS Flex"
-            layout="intrinsic"
-            width={1440}
-            height={480}
-          />
+          <div className="maxmd:hidden flex">
+            <Image
+              src="/images/breakImage.png"
+              alt=""
+              width={1440}
+              height={480}
+            />
+          </div>
+          <div className="md:hidden flex">
+            <Image
+              src="/images/breakImage-mobile.png"
+              alt=""
+              width={375}
+              height={125}
+            />
+          </div>
         </section>
       </main>
     </div>
