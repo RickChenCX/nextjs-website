@@ -18,12 +18,18 @@ export default function BookFreeDemoButton({
           border border-solid w-152 h-10 
           ${textColor == "white" ? "text-white" : "text-primary"}
           ${borderColor === "white" ? "border-white" : "border-primary"}
-          ${bgColor === "default" ? "" : (bgColor === "white" ? "bg-white" : "bg-primary")}
+          ${
+            bgColor === "default"
+              ? ""
+              : bgColor === "white"
+              ? "bg-white"
+              : "bg-primary"
+          }
           lg:text-sm xs:text-base
         `}
       >
         Book Free Demo
       </button>
-    </Link >
-  )
+    </Link>
+  );
 }

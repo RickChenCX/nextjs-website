@@ -6,10 +6,10 @@ import { PlayCircleOutlined } from "@ant-design/icons";
 import { Carousel } from "antd";
 import Union from "./../svgs/Union.svg";
 import ShowMoreIcon from "./../svgs/add-icon.svg";
-import ArrowBackLeft from "./../svgs/ArrowBack-left.svg"
-import ArrowBackRight from "./../svgs/ArrowBack-right.svg"
-import LearnMoreButton from './../components/LearnMoreButton';
-import BookFreeDemoButton from './../components/BookFreeDemoButton'
+import ArrowBackLeft from "./../svgs/ArrowBack-left.svg";
+import ArrowBackRight from "./../svgs/ArrowBack-right.svg";
+import LearnMoreButton from "./../components/LearnMoreButton";
+import BookFreeDemoButton from "./../components/BookFreeDemoButton";
 
 import {
   HomePageSectionOneData,
@@ -31,12 +31,12 @@ export default function Page() {
   const handlePrev = useCallback(() => {
     setIsFirstBanner(true);
     (carouselRef.current as any)?.prev();
-  }, [])
+  }, []);
 
   const handleNext = useCallback(() => {
     setIsFirstBanner(false);
     (carouselRef.current as any)?.next();
-  }, [])
+  }, []);
 
   return (
     <div className="w-full h-full">
@@ -73,8 +73,9 @@ export default function Page() {
                 </h3>
               </div>
               <h3
-                className={`${isShowMore ? "" : "hidden"
-                  } text-sm text-white font-roboto leading-snug font-normal mb-3`}
+                className={`${
+                  isShowMore ? "" : "hidden"
+                } text-sm text-white font-roboto leading-snug font-normal mb-3`}
               >
                 {HomePageSectionOneData.paragraph1}
                 <p className="text-sm text-white font-roboto mt-1.5 mb-0">
@@ -124,7 +125,9 @@ export default function Page() {
               {HomePageSectionTwoData.map((item, index1) => (
                 <div
                   key={index1}
-                  className={`bg-white box-border border border-solid border-default py-8 ${index1 === 0 ? "maxlg:mb-4" : "lg:border-l-0"}`}
+                  className={`bg-white box-border border border-solid border-default py-8 ${
+                    index1 === 0 ? "maxlg:mb-4" : "lg:border-l-0"
+                  }`}
                 >
                   <div className={`px-12 maxlg:px-6`}>
                     <h3
@@ -155,14 +158,19 @@ export default function Page() {
                             height={13}
                           />
                         </div>
-                        <span className={`text-base text-neutral12 pb-2 pl-2.5`}>
+                        <span
+                          className={`text-base text-neutral12 pb-2 pl-2.5`}
+                        >
                           {item}
                         </span>
                       </div>
                     ))}
                   </div>
                   <div className="flex align-center justify-center mb-6 maxlg:hidden">
-                    <BookFreeDemoButton borderColor="primary" bgColor="primary" />
+                    <BookFreeDemoButton
+                      borderColor="primary"
+                      bgColor="primary"
+                    />
                   </div>
                   <div className="lg:flex lg:align-center lg:justify-center maxlg:ml-9">
                     <LearnMoreButton />
@@ -226,7 +234,8 @@ export default function Page() {
             <h3
               className={`text-white font-roboto lg:text-4xxl text-2xl lg:text-center lg:max-w-882 font-normal maxlg:font-light ${styles.marginAuto}`}
             >
-              Flexibility, scalability and user experience to empower business growth
+              Flexibility, scalability and user experience to empower business
+              growth
             </h3>
           </div>
           <div className="maxlg:hidden">
@@ -235,7 +244,10 @@ export default function Page() {
                 <div key={index1}>
                   <div className="flex justify-center">
                     {item.urllList.map((temp, index2) => (
-                      <div key={index2} className={`${index2 !== 0 ? "pl-10" : ""}`}>
+                      <div
+                        key={index2}
+                        className={`${index2 !== 0 ? "pl-10" : ""}`}
+                      >
                         <Image
                           key={index2}
                           src={temp}
@@ -252,11 +264,17 @@ export default function Page() {
               {isFirstBanner ? (
                 <>
                   <ArrowBackLeft className="inline-block mr-6" />
-                  <ArrowBackRight className="inline-block cursor-pointer" onClick={handleNext} />
+                  <ArrowBackRight
+                    className="inline-block cursor-pointer"
+                    onClick={handleNext}
+                  />
                 </>
               ) : (
                 <>
-                  <ArrowBackLeft className="inline-block cursor-pointer mr-6" onClick={handlePrev} />
+                  <ArrowBackLeft
+                    className="inline-block cursor-pointer mr-6"
+                    onClick={handlePrev}
+                  />
                   <ArrowBackRight className="inline-block" />
                 </>
               )}
@@ -288,12 +306,7 @@ export default function Page() {
                     className={`flex  ${index < 3 ? "mb-6" : ""}`}
                   >
                     <div>
-                      <Image
-                        src={item.url}
-                        alt=""
-                        width={80}
-                        height={80}
-                      />
+                      <Image src={item.url} alt="" width={80} height={80} />
                     </div>
                     <div className={`pb-6 ml-4 border-b border-solid lg:w-464`}>
                       <h3

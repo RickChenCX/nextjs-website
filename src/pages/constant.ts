@@ -9,7 +9,8 @@ export const HomePageSectionOneData = {
 export const HomePageSectionTwoData = [
   {
     title: "BOSS Flex",
-    content: "A property management and tenant engagement platform for flex & hybrid coworking spaces.",
+    content:
+      "A property management and tenant engagement platform for flex & hybrid coworking spaces.",
     url: "/images/home-section2-1.png",
     desc: [
       "Streamlined customer management from leads to move-in",
@@ -18,11 +19,12 @@ export const HomePageSectionTwoData = [
       "Interactive floor plans with real-time occupancy info",
       "Automated billing & invoicing with flexible payment options",
       "Customizable dashboard to maximize business results",
-    ]
+    ],
   },
   {
     title: "BOSS Tenant Engage",
-    content: "A tenant engagement platform to delight tenants and boost customer satisfaction.",
+    content:
+      "A tenant engagement platform to delight tenants and boost customer satisfaction.",
     url: "/images/home-section2-2.png",
     desc: [
       "White-label tenant app to connect with tenants as a brand",
@@ -31,10 +33,9 @@ export const HomePageSectionTwoData = [
       "Centralized view of account-based tenants",
       "Full-spectrum content management system to enrich tenant engagement",
       "Various add-on service options with flexible payment options",
-    ]
-  }
-]
-
+    ],
+  },
+];
 
 export const SectionTwoBossFlexData = [
   "Streamlined customer management from leads to move-in",
@@ -57,14 +58,21 @@ export const SectionTwoBossTenantEngage = [
 export const HomePageSectionFourData = {
   images: [
     {
-      urllList: ["/images/home-section4-lunbo1.png", "/images/home-section4-lunbo2.png", "/images/home-section4-lunbo3.png"]
+      urllList: [
+        "/images/home-section4-lunbo1.png",
+        "/images/home-section4-lunbo2.png",
+        "/images/home-section4-lunbo3.png",
+      ],
     },
     {
-      urllList: ["/images/home-section4-lunbo4.png", "/images/home-section4-lunbo5.png", "/images/home-section4-lunbo6.png"]
-    }
-  ]
-
-}
+      urllList: [
+        "/images/home-section4-lunbo4.png",
+        "/images/home-section4-lunbo5.png",
+        "/images/home-section4-lunbo6.png",
+      ],
+    },
+  ],
+};
 
 export const HomePageSectionFiveData = [
   {

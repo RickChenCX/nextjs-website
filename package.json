@@ -6,6 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "prettier:check": "prettier -c \"src/**/*.{ts,tsx,js,jsx,scss,md}\"",
+    "prettier:fix": "prettier -c --write \"src/**/*.{ts,tsx,js,jsx,scss,md}\"",
     "prepare": "husky install"
   },
   "dependencies": {

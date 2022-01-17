@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { FooterListData } from "./constant";
-import BookFreeDemoButton from './../BookFreeDemoButton';
-import EmailSvg from './../../svgs/email.svg';
-import AddressSvg from './../../svgs/address.svg';
+import BookFreeDemoButton from "./../BookFreeDemoButton";
+import EmailSvg from "./../../svgs/email.svg";
+import AddressSvg from "./../../svgs/address.svg";
 
 interface IFooterProps {
-  from?: "homePage" | "aboutPage"
+  from?: "homePage" | "aboutPage";
 }
 
 export default function Footer({ from = "homePage" }: IFooterProps) {
@@ -39,12 +39,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
         <section className="bg-about-footer maxlg:bg-about-footer-mobile flex justify-center py-16 maxlg:px-6">
           <div className={`maxlg:hidden lg:grid lg:grid-cols-2 lg:gap-24`}>
             <div>
-              <Image
-                src="/images/Map.png"
-                alt="map"
-                width={369}
-                height={282}
-              />
+              <Image src="/images/Map.png" alt="map" width={369} height={282} />
             </div>
             <div className="mt-120">
               <h3 className="text-white mb-0 lg:text-5xxl text-3xxl font-light mb-8">
@@ -53,11 +48,15 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
               <div>
                 <div className="flex pb-2">
                   <EmailSvg className="mt-1" />
-                  <div className="text-base text-white font-normal pl-3">contact@reinventventures.com</div>
+                  <div className="text-base text-white font-normal pl-3">
+                    contact@reinventventures.com
+                  </div>
                 </div>
                 <div className="flex">
                   <AddressSvg className="mt-1" />
-                  <div className="text-base text-white font-normal pl-3">We are based in Singpore, China and Taiwan.</div>
+                  <div className="text-base text-white font-normal pl-3">
+                    We are based in Singpore, China and Taiwan.
+                  </div>
                 </div>
               </div>
             </div>
@@ -70,11 +69,15 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
               <div className="my-8">
                 <div className="flex pb-2">
                   <EmailSvg className="mt-1" />
-                  <span className="text-base text-white font-normal pl-3">contact@reinventventures.com</span>
+                  <span className="text-base text-white font-normal pl-3">
+                    contact@reinventventures.com
+                  </span>
                 </div>
                 <div className="flex">
                   <AddressSvg className="mt-1" />
-                  <span className="text-base text-white font-normal pl-3">We are based in Singpore, China and Taiwan.</span>
+                  <span className="text-base text-white font-normal pl-3">
+                    We are based in Singpore, China and Taiwan.
+                  </span>
                 </div>
               </div>
             </div>
