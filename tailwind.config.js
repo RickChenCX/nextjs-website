@@ -22,7 +22,7 @@ module.exports = {
     }),
     extend: {
       margin: {
-        120: "7.5rem"
+        120: "7.5rem",
       },
       inset: {
         119: "7.4375rem",
@@ -31,6 +31,12 @@ module.exports = {
         "1/6": "15%",
       },
       fontSize: {
+        "text-sml": [
+          "0.875rem",
+          {
+            lineHeight: "1.375rem",
+          },
+        ],
         xxs: [
           "0.625rem",
           {
@@ -79,6 +85,9 @@ module.exports = {
         borderColor: "#ccc",
         bg1: "#fafafa",
       },
+      borderColor: {
+        neutral5: "#D9D9D9",
+      },
       rotate: {
         135: "135deg",
       },
@@ -95,6 +104,8 @@ module.exports = {
         "about-footer": "url(/images/about-footer.png)",
         "about-footer-mobile": "url(/images/about-footer-mobile.png)",
         "404_title": "url(/images/404_title.png)",
+        "flex-pc": "url('/images/flexBannerPc.png')",
+        "flex-mobile": "url('/images/flexBannerMobile.png')",
         "login-bg-mobile": "url(/images/login-bg-mobile.png)",
       },
       width: {
@@ -105,30 +116,41 @@ module.exports = {
         155: "9.6875rem",
         152: "9.5rem",
         300: "18.75rem",
+        420: "26.25rem",
         464: "29rem",
         488: "30.5rem",
         560: "35rem",
         944: "59rem",
+        447: "27.93rem",
+        455: "28.44rem",
+        263: "16.44rem",
       },
       maxWidth: {
         1440: "90rem",
+        1095: "calc(100vw - 21.56rem)",
         1056: "66rem",
         882: "55.125rem",
         642: "40.125rem",
         464: "29rem",
         434: "27.125rem",
-        432: "27rem",
         343: "21.4375rem",
-        290: "18.125rem",
         270: "16.875rem",
         172: "10.75rem",
       },
       height: {
         54: "calc(100vh - 54px)",
+        300: "18.75rem",
+        336: "21rem",
         600: "37.5rem",
         620: "38.75rem",
         685: "42.8125rem",
         1035: "64.6875rem",
+      },
+      padding: {
+        18: "4.5rem",
+        25: "6.25rem",
+        26: "6.5rem",
+        89: "21.56rem",
       },
       backgroundSize: {
         "100%": "100%",

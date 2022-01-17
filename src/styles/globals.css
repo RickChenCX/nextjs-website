@@ -26,3 +26,21 @@ a {
 ul {
   list-style-type: none;
 }
+h1,h2,h3,h4,h5{
+  margin-bottom: 0px !important;
+}
+.ant-carousel ul{
+  height: 8px !important;
+}
+.ant-carousel li{
+  width: 8px !important;
+  height: 8px !important;
+  background: #D9D9D9 !important;
+  border-radius: 50% !important;
+}
+.ant-carousel li button{
+  width: 8px !important;
+  height: 8px !important;
+  background: #5528FF !important;
+  border-radius: 50% !important;
+}
