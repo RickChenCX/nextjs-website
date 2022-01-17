@@ -3,6 +3,7 @@ import { FooterListData } from "./constant";
 import BookFreeDemoButton from "./../BookFreeDemoButton";
 import EmailSvg from "./../../svgs/email.svg";
 import AddressSvg from "./../../svgs/address.svg";
+import { Input } from 'antd';
 
 interface IFooterProps {
   from?: "homePage" | "aboutPage";
@@ -134,12 +135,8 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
             news, upcoming webinars, and eBooks.
           </p>
           <div className="flex border-b border-solid pb-2 lg:w-488">
-            <div className="lg:w-80 mr-2.5">
-              <input
-                type="text"
-                placeholder="Enter your business email"
-                style={{ width: "100%", border: "none" }}
-              />
+            <div className="lg:w-80 w-full mr-2.5 mt-2">
+              <Input placeholder="Enter your business email" style={{ width: "100%", border: "none" }} />
             </div>
             <button className="maxlg:hidden border border-solid border-primary w-155 h-10 text-white bg-primary sm:text-sm xs:text-base">
               Subscribe

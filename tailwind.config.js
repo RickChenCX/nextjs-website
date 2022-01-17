@@ -95,8 +95,8 @@ module.exports = {
         roboto: ["Roboto"],
       },
       backgroundImage: {
-        "home-banner": "url(/images/homeBanner.png)",
-        "home-banner-mobile": "url(/images/homeBanner-mobile.png)",
+        "home-banner": "url(/images/homeBanner.jpeg)",
+        "home-banner-mobile": "url(/images/homeBanner-mobile.jpeg)",
         "home-bg": "url(/images/home-bg.png)",
         "home-section4-bg": "url(/images/home-section4-bg.png)",
         "home-footer": "url(/images/home-footer.png)",
