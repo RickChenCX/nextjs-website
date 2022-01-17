@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 import Image from "next/image";
 // import { PlayCircleOutlined } from "@ant-design/icons";
 import { Carousel } from "antd";
+import { Carousel as CarouselMobile, WingBlank } from 'antd-mobile';
 import ShowMoreIcon from "./../svgs/add-icon.svg";
 import ArrowBackLeft from "./../svgs/ArrowBack-left.svg";
 import ArrowBackRight from "./../svgs/ArrowBack-right.svg";
@@ -71,9 +72,8 @@ export default function Page() {
                 </h3>
               </div>
               <h3
-                className={`${
-                  isShowMore ? "" : "hidden"
-                } text-sm text-white font-roboto leading-snug font-normal mb-3`}
+                className={`${isShowMore ? "" : "hidden"
+                  } text-sm text-white font-roboto leading-snug font-normal mb-3`}
               >
                 {HomePageSectionOneData.paragraph1}
                 <p className="text-sm text-white font-roboto mt-1.5 mb-0">
@@ -124,9 +124,8 @@ export default function Page() {
               {HomePageSectionTwoData.map((item, index1) => (
                 <div
                   key={index1}
-                  className={`bg-white box-border border border-solid border-default py-8 ${
-                    index1 === 0 ? "maxlg:mb-4" : "lg:border-l-0"
-                  }`}
+                  className={`bg-white box-border border border-solid border-default py-8 ${index1 === 0 ? "maxlg:mb-4" : "lg:border-l-0"
+                    }`}
                 >
                   <div className={`px-12 maxlg:px-6`}>
                     <h3
@@ -278,7 +277,32 @@ export default function Page() {
               )}
             </div>
           </div>
-          <div className="lg:hidden"></div>
+          <div className="lg:hidden">
+            {/* <Carousel>
+              {HomePageSectionFourData.mobileImages.map((item, index) => (
+                <div key={index}>
+                  <div className="flex justify-center">
+                    <Image
+                      src={item}
+                      width={272}
+                      height={458}
+                    />
+                  </div>
+                </div>
+              ))}
+            </Carousel> */}
+            <CarouselMobile cellSpacing={8} slideWidth={0.8} className={`${styles.carouselMobile}`}>
+              {HomePageSectionFourData.mobileImages.map((item, index) => (
+                <div key={index}>
+                  <Image
+                    src={item}
+                    width={272}
+                    height={458}
+                  />
+                </div>
+              ))}
+            </CarouselMobile>
+          </div>
         </section>
         {/* ===== section5 ======= */}
         <section className={`w-full lg:py-10 lg:px-40 py-10 px-4`}>

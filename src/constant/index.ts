@@ -54,6 +54,14 @@ export const HomePageSectionFourData = {
       ],
     },
   ],
+  mobileImages: [
+    "/images/home-section4-lunbo1.png",
+    "/images/home-section4-lunbo1.png",
+    "/images/home-section4-lunbo1.png",
+    "/images/home-section4-lunbo1.png",
+    "/images/home-section4-lunbo1.png",
+    "/images/home-section4-lunbo1.png"
+  ]
 };
 
 export const HomePageSectionFiveData = [
