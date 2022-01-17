@@ -15,7 +15,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
         <section className="bg-home-footer maxlg:bg-home-footer-mobile flex justify-center lg:py-14 py-10 maxlg:pl-4">
           <div className={`lg:grid lg:grid-cols-3 lg:gap-28`}>
             <div className="lg:col-span-2">
-              <h3 className="text-white mb-0 lg:text-5xxl text-3xxl font-light lg:w-560">
+              <h3 className="text-white mb-0 lg:text-5xxl text-3xxl font-light lg:w-560 pb-2 xs:max-w-168">
                 Ready to get started?
               </h3>
               <p className="mb-0 text-base text-neutral7 font-normal lg:w-560">
@@ -23,12 +23,12 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
                 leading space management software today.
               </p>
             </div>
-            <div className="maxlg:flex maxlg:mt-16">
+            <div className="maxlg:flex maxlg:mt-16 lg:mt-4">
               <div className="lg:mb-6 maxlg:mr-2">
                 <BookFreeDemoButton textColor="primary" bgColor="white" />
               </div>
               <div>
-                <button className="border border-solid border-white w-152 h-10 text-white lg:text-sm maxlg:text-base">
+                <button className="border border-solid border-white lg:w-152 w-118 h-10 text-white lg:text-sm maxlg:text-base">
                   Contact us
                 </button>
               </div>
@@ -128,7 +128,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
           </div>
         </div>
         <div>
-          <h3 className="mb-0 text-neutral12 text-2xl">Newsletter</h3>
+          <h3 className="mb-0 text-neutral12 text-2xl pb-2">Newsletter</h3>
           <p className="mb-0 text-neutral12 text-sm pb-12 lg:w-488">
             Stay up to date with coworking insights, feature highlights, company
             news, upcoming webinars, and eBooks.

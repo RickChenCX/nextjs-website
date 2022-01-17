@@ -44,3 +44,7 @@ h1,h2,h3,h4,h5{
   background: #5528FF !important;
   border-radius: 50% !important;
 }
+
+.am-carousel .slider-decorator-0{
+  bottom: -24px !important;
+}

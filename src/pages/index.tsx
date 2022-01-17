@@ -4,7 +4,7 @@ import styles from "../styles/Home.module.css";
 import Image from "next/image";
 // import { PlayCircleOutlined } from "@ant-design/icons";
 import { Carousel } from "antd";
-import { Carousel as CarouselMobile, WingBlank } from 'antd-mobile';
+import { Carousel as CarouselMobile, WingBlank } from "antd-mobile";
 import ShowMoreIcon from "./../svgs/add-icon.svg";
 import ArrowBackLeft from "./../svgs/ArrowBack-left.svg";
 import ArrowBackRight from "./../svgs/ArrowBack-right.svg";
@@ -55,37 +55,38 @@ export default function Page() {
             >
               {HomePageSectionOneData.title}
             </h2>
-            <h3
+            <div
               className={`maxlg:hidden text-sm text-white font-roboto my-6 leading-snug font-normal lg:max-w-1056`}
             >
               {HomePageSectionOneData.paragraph1}
               <p className="text-sm text-white font-roboto mt-1.5 mb-0">
                 {HomePageSectionOneData.paragraph2}
               </p>
-            </h3>
+            </div>
             <div className="lg:hidden mt-6">
               <div className={`${isShowMore ? "hidden" : ""}`}>
-                <h3
+                <div
                   className={`text-sm text-white font-roboto leading-snug font-normal mb-3 ${styles.textOverflow}`}
                 >
                   {HomePageSectionOneData.paragraph1}
-                </h3>
+                </div>
               </div>
-              <h3
-                className={`${isShowMore ? "" : "hidden"
-                  } text-sm text-white font-roboto leading-snug font-normal mb-3`}
+              <div
+                className={`${
+                  isShowMore ? "" : "hidden"
+                } text-sm text-white font-roboto leading-snug font-normal mb-3`}
               >
                 {HomePageSectionOneData.paragraph1}
                 <p className="text-sm text-white font-roboto mt-1.5 mb-0">
                   {HomePageSectionOneData.paragraph2}
                 </p>
-              </h3>
+              </div>
               <button
                 className={`${isShowMore ? "hidden" : ""} text-white text-sm`}
                 onClick={handleShowMore}
               >
-                <span className="float-left pr-1.5">Show More</span>
-                <ShowMoreIcon className="mt-1" />
+                <span className="pr-1.5">Show More</span>
+                <ShowMoreIcon className="inline-block" />
               </button>
             </div>
             <div>
@@ -106,11 +107,13 @@ export default function Page() {
       <main className={`max-w-1440 h-full ${styles.marginAuto}`}>
         {/* ===== section2 ======= */}
         <section
-          className={`w-full flex justify-center lg:bg-home-bg lg:h-1035`}
+          className={`w-full flex justify-center lg:bg-home-bg lg:h-1104`}
         >
           <div className={`lg:mt-14 lg:w-1122`}>
             <div className={`bg-primary1 py-8`}>
-              <h4 className={`text-white font-roboto text-base text-center`}>
+              <h4
+                className={`text-white font-roboto text-base text-center pb-2`}
+              >
                 Products
               </h4>
               <h3
@@ -124,10 +127,11 @@ export default function Page() {
               {HomePageSectionTwoData.map((item, index1) => (
                 <div
                   key={index1}
-                  className={`bg-white box-border border border-solid border-default py-8 ${index1 === 0 ? "maxlg:mb-4" : "lg:border-l-0"
-                    }`}
+                  className={`bg-white box-border border border-solid border-default py-8 ${
+                    index1 === 0 ? "maxlg:mb-4" : "lg:border-l-0"
+                  }`}
                 >
-                  <div className={`px-12 maxlg:px-6`}>
+                  <div className={`px-12 maxlg:px-4`}>
                     <h3
                       className={`text-center text-primary text-3xxl maxlg:text-2xl pb-2`}
                     >
@@ -139,13 +143,17 @@ export default function Page() {
                       {item.content}
                     </p>
                   </div>
-                  <Image
-                    src={item.url}
-                    alt={item.title}
-                    width={560}
-                    height={320}
-                  />
-                  <div className={`lg:px-11 maxlg:p-4 maxlg:mb-8 mb-14`}>
+                  <div className="flex justify-center">
+                    <Image
+                      src={item.url}
+                      alt={item.title}
+                      width={560}
+                      height={320}
+                    />
+                  </div>
+                  <div
+                    className={`lg:px-11 maxlg:p-4 maxlg:pb-0 maxlg:mb-8 mb-14`}
+                  >
                     {item.desc.map((item, index2) => (
                       <div key={index2} className={`mb-0 flex`}>
                         <div>
@@ -157,7 +165,7 @@ export default function Page() {
                           />
                         </div>
                         <div
-                          className={`text-base text-neutral12 pb-2 pl-2.5 max-w-432 maxlg:max-w-290`}
+                          className={`text-base text-neutral12 pb-2 pl-2.5 max-w-434 maxmd:max-w-290`}
                         >
                           {item}
                         </div>
@@ -179,20 +187,24 @@ export default function Page() {
           </div>
         </section>
         {/* ===== section3 ======= */}
-        <section className={`bg-white lg:mt-36 lg:py-10 lg:px-40 py-10 px-4`}>
+        <section
+          className={`bg-white lg:mt-20 lg:py-10 xl:px-40 lg:px-24 py-10 px-4`}
+        >
           <div>
             <p className={`text-xl font-normal mb-4 text-neutral9`}>
               Solutions for you
             </p>
             <div
-              className={`lg:grid lg:grid-cols-2 border-b border-solid pb-6 border-borderColor`}
+              className={`lg:grid lg:grid-cols-2 lg:gap-16 lg:relative border-b border-solid pb-6 border-borderColor`}
             >
               <div
                 className={`lg:text-5xxl text-xl font-roboto font-light lg:max-w-642 max-w-172 italic`}
               >
                 Revolutionizing Flex & Hybrid Workspace Management & Business
               </div>
-              <div className={`lg:pt-16 lg:pl-12 pt-6 text-base max-w-464`}>
+              <div
+                className={`lg:pt-16 pt-6 text-base max-w-464 lg:absolute bottom-6 right-0`}
+              >
                 <p className="font-light">
                   Revolutionize your end-to-end customer journey management —
                   starting all the way from leads acquisition, contract approval
@@ -223,9 +235,13 @@ export default function Page() {
           </div>
         </section>
         {/* ===== section4 ======= */}
-        <section className={`w-full bg-home-section4-bg pt-12 pb-9`}>
-          <div className={`bg-primary1 pb-8 maxlg:px-4`}>
-            <h4 className={`text-white font-roboto text-base lg:text-center`}>
+        <section
+          className={`w-full bg-home-section4-bg pt-12 maxlg:pt-10 pb-9`}
+        >
+          <div className={`bg-primary1 pb-8 lg:pb-16 maxlg:px-4`}>
+            <h4
+              className={`text-white font-roboto text-base lg:text-center pb-2`}
+            >
               Highlights
             </h4>
             <h3
@@ -278,30 +294,20 @@ export default function Page() {
             </div>
           </div>
           <div className="lg:hidden">
-            {/* <Carousel>
-              {HomePageSectionFourData.mobileImages.map((item, index) => (
-                <div key={index}>
-                  <div className="flex justify-center">
-                    <Image
-                      src={item}
-                      width={272}
-                      height={458}
-                    />
+            <div>
+              <CarouselMobile
+                cellSpacing={16}
+                slideWidth="271px"
+                autoplay
+                infinite
+              >
+                {HomePageSectionFourData.mobileImages.map((item, index) => (
+                  <div key={index}>
+                    <Image src={item} width={272} height={458} />
                   </div>
-                </div>
-              ))}
-            </Carousel> */}
-            <CarouselMobile cellSpacing={8} slideWidth={0.8} className={`${styles.carouselMobile}`}>
-              {HomePageSectionFourData.mobileImages.map((item, index) => (
-                <div key={index}>
-                  <Image
-                    src={item}
-                    width={272}
-                    height={458}
-                  />
-                </div>
-              ))}
-            </CarouselMobile>
+                ))}
+              </CarouselMobile>
+            </div>
           </div>
         </section>
         {/* ===== section5 ======= */}
@@ -310,15 +316,15 @@ export default function Page() {
             <p className={`text-xl font-normal mb-4 text-neutral9`}>
               Technology
             </p>
-            <div className={`lg:grid lg:grid-cols-2`}>
+            <div className={`lg:grid lg:grid-cols-2 lg:gap-10 `}>
               <div>
                 <div
-                  className={`lg:text-5xxl text-xl font-roboto font-light lg:max-w-464 max-w-270 italic`}
+                  className={`lg:text-5xxl text-xl font-roboto font-light lg:max-w-500 max-w-270 italic`}
                 >
-                  Competitive software powered by the modern engineering
-                  infrastructure
+                  The most intelligent software powered by modern IT
+                  Infrastructure
                 </div>
-                <div className="lg:mt-28 mb-6 maxlg:hidden">
+                <div className="lg:mt-28 maxlg:hidden">
                   <BookFreeDemoButton borderColor="primary" bgColor="primary" />
                 </div>
               </div>
