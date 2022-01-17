@@ -16,17 +16,38 @@ module.exports = {
       maxlg: { max: "1023px" },
       ...defaultTheme.screens,
     },
+    backgroundColor: (theme) => ({
+      ...theme("colors"),
+      bgOne: "#F5F5F5",
+    }),
     extend: {
+      margin: {
+        120: "7.5rem"
+      },
       inset: {
         119: "7.4375rem",
+        90: "5.625rem",
         "1/10": "10%",
         "1/6": "15%",
       },
       fontSize: {
+        xxs: [
+          "0.625rem",
+          {
+            lineHeight: "1.125rem",
+            letterSpacing: "-0.02rem",
+          },
+        ],
         "3xxl": [
           "2rem",
           {
             lineHeight: "2.5rem",
+          },
+        ],
+        "4xxl": [
+          "2.5rem",
+          {
+            lineHeight: "2.875rem",
           },
         ],
         "5xxl": [
@@ -47,12 +68,15 @@ module.exports = {
       },
       colors: {
         primary: "#5528FF",
+        primary1: "#4C18DB",
         grayLine: "#CCCCCC",
         neutral5: "#D9D9D9",
+        neutral8: "#595959",
         neutral12: "#0D0D0D",
         neutral9: "#404040",
         neutral7: "#7F7F7F",
         neutral10: "#2C2C2C",
+        borderColor: "#ccc",
         bg1: "#fafafa",
       },
       rotate: {
@@ -62,25 +86,48 @@ module.exports = {
         roboto: ["Roboto"],
       },
       backgroundImage: {
-        "home-banner": "url('./src/images/homeBanner.png)",
-        "home-bg": "url('/public/home-bg.png')",
+        "home-banner": "url(/images/homeBanner.png)",
+        "home-banner-mobile": "url(/images/homeBanner-mobile.png)",
+        "home-bg": "url(/images/home-bg.png)",
+        "home-section4-bg": "url(/images/home-section4-bg.png)",
+        "home-footer": "url(/images/home-footer.png)",
+        "home-footer-mobile": "url(/images/home-footer-mobile.png)",
+        "about-footer": "url(/images/about-footer.png)",
+        "about-footer-mobile": "url(/images/about-footer-mobile.png)",
         "404_title": "url(/images/404_title.png)",
+        "login-bg-mobile": "url(/images/login-bg-mobile.png)",
       },
       width: {
         1376: "calc(100vw - 4rem)",
+        1122: "70.125rem",
         916: "57.25rem",
+        800: "50rem",
         155: "9.6875rem",
         152: "9.5rem",
         300: "18.75rem",
+        420: "26.25rem",
+        464: "29rem",
+        488: "30.5rem",
+        560: "35rem",
         944: "59rem",
       },
       maxWidth: {
         1440: "90rem",
+        1056: "66rem",
+        882: "55.125rem",
+        642: "40.125rem",
+        464: "29rem",
+        434: "27.125rem",
+        343: "21.4375rem",
+        270: "16.875rem",
+        172: "10.75rem",
       },
       height: {
         54: "calc(100vh - 54px)",
         600: "37.5rem",
+        620: "38.75rem",
         685: "42.8125rem",
+        1035: "64.6875rem",
       },
       backgroundSize: {
         "100%": "100%",
