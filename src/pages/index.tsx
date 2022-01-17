@@ -2,9 +2,8 @@ import { useState, useCallback, useRef } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
-import { PlayCircleOutlined } from "@ant-design/icons";
+// import { PlayCircleOutlined } from "@ant-design/icons";
 import { Carousel } from "antd";
-import Union from "./../svgs/Union.svg";
 import ShowMoreIcon from "./../svgs/add-icon.svg";
 import ArrowBackLeft from "./../svgs/ArrowBack-left.svg";
 import ArrowBackRight from "./../svgs/ArrowBack-right.svg";
@@ -45,6 +44,7 @@ export default function Page() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <div>
+        {/* ===== section1 ======= */}
         <section
           className={`w-full bg-home-banner maxlg:bg-home-banner-mobile bg-center bg-cover bg-no-repeat lg:flex lg:justify-center lg:py-32 maxlg:pt-32 maxlg:pb-10`}
         >
@@ -89,21 +89,22 @@ export default function Page() {
               </button>
             </div>
             <div>
-              <button
+              {/* 查看视频的按钮暂时隐藏，等下一sprint */}
+              {/* <button
                 className={`border border-solid border-primary w-155 h-10 mr-4 text-white bg-primary lg:text-sm xs:text-base maxlg:mt-32`}
               >
                 What is BOSS
                 <PlayCircleOutlined className={styles.playIcon} />
-              </button>
+              </button> */}
               <div className="inline-block maxlg:hidden">
-                <BookFreeDemoButton />
+                <BookFreeDemoButton bgColor="primary" borderColor="primary" />
               </div>
             </div>
           </div>
         </section>
       </div>
       <main className={`max-w-1440 h-full ${styles.marginAuto}`}>
-        {/* ********************************** */}
+        {/* ===== section2 ======= */}
         <section
           className={`w-full flex justify-center lg:bg-home-bg lg:h-1035`}
         >
@@ -156,11 +157,11 @@ export default function Page() {
                             height={13}
                           />
                         </div>
-                        <span
-                          className={`text-base text-neutral12 pb-2 pl-2.5`}
+                        <div
+                          className={`text-base text-neutral12 pb-2 pl-2.5 max-w-432 maxlg:max-w-290`}
                         >
                           {item}
-                        </span>
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -178,7 +179,6 @@ export default function Page() {
             </div>
           </div>
         </section>
-        {/* ********************************** */}
         {/* ===== section3 ======= */}
         <section className={`bg-white lg:mt-36 lg:py-10 lg:px-40 py-10 px-4`}>
           <div>
@@ -223,7 +223,7 @@ export default function Page() {
             />
           </div>
         </section>
-        {/* ==== section 4 ===== */}
+        {/* ===== section4 ======= */}
         <section className={`w-full bg-home-section4-bg pt-12 pb-9`}>
           <div className={`bg-primary1 pb-8 maxlg:px-4`}>
             <h4 className={`text-white font-roboto text-base lg:text-center`}>
@@ -278,8 +278,9 @@ export default function Page() {
               )}
             </div>
           </div>
+          <div className="lg:hidden"></div>
         </section>
-        {/* ======= section 5======= */}
+        {/* ===== section5 ======= */}
         <section className={`w-full lg:py-10 lg:px-40 py-10 px-4`}>
           <div>
             <p className={`text-xl font-normal mb-4 text-neutral9`}>
