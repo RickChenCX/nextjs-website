@@ -6,6 +6,7 @@ import SectionAnchor from "components/SectionAnchor";
 import LocalJson from "components/SectionAnchor/SectionContainer";
 import { ProductType } from "components/SectionAnchor/index.d";
 import SectionLayout from "components/SectionLayout";
+
 export default function Flex() {
   console.log(LocalJson.FLEX);
   return (

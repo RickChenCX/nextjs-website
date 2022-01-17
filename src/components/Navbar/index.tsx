@@ -126,7 +126,7 @@ export default function Navbar({
           : "bg-opacity-100 bg-white border-b boder-b-grayLine"
       }`}
     >
-      <div className="flex items-center ">
+      <div className="flex items-center">
         <span className="lg:hidden maxlg:mr-4" onClick={handleMobileNav}>
           {isBgTransparent ? <Menu /> : <MenuBlack />}
         </span>
