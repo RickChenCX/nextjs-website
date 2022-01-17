@@ -42,7 +42,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
               <Image src="/images/Map.png" alt="map" width={369} height={282} />
             </div>
             <div className="mt-120">
-              <h3 className="text-white mb-0 lg:text-5xxl text-3xxl font-light mb-8">
+              <h3 className="text-white lg:text-5xxl text-3xxl font-light mb-8">
                 Our Offices
               </h3>
               <div>

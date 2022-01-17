@@ -71,8 +71,9 @@ export default function Page() {
                 </h3>
               </div>
               <h3
-                className={`${isShowMore ? "" : "hidden"
-                  } text-sm text-white font-roboto leading-snug font-normal mb-3`}
+                className={`${
+                  isShowMore ? "" : "hidden"
+                } text-sm text-white font-roboto leading-snug font-normal mb-3`}
               >
                 {HomePageSectionOneData.paragraph1}
                 <p className="text-sm text-white font-roboto mt-1.5 mb-0">
@@ -122,8 +123,9 @@ export default function Page() {
               {HomePageSectionTwoData.map((item, index1) => (
                 <div
                   key={index1}
-                  className={`bg-white box-border border border-solid border-default py-8 ${index1 === 0 ? "maxlg:mb-4" : "lg:border-l-0"
-                    }`}
+                  className={`bg-white box-border border border-solid border-default py-8 ${
+                    index1 === 0 ? "maxlg:mb-4" : "lg:border-l-0"
+                  }`}
                 >
                   <div className={`px-12 maxlg:px-6`}>
                     <h3
