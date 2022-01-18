@@ -1,17 +1,28 @@
 export const FooterListData = [
   {
     title: "Products",
-    children: ["BOSS Flex", "BOSS Tenant Engage"],
+    children: [
+      {
+        module: "BOSS Flex",
+        link: "/product/flex",
+      },
+      {
+        module: "BOSS Tenant Engage",
+        link: "/product/tea",
+      },
+    ],
   },
   {
-    title: "About Us",
+    title: "Company",
     children: [
-      "Who We Are",
-      "What We Do",
-      "Our Mission",
-      "Leadership",
-      "Our Offices",
-      "Contact Us",
+      {
+        module: "About Us",
+        link: "/aboutUs",
+      },
+      {
+        module: "Contact Us",
+        link: "/contactUs",
+      },
     ],
   },
 ];

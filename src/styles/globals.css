@@ -44,3 +44,19 @@ h1,h2,h3,h4,h5{
   background: #5528FF !important;
   border-radius: 50% !important;
 }
+
+.am-carousel .slider-decorator-0{
+  bottom: -28px !important;
+}
+
+@media screen and (max-width: 375px) {
+  .am-carousel .slider-list {
+    margin-left: -16% !important;
+  }
+}
+
+@media screen and (min-width:500px) and (max-width:768px){
+  .am-carousel .slider-list {
+    margin-left: -34% !important;
+  }
+}
