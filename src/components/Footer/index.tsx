@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FooterListData } from "./constant";
 import BookFreeDemoButton from "./../BookFreeDemoButton";
 import EmailSvg from "./../../svgs/email.svg";
@@ -29,7 +30,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
                 <BookFreeDemoButton textColor="primary" bgColor="white" />
               </div>
               <div>
-                <button className="border border-solid border-white lg:w-152 w-118 h-10 text-white lg:text-sm maxlg:text-base">
+                <button className="border border-solid border-white lg:w-152 w-118 h-10 maxlg:h-9 text-white text-sm">
                   Contact us
                 </button>
               </div>
@@ -107,16 +108,15 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
             {FooterListData.map((item, index1) => {
               return (
                 <div key={index1} className={`pr-24`}>
-                  <h3 className="mb-0 text-2xl text-neutral12 pb-4">
+                  <h3 className="mb-0 text-2xl text-neutral12 pb-4 font-normal">
                     {item.title}
                   </h3>
                   {item.children.map((temp, index2) => (
-                    <p
-                      className="mb-0 text-sm text-neutral12 pb-2"
-                      key={index2}
-                    >
-                      {temp}
-                    </p>
+                    <Link key={index2} href={temp.link}>
+                      <a className="block mb-0 text-sm text-neutral12 pb-2 cursor-pointer text hover:underline hover:text-neutral12">
+                        {temp.module}
+                      </a>
+                    </Link>
                   ))}
                 </div>
               );
@@ -135,13 +135,13 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
             news, upcoming webinars, and eBooks.
           </p>
           <div className="flex border-b border-solid pb-2 lg:w-488">
-            <div className="lg:w-80 w-full mr-2.5 mt-2">
+            <div className="lg:w-80 w-full lg:mr-2.5 mt-2">
               <Input
                 placeholder="Enter your business email"
                 style={{ width: "100%", border: "none" }}
               />
             </div>
-            <button className="maxlg:hidden border border-solid border-primary w-155 h-10 text-white bg-primary sm:text-sm xs:text-base">
+            <button className="maxlg:hidden border border-solid border-primary w-155 h-10 text-white bg-primary text-sm maxlg:text-base">
               Subscribe
             </button>
           </div>
@@ -152,7 +152,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
             .
           </p>
           <div className="lg:hidden mt-6 mb-20">
-            <button className="border border-solid border-primary w-full h-10 text-white bg-primary sm:text-sm xs:text-base">
+            <button className="border border-solid border-primary w-full h-10 text-white bg-primary text-sm maxlg:text-base">
               Subscribe
             </button>
           </div>

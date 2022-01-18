@@ -20,6 +20,7 @@ export const HomePageSectionTwoData = [
       "Automated billing & invoicing with flexible payment options",
       "Customizable dashboard to maximize business results",
     ],
+    linkUrl: "/product/flex",
   },
   {
     title: "BOSS Tenant Engage",
@@ -34,6 +35,7 @@ export const HomePageSectionTwoData = [
       "Full-spectrum content management system to enrich tenant engagement",
       "Various add-on service options with flexible payment options",
     ],
+    linkUrl: "/product/tea",
   },
 ];
 
@@ -56,11 +58,11 @@ export const HomePageSectionFourData = {
   ],
   mobileImages: [
     "/images/home-section4-lunbo1.png",
-    "/images/home-section4-lunbo1.png",
-    "/images/home-section4-lunbo1.png",
-    "/images/home-section4-lunbo1.png",
-    "/images/home-section4-lunbo1.png",
-    "/images/home-section4-lunbo1.png",
+    "/images/home-section4-lunbo2.png",
+    "/images/home-section4-lunbo3.png",
+    "/images/home-section4-lunbo4.png",
+    "/images/home-section4-lunbo5.png",
+    "/images/home-section4-lunbo6.png",
   ],
 };
 
