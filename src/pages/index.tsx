@@ -4,7 +4,7 @@ import styles from "../styles/Home.module.css";
 import Image from "next/image";
 // import { PlayCircleOutlined } from "@ant-design/icons";
 import { Carousel } from "antd";
-import { Carousel as CarouselMobile, WingBlank } from "antd-mobile";
+import { Carousel as CarouselMobile } from "antd-mobile";
 import ShowMoreIcon from "./../svgs/add-icon.svg";
 import ArrowBackLeft from "./../svgs/ArrowBack-left.svg";
 import ArrowBackLeftActive from "./../svgs/ArrowBack-left-active.svg";
@@ -272,7 +272,6 @@ export default function Page() {
                           alt=""
                           width={322}
                           height={562}
-                          alt=""
                         />
                       </div>
                     ))}
