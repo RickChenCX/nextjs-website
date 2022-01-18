@@ -178,9 +178,6 @@ module.exports = {
         151: "9.44rem",
         215: "13.44rem",
       },
-      backgroundSize: {
-        "100%": "100%",
-      },
       animation: {
         rotate180: "arrowSpin1 500ms forwards",
         rotate0: "arrowSpin2 500ms forwards",
@@ -194,6 +191,9 @@ module.exports = {
           "0%": { transform: "rotate(180deg)" },
           "100%": { transform: "rotate(0deg)" },
         },
+      },
+      backgroundSize: {
+        "100%": "100%",
       },
     },
   },
