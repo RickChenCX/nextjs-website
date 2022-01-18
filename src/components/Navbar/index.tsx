@@ -33,6 +33,7 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
   const handleRouter = useCallback(
     (path: string) => {
       router.push(path);
+      setShowMobileNav(false);
       return setCurrentSubNav(undefined);
     },
     [router]
@@ -102,8 +103,8 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
             <Link
               href={
                 navItem.flag === "login" && showMobileNav
-                  ? navItem.extraPath ?? navItem?.path
-                  : navItem?.path
+                  ? navItem.path
+                  : navItem?.extraPath ?? navItem?.path
               }
             >
               <a
@@ -138,7 +139,7 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
 
   return (
     <nav
-      className={`lg:py-2 lg:px-8 maxlg:py-2 maxlg:px-4 maxlg:justify-between w-full flex items-center  z-10 top-0 ${
+      className={`lg:py-2 lg:px-8 maxlg:py-2 maxlg:px-4 maxlg:justify-between w-full flex items-center  z-30 top-0 ${
         isBgTransparent
           ? "bg-opacity-0 absolute"
           : "bg-opacity-100 bg-white border-b boder-b-grayLine fixed"
