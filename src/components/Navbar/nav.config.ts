@@ -7,8 +7,15 @@ export interface NavConfigItem {
   children?: NavConfigItem[];
   flag?: string;
   extraPath?: string;
+  isMobile?: boolean;
 }
 const navConfig: NavConfigItem[] = [
+  {
+    name: "Home",
+    path: "/",
+    group: "0",
+    isMobile: true,
+  },
   {
     name: "Products",
     group: "1",
@@ -91,10 +98,17 @@ const navConfig: NavConfigItem[] = [
     group: "2",
   },
   {
-    name: "Log In",
-    path: "/",
+    name: "Contact Us",
+    path: "/contactUs",
     group: "3",
+    isMobile: true,
+  },
+  {
+    name: "Log In",
+    path: "/login",
+    group: "4",
     flag: "login",
+    extraPath: "https://boss-admin.reinventventures.com",
   },
 ];
 

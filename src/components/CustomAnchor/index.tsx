@@ -21,7 +21,7 @@ function CustomAnchor(props: ConfigProps) {
         let mask_dom = document.createElement("div");
         mask_dom.id = "detail_mask";
         mask_dom.style.position = "fixed";
-        mask_dom.style.top = "0px";
+        mask_dom.style.top = "54px";
         mask_dom.style.left = "0px";
         mask_dom.style.width = "100%";
         mask_dom.style.height = "100%";
@@ -94,7 +94,7 @@ function CustomAnchor(props: ConfigProps) {
           ))
         )}
       </Anchor>
-      <Affix offsetTop={0} className={`xs:hidden`}>
+      <Affix offsetTop={54} className={`xs:hidden`}>
         <div className={styles.affixContainer}>
           <ul className={styles.pcMode}>
             {sections.map(({ content, title: headTitle }, ind) => {
@@ -129,7 +129,7 @@ function CustomAnchor(props: ConfigProps) {
           </Button>
         </div>
       </Affix>
-      <Affix offsetTop={0}>
+      <Affix offsetTop={54}>
         <div
           id="featureList"
           className={`${styles.mobileMode} flex justify-between xl:hidden z-10`}

@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ["next/core-web-vitals", "prettier", "plugin:prettier/recommended"],
+  extends: ["next/core-web-vitals", "plugin:prettier/recommended", "prettier"],
 };

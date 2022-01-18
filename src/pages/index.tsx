@@ -24,7 +24,7 @@ export default function Page() {
   const carouselRef = useRef(null);
   const handleShowMore = useCallback(() => {
     setIsShowMore(true);
-  }, [isShowMore]);
+  }, []);
 
   const handlePrev = useCallback(() => {
     setIsFirstBanner(true);
@@ -251,6 +251,7 @@ export default function Page() {
                           src={temp}
                           width={322}
                           height={562}
+                          alt=""
                         />
                       </div>
                     ))}
