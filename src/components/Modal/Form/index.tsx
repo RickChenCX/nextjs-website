@@ -1,4 +1,5 @@
 import { Form, Input, Select, Checkbox, Button, Row, Col } from "antd";
+import { checkBoxOptions } from "constant/formConfig";
 const { TextArea } = Input;
 const Option = Select.Option;
 
@@ -16,6 +17,7 @@ const commonRules = [
     required: true,
   },
 ];
+
 const FormItemConfig = [
   {
     name: "firstName",
@@ -57,7 +59,7 @@ const FormItemConfig = [
     name: "businessType",
     label: "Business Type",
     tag: (
-      <Select>
+      <Select defaultValue="86">
         <Option value="86">呜哇</Option>
         <Option value="87">哈哈</Option>
       </Select>
@@ -68,7 +70,7 @@ const FormItemConfig = [
     name: "role",
     label: "Your Role",
     tag: (
-      <Select>
+      <Select defaultValue="87">
         <Option value="86">呜哇</Option>
         <Option value="87">哈哈</Option>
       </Select>
@@ -78,9 +80,23 @@ const FormItemConfig = [
   {
     name: "numberOfLocation",
     label: "Number Of Locations",
-    tag: <Input placeholder="Input" />,
+    tag: (
+      <Select defaultValue="86">
+        <Option value="86">呜哇</Option>
+        <Option value="87">哈哈</Option>
+      </Select>
+    ),
     span: 8,
     rules: [],
+  },
+  {
+    name: "userInterested",
+    label: "Which product are you interested in?",
+    tag: (
+      <Checkbox.Group options={checkBoxOptions} defaultValue={["bossFlex"]} />
+    ),
+    span: 24,
+    page: "bookDemo",
   },
   {
     name: "questions",
@@ -121,12 +137,12 @@ function CustomForm() {
         </Col>
         <Col span={24}>
           <Button
+            type="primary"
             style={{
-              width: "536px",
+              width: "100%",
               height: "40px",
               marginTop: "40px",
               backgroundColor: "#5528ff",
-              color: "#fff",
             }}
           >
             Submit
