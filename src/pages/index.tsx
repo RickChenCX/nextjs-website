@@ -272,6 +272,7 @@ export default function Page() {
                           alt=""
                           width={322}
                           height={562}
+                          alt=""
                         />
                       </div>
                     ))}

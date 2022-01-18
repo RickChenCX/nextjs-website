@@ -1,24 +1,26 @@
 import { useState, useCallback } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import navConfig, { NavConfigItem } from "./nav.config";
 import ProductNavItem from "./ProductNavItem";
-import ArrowDownWhite from "../../svgs/ArrowDown_white.svg";
-import ArrowDown from "../../svgs/ArrowDown.svg";
 import MenuBlack from "../../svgs/Menu_black.svg";
 import Menu from "../../svgs/Menu.svg";
 import Close from "../../svgs/Close.svg";
+import CustomModal from "../Modal";
 
 interface NavbarProps {
   isBgTransparent?: boolean;
-  logoType?: "primary" | "white";
 }
-export default function Navbar({
-  isBgTransparent = true,
-  logoType = "white",
-}: NavbarProps) {
+export default function Navbar({ isBgTransparent = true }: NavbarProps) {
   const [currentSubNav, setCurrentSubNav] = useState<string>();
   const [showMobileNav, setShowMobileNav] = useState<boolean>(false);
+  const router = useRouter();
+
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [modalPage, setModalPage] = useState<"contactUs" | "bookDemo">(
+    "bookDemo"
+  );
   const handleChangeSubNav = useCallback(
     (e) => {
       if (e.target.outerText === currentSubNav) {
@@ -28,16 +30,39 @@ export default function Navbar({
     },
     [currentSubNav]
   );
+  const handleRouter = useCallback(
+    (path: string) => {
+      router.push(path);
+      return setCurrentSubNav(undefined);
+    },
+    [router]
+  );
   const navItemRender = (item: NavConfigItem[]) => {
     return item.map((navItem, i) => {
       if (navItem.children && navItem.children.length > 0) {
         return (
           <li
             key={i}
-            className="lg:px-6 lg:py-2 maxlg:mx-4 maxlg:py-6 maxlg:border-b maxlg:border-grayLine"
+            className="lg:px-6 lg:py-2 maxlg:py-6 maxlg:border-b maxlg:border-grayLine"
           >
             <div
-              className="flex items-baseline maxlg:justify-between"
+              className={`flex items-center maxlg:justify-between ${
+                isBgTransparent
+                  ? "lg:after:bg-arrow-white"
+                  : "lg:after:bg-arrow"
+              }
+              ${
+                !showMobileNav
+                  ? "maxlg:after:bg-arrow-white"
+                  : "maxlg:after:bg-arrow"
+              } 
+              after:block 
+              after:w-3 after:h-3 lg:after:ml-2 
+              ${
+                currentSubNav === navItem.name
+                  ? "after:animate-rotate180"
+                  : "after:animate-rotate0"
+              } `}
               onClick={handleChangeSubNav}
             >
               <span
@@ -45,36 +70,21 @@ export default function Navbar({
                   showMobileNav || !isBgTransparent
                     ? "text-black"
                     : "text-white"
-                } cursor-pointer`}
+                } cursor-pointer hover:text-primary2 `}
               >
                 {navItem.name}
               </span>
-              <span className="pl-2">
-                {isBgTransparent ? (
-                  <ArrowDownWhite
-                    className={
-                      currentSubNav === navItem.name
-                        ? "animate-rotate180"
-                        : "animate-rotate0"
-                    }
-                  />
-                ) : (
-                  <ArrowDown
-                    className={
-                      currentSubNav === navItem.name
-                        ? "animate-rotate180"
-                        : "animate-rotate0"
-                    }
-                  />
-                )}
-              </span>
             </div>
             <div
-              className={`lg:absolute lg:z-10 lg:bg-black lg:bg-opacity-40 lg:w-screen lg:h-54 lg:left-0 lg:mt-5 ${
+              className={`lg:absolute lg:z-10 lg:bg-black lg:bg-opacity-40 lg:w-screen lg:h-54 lg:left-0 lg:top-13 ${
                 currentSubNav === navItem.name ? "" : "hidden"
               }`}
+              onClick={handleChangeSubNav}
             >
-              <ProductNavItem items={navItem.children} />
+              <ProductNavItem
+                items={navItem.children}
+                handleRoute={handleRouter}
+              />
             </div>
           </li>
         );
@@ -82,18 +92,26 @@ export default function Navbar({
       return (
         <li
           key={i}
-          className={`lg:px-6 lg:py-2 relative maxlg:py-6 maxlg:mx-4 maxlg:border-b maxlg:border-grayLine ${
+          className={`lg:px-6 lg:py-2 relative maxlg:py-6 maxlg:border-b maxlg:border-grayLine ${
             navItem.flag === "login" ? "lg:grow lg:text-right" : ""
-          }`}
+          }
+          ${navItem.isMobile ? "lg:hidden" : ""}
+          `}
         >
           {navItem.path ? (
-            <Link href={navItem?.path}>
+            <Link
+              href={
+                navItem.flag === "login" && showMobileNav
+                  ? navItem.extraPath ?? navItem?.path
+                  : navItem?.path
+              }
+            >
               <a
-                className={
+                className={`${
                   showMobileNav || !isBgTransparent
                     ? "text-black"
-                    : "text-white"
-                }
+                    : "text-white "
+                } hover:text-primary2 cursor-pointer`}
               >
                 {navItem.name}
               </a>
@@ -101,8 +119,8 @@ export default function Navbar({
           ) : (
             <span
               className={`${
-                showMobileNav || !isBgTransparent ? "text-black" : "text-white"
-              }cursor-pointer`}
+                showMobileNav || !isBgTransparent ? "text-black" : "text-white "
+              } hover:text-primary2 cursor-pointer`}
             >
               {navItem.name}
             </span>
@@ -120,55 +138,89 @@ export default function Navbar({
 
   return (
     <nav
-      className={`lg:py-2 lg:px-8 maxlg:py-2 maxlg:px-4 maxlg:justify-between w-full flex items-center absolute z-10 top-0 ${
+      className={`lg:py-2 lg:px-8 maxlg:py-2 maxlg:px-4 maxlg:justify-between w-full flex items-center  z-10 top-0 ${
         isBgTransparent
-          ? "bg-opacity-0"
-          : "bg-opacity-100 bg-white border-b boder-b-grayLine"
+          ? "bg-opacity-0 absolute"
+          : "bg-opacity-100 bg-white border-b boder-b-grayLine fixed"
       }`}
     >
       <div className="flex items-center">
         <span className="lg:hidden maxlg:mr-4" onClick={handleMobileNav}>
           {isBgTransparent ? <Menu /> : <MenuBlack />}
         </span>
-        <Image
-          src={
-            logoType === "primary" ? "/images/logo.png" : "/images/logo1.png"
-          }
-          alt="logo"
-          width={68}
-          height={24}
-        />
+
+        <a className="flex" onClick={() => handleRouter("/")}>
+          <Image
+            src={!isBgTransparent ? "/images/logo.png" : "/images/logo1.png"}
+            alt="logo"
+            width={68}
+            height={24}
+          />
+        </a>
       </div>
       <ul
-        className={`lg:flex lg:items-center lg:grow font-medium lg:text-sm maxlg:text-base maxlg:ml-6 mb-0   ${
+        className={`flex maxlg:flex-col lg:items-center lg:grow font-medium lg:text-sm maxlg:text-base maxlg:ml-6 mb-0 maxlg:px-4  ${
           showMobileNav
-            ? "maxlg:absolute maxlg:z-20  maxlg:top-0 maxlg:right-0 maxlg:overflow-hidden maxlg:w-full top-0 bg-white"
+            ? "maxlg:fixed maxlg:z-20 maxlg:top-0 maxlg:right-0 overflow-x-hidden overflow-y-scroll maxlg:w-full maxlg:h-screen top-0 bg-white"
             : "maxlg:hidden"
         } `}
       >
-        <li className="lg:hidden maxlg:pb-8 maxlg:pt-4 maxlg:px-4  maxlg:flex maxlg:justify-end maxlg:items-center  ">
-          <Close />
+        <li className="lg:hidden maxlg:pb-8 maxlg:pt-4 maxlg:flex maxlg:justify-end maxlg:items-center  ">
+          <Close onClick={handleCloseMobileNav} />
         </li>
         {navItemRender(navConfig)}
+        <li className="lg:hidden mt-4 flex-1 h-20 flex items-start flex-col justify-end ">
+          <Image src="/images/logo.png" alt="logo" width={68} height={24} />
+          <p className="text-neutral7 text-xxs my-4">
+            ©2022 BOSS All Rights Reserved.
+          </p>
+        </li>
       </ul>
+      <Link href="/contactUs">
+        <a>
+          <button
+            className={`px-6 py-2 ml-4 max-h-10   lg:text-sm maxlg:text-sm border border-solid  maxlg:hidden ${
+              isBgTransparent
+                ? "text-white border-white"
+                : "text-primary border-primary"
+            }`}
+          >
+            Contact Us
+          </button>
+        </a>
+      </Link>
+
       <button
-        className={`px-6 py-2 ml-4 max-h-10   lg:text-sm maxlg:text-base border border-solid  maxlg:hidden ${
-          isBgTransparent
-            ? "text-white border-white"
-            : "text-primary border-primary"
-        }`}
-      >
-        Contact Us
-      </button>
-      <button
-        className={`px-6 py-2 ml-4 max-h-10  lg:text-sm maxlg:text-base border border-solid  ${
+        className={`px-6 py-2 ml-4 max-h-10 maxlg:hidden lg:text-sm maxlg:text-sm border border-solid  ${
           isBgTransparent
             ? "border-white text-primary bg-white"
             : "border-primary text-white bg-primary"
         }`}
+        onClick={() => {
+          setModalVisible(true);
+          setModalPage("contactUs");
+        }}
       >
         Book Free Demo
       </button>
+      <button
+        className={`px-3 py-1.5 ml-4 max-h-10 lg:hidden lg:text-sm maxlg:text-base border border-solid  ${
+          isBgTransparent
+            ? "border-white text-primary bg-white"
+            : "border-primary text-white bg-primary"
+        }`}
+        onClick={() => {
+          setModalVisible(true);
+          setModalPage("bookDemo");
+        }}
+      >
+        Book Demo
+      </button>
+      <CustomModal
+        visible={modalVisible}
+        page={modalPage}
+        handleCancel={() => setModalVisible(false)}
+      />
     </nav>
   );
 }

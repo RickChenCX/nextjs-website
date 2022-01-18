@@ -29,6 +29,7 @@ module.exports = {
         90: "5.625rem",
         "1/10": "10%",
         "1/6": "15%",
+        13: "55px",
       },
       fontSize: {
         "text-sml": [
@@ -75,6 +76,7 @@ module.exports = {
       colors: {
         primary: "#5528FF",
         primary1: "#4C18DB",
+        primary2: "#aa94ff",
         grayLine: "#CCCCCC",
         neutral5: "#D9D9D9",
         neutral8: "#595959",
@@ -107,6 +109,8 @@ module.exports = {
         "flex-pc": "url('/images/flexBannerPc.png')",
         "flex-mobile": "url('/images/flexBannerMobile.png')",
         "login-bg-mobile": "url(/images/login-bg-mobile.png)",
+        "arrow-white": "url(/images/ArrowDown_white.svg)",
+        arrow: "url(/images/ArrowDown.svg)",
       },
       width: {
         1376: "calc(100vw - 4rem)",
@@ -125,6 +129,9 @@ module.exports = {
         455: "28.44rem",
         263: "16.44rem",
         118: "7.375rem",
+      },
+      minWidth: {
+        320: "20rem",
       },
       maxWidth: {
         1440: "90rem",

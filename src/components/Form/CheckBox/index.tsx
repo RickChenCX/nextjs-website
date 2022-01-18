@@ -1,23 +1,21 @@
-import { InputItem } from "antd-mobile";
+import { Checkbox } from "antd";
 import RequiredTag from "../RequiredTag";
-import styles from "./index.module.css";
 import commonStyles from "../common.module.css";
-
 interface IProps {
   label: string;
+  options: any;
   required?: boolean;
 }
-
-function CustomInput({ label, required }: IProps) {
+function CustomCheckbox({ label, required, options }: IProps) {
   return (
     <div>
       <div className={commonStyles.label}>
         {required && <RequiredTag />}
         {label}
       </div>
-      <InputItem className={styles.inputMobile} />
+      <Checkbox.Group options={options} defaultValue={["bossFlex"]} />
     </div>
   );
 }
 
-export default CustomInput;
+export default CustomCheckbox;
