@@ -7,6 +7,7 @@ import ProductNavItem from "./ProductNavItem";
 import MenuBlack from "../../svgs/Menu_black.svg";
 import Menu from "../../svgs/Menu.svg";
 import Close from "../../svgs/Close.svg";
+import CustomModal from "../Modal";
 
 interface NavbarProps {
   isBgTransparent?: boolean;
@@ -16,6 +17,10 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
   const [showMobileNav, setShowMobileNav] = useState<boolean>(false);
   const router = useRouter();
 
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [modalPage, setModalPage] = useState<"contactUs" | "bookDemo">(
+    "bookDemo"
+  );
   const handleChangeSubNav = useCallback(
     (e) => {
       if (e.target.outerText === currentSubNav) {
@@ -191,6 +196,10 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
             ? "border-white text-primary bg-white"
             : "border-primary text-white bg-primary"
         }`}
+        onClick={() => {
+          setModalVisible(true);
+          setModalPage("contactUs");
+        }}
       >
         Book Free Demo
       </button>
@@ -200,9 +209,18 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
             ? "border-white text-primary bg-white"
             : "border-primary text-white bg-primary"
         }`}
+        onClick={() => {
+          setModalVisible(true);
+          setModalPage("bookDemo");
+        }}
       >
         Book Demo
       </button>
+      <CustomModal
+        visible={modalVisible}
+        page={modalPage}
+        handleCancel={() => setModalVisible(false)}
+      />
     </nav>
   );
 }

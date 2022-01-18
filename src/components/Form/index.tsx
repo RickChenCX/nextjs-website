@@ -1,25 +1,32 @@
+import React from "react";
 import { Flex, Button } from "antd-mobile";
 import { Checkbox } from "antd";
 import CustomInput from "./Input";
 import CustomTextarea from "./Textarea";
+import CustomPicker from "./Picker";
+import Footer from "./Footer";
+import { checkBoxOptions, ModalInfo } from "constant/formConfig";
+import CustomCheckbox from "./CheckBox";
 
-function CustomPopup() {
+interface IProps {
+  page: keyof typeof ModalInfo;
+}
+
+function CustomForm({ page }: IProps) {
   return (
     <div>
-      <aside className="text-white bg-black">
+      <aside className={`${ModalInfo[page].bg} text-white`}>
         <header className="p-4">
           <span style={{ fontSize: "40px", fontWeight: 500 }}>
-            Ready to talk?
+            {ModalInfo[page].title}
           </span>
           <article className="text-neutral7 text-sm">
-            Need more information and automate coworking management? Ask about
-            our products, pricing, implementation, or anything else. Our
-            advisors are here to help you start your journey to success.
+            {ModalInfo[page].desc}
           </article>
         </header>
       </aside>
       <aside className="bg-white" style={{ padding: "16px 1px 0" }}>
-        <Flex style={{ margin: "0 16px 0" }} justify="between">
+        <Flex style={{ margin: "0 16px 0" }} justify="between" wrap="wrap">
           <Flex.Item>
             <CustomInput label="First Name" required />
           </Flex.Item>
@@ -27,6 +34,7 @@ function CustomPopup() {
             <CustomInput label="Last Name" required />
           </Flex.Item>
         </Flex>
+
         <Flex style={{ margin: "34px 16px 0" }} justify="between">
           <Flex.Item>
             <CustomInput label="Business Email" required />
@@ -35,7 +43,7 @@ function CustomPopup() {
 
         <Flex style={{ margin: "34px 16px 0" }} justify="between">
           <Flex.Item>
-            <CustomInput label="Phone Number" />
+            <CustomInput label="Phone Number" showPreSelect />
           </Flex.Item>
         </Flex>
 
@@ -47,24 +55,36 @@ function CustomPopup() {
 
         <Flex style={{ margin: "34px 16px 0" }} justify="between">
           <Flex.Item>
-            <CustomInput label="Country/Region" required />
+            <CustomPicker label="Country/Region" required />
           </Flex.Item>
           <Flex.Item>
-            <CustomInput label="Business Type" required />
+            <CustomPicker label="Business Type" required />
           </Flex.Item>
         </Flex>
         <Flex style={{ margin: "34px 16px 0" }} justify="between">
           <Flex.Item>
-            <CustomInput label="Your Role" required />
+            <CustomPicker label="Your Role" required />
           </Flex.Item>
           <Flex.Item>
-            <CustomInput label="Number of Locations" />
+            <CustomPicker label="Number of Locations" />
           </Flex.Item>
         </Flex>
 
+        {page === "bookDemo" && (
+          <Flex style={{ margin: "34px 16px 0" }} justify="between">
+            <Flex.Item>
+              <CustomCheckbox
+                options={checkBoxOptions}
+                label="Which product are you interested in?"
+                required
+              />
+            </Flex.Item>
+          </Flex>
+        )}
+
         <Flex style={{ margin: "34px 16px 0" }} justify="between">
           <Flex.Item>
-            <CustomTextarea label="Do you have any specific questions?" />
+            <CustomTextarea label="Anything else you would like to tell us?" />
           </Flex.Item>
         </Flex>
         <Flex style={{ margin: "12px 16px 0" }} justify="between">
@@ -85,24 +105,9 @@ function CustomPopup() {
           </Flex.Item>
         </Flex>
       </aside>
-      <footer
-        className="bg-neutral3 text-sm"
-        style={{
-          backgroundColor: "#f5f5f5",
-          padding: "16px 16px 40px",
-        }}
-      >
-        <article className="text-neutral12">You can also contact us</article>
-        <article className="text-primary pt-2">
-          contact@reinventventures.com
-        </article>
-        <article className="text-xs text-neutral7 pt-6">
-          The information you provide will be used in accordance with the terms
-          of our <span className="text-primary">Privacy Policy.</span>
-        </article>
-      </footer>
+      <Footer />
     </div>
   );
 }
 
-export default CustomPopup;
+export default CustomForm;
