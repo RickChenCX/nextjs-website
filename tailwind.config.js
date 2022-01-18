@@ -45,6 +45,12 @@ module.exports = {
             letterSpacing: "-0.02rem",
           },
         ],
+        xlx: [
+          "1.25rem",
+          {
+            lineHeight: "1.5rem",
+          },
+        ],
         "3xxl": [
           "2rem",
           {
@@ -109,6 +115,10 @@ module.exports = {
         "flex-pc": "url('/images/flexBannerPc.png')",
         "flex-mobile": "url('/images/flexBannerMobile.png')",
         "login-bg-mobile": "url(/images/login-bg-mobile.png)",
+        "about-banner-pc": "url('/images/aboutBannerPc.png')",
+        "about-banner-mobile": "url('/images/aboutBannerMobile.png')",
+        "about-article-pc": "url('/images/aboutArticlePc.png')",
+        "about-article-mobile": "url('/images/aboutArticleMobile.png')",
         "arrow-white": "url(/images/ArrowDown_white.svg)",
         arrow: "url(/images/ArrowDown.svg)",
       },
@@ -128,6 +138,8 @@ module.exports = {
         447: "27.93rem",
         455: "28.44rem",
         263: "16.44rem",
+        592: "37rem",
+        600: "37.5rem",
       },
       minWidth: {
         320: "20rem",
@@ -152,12 +164,19 @@ module.exports = {
         620: "38.75rem",
         685: "42.8125rem",
         1035: "64.6875rem",
+        1324: "82.75rem",
+        1152: "72rem",
+        306: "19.125rem",
+        50: "3.125rem",
       },
       padding: {
         18: "4.5rem",
         25: "6.25rem",
         26: "6.5rem",
+        39: "9.75rem",
         89: "21.56rem",
+        151: "9.44rem",
+        215: "13.44rem",
       },
       backgroundSize: {
         "100%": "100%",
