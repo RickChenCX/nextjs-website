@@ -94,7 +94,7 @@ function CustomAnchor(props: ConfigProps) {
           ))
         )}
       </Anchor>
-      <Affix offsetTop={54} className={`xs:hidden`}>
+      <Affix offsetTop={54} className={`maxlg:hidden`}>
         <div className={styles.affixContainer}>
           <ul className={styles.pcMode}>
             {sections.map(({ content, title: headTitle }, ind) => {
@@ -132,7 +132,7 @@ function CustomAnchor(props: ConfigProps) {
       <Affix offsetTop={54}>
         <div
           id="featureList"
-          className={`${styles.mobileMode} flex justify-between xl:hidden z-10`}
+          className={`${styles.mobileMode} flex justify-between lg:hidden z-10`}
           onClick={(e) => {
             e.stopPropagation();
           }}

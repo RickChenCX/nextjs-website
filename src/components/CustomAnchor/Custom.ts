@@ -13,7 +13,7 @@ const LocalJson = {
             "Lead & opportunity management",
             "Agency management",
           ],
-          imageUrl: "images/flex-0.png",
+          imageUrl: "flex-0",
         },
         {
           title: "Contract Management",

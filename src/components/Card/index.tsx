@@ -48,7 +48,7 @@ function Card({ itemConfig, id }: ItemConfig) {
         </section>
         <div className={`xs:text-center`}>
           <Image
-            src="/images/flex-0.png"
+            src={`/images/flex-0.jpg`}
             width={360}
             height={320}
             alt={itemConfig.title}
