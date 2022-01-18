@@ -32,7 +32,7 @@ export default function Custom404() {
 Custom404.getLayout = function getLayout(page: React.ReactNode) {
   return (
     <>
-      <Navbar isBgTransparent={false} logoType="primary" />
+      <Navbar isBgTransparent={false} />
       {page}
     </>
   );
