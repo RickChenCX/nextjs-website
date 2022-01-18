@@ -139,6 +139,7 @@ const LocalJson = {
             "Perks management",
             "News management",
           ],
+          imageUrl: "images/flex-0.png",
         },
         {
           title: "Meeting Room Booking",
@@ -155,6 +156,48 @@ const LocalJson = {
             "Multiple booking channels",
             "Public booking",
           ],
+          imageUrl: "images/flex-0.png",
+        },
+        {
+          title: "Tenant Management",
+          description:
+            "A central place to manage the tenant company info, tenant accounts and permission as well as all the activities happened.",
+          list: ["Account management", "Access control on app"],
+          imageUrl: "images/flex-0.png",
+        },
+        {
+          title: "Add-on Services Management",
+          description:
+            "A place for you to manage add-on services which will help to generate additional revenue. You can customize or add more add-on services when needed.",
+          list: ["Add-on a list of services", "One-off & recurring charge"],
+          imageUrl: "images/flex-0.png",
+        },
+        {
+          title: "Billing & Payments",
+          description:
+            "BOSS has already integrated with Stripe to make payments easier. Set up automatic payment reminders to ensure customers pay on time.  Enable permitted tenants to check monthly invoices online with self-service and make in-app payments via credit or debit card directly anytime and anywhere.",
+          list: ["Payment receipts", "Payment gateway integration (Stripe)"],
+          imageUrl: "images/flex-0.png",
+        },
+        {
+          title: "Reports & Analytics",
+          description:
+            "A bespoke and real-time dashboard has been provided in BOSS which includes Occupancy, Tenant Engagement reports so that you can operate and optimize your business to the highest degree.",
+          list: [
+            "Tenant engagement chart",
+            "Occupancy & utilization chart",
+            "Customizable dashboard",
+            "Interactive booking on portal",
+            "Exportable to spreadsheet (future)",
+          ],
+          imageUrl: "images/flex-0.png",
+        },
+        {
+          title: "Account Permission Control",
+          description:
+            "You are empowered to review and manage user permissions without IT. Locate all users within seconds and deactivate users with one click.",
+          list: ["Role based access control", "Portal data permission control"],
+          imageUrl: "images/flex-0.png",
         },
       ],
     },
@@ -166,6 +209,49 @@ const LocalJson = {
           description:
             "Both the App icon and color scheme can be customized to your brand.",
           list: ["Brand Design"],
+          imageUrl: "images/flex-0.png",
+        },
+        {
+          title: "Community Experience",
+          description:
+            "Both the App icon and color scheme can be customized to your brand.",
+          list: ["Building Guide", "Appealing Engagement Content"],
+          imageUrl: "images/flex-0.png",
+        },
+        {
+          title: "Meeting Room Booking",
+          description:
+            "Both the App icon and color scheme can be customized to your brand.",
+          list: [
+            "Real-time Inventory Booking",
+            "Multiple Booking Payment Options",
+          ],
+          imageUrl: "images/flex-0.png",
+        },
+        {
+          title: "Invoicing & Payments",
+          description:
+            "Both the App icon and color scheme can be customized to your brand.",
+          list: ["Invoice Check", "Restricted Permission", "Online Payments"],
+          imageUrl: "images/flex-0.png",
+        },
+        {
+          title: "Integration-based Service Requests",
+          description:
+            "Both the App icon and color scheme can be customized to your brand.",
+          list: [
+            "Zendesk Integration",
+            "Ticket Status Tracking",
+            "Ticket Communications",
+          ],
+          imageUrl: "images/flex-0.png",
+        },
+        {
+          title: "Public User Experience",
+          description:
+            "Both the App icon and color scheme can be customized to your brand.",
+          list: ["Self-registration", "Engagement", "Meeting Room Booking"],
+          imageUrl: "images/flex-0.png",
         },
       ],
     },

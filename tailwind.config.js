@@ -114,6 +114,8 @@ module.exports = {
         "404_title": "url(/images/404_title.png)",
         "flex-pc": "url('/images/flexBannerPc.png')",
         "flex-mobile": "url('/images/flexBannerMobile.png')",
+        "tea-pc": "url('/images/teaBannerPc.jpg')",
+        "tea-mobile": "url('/images/teaBannerMobile.jpg')",
         "login-bg-mobile": "url(/images/login-bg-mobile.png)",
         "about-banner-pc": "url('/images/aboutBannerPc.png')",
         "about-banner-mobile": "url('/images/aboutBannerMobile.png')",
