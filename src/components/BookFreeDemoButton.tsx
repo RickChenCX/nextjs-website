@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import CustomModal from "./Modal";
 
@@ -7,6 +7,27 @@ interface IBookFreeDemoButtonProps {
   borderColor?: "white" | "primary";
   bgColor?: "default" | "white" | "primary";
 }
+
+// export function IsPC(): boolean {
+//   const userAgentInfo = navigator.userAgent;
+//   const Agents = [
+//     "Android",
+//     "iPhone",
+//     "SymbianOS",
+//     "Windows Phone",
+//     "iPad",
+//     "iPod",
+//   ];
+
+//   let flag = true;
+//   for (let v = 0; v < Agents.length; v++) {
+//     if (userAgentInfo.indexOf(Agents[v]) > 0) {
+//       flag = false;
+//       break;
+//     }
+//   }
+//   return flag;
+// }
 
 export default function BookFreeDemoButton({
   textColor = "white",

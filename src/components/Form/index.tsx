@@ -5,7 +5,7 @@ import CustomInput from "./Input";
 import CustomTextarea from "./Textarea";
 import CustomPicker from "./Picker";
 import Footer from "./Footer";
-import { checkBoxOptions, ModalInfo } from "constant/formConfig";
+import { productTypeOptions, ModalInfo } from "constant/formConfig";
 import CustomCheckbox from "./CheckBox";
 
 interface IProps {
@@ -74,7 +74,7 @@ function CustomForm({ page }: IProps) {
           <Flex style={{ margin: "34px 16px 0" }} justify="between">
             <Flex.Item>
               <CustomCheckbox
-                options={checkBoxOptions}
+                options={productTypeOptions}
                 label="Which product are you interested in?"
                 required
               />
