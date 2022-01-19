@@ -94,7 +94,7 @@ const navConfig: NavConfigItem[] = [
   },
   {
     name: "About",
-    path: "/",
+    path: "/about",
     group: "2",
   },
   {
