@@ -28,6 +28,7 @@
     letter-spacing: -0.02em;
     text-align: left;
     cursor: pointer;
+    margin-bottom: 0.5rem; 
 }
 .baseSection:hover{
     color: #0D0D0D;
