@@ -59,7 +59,7 @@ const FormItemConfig = [
     name: "businessType",
     label: "Business Type",
     tag: (
-      <Select defaultValue="86">
+      <Select>
         <Option value="86">呜哇</Option>
         <Option value="87">哈哈</Option>
       </Select>
@@ -70,7 +70,7 @@ const FormItemConfig = [
     name: "role",
     label: "Your Role",
     tag: (
-      <Select defaultValue="87">
+      <Select>
         <Option value="86">呜哇</Option>
         <Option value="87">哈哈</Option>
       </Select>
@@ -81,7 +81,7 @@ const FormItemConfig = [
     name: "numberOfLocation",
     label: "Number Of Locations",
     tag: (
-      <Select defaultValue="86">
+      <Select>
         <Option value="86">呜哇</Option>
         <Option value="87">哈哈</Option>
       </Select>
@@ -92,9 +92,7 @@ const FormItemConfig = [
   {
     name: "userInterested",
     label: "Which product are you interested in?",
-    tag: (
-      <Checkbox.Group options={checkBoxOptions} defaultValue={["bossFlex"]} />
-    ),
+    tag: <Checkbox.Group options={checkBoxOptions} />,
     span: 24,
     page: "bookDemo",
   },

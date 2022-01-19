@@ -12,8 +12,13 @@ export interface ConfigProps extends AnchorProps {
 }
 export interface Introduce {
   title: string;
-  description: string;
-  list: string[];
-  imageUrl: string;
+  description?: string;
+  list?: string[];
+  funcList?: {
+    title: string;
+    description: string;
+  }[];
+  imageUrl?: string;
+  imageUrlInLeft?: string;
   child?: ChildType | undefined;
 }
