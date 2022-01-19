@@ -133,9 +133,9 @@ function CustomForm() {
     return children;
   };
 
-  const handleSubmit = useCallback((values: any) => {
+  const handleSubmit = useCallback(async (values: any) => {
     console.log(values);
-    createBookDemo(values);
+    await createBookDemo(values);
   }, []);
 
   return (
