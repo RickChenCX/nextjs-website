@@ -73,7 +73,7 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
               </span>
             </div>
             <div
-              className={`lg:absolute lg:z-10 lg:bg-black lg:bg-opacity-40 lg:w-screen lg:h-54 lg:left-0 lg:top-13 ${
+              className={`lg:absolute lg:z-10 lg:bg-black lg:bg-opacity-40 lg:w-screen lg:h-57 lg:left-0 lg:top-13 ${
                 currentSubNav === navItem.name ? "" : "hidden"
               }`}
               onClick={handleChangeSubNav}

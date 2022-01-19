@@ -7,7 +7,7 @@ import SectionLayout from "components/CustomLayout";
 import CustomAnchor from "components/CustomAnchor";
 import styles from "./index.module.css";
 import Card from "components/Card";
-export default function Flex() {
+export default function Tea() {
   return (
     <div className="w-full h-full">
       <Head>
@@ -27,22 +27,23 @@ export default function Flex() {
       </Head>
       <main className={`max-w-full`}>
         <div
-          className={`${styles.banner} bg-center bg-cover bg-no-repeat relative xl:bg-tea-pc xl:pt-25 xl:h-300 xl:pl-89 xs:bg-tea-mobile xs:pt-18 xs:h-336 xs:pl-4 xs:pr-10`}
+          id="banner"
+          className={`${styles.banner} bg-center bg-cover bg-no-repeat relative lg:bg-tea-pc lg:pt-25 lg:h-300 lg:pl-89 maxlg:bg-tea-mobile maxlg:pt-18 maxlg:h-336 maxlg:pl-4 maxlg:pr-10`}
         >
-          <h3 className={`xl:pb-4 xs:pb-3`}>
+          <h3 className={`lg:pb-4 maxlg:pb-3`}>
             For landlords or space operators
           </h3>
-          <h1 className={`xl:pb-2 xl:f-5xxl xs:pb-6 xs:3xxl`}>
+          <h1 className={`lg:pb-2 lg:f-5xxl maxlg:pb-6 maxlg:3xxl`}>
             BOSS Tenant Engage
           </h1>
-          <h4 className={`xl:f-text-sml xs:tex-sm`}>
+          <h4 className={`lg:f-text-sml maxlg:tex-sm`}>
             BOSS Tenant Engage is a comprehensive platform for landlords or
             space operators to connect better with tenants, strengthen
             satisfaction and conduct tenant management in an automated and
             efficient way.
           </h4>
         </div>
-        <div className={`xl:hidden`}>
+        <div className={`lg:hidden`}>
           <CustomAnchor type={ProductType.tea} />
         </div>
         <SectionLayout mode="mobile" type={ProductType.tea}>
@@ -66,6 +67,6 @@ export default function Flex() {
   );
 }
 
-Flex.getLayout = function getLayout(Flex: ReactElement) {
-  return <Layout>{Flex}</Layout>;
+Tea.getLayout = function getLayout(Tea: ReactElement) {
+  return <Layout>{Tea}</Layout>;
 };
