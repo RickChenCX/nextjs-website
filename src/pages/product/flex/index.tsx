@@ -27,20 +27,23 @@ export default function Flex() {
       </Head>
       <main className={`max-w-full`}>
         <div
-          className={`${styles.banner} bg-center bg-cover bg-no-repeat relative xl:bg-flex-pc xl:pt-25 xl:h-300 xl:pl-89 xs:bg-flex-mobile xs:pt-18 xs:h-336 xs:pl-4 xs:pr-10`}
+          id="banner"
+          className={`${styles.banner} bg-center bg-cover bg-no-repeat relative lg:bg-flex-pc lg:pt-25 lg:h-300 lg:pl-89 maxlg:bg-flex-mobile maxlg:pt-18 maxlg:h-336 maxlg:pl-4 maxlg:pr-10`}
         >
-          <h3 className={`xl:pb-4 xs:pb-3`}>
+          <h3 className={`lg:pb-4 maxlg:pb-3`}>
             For flex & hybrid coworking space operators
           </h3>
-          <h1 className={`xl:pb-2 xl:f-5xxl xs:pb-6 xs:3xxl`}>BOSS Flex</h1>
-          <h4 className={`xl:f-text-sml xs:tex-sm`}>
+          <h1 className={`lg:pb-2 lg:f-5xxl maxlg:pb-6 maxlg:3xxl`}>
+            BOSS Flex
+          </h1>
+          <h4 className={`lg:f-text-sml maxlg:tex-sm`}>
             BOSS Flex is a leading management platform for flex & hybrid
             workspaces. It enables landlords or space operators to automate
             business processes, make data-driven decisions, and deliver an
             amazing tenant experience.
           </h4>
         </div>
-        <div className={`xl:hidden`}>
+        <div className={`lg:hidden`}>
           <CustomAnchor type={ProductType.flex} />
         </div>
         <SectionLayout mode="mobile" type={ProductType.flex}>

@@ -3,7 +3,8 @@ import Layout from "components/Layout";
 import Head from "next/head";
 import styles from "./index.module.css";
 import Image from "next/image";
-
+import Navbar from "components/Navbar/index";
+import Footer from "components/Footer";
 export default function About() {
   const brandList = [
     {
@@ -58,42 +59,42 @@ export default function About() {
       </Head>
       <main className={`w-full`}>
         <div
-          className={`${styles.banner} bg-center bg-cover bg-no-repeat relative xl:bg-about-banner-pc xl:pt-39 xl:h-300 xl:pl-151 xs:bg-about-banner-mobile xs:h-336 xs:pl-8 xs:pt-215`}
+          className={`${styles.banner} bg-center bg-cover bg-no-repeat relative lg:bg-about-banner-pc lg:pt-39 lg:h-300 lg:pl-151 maxlg:bg-about-banner-mobile maxlg:h-336 maxlg:pl-8 maxlg:pt-215`}
         >
           <h1 className={`text-5xxl`}>About Us</h1>
         </div>
         <div
-          className={`${styles.article} bg-center bg-cover bg-no-repeat relative flex flex-col justify-start xl:bg-about-article-pc xl:pt-20 xl:h-1324 xl:px-151 xs:bg-about-article-mobile xs:h-1152 xs:px-4 xs:pt-0`}
+          className={`${styles.article} bg-center bg-cover bg-no-repeat relative flex flex-col justify-start lg:bg-about-article-pc lg:pt-20 lg:h-1324 lg:px-151 maxlg:bg-about-article-mobile maxlg:h-1152 maxlg:px-4 maxlg:pt-0`}
         >
-          <div className={`xl:w-592`}>
-            <h3 className={`text-neutral9 xl:text-xlx xl:pb-4 xs:pt-10`}>
+          <div className={`lg:w-592`}>
+            <h3 className={`text-neutral9 lg:text-xlx lg:pb-4 maxlg:pt-10`}>
               Who we are
             </h3>
             <h4
-              className={`text-neutral2 xl:text-5xxl xl:pb-8 xs:text-3xxl xs:pb-4`}
+              className={`text-neutral2 lg:text-5xxl lg:pb-8 maxlg:text-3xxl maxlg:pb-4`}
             >
               We are a <span>SaaS provider</span> with deep roots in the
               <span> prop-tech</span> industry.
             </h4>
-            <h5 className={`text-neutral12 text-base xs:pb-4`}>
+            <h5 className={`text-neutral12 text-base maxlg:pb-4`}>
               Connected business modules ensure your business efficiency and
               growth. We invest talent and resources into a repeatable process
               that outputs valuable companies.
             </h5>
           </div>
-          <div className={`xl:w-592 xl:self-end`}>
-            <h3 className={`text-neutral9 xl:text-xlx xl:pb-4 xs:pt-10`}>
+          <div className={`lg:w-592 lg:self-end`}>
+            <h3 className={`text-neutral9 lg:text-xlx lg:pb-4 maxlg:pt-10`}>
               Our Vision
             </h3>
             <h4
-              className={`text-neutral2 xl:text-5xxl xl:pb-8 xs:text-3xxl xs:pb-4`}
+              className={`text-neutral2 lg:text-5xxl lg:pb-8 maxlg:text-3xxl maxlg:pb-4`}
             >
               BOSS is the <span>solution.</span>
             </h4>
-            <h5 className={`text-neutral12 text-2xl xl:pb-6 xs:pb-2`}>
+            <h5 className={`text-neutral12 text-2xl lg:pb-6 maxlg:pb-2`}>
               BOSS = Business Operating System for Space
             </h5>
-            <h5 className={`text-neutral12 text-base xs:pb-4`}>
+            <h5 className={`text-neutral12 text-base maxlg:pb-4`}>
               BOSS helps you to automate workspace processes, manage tenant
               lifecycles and streamline flex & workspace operations. With BOSS,
               you can strengthen a gratifying customer experience and boost
@@ -101,17 +102,17 @@ export default function About() {
               and efficiency.
             </h5>
           </div>
-          <div className={`xl:w-592`}>
-            <h3 className={`text-neutral9 xl:text-xlx xl:pb-4 xs:pt-10`}>
+          <div className={`lg:w-592`}>
+            <h3 className={`text-neutral9 lg:text-xlx lg:pb-4 maxlg:pt-10`}>
               Our Mission
             </h3>
             <h4
-              className={`text-neutral2 xl:text-5xxl xl:pb-8 xs:text-3xxl xs:pb-8`}
+              className={`text-neutral2 lg:text-5xxl lg:pb-8 maxlg:text-3xxl maxlg:pb-8`}
             >
               Unified business modules ensure your business
               <span>efficiency</span> and <span>growth.</span>
             </h4>
-            <h5 className={`text-neutral12 text-base xs:pb-4`}>
+            <h5 className={`text-neutral12 text-base maxlg:pb-4`}>
               BOSS’s mission is to improve the world by reinventing real estate
               and how people use it by using our strengths in technology
               innovation, venture building, and business model innovation.
@@ -119,12 +120,12 @@ export default function About() {
           </div>
         </div>
         <div
-          className={`${styles.teamGroup} xl:px-151 xl:pt-16 xl:pb-14 xs:pt-10 xs:px-4`}
+          className={`${styles.teamGroup} lg:px-151 lg:pt-16 lg:pb-14 maxlg:pt-10 maxlg:px-4`}
         >
-          <h2 className={`xl:text-5xxl pb-8 xl:w-600 xs:text-3xxl`}>
+          <h2 className={`lg:text-5xxl pb-8 lg:w-600 maxlg:text-3xxl`}>
             Leadership team with well-rounded expertises
           </h2>
-          <p className={`text-base xl:w-600`}>
+          <p className={`text-base lg:w-600`}>
             BOSS’s management team has a proven track record in PropTech in
             Asia, having served as the leadership team of some of the most
             technology-forward real estate brands in Asia prior to starting
@@ -132,18 +133,18 @@ export default function About() {
           </p>
         </div>
         <div
-          className={`${styles.brandTitle} text-2xl xl:pt-14 xl:pb-6 xs:px-4 xs:py-8`}
+          className={`${styles.brandTitle} text-2xl lg:pt-14 lg:pb-6 maxlg:px-4 maxlg:py-8`}
         >
           Leadership Team&apos;s Experiences
         </div>
         <div
-          className={`${styles.brand} xl:grid xl:grid-cols-7 xl:h-50 xl:px-151 xl:pb-28 xs:flex xs:flex-wrap xs:justify-around xs:items-center xs:px-4 xs:pb-10 xs:h-306`}
+          className={`${styles.brand} lg:grid lg:grid-cols-7 lg:h-50 lg:px-151 lg:pb-28 maxlg:flex maxlg:flex-wrap maxlg:justify-around maxlg:items-center maxlg:px-4 maxlg:pb-10 maxlg:h-306`}
         >
           {brandList.map((item) => {
             return (
               <a
                 key={item.localUrl}
-                className={`${styles.img} text-center xl:relative`}
+                className={`${styles.img} text-center lg:relative`}
               >
                 <Image
                   src={`/images/${item.localUrl}.jpg`}
@@ -160,5 +161,15 @@ export default function About() {
   );
 }
 About.getLayout = function getLayout(About: ReactElement) {
-  return <Layout>{About}</Layout>;
+  return (
+    <div className="w-full h-full">
+      <main className={` min-h-screen min-w-320`}>
+        <Navbar isBgTransparent={true} />
+        <div className="flex justify-center h-full my-0 mx-auto  bg-white">
+          {About}
+        </div>
+        <Footer from="aboutPage" />
+      </main>
+    </div>
+  );
 };

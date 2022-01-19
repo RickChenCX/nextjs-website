@@ -15,10 +15,13 @@ function CustomLayout({
 }: CustomLayoutProps): ReactElement {
   return (
     <div className={styles.layoutContainer}>
-      <div className={`${styles.layoutSideSection} maxlg:hidden`}>
+      <div className={`${styles.layoutSideSection} relative maxlg:hidden`}>
         <CustomAnchor type={type} />
       </div>
-      <div className={`${styles.layoutContent} lg:max-w-1095 maxlg:max-w-full`}>
+      <div
+        id="anchorList"
+        className={`${styles.layoutContent} lg:max-w-1095 maxlg:max-w-full`}
+      >
         {children}
       </div>
     </div>
