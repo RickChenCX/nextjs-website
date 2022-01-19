@@ -6,8 +6,11 @@ export default function Login() {
   return (
     <div className="w-screen h-screen">
       <Head>
-        <title>login</title>
-        <meta name="description" content="The page is not found" />
+        <title>BOSS: Sign-in</title>
+        <meta
+          name="description"
+          content="Sign into your BOSS account. Enter your email and password."
+        />
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
