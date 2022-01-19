@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FooterListData } from "./constant";
 import BookFreeDemoButton from "./../BookFreeDemoButton";
+import ContactUsButton from "./../ContactUsButton";
 import EmailSvg from "./../../svgs/email.svg";
 import AddressSvg from "./../../svgs/address.svg";
 import { Input } from "antd";
@@ -30,9 +31,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
                 <BookFreeDemoButton textColor="primary" bgColor="white" />
               </div>
               <div>
-                <button className="border border-solid border-white lg:w-152 w-118 h-10 maxlg:h-9 text-white text-sm">
-                  Contact us
-                </button>
+                <ContactUsButton />
               </div>
             </div>
           </div>

@@ -39,7 +39,7 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full lg: bg-black">
       <Head>
         <title>
           BOSS - The Ultimate Software for Coworking, Flex and Hybrid Workspaces
@@ -114,7 +114,7 @@ export default function Page() {
           </div>
         </section>
       </div>
-      <main className={`max-w-1440 h-full ${styles.marginAuto}`}>
+      <main className={`max-w-1440 h-full bg-white ${styles.marginAuto}`}>
         {/* ===== section2 ======= */}
         <section
           className={`w-full flex justify-center lg:bg-home-bg lg:h-1104`}
@@ -246,7 +246,7 @@ export default function Page() {
         </section>
         {/* ===== section4 ======= */}
         <section
-          className={`w-full bg-home-section4-bg pt-12 maxlg:pt-10 pb-9`}
+          className={`w-full bg-home-section4-bg pt-12 maxlg:pt-10 pb-9 maxlg:pb-16`}
         >
           <div className={`bg-primary1 pb-8 lg:pb-16 maxlg:px-4`}>
             <h4
