@@ -1,6 +1,6 @@
 class FetchError {
   _originalError: any;
-  constructor(error) {
+  constructor(error: unknown) {
     this._originalError = error;
   }
 
