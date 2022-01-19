@@ -7,7 +7,8 @@ import ProductNavItem from "./ProductNavItem";
 import MenuBlack from "../../svgs/Menu_black.svg";
 import Menu from "../../svgs/Menu.svg";
 import Close from "../../svgs/Close.svg";
-
+import ContactUsButton from "../ContactUsButton";
+import BookFreeDemoButton from "../BookFreeDemoButton";
 interface NavbarProps {
   isBgTransparent?: boolean;
 }
@@ -172,38 +173,26 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
           </p>
         </li>
       </ul>
-      <Link href="/contactUs">
-        <a>
-          <button
-            className={`px-6 py-2 ml-4 max-h-10   lg:text-sm maxlg:text-sm border border-solid  maxlg:hidden ${
-              isBgTransparent
-                ? "text-white border-white"
-                : "text-primary border-primary"
-            }`}
-          >
-            Contact Us
-          </button>
-        </a>
-      </Link>
-
-      <button
-        className={`px-6 py-2 ml-4 max-h-10 maxlg:hidden lg:text-sm maxlg:text-sm border border-solid  ${
-          isBgTransparent
-            ? "border-white text-primary bg-white"
-            : "border-primary text-white bg-primary"
-        }`}
-      >
-        Book Free Demo
-      </button>
-      <button
-        className={`px-3 py-1.5 ml-4 max-h-10 lg:hidden lg:text-sm maxlg:text-base border border-solid  ${
-          isBgTransparent
-            ? "border-white text-primary bg-white"
-            : "border-primary text-white bg-primary"
-        }`}
-      >
-        Book Demo
-      </button>
+      <div className={`maxlg:hidden`}>
+        <ContactUsButton
+          textColor={isBgTransparent ? "white" : "primary"}
+          borderColor={isBgTransparent ? "white" : "primary"}
+        />
+      </div>
+      <div className="maxlg:hidden ml-4">
+        <BookFreeDemoButton
+          textColor={isBgTransparent ? "primary" : "white"}
+          bgColor={isBgTransparent ? "white" : "primary"}
+          borderColor={isBgTransparent ? "white" : "primary"}
+        />
+      </div>
+      <div className="lg:hidden ml-4">
+        <BookFreeDemoButton
+          textColor={isBgTransparent ? "primary" : "white"}
+          bgColor={isBgTransparent ? "white" : "primary"}
+          borderColor={isBgTransparent ? "white" : "primary"}
+        />
+      </div>
     </nav>
   );
 }
