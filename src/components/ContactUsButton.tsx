@@ -2,18 +2,19 @@ import { useState } from "react";
 import Link from "next/link";
 import CustomModal from "./Modal";
 
-interface IBookFreeDemoButtonProps {
+interface IContactUsButtonProps {
   textColor?: "white" | "primary";
   borderColor?: "white" | "primary";
   bgColor?: "default" | "white" | "primary";
 }
 
-export default function BookFreeDemoButton({
+export default function ContactUsButton({
   textColor = "white",
   borderColor = "white",
   bgColor = "default",
-}: IBookFreeDemoButtonProps) {
+}: IContactUsButtonProps) {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
+
   return (
     <>
       <Link href="/">
@@ -34,7 +35,7 @@ export default function BookFreeDemoButton({
         `}
             onClick={() => setModalVisible(true)}
           >
-            Book Free Demo
+            Contact us
           </button>
         </a>
       </Link>
