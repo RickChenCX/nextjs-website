@@ -17,7 +17,7 @@ export const FooterListData = [
     children: [
       {
         module: "About Us",
-        link: "/aboutUs",
+        link: "/about",
       },
       {
         module: "Contact Us",
