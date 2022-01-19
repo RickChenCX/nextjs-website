@@ -26,44 +26,44 @@ function CustomAnchor(props: ConfigProps) {
     }
     return setFixedAside(false);
   };
-
   useEffect(() => {
+    const mask = document.getElementById("detail_mask");
     window.addEventListener("scroll", handleAnchor);
-    return () => window.removeEventListener("scroll", handleAnchor);
+    mask && mask.addEventListener("click", hanleClick);
+    return () => {
+      window.removeEventListener("scroll", handleAnchor);
+      mask && mask.removeEventListener("click", hanleClick);
+    };
   });
 
   const onChange = (link: string) => {
     setActiveItem(link);
   };
-  const handleMask = useCallback(
-    (closeMask: boolean) => {
-      const mask = document.getElementById("detail_mask");
-      if (closeMask) {
-        mask && mask.remove();
-      } else {
-        if (mask) return;
-        let mask_dom = document.createElement("div");
-        mask_dom.id = "detail_mask";
-        mask_dom.style.position = "fixed";
-        mask_dom.style.top = "54px";
-        mask_dom.style.left = "0px";
-        mask_dom.style.width = "100%";
-        mask_dom.style.height = "100%";
-        mask_dom.style.backgroundColor = "#777";
-        mask_dom.style.opacity = "0.8";
-        document.body.appendChild(mask_dom);
-        mask_dom.addEventListener(
-          "click",
-          () => {
-            setDropFlag(!dropFlag);
-            mask_dom.remove();
-          },
-          false
-        );
-      }
-    },
-    [dropFlag, setDropFlag]
-  );
+  const hanleClick = useCallback(() => {
+    const mask = document.getElementById("detail_mask");
+    setDropFlag(!dropFlag);
+    mask && mask.remove();
+  }, [dropFlag, setDropFlag]);
+
+  const handleMask = useCallback((closeMask: boolean) => {
+    const mask = document.getElementById("detail_mask");
+    if (closeMask) {
+      mask && mask.removeEventListener("click", handleAnchor);
+      mask && mask.remove();
+    } else {
+      if (mask) return;
+      let mask_dom = document.createElement("div");
+      mask_dom.id = "detail_mask";
+      mask_dom.style.position = "fixed";
+      mask_dom.style.top = "54px";
+      mask_dom.style.left = "0px";
+      mask_dom.style.width = "100%";
+      mask_dom.style.height = "100%";
+      mask_dom.style.backgroundColor = "#777";
+      mask_dom.style.opacity = "0.8";
+      document.body.appendChild(mask_dom);
+    }
+  }, []);
   const changeDropFlag = useCallback(() => {
     handleMask(dropFlag);
     setDropFlag(!dropFlag);

@@ -19,7 +19,7 @@ function Card({ itemConfig, id }: ItemConfig) {
   return (
     <>
       <div
-        className={`${styles.card} xs:flex-col xl:border-l border-neutral5`}
+        className={`${styles.card} maxlg:flex-col lg:border-l border-neutral5`}
         id={id}
       >
         {itemConfig.imageUrlInLeft && (
