@@ -13,7 +13,7 @@ const LocalJson = {
             "Lead & opportunity management",
             "Agency management",
           ],
-          imageUrl: "flex-0",
+          imageUrl: "flex-0.jpg",
         },
         {
           title: "Contract Management",
@@ -26,14 +26,14 @@ const LocalJson = {
             "e-Signatures",
             "Streamline space access control",
           ],
-          imageUrl: "flex-0.png",
+          imageUrl: "flex-1.jpg",
         },
         {
           title: "Approval Workflows",
           description:
             "Configure your own contract approval workflow and make sure your company's rules are fool-proof.  Once your workflow is set up, the approval process will be passed seamlessly from approver to approver.  Say goodbye to human error.  Be prepared to hear endless 'Thank yous'.",
           list: ["Configurable workflows", "Visual workflows"],
-          imageUrl: "flex-0.png",
+          imageUrl: "flex-2.jpg",
         },
         {
           title: "Inventory & Floor Plan Management",
@@ -44,7 +44,7 @@ const LocalJson = {
             "Streamline Products for sales or booking",
             "Visual floor plans",
           ],
-          imageUrl: "flex-0.png",
+          imageUrl: "flex-3.jpg",
           child: ChildType.carousel,
         },
         {
@@ -52,7 +52,7 @@ const LocalJson = {
           description:
             "The BOSS App can be white-labeled and customized to your branding.  It is your hand-held tool to engage with your customers. Through your app, your customers can view announcements, get notified about special events as well as make real-time bookings. The easy-to-use app also lets them make service requests and check invoices and make online payments.  Your app can be published in the App Store or Google Play store. ",
           list: ["Tenant engagement", "White-label app", "Available to public"],
-          imageUrl: "flex-0.png",
+          imageUrl: "flex-4.jpg",
         },
         {
           title: "Tenant Experience Management",
@@ -65,7 +65,7 @@ const LocalJson = {
             "Add-on services",
             "Streamline IT services",
           ],
-          imageUrl: "flex-0.png",
+          imageUrl: "flex-5.jpg",
         },
         {
           title: "Room Booking",
@@ -76,7 +76,7 @@ const LocalJson = {
             "Streamline e-booking management",
             "Allow public users to book",
           ],
-          imageUrl: "flex-0.png",
+          imageUrl: "flex-6.jpg",
           child: ChildType.contcat,
         },
         {
@@ -84,7 +84,7 @@ const LocalJson = {
           description:
             "With BOSS, all your billing and payment woes are gone with the ONE and the SAME system.  Automate invoices for lease add-on services, late fees, credits, amount balances, and billing cycles. Manage multiple-entities under one account.  All types of payments accepted in one stream.  Track payments in real-time.  Set up automatic payment reminders to customers.  Your finance team will thank you. ",
           list: ["Automate billing and invoicing", "Collect payments 24/7"],
-          imageUrl: "flex-0.png",
+          imageUrl: "flex-7.jpg",
         },
         {
           title: "User & Permissions",
@@ -94,7 +94,7 @@ const LocalJson = {
             "Flexible & secure user permissions",
             "Streamlined permission granting",
           ],
-          imageUrl: "flex-0.png",
+          imageUrl: "flex-8.jpg",
         },
         {
           title: "Available to Public",
@@ -105,21 +105,21 @@ const LocalJson = {
             "Meeting room booking",
             "Add-on services",
           ],
-          imageUrl: "flex-0.png",
+          imageUrl: "flex-9.jpg",
         },
         {
           title: "Multi-company Scalability",
           description:
             "Use BOSS to manage your multi-company enterprise across cities and countries. No need for separate systems in separate locations. Easily create and add inventory in any city.  Localize billing, multi-currency accounting, and contract workflows to fit different business units with different rules, clauses and branding. ",
           list: ["Multiple businesses management", "International markets"],
-          imageUrl: "flex-0.png",
+          imageUrl: "flex-10.jpg",
         },
         {
           title: "Dashboards",
           description:
             "BOSS provides you with a bespoke dashboard for you to customize so you can see what data matters most to you.  Our dashboard provides both historical and real-time data that includes Sales, Occupancy, Member Engagement, and Billing and Payment so that you can operate and optimize your business to the highest degree.",
           list: ["Personalize dashboard", "Key business insights"],
-          imageUrl: "flex-0.png",
+          imageUrl: "flex-11.jpg",
         },
       ],
     },

@@ -23,7 +23,7 @@ function Card({ itemConfig, id }: ItemConfig) {
         id={id}
       >
         {itemConfig.imageUrlInLeft && (
-          <div className={`xs:text-center`}>
+          <div className={`maxlg:text-center`}>
             <Image
               src="/images/flex-0.jpg"
               width={480}
@@ -39,9 +39,9 @@ function Card({ itemConfig, id }: ItemConfig) {
           funcList={itemConfig.funcList}
         />
         {itemConfig.imageUrl && (
-          <div className={`xs:text-center`}>
+          <div className={`maxlg:text-center`}>
             <Image
-              src="/images/flex-0.jpg"
+              src={`/images/${itemConfig.imageUrl}`}
               width={360}
               height={320}
               alt={itemConfig.title}
