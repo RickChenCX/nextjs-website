@@ -57,9 +57,6 @@
     letter-spacing: -0.02em;
     text-align: center;
 }
-.brand .img:nth-of-type(1){
-  position: static;
-}
 .brand .img:before {
   content: "";
   width: 2px;
@@ -71,6 +68,12 @@
   left: 0;
 }
 .brand .img:nth-of-type(1):before{
-    width: none;
+    width: 0;
 }
+@media screen and (max-width: 1023px) {
+  .brand .img:before{
+    width: 0;
+  }
+}
+
 

@@ -1,5 +1,5 @@
 import { Anchor, Button, Affix } from "antd";
-import { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState, useRef } from "react";
 
 import LocalJson from "components/CustomAnchor/Custom";
 import { ConfigProps, ProductType } from "components/CustomAnchor/index.d";
@@ -8,6 +8,30 @@ function CustomAnchor(props: ConfigProps) {
   const sections = LocalJson[props.type];
   const [activeItem, setActiveItem] = useState("");
   const [dropFlag, setDropFlag] = useState(false);
+  const [fixedAside, setFixedAside] = useState(true);
+  const asideHeight = useRef<HTMLDivElement>(null);
+  const handleAnchor = () => {
+    const anchorAsideHeight = asideHeight.current?.clientHeight ?? 0;
+    const bannerHeight = document.getElementById("banner")?.clientHeight ?? 0;
+    const anchorListHeight =
+      document.getElementById("anchorList")?.clientHeight ?? 0;
+    const scrollBottom =
+      anchorListHeight +
+      bannerHeight -
+      document.documentElement.scrollTop -
+      anchorAsideHeight -
+      54;
+    if (scrollBottom > 0) {
+      return setFixedAside(true);
+    }
+    return setFixedAside(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleAnchor);
+    return () => window.removeEventListener("scroll", handleAnchor);
+  });
+
   const onChange = (link: string) => {
     setActiveItem(link);
   };
@@ -94,8 +118,47 @@ function CustomAnchor(props: ConfigProps) {
           ))
         )}
       </Anchor>
-      <Affix offsetTop={54} className={`maxlg:hidden`}>
-        <div className={styles.affixContainer}>
+      {fixedAside ? (
+        <Affix offsetTop={54} className={`maxlg:hidden`}>
+          <div className={styles.affixContainer} ref={asideHeight}>
+            <ul className={styles.pcMode}>
+              {sections.map(({ content, title: headTitle }, ind) => {
+                const headIteam = (
+                  <li className={styles.headTitle} key={headTitle}>
+                    {headTitle}
+                  </li>
+                );
+                const contentArray = content.map(({ title }, index) => (
+                  <li key={`#${props.type}-${ind}-${index}`}>
+                    <span
+                      //href={`#${props.type}-${ind}-${index}`}
+                      onClick={() =>
+                        handleLink(`#${props.type}-${ind}-${index}`, false)
+                      }
+                      className={`${styles.baseSection} ${
+                        activeItem === `#${props.type}-${ind}-${index}`
+                          ? styles.activeSection
+                          : styles.normolSection
+                      }`}
+                    >
+                      {title}
+                    </span>
+                  </li>
+                ));
+                headTitle && contentArray.unshift(headIteam);
+                return contentArray;
+              })}
+            </ul>
+            <Button type="primary" ghost className={`${styles.bookButton}`}>
+              Book Free Demo
+            </Button>
+          </div>
+        </Affix>
+      ) : (
+        <div
+          className={`${styles.affixContainer} ${styles.asideAbsolute}`}
+          ref={asideHeight}
+        >
           <ul className={styles.pcMode}>
             {sections.map(({ content, title: headTitle }, ind) => {
               const headIteam = (
@@ -128,7 +191,8 @@ function CustomAnchor(props: ConfigProps) {
             Book Free Demo
           </Button>
         </div>
-      </Affix>
+      )}
+
       <Affix offsetTop={54}>
         <div
           id="featureList"
