@@ -1,9 +1,11 @@
-import { Anchor, Button, Affix } from "antd";
+import { Anchor, Affix } from "antd";
 import React, { useCallback, useEffect, useState, useRef } from "react";
 
 import LocalJson from "components/CustomAnchor/Custom";
 import { ConfigProps, ProductType } from "components/CustomAnchor/index.d";
 import styles from "./index.module.css";
+import BookFreeDemoButton from "../BookFreeDemoButton";
+
 function CustomAnchor(props: ConfigProps) {
   const sections = LocalJson[props.type];
   const [activeItem, setActiveItem] = useState("");
@@ -20,12 +22,17 @@ function CustomAnchor(props: ConfigProps) {
       bannerHeight -
       document.documentElement.scrollTop -
       anchorAsideHeight -
-      54;
+      53;
     if (scrollBottom > 0) {
       return setFixedAside(true);
     }
     return setFixedAside(false);
   };
+  const hanleClick = useCallback(() => {
+    const mask = document.getElementById("detail_mask");
+    setDropFlag(!dropFlag);
+    mask && mask.remove();
+  }, [dropFlag, setDropFlag]);
   useEffect(() => {
     const mask = document.getElementById("detail_mask");
     window.addEventListener("scroll", handleAnchor);
@@ -34,17 +41,11 @@ function CustomAnchor(props: ConfigProps) {
       window.removeEventListener("scroll", handleAnchor);
       mask && mask.removeEventListener("click", hanleClick);
     };
-  });
+  }, [hanleClick]);
 
   const onChange = (link: string) => {
     setActiveItem(link);
   };
-  const hanleClick = useCallback(() => {
-    const mask = document.getElementById("detail_mask");
-    setDropFlag(!dropFlag);
-    mask && mask.remove();
-  }, [dropFlag, setDropFlag]);
-
   const handleMask = useCallback((closeMask: boolean) => {
     const mask = document.getElementById("detail_mask");
     if (closeMask) {
@@ -55,7 +56,7 @@ function CustomAnchor(props: ConfigProps) {
       let mask_dom = document.createElement("div");
       mask_dom.id = "detail_mask";
       mask_dom.style.position = "fixed";
-      mask_dom.style.top = "54px";
+      mask_dom.style.top = "53px";
       mask_dom.style.left = "0px";
       mask_dom.style.width = "100%";
       mask_dom.style.height = "100%";
@@ -75,11 +76,14 @@ function CustomAnchor(props: ConfigProps) {
       if (anchorName) {
         if (activeItem && closeMask === false) {
         } else {
-          let anchorElement = document.getElementById(anchorName);
-          if (anchorElement) {
-            anchorElement.scrollIntoView({
+          const anchorElementHeight =
+            document.getElementById(anchorName)?.offsetTop ?? 0;
+          const featureListHeight =
+            document.getElementById("featureList")?.clientHeight ?? 0;
+          if (anchorElementHeight) {
+            window.scrollTo({
+              top: anchorElementHeight - featureListHeight - 53,
               behavior: "smooth",
-              inline: "start",
             });
           }
         }
@@ -119,7 +123,7 @@ function CustomAnchor(props: ConfigProps) {
         )}
       </Anchor>
       {fixedAside ? (
-        <Affix offsetTop={54} className={`maxlg:hidden`}>
+        <Affix offsetTop={57} className={`maxlg:hidden`}>
           <div className={styles.affixContainer} ref={asideHeight}>
             <ul className={styles.pcMode}>
               {sections.map(({ content, title: headTitle }, ind) => {
@@ -149,9 +153,13 @@ function CustomAnchor(props: ConfigProps) {
                 return contentArray;
               })}
             </ul>
-            <Button type="primary" ghost className={`${styles.bookButton}`}>
-              Book Free Demo
-            </Button>
+            <div className="mt-8 mb-8 ml-14">
+              <BookFreeDemoButton
+                textColor={"primary"}
+                bgColor={"white"}
+                borderColor={"primary"}
+              />
+            </div>
           </div>
         </Affix>
       ) : (
@@ -187,13 +195,17 @@ function CustomAnchor(props: ConfigProps) {
               return contentArray;
             })}
           </ul>
-          <Button type="primary" ghost className={`${styles.bookButton}`}>
-            Book Free Demo
-          </Button>
+          <div className="mt-8 mb-8 ml-14">
+            <BookFreeDemoButton
+              textColor={"primary"}
+              bgColor={"white"}
+              borderColor={"primary"}
+            />
+          </div>
         </div>
       )}
 
-      <Affix offsetTop={54}>
+      <Affix offsetTop={53}>
         <div
           id="featureList"
           className={`${styles.mobileMode} flex justify-between lg:hidden z-10`}

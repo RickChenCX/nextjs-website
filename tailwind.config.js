@@ -29,7 +29,7 @@ module.exports = {
         90: "5.625rem",
         "1/10": "10%",
         "1/6": "15%",
-        13: "55px",
+        13: "57px",
       },
       fontSize: {
         "text-sml": [
