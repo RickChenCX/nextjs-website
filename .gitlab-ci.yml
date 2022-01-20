@@ -72,7 +72,9 @@ install:
 build_dev:
   extends: .build_artifacts
   only:
-    - dev
+    - master
+    - /^release/.*$/
+    - /^feature/.*$/
   script:
     - yarn next build
 
@@ -109,7 +111,9 @@ package_dev:
   variables:
     NODE_ENV: development
   only:
-    - dev
+    - master
+    - /^release/.*$/
+    - /^feature/.*$/
 
 package_production:
   extends: .docker-build
@@ -162,7 +166,9 @@ dev-deploy:
     HOST_NAME: "www-dev.getbossbuilding.com"
     ISTIO_ENABLED: "true"
   only:
-    - dev
+    - master
+    - /^release/.*$/
+    - /^feature/.*$/
 
 production-deploy:
   extends: .k8s-deploy
