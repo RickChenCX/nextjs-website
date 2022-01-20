@@ -12,7 +12,7 @@ function CustomForm({ page }: IProps) {
   return (
     <div>
       <header
-        className={`${ModalInfo[page].bg} w-full flex items-center justify-end pr-4 h-11 fixed top-0 left-0`}
+        className={`${ModalInfo[page].bg} w-full flex items-center justify-end pr-4 h-11 fixed top-0 left-0 z-10`}
       >
         <Union onClick={() => window.history.go(-1)}></Union>
       </header>
