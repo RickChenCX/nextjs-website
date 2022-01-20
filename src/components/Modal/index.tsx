@@ -1,9 +1,11 @@
 import { useCallback, useState } from "react";
-import { Modal } from "antd";
-
+import { Modal, Spin } from "antd";
+import { createBookDemo, createContact } from "api/submit";
 import CustomForm from "./Form";
 import Footer from "./Footer";
+import Result from "components/Result";
 import { ModalInfo } from "constant/formConfig";
+import useSubmit from "hooks/useSubmit";
 
 interface IProps {
   visible?: boolean;
@@ -11,6 +13,11 @@ interface IProps {
   handleCancel?: () => void;
 }
 function CustomModal({ visible, page, handleCancel }: IProps) {
+  const { handleResultClose, handleSubmit, spinning, showResult } = useSubmit({
+    page,
+    handleCancel,
+  });
+
   return (
     <>
       <Modal
@@ -18,6 +25,7 @@ function CustomModal({ visible, page, handleCancel }: IProps) {
         footer={null}
         width={944}
         onCancel={handleCancel}
+        style={{ overflowY: "auto" }}
       >
         <div className="flex">
           <article
@@ -34,10 +42,13 @@ function CustomModal({ visible, page, handleCancel }: IProps) {
             </section>
           </article>
           <aside className="flex-1 pr-6 pl-10 pt-7">
-            <CustomForm page={page} handleSubmitSuccess={handleCancel} />
+            <Spin size="large" spinning={spinning}>
+              <CustomForm page={page} handleSubmit={handleSubmit} />
+            </Spin>
           </aside>
         </div>
       </Modal>
+      <Result visiable={showResult} onClose={handleResultClose} />
     </>
   );
 }
