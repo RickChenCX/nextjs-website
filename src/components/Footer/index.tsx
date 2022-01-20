@@ -138,11 +138,17 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
                     {item.title}
                   </h3>
                   {item.children.map((temp, index2) => (
-                    <Link key={index2} href={temp.link}>
-                      <a className="block mb-0 text-sm text-neutral12 pb-2 cursor-pointer text hover:underline hover:text-neutral12">
-                        {temp.module}
-                      </a>
-                    </Link>
+                    <div key={index2}>
+                      {temp.flag ? (
+                        <ContactUsButton from="footer" />
+                      ) : (
+                        <Link href={temp.link}>
+                          <a className="block mb-0 text-sm text-neutral12 pb-2 cursor-pointer text hover:underline hover:text-neutral12">
+                            {temp.module}
+                          </a>
+                        </Link>
+                      )}
+                    </div>
                   ))}
                 </div>
               );

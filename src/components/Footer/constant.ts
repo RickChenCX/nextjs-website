@@ -5,10 +5,12 @@ export const FooterListData = [
       {
         module: "BOSS Flex",
         link: "/product/flex",
+        flag: false,
       },
       {
         module: "BOSS Tenant Engage",
         link: "/product/tea",
+        flag: false,
       },
     ],
   },
@@ -18,10 +20,12 @@ export const FooterListData = [
       {
         module: "About Us",
         link: "/about",
+        flag: false,
       },
       {
         module: "Contact Us",
         link: "/contactUs",
+        flag: true,
       },
     ],
   },
