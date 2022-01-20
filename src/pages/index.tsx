@@ -369,7 +369,7 @@ export default function Page() {
         <section className="flex justify-center align-bottom">
           <div className="maxmd:hidden flex">
             <Image
-              src="/images/breakimage.png"
+              src="/images/breakimage.jpeg"
               alt=""
               width={1440}
               height={480}
@@ -381,7 +381,7 @@ export default function Page() {
           >
             <Image
               alt=""
-              src="/images/breakimage-mobile.png"
+              src="/images/breakimage-mobile.jpeg"
               layout="fill"
               objectFit="cover"
             />
