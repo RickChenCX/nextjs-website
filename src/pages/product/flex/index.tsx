@@ -46,7 +46,7 @@ export default function Flex() {
         <div className={`lg:hidden`}>
           <CustomAnchor type={ProductType.flex} />
         </div>
-        <SectionLayout mode="mobile" type={ProductType.flex}>
+        <SectionLayout type={ProductType.flex}>
           {LocalJson &&
             LocalJson[ProductType.flex] &&
             LocalJson[ProductType.flex].map((child, ind) => {

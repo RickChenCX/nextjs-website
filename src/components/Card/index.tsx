@@ -25,7 +25,7 @@ function Card({ itemConfig, id }: ItemConfig) {
         {itemConfig.imageUrlInLeft && (
           <div className={`maxlg:text-center`}>
             <Image
-              src="/images/flex-0.jpg"
+              src={`/images/${itemConfig.imageUrlInLeft}`}
               width={480}
               height={320}
               alt={itemConfig.title}
