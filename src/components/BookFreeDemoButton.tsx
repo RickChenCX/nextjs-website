@@ -6,33 +6,14 @@ interface IBookFreeDemoButtonProps {
   textColor?: "white" | "primary";
   borderColor?: "white" | "primary";
   bgColor?: "default" | "white" | "primary";
+  buttonText?: string;
 }
-
-// export function IsPC(): boolean {
-//   const userAgentInfo = navigator.userAgent;
-//   const Agents = [
-//     "Android",
-//     "iPhone",
-//     "SymbianOS",
-//     "Windows Phone",
-//     "iPad",
-//     "iPod",
-//   ];
-
-//   let flag = true;
-//   for (let v = 0; v < Agents.length; v++) {
-//     if (userAgentInfo.indexOf(Agents[v]) > 0) {
-//       flag = false;
-//       break;
-//     }
-//   }
-//   return flag;
-// }
 
 export default function BookFreeDemoButton({
   textColor = "white",
   borderColor = "white",
   bgColor = "default",
+  buttonText = "Book Free Demo",
 }: IBookFreeDemoButtonProps) {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
@@ -55,7 +36,7 @@ export default function BookFreeDemoButton({
               `}
           onClick={() => setModalVisible(true)}
         >
-          Book Free Demo
+          {buttonText}
         </button>
       </div>
       <div className="lg:hidden">
@@ -76,7 +57,7 @@ export default function BookFreeDemoButton({
                 text-sm
               `}
             >
-              Book Demo
+              {buttonText}
             </button>
           </a>
         </Link>

@@ -352,7 +352,7 @@ export default function Page() {
                     </div>
                     <div className={`pb-6 ml-4 border-b border-solid lg:w-464`}>
                       <h3
-                        className={`lg:text-3xxl text-xl font-normal text-neutral12`}
+                        className={`lg:text-3xxl text-xl font-normal text-neutral12 pb-2`}
                       >
                         {item.title}
                       </h3>
@@ -369,7 +369,7 @@ export default function Page() {
         <section className="flex justify-center align-bottom">
           <div className="maxmd:hidden flex">
             <Image
-              src="/images/breakImage.png"
+              src="/images/breakimage.png"
               alt=""
               width={1440}
               height={480}
@@ -381,7 +381,7 @@ export default function Page() {
           >
             <Image
               alt=""
-              src="/images/breakImage-mobile.png"
+              src="/images/breakimage-mobile.png"
               layout="fill"
               objectFit="cover"
             />

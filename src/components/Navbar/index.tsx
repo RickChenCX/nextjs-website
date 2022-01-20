@@ -191,6 +191,7 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
           textColor={isBgTransparent ? "primary" : "white"}
           bgColor={isBgTransparent ? "white" : "primary"}
           borderColor={isBgTransparent ? "white" : "primary"}
+          buttonText="Book Demo"
         />
       </div>
     </nav>
