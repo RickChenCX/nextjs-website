@@ -81,10 +81,17 @@ function CustomAnchor(props: ConfigProps) {
           const featureListHeight =
             document.getElementById("featureList")?.clientHeight ?? 0;
           if (anchorElementHeight) {
-            window.scrollTo({
-              top: anchorElementHeight - featureListHeight - 53,
-              behavior: "smooth",
-            });
+            if (anchorName === "featureList") {
+              window.scrollTo({
+                top: anchorElementHeight,
+                behavior: "smooth",
+              });
+            } else {
+              window.scrollTo({
+                top: anchorElementHeight - featureListHeight - 53,
+                behavior: "smooth",
+              });
+            }
           }
         }
       }
