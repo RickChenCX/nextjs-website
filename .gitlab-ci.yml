@@ -71,6 +71,8 @@ install:
 
 build_dev:
   extends: .build_artifacts
+  variables:
+    NODE_ENV: development
   only:
     - master
     - /^release/.*$/
@@ -80,6 +82,8 @@ build_dev:
 
 build_production:
   extends: .build_artifacts
+  variables:
+    NODE_ENV: production
   only:
     - master
     - tags
