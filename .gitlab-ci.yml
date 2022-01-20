@@ -108,7 +108,16 @@ build_production:
 package_dev:
   extends: .docker-build
   variables:
-    NODE_ENV: dev
+    NODE_ENV: development
+  only:
+    - master
+    - /^release/.*$/
+    - /^feature/.*$/
+
+package_production:
+  extends: .docker-build
+  variables:
+    NODE_ENV: production
   only:
     - master
     - /^release/.*$/
@@ -151,7 +160,7 @@ dev-deploy:
   extends: .k8s-deploy
   variables:
     ENVIRONMENT: reinvent-dev
-    NODE_ENV: production
+    NODE_ENV: development
     K8S_NAMESPACE: boss
     HOST_NAME: "www-dev.getbossbuilding.com"
     ISTIO_ENABLED: "true"
@@ -159,4 +168,17 @@ dev-deploy:
     - master
     - /^release/.*$/
     - /^feature/.*$/
-  # when: manual
+
+production-deploy:
+  extends: .k8s-deploy
+  variables:
+    ENVIRONMENT: reinvent-production
+    NODE_ENV: production
+    K8S_NAMESPACE: boss
+    HOST_NAME: "www.getbossbuilding.com"
+    ISTIO_ENABLED: "true"
+  only:
+    - master
+    - /^release/.*$/
+    - /^feature/.*$/
+    
