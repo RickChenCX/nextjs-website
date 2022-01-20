@@ -1,3 +1,4 @@
+import { useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FooterListData } from "./constant";
@@ -6,12 +7,39 @@ import ContactUsButton from "./../ContactUsButton";
 import EmailSvg from "./../../svgs/email.svg";
 import AddressSvg from "./../../svgs/address.svg";
 import { Input } from "antd";
+import { createEmail } from "api/submit";
+import Result from "components/Result";
 
 interface IFooterProps {
   from?: "homePage" | "aboutPage";
 }
 
 export default function Footer({ from = "homePage" }: IFooterProps) {
+  const [email, setEmail] = useState(undefined);
+  const [isModalVisable, setIsModalVisable] = useState<boolean>(false);
+  const handleInputChange = useCallback((e) => {
+    setEmail(e.target.value);
+  }, []);
+
+  const handleSubscribe = useCallback(async () => {
+    if (!email) {
+      return;
+    }
+    const params = { businessEmail: email };
+
+    try {
+      await createEmail(params);
+      setIsModalVisable(true);
+    } catch (error) {
+      console.error(error);
+    }
+  }, [email]);
+
+  const handleModalClose = useCallback(() => {
+    setIsModalVisable(false);
+    setEmail(undefined);
+  }, []);
+
   return (
     <footer>
       {from === "homePage" ? (
@@ -40,7 +68,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
         <section className="bg-about-footer maxlg:bg-about-footer-mobile flex justify-center py-16 maxlg:px-6">
           <div className={`maxlg:hidden lg:grid lg:grid-cols-2 lg:gap-24`}>
             <div>
-              <Image src="/images/Map.png" alt="map" width={369} height={282} />
+              <Image src="/images/map.png" alt="map" width={369} height={282} />
             </div>
             <div className="mt-120">
               <h3 className="text-white lg:text-5xxl text-3xxl font-light mb-8">
@@ -84,7 +112,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
             </div>
             <div>
               <Image
-                src="/images/Map-mobile.png"
+                src="/images/map-mobile.png"
                 alt="map"
                 width={327}
                 height={250}
@@ -95,18 +123,17 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
       )}
       <section className="flex lg:p-8 py-8 px-4">
         <div className="maxlg:hidden">
-          <Image
-            src="/images/logo-primary.png"
-            alt="logo"
-            width={68}
-            height={24}
-          />
+          <Link href="/">
+            <a className="block" style={{ width: "68px" }}>
+              <Image src="/images/logo.png" alt="logo" width={68} height={24} />
+            </a>
+          </Link>
         </div>
-        <div className="maxlg:hidden grow pl-24">
+        <div className="maxlg:hidden grow">
           <div className="flex">
             {FooterListData.map((item, index1) => {
               return (
-                <div key={index1} className={`pr-24`}>
+                <div key={index1} className="xl:pr-24 lg:pl-16">
                   <h3 className="mb-0 text-2xl text-neutral12 pb-4 font-normal">
                     {item.title}
                   </h3>
@@ -138,9 +165,14 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
               <Input
                 placeholder="Enter your business email"
                 style={{ width: "100%", border: "none" }}
+                value={email}
+                onChange={handleInputChange}
               />
             </div>
-            <button className="maxlg:hidden border border-solid border-primary w-155 h-10 text-white bg-primary text-sm maxlg:text-base">
+            <button
+              className="maxlg:hidden border border-solid border-primary w-155 h-10 text-white bg-primary text-sm maxlg:text-base"
+              onClick={handleSubscribe}
+            >
               Subscribe
             </button>
           </div>
@@ -151,17 +183,24 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
             .
           </p>
           <div className="lg:hidden mt-6 mb-20">
-            <button className="border border-solid border-primary w-full h-10 text-white bg-primary text-sm maxlg:text-base">
+            <button
+              className="border border-solid border-primary w-full h-10 text-white bg-primary text-sm maxlg:text-base"
+              onClick={handleSubscribe}
+            >
               Subscribe
             </button>
           </div>
           <div className="lg:hidden">
-            <Image
-              src="/images/logo-primary.png"
-              alt="logo"
-              width={68}
-              height={24}
-            />
+            <Link href="/">
+              <a>
+                <Image
+                  src="/images/logo.png"
+                  alt="logo"
+                  width={68}
+                  height={24}
+                />
+              </a>
+            </Link>
           </div>
           <div className="lg:hidden text-neutral7 mt-4">
             <span className="text-xxs pr-2.5">Terms & Conditions</span>
@@ -169,6 +208,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
             <span className="text-xxs ">©2022 BOSS All Rights Reserved.</span>
           </div>
         </div>
+        <Result visiable={isModalVisable} onClose={handleModalClose} />
       </section>
     </footer>
   );

@@ -22,9 +22,20 @@ interface ICreateBookDemoParams {
   subscribe: string;
 }
 
+interface ICreateEmailParams {
+  businessEmail: string;
+}
+
 export const createBookDemo = (data: ICreateBookDemoParams) =>
   request({
     method: "POST",
     path: `/api/v1/book-demo`,
+    data,
+  });
+
+export const createEmail = (data: ICreateEmailParams) =>
+  request({
+    method: "POST",
+    path: `/api/v1/email`,
     data,
   });

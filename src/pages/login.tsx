@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
+import LinkArrowWhite from "../svgs/LinkArrow-white.svg";
 
 export default function Login() {
   return (
@@ -29,14 +30,20 @@ export default function Login() {
             </Link>
             &nbsp;&nbsp;on a laptop computer.
           </p>
-          <button className="h-10 w-full mt-64 mb-6 border border-solid bg-white text-primary text-base font-medium">
-            Ok, Got It
-          </button>
           <Link href="/">
-            <a className="block text-white text-base text-center cursor-pointer">
-              view desktop version
+            <a>
+              <button className="h-10 w-full mt-64 mb-6 border border-solid bg-white text-primary text-base font-medium">
+                Ok, Got It
+              </button>
             </a>
           </Link>
+          <a
+            href="https://boss-admin.reinventventures.com"
+            className="block text-white text-base text-center cursor-pointer hover:text-white"
+          >
+            view desktop version
+            <LinkArrowWhite className="inline-block ml-1.5" />
+          </a>
         </section>
         <footer className="bg-black p-4">
           <h3 className="mb-0 text-white pb-2">Reach Us at</h3>

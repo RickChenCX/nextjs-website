@@ -1,14 +1,14 @@
 import Image from "next/image";
 
 interface ResultProps {
-  visibale: boolean;
+  visiable: boolean;
   onClose: () => void;
 }
-export default function Result({ visibale, onClose }: ResultProps) {
+export default function Result({ visiable, onClose }: ResultProps) {
   return (
     <div
       className={`${
-        visibale ? "" : "hidden"
+        visiable ? "" : "hidden"
       } fixed z-30 lg:bg-black maxlg:bg-white lg:bg-opacity-50 flex items-center justify-center w-screen h-screen top-0 left-0`}
       onClick={(e) => {
         onClose();
