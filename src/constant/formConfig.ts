@@ -1,3 +1,5 @@
+import { countryInfo } from "./country";
+
 export const commonRules = [
   {
     required: true,
@@ -124,6 +126,7 @@ export enum Role {
   Other = "OTHER",
   Owner = "OWNER",
 }
+
 export const roleOptions = [
   {
     label: "Owner",
@@ -158,3 +161,12 @@ export const roleOptions = [
     value: Role.Other,
   },
 ];
+
+const countryName2Value = (country: string) => country.replace(/\s*/g, "");
+export const countryOptions = countryInfo.map((v) => {
+  return { label: v.country, value: countryName2Value(v.country) };
+});
+
+export const phoneCodeOptions = countryInfo.map((v) => {
+  return { label: `+${v.phoneCode}`, value: v.phoneCode };
+});

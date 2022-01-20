@@ -3,34 +3,13 @@ import { Picker, List } from "antd-mobile";
 import RequiredTag from "../RequiredTag";
 import commonStyles from "../common.module.css";
 
-const seasons = [
-  [
-    {
-      label: "2013",
-      value: "2013",
-    },
-    {
-      label: "2014",
-      value: "2014",
-    },
-  ],
-  [
-    {
-      label: "春",
-      value: "春",
-    },
-    {
-      label: "夏",
-      value: "夏",
-    },
-  ],
-];
-
 interface IProps {
+  options: any;
   required?: boolean;
   label?: string;
+  handlePicker?: (v?: any) => void;
 }
-function CustomPicker({ required, label }: IProps) {
+function CustomPicker({ required, label, options, handlePicker }: IProps) {
   const [pickerValue, setPickerValue] = useState<any>(undefined);
   return (
     <div>
@@ -39,11 +18,14 @@ function CustomPicker({ required, label }: IProps) {
         {label}
       </div>
       <Picker
-        data={seasons}
+        data={[options]}
         cascade={false}
         extra=" "
         value={pickerValue}
-        onChange={(v) => setPickerValue(v)}
+        onChange={(v) => {
+          handlePicker && handlePicker(v);
+          setPickerValue(v);
+        }}
       >
         <List.Item
           arrow="horizontal"

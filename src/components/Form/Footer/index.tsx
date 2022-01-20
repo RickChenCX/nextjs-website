@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer
-      className="bgOne text-sm"
+      className="bg-bgOne text-sm"
       style={{
         padding: "16px 16px 40px",
       }}

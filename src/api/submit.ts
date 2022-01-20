@@ -6,7 +6,7 @@ import {
 } from "constant/formConfig";
 import request from "../request";
 
-interface ICreateBookDemoParams {
+interface ICommonParams {
   location?: NumberOfLocation;
   phone?: number;
   phoneCode?: string;
@@ -17,13 +17,12 @@ interface ICreateBookDemoParams {
   country: string;
   firstName: string;
   lastName: string;
-  product: ProductType[];
   role: Role;
   subscribe: string;
 }
 
-interface ICreateEmailParams {
-  businessEmail: string;
+interface ICreateBookDemoParams extends ICommonParams {
+  product: ProductType[];
 }
 
 export const createBookDemo = (data: ICreateBookDemoParams) =>
@@ -33,9 +32,21 @@ export const createBookDemo = (data: ICreateBookDemoParams) =>
     data,
   });
 
+interface ICreateEmailParams {
+  businessEmail: string;
+}
 export const createEmail = (data: ICreateEmailParams) =>
   request({
     method: "POST",
     path: `/api/v1/email`,
+    data,
+  });
+
+interface ICreateContactParams extends ICommonParams {}
+
+export const createContact = (data: ICreateContactParams) =>
+  request({
+    method: "POST",
+    path: `/api/v1/contact`,
     data,
   });
