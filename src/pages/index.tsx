@@ -213,7 +213,7 @@ export default function Page() {
                 Revolutionizing Flex & Hybrid Workspace Management & Business
               </div>
               <div
-                className={`lg:pt-16 pt-6 text-base max-w-464 lg:absolute bottom-6 right-0`}
+                className={`lg:pt-16 pt-6 text-base xl:max-w-464 lg:max-w-sm lg:absolute bottom-6 right-0`}
               >
                 <p className="font-light">
                   Revolutionize your end-to-end customer journey management —

@@ -49,13 +49,13 @@ h1,h2,h3,h4,h5{
   bottom: -40px !important;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 500px) {
   .am-carousel .slider-list {
     margin-left: -16% !important;
   }
 }
 
-@media screen and (min-width:500px) and (max-width:768px){
+@media screen and (min-width:501px) and (max-width:768px){
   .am-carousel .slider-list {
     margin-left: -34% !important;
   }
