@@ -72,9 +72,7 @@ install:
 build_dev:
   extends: .build_artifacts
   only:
-    - master
-    - /^release/.*$/
-    - /^feature/.*$/
+    - dev
   script:
     - yarn next build
 
@@ -111,9 +109,7 @@ package_dev:
   variables:
     NODE_ENV: development
   only:
-    - master
-    - /^release/.*$/
-    - /^feature/.*$/
+    - dev
 
 package_production:
   extends: .docker-build
@@ -173,11 +169,11 @@ production-deploy:
   variables:
     ENVIRONMENT: flexi-boss-prod
     NODE_ENV: production
-    K8S_NAMESPACE: boss
+    K8S_NAMESPACE: app
     HOST_NAME: "www.getbossbuilding.com"
     ISTIO_ENABLED: "true"
   only:
     - master
     - /^release/.*$/
     - /^feature/.*$/
-    
+  when: manual
