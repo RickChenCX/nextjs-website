@@ -30,8 +30,8 @@ function TextContainer({ funcList, list, title, description }: IProps) {
         {funcList &&
           funcList.map((item, index) => {
             return (
-              <>
-                <li key={index}>
+              <div key={`${item.title}-${index}`}>
+                <li>
                   <Image
                     src="/images/check.png"
                     width={11}
@@ -48,7 +48,7 @@ function TextContainer({ funcList, list, title, description }: IProps) {
                 >
                   {item.description}
                 </div>
-              </>
+              </div>
             );
           })}
       </ul>

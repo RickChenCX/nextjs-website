@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import {
   Form,
   Input,
@@ -9,31 +9,25 @@ import {
   Col,
   FormInstance,
 } from "antd";
+import Result from "components/Result";
 import {
-  ModalInfo,
   productTypeOptions,
   businessTypeOptions,
   countryOptions,
   phoneCodeOptions,
   roleOptions,
   numberOfLocationOptions,
+  commonRules,
 } from "constant/formConfig";
 import { createBookDemo, createContact } from "api/submit";
 
 const { TextArea } = Input;
-const Option = Select.Option;
 
 const prefixSelector = (
-  <Form.Item name="phoneCOde" noStyle>
+  <Form.Item name="phoneCode" noStyle>
     <Select options={phoneCodeOptions} style={{ width: 70 }}></Select>
   </Form.Item>
 );
-
-const commonRules = [
-  {
-    required: true,
-  },
-];
 
 const FormItemConfig = [
   {
@@ -121,13 +115,13 @@ const FormItemConfig = [
   },
 ];
 
-function CustomForm({
-  page,
-  isMobile,
-}: {
-  page: keyof typeof ModalInfo;
+interface IProps {
+  page: "bookDemo" | "contactUs";
   isMobile?: boolean;
-}) {
+  handleSubmitSuccess?: () => void;
+}
+
+function CustomForm({ page, isMobile, handleSubmitSuccess }: IProps) {
   const formRef = React.createRef<FormInstance>();
   const getFields = () => {
     const children: JSX.Element[] = [];
@@ -150,53 +144,69 @@ function CustomForm({
     return children;
   };
 
-  const handleSubmit = useCallback(async (values: any) => {
-    if (page === "bookDemo") {
-      await createBookDemo(values);
-    } else {
-      await createContact(values);
-    }
-  }, []);
+  const [showResult, setShowResult] = useState<boolean>(false);
+
+  const handleSubmit = useCallback(
+    async (values: any) => {
+      try {
+        if (page === "bookDemo") {
+          await createBookDemo(values);
+        } else {
+          await createContact(values);
+        }
+        handleSubmitSuccess && handleSubmitSuccess();
+        setShowResult(true);
+      } catch (e) {
+        // nope
+      }
+    },
+    [handleSubmitSuccess, page]
+  );
+
+  const handleResultClose = () => setShowResult(false);
 
   return (
-    <Form
-      ref={formRef}
-      name="basic"
-      colon={false}
-      layout="vertical"
-      onFinish={handleSubmit}
-    >
-      <Row gutter={24}>
-        {getFields()}
-        <Col span={24}>
-          <Form.Item
-            name="subscribe"
-            initialValue="NO"
-            normalize={(v, prevValue) => {
-              return prevValue === "YES" ? "NO" : "YES";
-            }}
-          >
-            <Checkbox>
-              Sign me up for product updates and insider knowledge by email.
-            </Checkbox>
-          </Form.Item>
-        </Col>
-        <Col span={24}>
-          <Button
-            htmlType="submit"
-            type="primary"
-            style={{
-              width: "100%",
-              height: "40px",
-              margin: "40px auto",
-              backgroundColor: "#5528ff",
-            }}
-          >
-            Submit
-          </Button>
-        </Col>
-      </Row>
-    </Form>
+    <>
+      <Form
+        ref={formRef}
+        name="basic"
+        colon={false}
+        layout="vertical"
+        onFinish={handleSubmit}
+      >
+        <Row gutter={24}>
+          {getFields()}
+          <Col span={24}>
+            <Form.Item
+              name="subscribe"
+              initialValue="NO"
+              normalize={(v, prevValue) => {
+                return prevValue === "YES" ? "NO" : "YES";
+              }}
+            >
+              <Checkbox>
+                Sign me up for product updates and insider knowledge by email.
+              </Checkbox>
+            </Form.Item>
+          </Col>
+          <Col span={24}>
+            <Button
+              htmlType="submit"
+              type="primary"
+              style={{
+                width: "100%",
+                height: "40px",
+                margin: "40px auto",
+                backgroundColor: "#5528ff",
+              }}
+            >
+              Submit
+            </Button>
+          </Col>
+        </Row>
+      </Form>
+      <Result visiable={showResult} onClose={handleResultClose} />
+    </>
   );
 }
 
