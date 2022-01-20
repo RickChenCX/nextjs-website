@@ -166,14 +166,12 @@ dev-deploy:
     HOST_NAME: "www-dev.getbossbuilding.com"
     ISTIO_ENABLED: "true"
   only:
-    - master
-    - /^release/.*$/
-    - /^feature/.*$/
+    - dev
 
 production-deploy:
   extends: .k8s-deploy
   variables:
-    ENVIRONMENT: reinvent-production
+    ENVIRONMENT: flexi-boss-prod
     NODE_ENV: production
     K8S_NAMESPACE: boss
     HOST_NAME: "www.getbossbuilding.com"
