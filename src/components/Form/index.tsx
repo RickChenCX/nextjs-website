@@ -1,14 +1,22 @@
 import React from "react";
+import { Spin } from "antd";
 import Form from "components/Modal/Form";
 import Footer from "./Footer";
 import { ModalInfo } from "constant/formConfig";
+
+import Result from "components/Result";
 import Union from "../../svgs/Union.svg";
+import useSubmit from "hooks/useSubmit";
 
 interface IProps {
   page: keyof typeof ModalInfo;
 }
 
 function CustomForm({ page }: IProps) {
+  const { handleResultClose, handleSubmit, spinning, showResult } = useSubmit({
+    page,
+  });
+
   return (
     <div>
       <header
@@ -27,9 +35,12 @@ function CustomForm({ page }: IProps) {
         </header>
       </aside>
       <aside className="bg-white mx-4" style={{ padding: "16px 1px 0" }}>
-        <Form page={page} isMobile={true}></Form>
+        <Spin size="large" spinning={spinning} style={{ position: "fixed" }}>
+          <Form page={page} isMobile={true} handleSubmit={handleSubmit}></Form>
+        </Spin>
       </aside>
       <Footer />
+      <Result visiable={showResult} onClose={handleResultClose} />
     </div>
   );
 }

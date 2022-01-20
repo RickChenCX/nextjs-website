@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React from "react";
 import {
   Form,
   Input,
@@ -9,7 +9,7 @@ import {
   Col,
   FormInstance,
 } from "antd";
-import Result from "components/Result";
+
 import {
   productTypeOptions,
   businessTypeOptions,
@@ -19,7 +19,6 @@ import {
   numberOfLocationOptions,
   commonRules,
 } from "constant/formConfig";
-import { createBookDemo, createContact } from "api/submit";
 
 const { TextArea } = Input;
 
@@ -118,10 +117,10 @@ const FormItemConfig = [
 interface IProps {
   page: "bookDemo" | "contactUs";
   isMobile?: boolean;
-  handleSubmitSuccess?: () => void;
+  handleSubmit?: (values: any) => void;
 }
 
-function CustomForm({ page, isMobile, handleSubmitSuccess }: IProps) {
+function CustomForm({ page, isMobile, handleSubmit }: IProps) {
   const formRef = React.createRef<FormInstance>();
   const getFields = () => {
     const children: JSX.Element[] = [];
@@ -143,27 +142,6 @@ function CustomForm({ page, isMobile, handleSubmitSuccess }: IProps) {
     });
     return children;
   };
-
-  const [showResult, setShowResult] = useState<boolean>(false);
-
-  const handleSubmit = useCallback(
-    async (values: any) => {
-      try {
-        if (page === "bookDemo") {
-          await createBookDemo(values);
-        } else {
-          await createContact(values);
-        }
-        handleSubmitSuccess && handleSubmitSuccess();
-        setShowResult(true);
-      } catch (e) {
-        // nope
-      }
-    },
-    [handleSubmitSuccess, page]
-  );
-
-  const handleResultClose = () => setShowResult(false);
 
   return (
     <>
@@ -205,7 +183,6 @@ function CustomForm({ page, isMobile, handleSubmitSuccess }: IProps) {
           </Col>
         </Row>
       </Form>
-      <Result visiable={showResult} onClose={handleResultClose} />
     </>
   );
 }
