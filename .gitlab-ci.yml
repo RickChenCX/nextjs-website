@@ -84,6 +84,7 @@ build_production:
     - master
     - tags
     - release
+    - /^feature/.*$/
   script:
     - yarn next build
 
