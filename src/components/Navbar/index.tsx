@@ -1,5 +1,4 @@
 import { useState, useCallback } from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import navConfig, { NavConfigItem } from "./nav.config";
@@ -96,23 +95,28 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
           `}
         >
           {navItem.path ? (
-            <Link
-              href={
-                navItem.flag === "login" && showMobileNav
-                  ? navItem.path
-                  : navItem?.extraPath ?? navItem?.path
-              }
+            <div
+              className={`${
+                navItem.flag === "login" ? "lg:inline-block" : "block"
+              }`}
+              onClick={() => {
+                handleRouter(
+                  (navItem.flag === "login" && showMobileNav
+                    ? navItem.path
+                    : navItem?.extraPath ?? navItem?.path) as string
+                );
+              }}
             >
-              <a
+              <span
                 className={`${
                   showMobileNav || !isBgTransparent
                     ? "text-black"
                     : "text-white "
-                } hover:text-primary2 cursor-pointer`}
+                } hover:text-primary2 cursor-pointer inline-block w-full`}
               >
                 {navItem.name}
-              </a>
-            </Link>
+              </span>
+            </div>
           ) : (
             <span
               className={`${
