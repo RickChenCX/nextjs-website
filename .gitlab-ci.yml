@@ -72,9 +72,7 @@ install:
 build_dev:
   extends: .build_artifacts
   only:
-    - master
-    - /^release/.*$/
-    - /^feature/.*$/
+    - dev
   script:
     - yarn next build
 
@@ -84,6 +82,7 @@ build_production:
     - master
     - tags
     - release
+    - /^feature/.*$/
   script:
     - yarn next build
 
@@ -108,7 +107,14 @@ build_production:
 package_dev:
   extends: .docker-build
   variables:
-    NODE_ENV: dev
+    NODE_ENV: development
+  only:
+    - dev
+
+package_production:
+  extends: .docker-build
+  variables:
+    NODE_ENV: production
   only:
     - master
     - /^release/.*$/
@@ -151,12 +157,23 @@ dev-deploy:
   extends: .k8s-deploy
   variables:
     ENVIRONMENT: reinvent-dev
-    NODE_ENV: production
+    NODE_ENV: development
     K8S_NAMESPACE: boss
     HOST_NAME: "www-dev.getbossbuilding.com"
+    ISTIO_ENABLED: "true"
+  only:
+    - dev
+
+production-deploy:
+  extends: .k8s-deploy
+  variables:
+    ENVIRONMENT: flexi-boss-prod
+    NODE_ENV: production
+    K8S_NAMESPACE: app
+    HOST_NAME: "www.getbossbuilding.com"
     ISTIO_ENABLED: "true"
   only:
     - master
     - /^release/.*$/
     - /^feature/.*$/
-  # when: manual
+  when: manual
