@@ -10,26 +10,22 @@ import {
   FormInstance,
 } from "antd";
 import {
+  ModalInfo,
   productTypeOptions,
   businessTypeOptions,
+  countryOptions,
+  phoneCodeOptions,
   roleOptions,
   numberOfLocationOptions,
-  BussinessType,
-  NumberOfLocation,
-  ProductType,
-  Role,
 } from "constant/formConfig";
-import { createBookDemo } from "api/submit";
+import { createBookDemo, createContact } from "api/submit";
 
 const { TextArea } = Input;
 const Option = Select.Option;
 
 const prefixSelector = (
-  <Form.Item name="prefix" noStyle>
-    <Select style={{ width: 70 }}>
-      <Option value="86">+86</Option>
-      <Option value="87">+87</Option>
-    </Select>
+  <Form.Item name="phoneCOde" noStyle>
+    <Select options={phoneCodeOptions} style={{ width: 70 }}></Select>
   </Form.Item>
 );
 
@@ -44,49 +40,58 @@ const FormItemConfig = [
     name: "firstName",
     label: "First Name",
     tag: <Input placeholder="Input" />,
+    span: 12,
+    mobileSpan: 12,
   },
   {
     name: "lastName",
     label: "Last Name",
     tag: <Input placeholder="Input" />,
+    span: 12,
+    mobileSpan: 12,
   },
   {
     name: "businessEmail",
     label: "Business Email",
     tag: <Input placeholder="Input" />,
+    span: 12,
+    mobileSpan: 24,
   },
   {
     name: "phoneNumber",
     label: "Phone Number",
     tag: <Input addonBefore={prefixSelector} />,
     rules: [],
+    span: 12,
+    mobileSpan: 24,
   },
   {
     name: "companyName",
     label: "Company Name",
     tag: <Input placeholder="Input" />,
+    span: 12,
+    mobileSpan: 24,
   },
   {
     name: "country",
     label: "Country/Region",
-    tag: (
-      <Select placeholder="Select">
-        <Option value="China">中国</Option>
-        <Option value="Sig">新加坡</Option>
-      </Select>
-    ),
+    tag: <Select options={countryOptions} placeholder="Select"></Select>,
+    span: 12,
+    mobileSpan: 12,
   },
   {
     name: "businessType",
     label: "Business Type",
     tag: <Select options={businessTypeOptions} placeholder="Select"></Select>,
     span: 8,
+    mobileSpan: 12,
   },
   {
     name: "role",
     label: "Your Role",
     tag: <Select options={roleOptions} placeholder="Select"></Select>,
     span: 8,
+    mobileSpan: 12,
   },
   {
     name: "numberOfLocation",
@@ -95,6 +100,7 @@ const FormItemConfig = [
       <Select options={numberOfLocationOptions} placeholder="Select"></Select>
     ),
     span: 8,
+    mobileSpan: 12,
     rules: [],
   },
   {
@@ -102,6 +108,7 @@ const FormItemConfig = [
     label: "Which product are you interested in?",
     tag: <Checkbox.Group options={productTypeOptions} />,
     span: 24,
+    mobileSpan: 24,
     page: "bookDemo",
   },
   {
@@ -109,33 +116,46 @@ const FormItemConfig = [
     label: "Do you have any specific questions?",
     tag: <TextArea showCount maxLength={2000} placeholder="Input" />,
     span: 24,
+    mobileSpan: 24,
     rules: [],
   },
 ];
 
-function CustomForm() {
+function CustomForm({
+  page,
+  isMobile,
+}: {
+  page: keyof typeof ModalInfo;
+  isMobile?: boolean;
+}) {
   const formRef = React.createRef<FormInstance>();
   const getFields = () => {
     const children: JSX.Element[] = [];
     FormItemConfig.forEach((item, index) => {
-      children.push(
-        <Col span={item.span ?? 12} key={index}>
-          <Form.Item
-            name={item.name}
-            label={item.label}
-            rules={item.rules ?? commonRules}
-          >
-            {item.tag}
-          </Form.Item>
-        </Col>
-      );
+      if (!item.page || page === item.page) {
+        const span = isMobile ? item.mobileSpan : item.span;
+        children.push(
+          <Col span={span} key={index}>
+            <Form.Item
+              name={item.name}
+              label={item.label}
+              rules={item.rules ?? commonRules}
+            >
+              {item.tag}
+            </Form.Item>
+          </Col>
+        );
+      }
     });
     return children;
   };
 
   const handleSubmit = useCallback(async (values: any) => {
-    console.log(values);
-    await createBookDemo(values);
+    if (page === "bookDemo") {
+      await createBookDemo(values);
+    } else {
+      await createContact(values);
+    }
   }, []);
 
   return (
@@ -148,13 +168,19 @@ function CustomForm() {
     >
       <Row gutter={24}>
         {getFields()}
-        <Form.Item name="subscribe">
-          <Col span={24}>
+        <Col span={24}>
+          <Form.Item
+            name="subscribe"
+            initialValue="NO"
+            normalize={(v, prevValue) => {
+              return prevValue === "YES" ? "NO" : "YES";
+            }}
+          >
             <Checkbox>
               Sign me up for product updates and insider knowledge by email.
             </Checkbox>
-          </Col>
-        </Form.Item>
+          </Form.Item>
+        </Col>
         <Col span={24}>
           <Button
             htmlType="submit"
@@ -162,7 +188,7 @@ function CustomForm() {
             style={{
               width: "100%",
               height: "40px",
-              marginTop: "40px",
+              margin: "40px auto",
               backgroundColor: "#5528ff",
             }}
           >

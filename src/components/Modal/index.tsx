@@ -25,7 +25,7 @@ function CustomModal({ visible, page, handleCancel }: IProps) {
           </section>
         </article>
         <aside className="flex-1 pr-6 pl-10 pt-7">
-          <CustomForm />
+          <CustomForm page={page} />
         </aside>
       </div>
     </Modal>

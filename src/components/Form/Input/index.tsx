@@ -8,11 +8,11 @@ interface IProps {
   label: string;
   required?: boolean;
   showPreSelect?: boolean;
+  handleInput?: (v: string) => void;
+  handlePicker?: (v: any) => void;
 }
 
-const test = ["1", "2"];
-
-const season = [
+const phoneCode = [
   [
     {
       label: "+86",
@@ -25,7 +25,13 @@ const season = [
   ],
 ];
 
-function CustomInput({ label, required, showPreSelect }: IProps) {
+function CustomInput({
+  label,
+  required,
+  showPreSelect,
+  handleInput,
+  handlePicker,
+}: IProps) {
   const [pickerValue, setPickerValue] = useState<any>(undefined);
   return (
     <div>
@@ -36,7 +42,7 @@ function CustomInput({ label, required, showPreSelect }: IProps) {
       <Flex>
         {showPreSelect && (
           <Picker
-            data={season}
+            data={phoneCode}
             cols={1}
             cascade={false}
             value={pickerValue}
@@ -55,7 +61,7 @@ function CustomInput({ label, required, showPreSelect }: IProps) {
           </Picker>
         )}
 
-        <InputItem className={styles.inputMobile} />
+        <InputItem className={styles.inputMobile} placeholder="Input" />
       </Flex>
     </div>
   );
