@@ -5,14 +5,9 @@ import styles from "./index.module.css";
 
 interface CustomLayoutProps {
   type: ProductType;
-  mode: String;
   children: ReactNode;
 }
-function CustomLayout({
-  children,
-  mode,
-  type,
-}: CustomLayoutProps): ReactElement {
+function CustomLayout({ children, type }: CustomLayoutProps): ReactElement {
   return (
     <div className={styles.layoutContainer}>
       <div className={`${styles.layoutSideSection} relative maxlg:hidden`}>

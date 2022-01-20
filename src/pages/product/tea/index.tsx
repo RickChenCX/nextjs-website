@@ -46,7 +46,7 @@ export default function Tea() {
         <div className={`lg:hidden`}>
           <CustomAnchor type={ProductType.tea} />
         </div>
-        <SectionLayout mode="mobile" type={ProductType.tea}>
+        <SectionLayout type={ProductType.tea}>
           {LocalJson &&
             LocalJson[ProductType.tea] &&
             LocalJson[ProductType.tea].map((child, ind) => {

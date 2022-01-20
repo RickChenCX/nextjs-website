@@ -139,7 +139,7 @@ const LocalJson = {
             "Perks management",
             "News management",
           ],
-          imageUrl: "flex-0.png",
+          imageUrl: "tea-0.jpg",
         },
         {
           title: "Meeting Room Booking",
@@ -156,28 +156,28 @@ const LocalJson = {
             "Multiple booking channels",
             "Public booking",
           ],
-          imageUrl: "flex-0.png",
+          imageUrl: "tea-1.jpg",
         },
         {
           title: "Tenant Management",
           description:
             "A central place to manage the tenant company info, tenant accounts and permission as well as all the activities happened.",
           list: ["Account management", "Access control on app"],
-          imageUrl: "flex-0.png",
+          imageUrl: "tea-2.jpg",
         },
         {
           title: "Add-on Services Management",
           description:
             "A place for you to manage add-on services which will help to generate additional revenue. You can customize or add more add-on services when needed.",
           list: ["Add-on a list of services", "One-off & recurring charge"],
-          imageUrl: "flex-0.png",
+          imageUrl: "tea-3.jpg",
         },
         {
           title: "Billing & Payments",
           description:
             "BOSS has already integrated with Stripe to make payments easier. Set up automatic payment reminders to ensure customers pay on time.  Enable permitted tenants to check monthly invoices online with self-service and make in-app payments via credit or debit card directly anytime and anywhere.",
           list: ["Payment receipts", "Payment gateway integration (Stripe)"],
-          imageUrl: "flex-0.png",
+          imageUrl: "tea-4.jpg",
         },
         {
           title: "Reports & Analytics",
@@ -190,14 +190,14 @@ const LocalJson = {
             "Interactive booking on portal",
             "Exportable to spreadsheet (future)",
           ],
-          imageUrl: "flex-0.png",
+          imageUrl: "tea-5.jpg",
         },
         {
           title: "Account Permission Control",
           description:
             "You are empowered to review and manage user permissions without IT. Locate all users within seconds and deactivate users with one click.",
           list: ["Role based access control", "Portal data permission control"],
-          imageUrl: "flex-0.png",
+          imageUrl: "tea-6.jpg",
         },
       ],
     },
@@ -213,7 +213,7 @@ const LocalJson = {
                 "Both the App icon and color scheme can be customized to your brand.",
             },
           ],
-          imageUrlInLeft: "flex-0.png",
+          imageUrlInLeft: "tea-7.jpg",
         },
         {
           title: "Community Experience",
@@ -229,7 +229,7 @@ const LocalJson = {
                 "All the engagement content (announcements, events, perks, news) that you publish in the admin portal will be displayed in the App for your tenants to see.",
             },
           ],
-          imageUrlInLeft: "flex-0.png",
+          imageUrlInLeft: "tea-8.jpg",
         },
         {
           title: "Meeting Room Booking",
@@ -245,7 +245,7 @@ const LocalJson = {
                 "Tenants can use booking credits to complete the booking, or the balance will included in their monthly invoice. An immediate payment is required for public users to make a booking.",
             },
           ],
-          imageUrlInLeft: "flex-0.png",
+          imageUrlInLeft: "tea-9.jpg",
         },
         {
           title: "Invoicing & Payments",
@@ -266,7 +266,7 @@ const LocalJson = {
               description: "Tenants can pay their balances online via Stripe.",
             },
           ],
-          imageUrlInLeft: "flex-0.png",
+          imageUrlInLeft: "tea-10.jpg",
         },
         {
           title: "Integration-based Service Requests",
@@ -287,7 +287,7 @@ const LocalJson = {
                 "Tenants can provide more details by leaving messages under each ticket and get replies as well. ",
             },
           ],
-          imageUrlInLeft: "flex-0.png",
+          imageUrlInLeft: "tea-11.jpg",
         },
         {
           title: "Public User Experience",
@@ -308,7 +308,7 @@ const LocalJson = {
                 "Public users can make meeting room bookings according to your rules. Online payment is required for the public to confirm a booking.",
             },
           ],
-          imageUrlInLeft: "flex-0.png",
+          imageUrlInLeft: "tea-12.jpg",
         },
       ],
     },
