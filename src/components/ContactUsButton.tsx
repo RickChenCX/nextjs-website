@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import CustomModal from "./Modal";
+import Form from "./Form";
 
 interface IContactUsButtonProps {
   textColor?: "white" | "primary";
@@ -16,6 +17,7 @@ export default function ContactUsButton({
   from = "default",
 }: IContactUsButtonProps) {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [formVisible, setFormVisible] = useState<boolean>(false);
 
   return (
     <>
@@ -88,6 +90,13 @@ export default function ContactUsButton({
         page={"contactUs"}
         handleCancel={() => setModalVisible(false)}
       />
+      {formVisible && (
+        <Form
+          visible={formVisible}
+          page="contactUs"
+          handleClose={() => setFormVisible(false)}
+        />
+      )}
     </>
   );
 }

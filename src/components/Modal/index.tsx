@@ -24,6 +24,7 @@ function CustomModal({ visible, page, handleCancel }: IProps) {
         width={944}
         onCancel={handleCancel}
         style={{ overflowY: "auto" }}
+        destroyOnClose
       >
         <div className="flex">
           <article
