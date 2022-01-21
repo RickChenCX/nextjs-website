@@ -15,7 +15,7 @@ function CustomLayout({ children, type }: CustomLayoutProps): ReactElement {
       </div>
       <div
         id="anchorList"
-        className={`${styles.layoutContent} lg:max-w-1095 maxlg:max-w-full`}
+        className={`${styles.layoutContent} lg:max-w-1095 xxl:max-w-1094 maxlg:max-w-full`}
       >
         {children}
       </div>

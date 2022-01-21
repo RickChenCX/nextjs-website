@@ -27,41 +27,48 @@ export default function Tea() {
       </Head>
       <main className={`max-w-full`}>
         <div
-          id="banner"
-          className={`${styles.banner} bg-center bg-cover bg-no-repeat relative lg:bg-tea-pc lg:pt-25 lg:h-300 lg:pl-89 maxlg:bg-tea-mobile maxlg:pt-18 maxlg:h-336 maxlg:pl-4 maxlg:pr-10`}
+          className={`bg-center bg-cover bg-no-repeat  lg:bg-tea-pc maxlg:bg-tea-mobile`}
         >
-          <h3 className={`lg:pb-4 maxlg:pb-3`}>
-            For landlords or space operators
-          </h3>
-          <h1 className={`lg:pb-2 lg:f-5xxl maxlg:pb-6 maxlg:3xxl`}>
-            BOSS Tenant Engage
-          </h1>
-          <h4 className={`lg:f-text-sml maxlg:tex-sm`}>
-            BOSS Tenant Engage is a comprehensive platform for landlords or
-            space operators to connect better with tenants, strengthen
-            satisfaction and conduct tenant management in an automated and
-            efficient way.
-          </h4>
+          <div
+            id="banner"
+            className={`${styles.banner} max-w-1440 relative lg:pt-25 lg:h-300 lg:pl-89  maxlg:pt-18 maxlg:h-336 maxlg:pl-4 maxlg:pr-10`}
+          >
+            <h3 className={`lg:pb-4 maxlg:pb-3`}>
+              For landlords or space operators
+            </h3>
+            <h1 className={`lg:pb-2 lg:f-5xxl maxlg:pb-6 maxlg:3xxl`}>
+              BOSS Tenant Engage
+            </h1>
+            <h4 className={`lg:f-text-sml maxlg:tex-sm`}>
+              BOSS Tenant Engage is a comprehensive platform for landlords or
+              space operators to connect better with tenants, strengthen
+              satisfaction and conduct tenant management in an automated and
+              efficient way.
+            </h4>
+          </div>
         </div>
-        <div className={`lg:hidden`}>
-          <CustomAnchor type={ProductType.tea} />
+
+        <div className={`${styles.marginAuto} max-w-1440`}>
+          <div className={`lg:hidden`}>
+            <CustomAnchor type={ProductType.tea} />
+          </div>
+          <SectionLayout type={ProductType.tea}>
+            {LocalJson &&
+              LocalJson[ProductType.tea] &&
+              LocalJson[ProductType.tea].map((child, ind) => {
+                const title = child.title;
+                return child.content.map((item, index) => {
+                  return (
+                    <Card
+                      key={`${ProductType.tea}-${ind}-${index}`}
+                      id={`${ProductType.tea}-${ind}-${index}`}
+                      itemConfig={item}
+                    />
+                  );
+                });
+              })}
+          </SectionLayout>
         </div>
-        <SectionLayout type={ProductType.tea}>
-          {LocalJson &&
-            LocalJson[ProductType.tea] &&
-            LocalJson[ProductType.tea].map((child, ind) => {
-              const title = child.title;
-              return child.content.map((item, index) => {
-                return (
-                  <Card
-                    key={`${ProductType.tea}-${ind}-${index}`}
-                    id={`${ProductType.tea}-${ind}-${index}`}
-                    itemConfig={item}
-                  />
-                );
-              });
-            })}
-        </SectionLayout>
       </main>
     </div>
   );

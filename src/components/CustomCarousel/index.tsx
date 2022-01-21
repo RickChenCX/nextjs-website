@@ -13,10 +13,10 @@ function CustomCarousel() {
           className={`flex justify-between maxlg:flex-col-reverse maxlg:text-center`}
         >
           <div className={`maxlg:hidden`}>
-            <Image src="/images/flexPc-0.png" width={320} height={320} alt="" />
+            <Image src="/images/Circle-0.png" width={320} height={320} alt="" />
           </div>
           <div className={`lg:hidden`}>
-            <Image src="/images/flexPc-0.png" width={240} height={240} alt="" />
+            <Image src="/images/Circle-0.png" width={240} height={240} alt="" />
           </div>
           <section className={`${styles.detail} flex justify-between`}>
             <h3 className={`lg:text-5xxl lg:w-12 maxlg:text-3xxl maxlg:w-8`}>
@@ -41,10 +41,10 @@ function CustomCarousel() {
           className={`flex justify-between maxlg:flex-col-reverse maxlg:text-center`}
         >
           <div className={`maxlg:hidden`}>
-            <Image src="/images/flexPc-0.png" width={320} height={320} alt="" />
+            <Image src="/images/Circle-1.png" width={320} height={320} alt="" />
           </div>
           <div className={`lg:hidden`}>
-            <Image src="/images/flexPc-0.png" width={240} height={240} alt="" />
+            <Image src="/images/Circle-1.png" width={240} height={240} alt="" />
           </div>
           <section className={`${styles.detail} flex justify-between`}>
             <h3 className={`lg:text-5xxl lg:w-12 maxlg:text-3xxl maxlg:w-8`}>
@@ -68,10 +68,10 @@ function CustomCarousel() {
           className={`flex justify-between maxlg:flex-col-reverse maxlg:text-center`}
         >
           <div className={`maxlg:hidden`}>
-            <Image src="/images/flexPc-0.png" width={320} height={320} alt="" />
+            <Image src="/images/Circle-2.png" width={320} height={320} alt="" />
           </div>
           <div className={`lg:hidden`}>
-            <Image src="/images/flexPc-0.png" width={240} height={240} alt="" />
+            <Image src="/images/Circle-2.png" width={240} height={240} alt="" />
           </div>
           <section className={`${styles.detail} flex justify-between`}>
             <h3 className={`lg:text-5xxl lg:w-12 maxlg:text-3xxl maxlg:w-8`}>
