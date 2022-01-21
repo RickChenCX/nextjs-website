@@ -6,6 +6,9 @@ import ProductNavItem from "./ProductNavItem";
 import MenuBlack from "../../svgs/Menu_black.svg";
 import Menu from "../../svgs/Menu.svg";
 import Close from "../../svgs/Close.svg";
+import Logo from "../../svgs/logo.svg";
+import Logo1 from "../../svgs/logo1.svg";
+
 import ContactUsButton from "../ContactUsButton";
 import BookFreeDemoButton from "../BookFreeDemoButton";
 interface NavbarProps {
@@ -72,7 +75,7 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
               </span>
             </div>
             <div
-              className={`lg:absolute lg:z-10 lg:bg-black lg:bg-opacity-40 lg:w-screen lg:h-57 lg:left-0 lg:top-13 ${
+              className={`lg:absolute lg:z-10 lg:bg-black lg:bg-opacity-40 lg:w-screen lg:h-screen lg:left-0 lg:top-13 ${
                 currentSubNav === navItem.name ? "" : "hidden"
               }`}
               onClick={handleChangeSubNav}
@@ -151,12 +154,7 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
         </span>
 
         <a className="flex" onClick={() => handleRouter("/")}>
-          <Image
-            src={!isBgTransparent ? "/images/logo.png" : "/images/logo1.png"}
-            alt="logo"
-            width={68}
-            height={24}
-          />
+          {isBgTransparent ? <Logo /> : <Logo1 />}
         </a>
       </div>
       <ul
@@ -171,7 +169,7 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
         </li>
         {navItemRender(navConfig)}
         <li className="lg:hidden mt-4 flex-1 h-20 flex items-start flex-col justify-end ">
-          <Image src="/images/logo.png" alt="logo" width={68} height={24} />
+          <Logo1 />
           <p className="text-neutral7 text-xxs my-4">
             ©2022 BOSS All Rights Reserved.
           </p>
@@ -181,6 +179,7 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
         <ContactUsButton
           textColor={isBgTransparent ? "white" : "primary"}
           borderColor={isBgTransparent ? "white" : "primary"}
+          btnWidth="117px"
         />
       </div>
       <div className="maxlg:hidden ml-4">

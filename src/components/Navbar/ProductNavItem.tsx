@@ -41,9 +41,12 @@ function ProductNavItem({ items, handleRoute }: ProductNavItemProps) {
                     return (
                       <li
                         key={s}
-                        className="mb-2 font-normal list-square list-inside "
+                        className="mb-2 font-normal list-square list-inside"
+                        onClick={() => handleRoute(String(subItem?.path))}
                       >
-                        {subItem.name}
+                        <span className="hover:border-b hover:border-primary cursor-pointer">
+                          {subItem.name}
+                        </span>
                       </li>
                     );
                   })}
