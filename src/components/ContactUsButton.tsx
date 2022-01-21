@@ -9,6 +9,7 @@ interface IContactUsButtonProps {
   bgColor?: "default" | "white" | "primary";
   from?: "default" | "footer";
   btnWidth?: string;
+  onClose?: () => void;
 }
 
 export default function ContactUsButton({
@@ -17,6 +18,7 @@ export default function ContactUsButton({
   bgColor = "default",
   from = "default",
   btnWidth,
+  onClose,
 }: IContactUsButtonProps) {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [formVisible, setFormVisible] = useState<boolean>(false);
@@ -77,7 +79,7 @@ export default function ContactUsButton({
           <div>
             <a
               onClick={() => setFormVisible(true)}
-              className="block mb-0 text-sm text-neutral12 pb-2 cursor-pointer text hover:underline hover:text-neutral12"
+              className="block mb-0 text-base text-neutral12 cursor-pointer text hover:underline hover:text-neutral12"
             >
               Contact Us
             </a>
@@ -87,12 +89,18 @@ export default function ContactUsButton({
       <CustomModal
         visible={modalVisible}
         page={"contactUs"}
-        handleCancel={() => setModalVisible(false)}
+        handleCancel={() => {
+          setModalVisible(false);
+          onClose && onClose();
+        }}
       />
       <Form
         visible={formVisible}
         page="contactUs"
-        handleClose={() => setFormVisible(false)}
+        handleClose={() => {
+          setFormVisible(false);
+          onClose && onClose();
+        }}
       />
     </>
   );
