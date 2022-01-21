@@ -28,6 +28,7 @@ function useSubmit({ page, handleCancel }: IProps) {
     },
     [handleCancel, page]
   );
+
   const handleResultClose = () => setShowResult(false);
 
   return {

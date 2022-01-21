@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import React, { useState } from "react";
 import CustomModal from "./Modal";
+import Form from "./Form";
 
 interface IBookFreeDemoButtonProps {
   textColor?: "white" | "primary";
@@ -16,6 +16,7 @@ export default function BookFreeDemoButton({
   buttonText = "Book Free Demo",
 }: IBookFreeDemoButtonProps) {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [formVisible, setFormVisible] = useState<boolean>(false);
 
   return (
     <>
@@ -40,10 +41,9 @@ export default function BookFreeDemoButton({
         </button>
       </div>
       <div className="lg:hidden">
-        <Link href="/bookDemo">
-          <a>
-            <button
-              className={`
+        <button
+          onClick={() => setFormVisible(true)}
+          className={`
                 border border-solid w-152 h-10 maxlg:h-9
                 ${textColor == "white" ? "text-white" : "text-primary"}
                 ${borderColor === "white" ? "border-white" : "border-primary"}
@@ -56,11 +56,9 @@ export default function BookFreeDemoButton({
                 }
                 text-sm
               `}
-            >
-              {buttonText}
-            </button>
-          </a>
-        </Link>
+        >
+          {buttonText}
+        </button>
       </div>
 
       <CustomModal
@@ -68,6 +66,13 @@ export default function BookFreeDemoButton({
         page={"bookDemo"}
         handleCancel={() => setModalVisible(false)}
       />
+      {formVisible && (
+        <Form
+          visible={formVisible}
+          page={"bookDemo"}
+          handleClose={() => setFormVisible(false)}
+        />
+      )}
     </>
   );
 }
