@@ -170,8 +170,9 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
             <div className="lg:w-80 w-full lg:mr-2.5 mt-2">
               <Input
                 placeholder="Enter your business email"
-                style={{ width: "100%", border: "none" }}
+                style={{ width: "100%" }}
                 value={email}
+                bordered={false}
                 onChange={handleInputChange}
               />
             </div>

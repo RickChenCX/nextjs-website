@@ -9,7 +9,9 @@ function Footer() {
       }}
     >
       <div>You can also contact us</div>
-      <div className="pt-1 pb-6">contact@reinventventures.com</div>
+      <a href="mailto:sydney.cheng@reinventventures.com" className="pt-1 pb-6">
+        sydney.cheng@reinventventures.com
+      </a>
       <div className="text-neutral7">
         The information you provide will be used in accordance with the terms of
         our <span className="text-white">Privacy Policy</span>.

@@ -52,31 +52,24 @@ export default function ContactUsButton({
       </div>
       <div className="lg:hidden">
         {from === "default" ? (
-          <Link href="/contactUs">
-            <a>
-              <button
-                className={`
-                        border border-solid w-152 h-10 maxlg:h-9
-                        ${textColor == "white" ? "text-white" : "text-primary"}
-                        ${
-                          borderColor === "white"
-                            ? "border-white"
-                            : "border-primary"
-                        }
-                        ${
-                          bgColor === "default"
-                            ? ""
-                            : bgColor === "white"
-                            ? "bg-white"
-                            : "bg-primary"
-                        }
-                        text-sm
-                      `}
-              >
-                Contact us
-              </button>
-            </a>
-          </Link>
+          <button
+            className={`
+                  border border-solid w-152 h-10 maxlg:h-9
+                  ${textColor == "white" ? "text-white" : "text-primary"}
+                  ${borderColor === "white" ? "border-white" : "border-primary"}
+                  ${
+                    bgColor === "default"
+                      ? ""
+                      : bgColor === "white"
+                      ? "bg-white"
+                      : "bg-primary"
+                  }
+                  text-sm
+                `}
+            onClick={() => setFormVisible(true)}
+          >
+            Contact us
+          </button>
         ) : (
           <Link href="/contactUs">
             <a className="block mb-0 text-sm text-neutral12 pb-2 cursor-pointer text hover:underline hover:text-neutral12">
