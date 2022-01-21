@@ -2,7 +2,11 @@ import React from "react";
 
 export async function getServerSideProps({ res }: any) {
   res.setHeader("Content-Type", "text/plain");
-  res.write(`User-agent: *\nSitemap:${process.env.DOMAIN}/sitemap.xml`);
+  res.write(
+    `User-agent: *\nSitemap:${
+      process.env["DOMAIN_" + process.env.APP_ENV]
+    }/sitemap.xml`
+  );
   res.end();
 
   return {

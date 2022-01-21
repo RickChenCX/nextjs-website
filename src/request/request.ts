@@ -41,7 +41,8 @@ const buildResponse = async <T>(response: Response) => {
 };
 
 const request = async <T>(params: RequestParams): Promise<T> => {
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  const baseUrl =
+    process.env["NEXT_PUBLIC_API_BASE_URL_" + process.env.APP_ENV];
   const { method, path, data, includeCredentials } = params;
   const isRequestJson = method !== "GET" && !(data instanceof FormData);
   let response;

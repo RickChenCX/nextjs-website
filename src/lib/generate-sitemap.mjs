@@ -25,7 +25,9 @@ async function generate() {
 
             return `
               <url>
-                  <loc>${`${process.env.DOMAIN + route}`}</loc>
+                  <loc>${`${
+                    process.env["DOMAIN_" + process.env.APP_ENV] + route
+                  }`}</loc>
               </url>
             `;
           })
