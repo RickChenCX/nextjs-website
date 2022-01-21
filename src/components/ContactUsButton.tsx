@@ -8,7 +8,6 @@ interface IContactUsButtonProps {
   borderColor?: "white" | "primary";
   bgColor?: "default" | "white" | "primary";
   from?: "default" | "footer";
-  btnWidth?: string;
 }
 
 export default function ContactUsButton({
@@ -16,7 +15,6 @@ export default function ContactUsButton({
   borderColor = "white",
   bgColor = "default",
   from = "default",
-  btnWidth,
 }: IContactUsButtonProps) {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [formVisible, setFormVisible] = useState<boolean>(false);
