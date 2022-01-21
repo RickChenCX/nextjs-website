@@ -15,6 +15,7 @@ module.exports = {
       maxmd: { max: "767px" },
       maxlg: { max: "1023px" },
       ...defaultTheme.screens,
+      xxl: { min: "1440px" },
     },
     backgroundColor: (theme) => ({
       ...theme("colors"),
@@ -141,7 +142,7 @@ module.exports = {
         455: "28.44rem",
         263: "16.44rem",
         118: "7.375rem",
-        592: "37rem",
+        568: "35.5rem",
       },
       minWidth: {
         320: "20rem",
@@ -149,6 +150,7 @@ module.exports = {
       maxWidth: {
         1440: "90rem",
         1095: "calc(100vw - 21.56rem)",
+        1094: "68.44rem",
         1056: "66rem",
         882: "55.125rem",
         642: "40.125rem",
@@ -169,6 +171,10 @@ module.exports = {
         620: "38.75rem",
         685: "42.8125rem",
         1104: "69rem",
+        1324: "82.75rem",
+        1152: "72rem",
+        306: "19.125rem",
+        50: "3.125rem",
       },
       padding: {
         18: "4.5rem",

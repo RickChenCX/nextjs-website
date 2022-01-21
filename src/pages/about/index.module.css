@@ -8,7 +8,6 @@
   letter-spacing: -0.04em;
   text-align: left;
   color: #fff;
-  margin: 0px;
 }
 .article {
 }
@@ -39,16 +38,16 @@
 .teamGroup h2 {
   font-family: Roboto;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: -0.01em;
-  text-align: left;
+  text-align: center;
 }
 .teamGroup p {
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
   letter-spacing: -0.02em;
-  text-align: left;
+  text-align: center;
 }
 .brandTitle{
     font-family: Roboto;
@@ -75,5 +74,7 @@
     width: 0;
   }
 }
-
+.marginAuto {
+  margin: 0 auto;
+}
 

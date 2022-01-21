@@ -84,7 +84,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
                 <div className="flex">
                   <AddressSvg className="mt-1" />
                   <div className="text-base text-white font-normal pl-3">
-                    We are based in Singpore, China and Taiwan.
+                    We are based in Singpore, Shanghai and Taiwan.
                   </div>
                 </div>
               </div>
@@ -105,7 +105,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
                 <div className="flex">
                   <AddressSvg className="mt-1" />
                   <span className="text-base text-white font-normal pl-3">
-                    We are based in Singpore, China and Taiwan.
+                    We are based in Singpore, Shanghai and Taiwan.
                   </span>
                 </div>
               </div>

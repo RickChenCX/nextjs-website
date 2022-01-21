@@ -1,5 +1,6 @@
 .banner {
     color: #fff;
+    margin: 0 auto;
   }
 .banner h1{
   color: #fff;
@@ -29,5 +30,7 @@
   text-align: left;
   max-width: 52.43rem;
 }  
-  
+.marginAuto {
+  margin: 0 auto;
+}
   
