@@ -122,12 +122,12 @@ export default function Page() {
           <div className={`lg:mt-14 lg:w-1122`}>
             <div className={`bg-primary1 py-8 maxlg:px-4`}>
               <h4
-                className={`text-white font-roboto text-base text-center pb-2`}
+                className={`text-white font-roboto text-base text-center pb-2 font-normal`}
               >
                 Products
               </h4>
               <h3
-                className={`text-white font-roboto lg:text-4xxl text-2xl text-center lg:max-w-882 font-normal maxlg:font-light ${styles.marginAuto}`}
+                className={`text-white font-roboto lg:text-4xxl text-2xl text-center lg:max-w-882 font-medium maxlg:font-light ${styles.marginAuto}`}
               >
                 The leading software for flex & hybrid workspace management and
                 tenant engagement
@@ -175,7 +175,7 @@ export default function Page() {
                           />
                         </div>
                         <div
-                          className={`text-base text-neutral12 pb-2 pl-2.5 max-w-434 maxmd:max-w-290`}
+                          className={`text-base text-neutral12 pb-2 pl-2.5 max-w-434 maxmd:max-w-290 font-normal`}
                         >
                           {item}
                         </div>

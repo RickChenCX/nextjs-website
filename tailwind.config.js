@@ -184,6 +184,7 @@ module.exports = {
         89: "21.56rem",
         151: "9.44rem",
         215: "13.44rem",
+        300: "18.75rem",
       },
       animation: {
         rotate180: "arrowSpin1 500ms forwards",

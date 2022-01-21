@@ -9,7 +9,7 @@ import AddressSvg from "./../../svgs/address.svg";
 import { Input } from "antd";
 import { createEmail } from "api/submit";
 import Result from "components/Result";
-
+import Logo1 from "../../svgs/logo1.svg";
 interface IFooterProps {
   from?: "homePage" | "aboutPage";
 }
@@ -46,7 +46,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
         <section className="bg-home-footer maxlg:bg-home-footer-mobile flex justify-center lg:py-14 py-10 maxlg:pl-4">
           <div className={`lg:grid lg:grid-cols-3 lg:gap-28`}>
             <div className="lg:col-span-2">
-              <h3 className="text-white mb-0 lg:text-5xxl text-3xxl font-light lg:w-560 pb-2 xs:max-w-168">
+              <h3 className="text-white mb-0 lg:text-5xxl text-3xxl font-light lg:w-560 pb-2 xs:max-w-168 italic">
                 Ready to get started?
               </h3>
               <p className="mb-0 text-base text-neutral7 font-normal lg:w-560">
@@ -125,7 +125,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
         <div className="maxlg:hidden">
           <Link href="/">
             <a className="block" style={{ width: "68px" }}>
-              <Image src="/images/logo.png" alt="logo" width={68} height={24} />
+              <Logo1 />
             </a>
           </Link>
         </div>
@@ -154,19 +154,19 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
               );
             })}
           </div>
-          <div className="text-neutral7 pt-44">
+          <div className="text-neutral7 pt-300 pl-16">
             <span className="text-xxs pr-4">Terms & Conditions</span>
             <span className="text-xxs pr-4">Privacy Policy</span>
             <span className="text-xxs ">©2022 BOSS All Rights Reserved.</span>
           </div>
         </div>
-        <div>
-          <h3 className="mb-0 text-neutral12 text-2xl pb-2">Newsletter</h3>
+        <div className="font-normal">
+          <p className="mb-0 text-neutral12 text-2xl pb-2">Newsletter</p>
           <p className="mb-0 text-neutral12 text-sm pb-12 lg:w-488">
             Stay up to date with coworking insights, feature highlights, company
             news, upcoming webinars, and eBooks.
           </p>
-          <div className="flex border-b border-solid pb-2 lg:w-488">
+          <div className="flex border-b border-solid pb-2 lg:w-488 justify-between">
             <div className="lg:w-80 w-full lg:mr-2.5 mt-2">
               <Input
                 placeholder="Enter your business email"
@@ -177,7 +177,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
               />
             </div>
             <button
-              className="maxlg:hidden border border-solid border-primary w-155 h-10 text-white bg-primary text-sm maxlg:text-base"
+              className="maxlg:hidden border border-solid border-primary w-118 h-10 text-white bg-primary text-sm maxlg:text-base"
               onClick={handleSubscribe}
             >
               Subscribe
@@ -200,12 +200,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
           <div className="lg:hidden">
             <Link href="/">
               <a>
-                <Image
-                  src="/images/logo.png"
-                  alt="logo"
-                  width={68}
-                  height={24}
-                />
+                <Logo1 />
               </a>
             </Link>
           </div>

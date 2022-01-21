@@ -10,7 +10,7 @@ export default function LearnMoreButton({ linkUrl }: ILearnMoreButtonProps) {
     <Link href={linkUrl}>
       <a>
         <div className="cursor-pointer">
-          <span className={`text-primary text-sm text-center`}>Learn more</span>
+          <span className={`text-primary text-sm text-center`}>Learn More</span>
           <LinkArrow className="inline-block ml-1.5" />
         </div>
       </a>
