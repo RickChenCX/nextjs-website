@@ -22,11 +22,11 @@ import {
 
 const { TextArea } = Input;
 
-const prefixSelector = (
-  <Form.Item name="phoneCode" noStyle>
-    <Select options={phoneCodeOptions} style={{ width: 70 }}></Select>
-  </Form.Item>
-);
+// const prefixSelector = (
+//   <Form.Item name="phoneCode" noStyle>
+//     <Select options={phoneCodeOptions} style={{ width: 70 }}></Select>
+//   </Form.Item>
+// );
 
 const FormItemConfig = [
   {
@@ -53,7 +53,7 @@ const FormItemConfig = [
   {
     name: "phoneNumber",
     label: "Phone Number",
-    tag: <Input addonBefore={prefixSelector} />,
+    tag: <Input placeholder="Input" />,
     rules: [],
     span: 12,
     mobileSpan: 24,

@@ -1,6 +1,4 @@
-import { useCallback, useState } from "react";
 import { Modal, Spin } from "antd";
-import { createBookDemo, createContact } from "api/submit";
 import CustomForm from "./Form";
 import Footer from "./Footer";
 import Result from "components/Result";
@@ -35,7 +33,7 @@ function CustomModal({ visible, page, handleCancel }: IProps) {
               <header className="text-4xxl font-medium">
                 {ModalInfo[page].title}
               </header>
-              <article className="text-neutral7 text-sm pt-4">
+              <article className={`${ModalInfo[page].color} text-sm pt-4`}>
                 {ModalInfo[page].desc}
               </article>
               <Footer />

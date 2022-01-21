@@ -26,10 +26,8 @@ function CustomForm({ page }: IProps) {
       </header>
       <aside className={`${ModalInfo[page].bg} text-white mt-11`}>
         <header className="px-4 pt-3 pb-4">
-          <span style={{ fontSize: "40px", fontWeight: 500 }}>
-            {ModalInfo[page].title}
-          </span>
-          <article className="text-neutral7 text-sm">
+          <span className="text-4xl font-medium">{ModalInfo[page].title}</span>
+          <article className={`${ModalInfo[page].color} text-sm`}>
             {ModalInfo[page].desc}
           </article>
         </header>
