@@ -68,21 +68,39 @@ const FormItemConfig = [
   {
     name: "country",
     label: "Country/Region",
-    tag: <Select options={countryOptions} placeholder="Select"></Select>,
+    tag: (
+      <Select
+        options={countryOptions}
+        placeholder="Select"
+        getPopupContainer={() => document.getElementById("form") as HTMLElement}
+      ></Select>
+    ),
     span: 12,
     mobileSpan: 12,
   },
   {
     name: "businessType",
     label: "Business Type",
-    tag: <Select options={businessTypeOptions} placeholder="Select"></Select>,
+    tag: (
+      <Select
+        options={businessTypeOptions}
+        placeholder="Select"
+        getPopupContainer={() => document.getElementById("form") as HTMLElement}
+      ></Select>
+    ),
     span: 8,
     mobileSpan: 12,
   },
   {
     name: "role",
     label: "Your Role",
-    tag: <Select options={roleOptions} placeholder="Select"></Select>,
+    tag: (
+      <Select
+        options={roleOptions}
+        placeholder="Select"
+        getPopupContainer={() => document.getElementById("form") as HTMLElement}
+      ></Select>
+    ),
     span: 8,
     mobileSpan: 12,
   },
@@ -90,7 +108,11 @@ const FormItemConfig = [
     name: "numberOfLocation",
     label: "Number Of Locations",
     tag: (
-      <Select options={numberOfLocationOptions} placeholder="Select"></Select>
+      <Select
+        options={numberOfLocationOptions}
+        placeholder="Select"
+        getPopupContainer={() => document.getElementById("form") as HTMLElement}
+      ></Select>
     ),
     span: 8,
     mobileSpan: 12,
@@ -146,6 +168,7 @@ function CustomForm({ page, isMobile, handleSubmit }: IProps) {
   return (
     <>
       <Form
+        id="form"
         ref={formRef}
         name="basic"
         colon={false}

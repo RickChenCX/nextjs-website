@@ -37,7 +37,7 @@ function CustomModal({ visible, page, handleCancel }: IProps) {
               <article className={`${ModalInfo[page].color} text-sm pt-4`}>
                 {ModalInfo[page].desc}
               </article>
-              <Footer />
+              <Footer page={page} />
             </section>
           </article>
           <aside className="flex-1 pr-6 pl-10 pt-7">

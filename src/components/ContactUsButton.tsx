@@ -71,11 +71,14 @@ export default function ContactUsButton({
             Contact us
           </button>
         ) : (
-          <Link href="/contactUs">
-            <a className="block mb-0 text-sm text-neutral12 pb-2 cursor-pointer text hover:underline hover:text-neutral12">
+          <div>
+            <a
+              onClick={() => setFormVisible(true)}
+              className="block mb-0 text-sm text-neutral12 pb-2 cursor-pointer text hover:underline hover:text-neutral12"
+            >
               Contact Us
             </a>
-          </Link>
+          </div>
         )}
       </div>
       <CustomModal
@@ -83,13 +86,11 @@ export default function ContactUsButton({
         page={"contactUs"}
         handleCancel={() => setModalVisible(false)}
       />
-      {formVisible && (
-        <Form
-          visible={formVisible}
-          page="contactUs"
-          handleClose={() => setFormVisible(false)}
-        />
-      )}
+      <Form
+        visible={formVisible}
+        page="contactUs"
+        handleClose={() => setFormVisible(false)}
+      />
     </>
   );
 }

@@ -66,13 +66,11 @@ export default function BookFreeDemoButton({
         page={"bookDemo"}
         handleCancel={() => setModalVisible(false)}
       />
-      {formVisible && (
-        <Form
-          visible={formVisible}
-          page={"bookDemo"}
-          handleClose={() => setFormVisible(false)}
-        />
-      )}
+      <Form
+        visible={formVisible}
+        page={"bookDemo"}
+        handleClose={() => setFormVisible(false)}
+      />
     </>
   );
 }

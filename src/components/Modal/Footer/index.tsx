@@ -1,18 +1,13 @@
-function Footer() {
+function Footer({ page }: { page: "contactUs" | "bookDemo" }) {
   return (
     <footer
-      style={{
-        paddingTop: "330px",
-        paddingBottom: "40px",
-        fontSize: "14px",
-        lineHeight: "22px",
-      }}
+      className={`${page === "contactUs" ? "pt-72" : "pt-96"}  pb-10 text-sm`}
     >
-      <div>You can also contact us</div>
-      <a href="mailto:sydney.cheng@reinventventures.com" className="pt-1 pb-6">
+      <div className="pb-1">You can also contact us</div>
+      <a href="mailto:sydney.cheng@reinventventures.com" className="text-white">
         sydney.cheng@reinventventures.com
       </a>
-      <div className="text-neutral7">
+      <div className="text-neutral7 pt-6">
         The information you provide will be used in accordance with the terms of
         our <span className="text-white">Privacy Policy</span>.
       </div>

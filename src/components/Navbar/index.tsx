@@ -66,7 +66,7 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
                   showMobileNav || !isBgTransparent
                     ? "text-black"
                     : "text-white"
-                } cursor-pointer hover:text-primary2 `}
+                } cursor-pointer hover:text-primary2`}
               >
                 {navItem.name}
               </span>
