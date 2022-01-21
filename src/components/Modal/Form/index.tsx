@@ -72,6 +72,7 @@ const FormItemConfig = [
       <Select
         options={countryOptions}
         placeholder="Select"
+        dropdownMatchSelectWidth={false}
         getPopupContainer={() => document.getElementById("form") as HTMLElement}
       ></Select>
     ),
@@ -84,6 +85,7 @@ const FormItemConfig = [
     tag: (
       <Select
         options={businessTypeOptions}
+        dropdownMatchSelectWidth={false}
         placeholder="Select"
         getPopupContainer={() => document.getElementById("form") as HTMLElement}
       ></Select>
@@ -98,6 +100,7 @@ const FormItemConfig = [
       <Select
         options={roleOptions}
         placeholder="Select"
+        dropdownMatchSelectWidth={false}
         getPopupContainer={() => document.getElementById("form") as HTMLElement}
       ></Select>
     ),
@@ -106,13 +109,14 @@ const FormItemConfig = [
   },
   {
     name: "numberOfLocation",
-    label: "Number Of Locations",
+    label: "Number of Locations",
     tag: (
       <Select
         options={numberOfLocationOptions}
         placeholder="Select"
+        dropdownMatchSelectWidth={false}
         getPopupContainer={() => document.getElementById("form") as HTMLElement}
-      ></Select>
+      />
     ),
     span: 8,
     mobileSpan: 12,
@@ -128,8 +132,14 @@ const FormItemConfig = [
   },
   {
     name: "questions",
-    label: "Do you have any specific questions?",
-    tag: <TextArea showCount maxLength={2000} placeholder="Input" />,
+    label: "Anything else you would like to tell us?",
+    tag: (
+      <TextArea
+        showCount
+        maxLength={2000}
+        placeholder="Tell us more about your project, needs and timeline."
+      />
+    ),
     span: 24,
     mobileSpan: 24,
     rules: [],

@@ -109,7 +109,7 @@ const navConfig: NavConfigItem[] = [
   },
   {
     name: "Contact Us",
-    path: "/contactUs",
+    // path: "/contactUs",
     group: "3",
     isMobile: true,
   },
