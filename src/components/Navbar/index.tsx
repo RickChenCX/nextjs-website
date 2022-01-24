@@ -7,7 +7,7 @@ import MenuBlack from "../../svgs/Menu_black.svg";
 import Menu from "../../svgs/Menu.svg";
 import Close from "../../svgs/Close.svg";
 import Logo from "../../svgs/logo.svg";
-import Logo1 from "../../svgs/logo1.svg";
+import LogoPrimary from "../../svgs/logo_primary.svg";
 
 import ContactUsButton from "../ContactUsButton";
 import BookFreeDemoButton from "../BookFreeDemoButton";
@@ -164,7 +164,7 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
         </span>
 
         <a className="flex" onClick={() => handleRouter("/")}>
-          {isBgTransparent ? <Logo /> : <Logo1 />}
+          {isBgTransparent ? <Logo /> : <LogoPrimary />}
         </a>
       </div>
       <ul
@@ -179,7 +179,7 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
         </li>
         {navItemRender(navConfig)}
         <li className="lg:hidden mt-4 flex-1 h-20 flex items-start flex-col justify-end ">
-          <Logo1 />
+          <LogoPrimary />
           <p className="text-neutral7 text-xxs my-4">
             ©2022 BOSS All Rights Reserved.
           </p>
