@@ -21,11 +21,10 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
 
   const handleChangeSubNav = useCallback(
     (e) => {
-      e.stopPropagation();
-      if (e.target.outerText === currentSubNav) {
+      if (String(e.target.textContent) === currentSubNav) {
         return setCurrentSubNav(undefined);
       }
-      return setCurrentSubNav(e.target.outerText);
+      return setCurrentSubNav(String(e.target.textContent));
     },
     [currentSubNav]
   );
