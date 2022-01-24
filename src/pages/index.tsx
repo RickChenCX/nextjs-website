@@ -175,7 +175,7 @@ export default function Page() {
                           />
                         </div>
                         <div
-                          className={`text-base text-neutral12 pb-2 pl-2.5 max-w-434 maxmd:max-w-290 font-normal`}
+                          className={`text-base text-neutral12 pb-2 pl-2.5 max-w-434 maxmd:max-w-290 font-normal tracking-tight`}
                         >
                           {item}
                         </div>
