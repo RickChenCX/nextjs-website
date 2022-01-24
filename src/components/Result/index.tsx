@@ -18,7 +18,12 @@ export default function Result({ visiable, onClose }: ResultProps) {
         e.stopPropagation();
       }}
     >
-      <div className="bg-white flex flex-col items-center justify-center lg:w-944 lg:h-685 lg:px-48 text-center w-screen h-screen px-6">
+      <div
+        className="bg-white text-neutral12 flex flex-col items-center justify-center lg:w-944 lg:h-685 lg:px-40 text-center w-screen h-screen px-6"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
         <Image src="/images/result.png" width={212} height={153} alt="result" />
         <p className="lg:text-5xxl maxlg:text-3xxl font-light my-4 italic">
           Thank you for registering your interest!
