@@ -127,7 +127,16 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
                 showMobileNav || !isBgTransparent ? "text-black" : "text-white "
               } hover:text-primary2 cursor-pointer`}
             >
-              {navItem.name}
+              {navItem.name === "Contact Us" ? (
+                <ContactUsButton
+                  textColor={isBgTransparent ? "white" : "primary"}
+                  borderColor={isBgTransparent ? "white" : "primary"}
+                  from="footer"
+                  onClose={handleCloseMobileNav}
+                />
+              ) : (
+                navItem.name
+              )}
             </span>
           )}
         </li>
