@@ -9,7 +9,7 @@ import AddressSvg from "./../../svgs/address.svg";
 import { Input } from "antd";
 import { createEmail } from "api/submit";
 import Result from "components/Result";
-import Logo1 from "../../svgs/logo1.svg";
+import LogoPrimary from "../../svgs/logo_primary.svg";
 interface IFooterProps {
   from?: "homePage" | "aboutPage";
 }
@@ -130,7 +130,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
         <div className="maxlg:hidden">
           <Link href="/">
             <a className="block" style={{ width: "68px" }}>
-              <Logo1 />
+              <LogoPrimary />
             </a>
           </Link>
         </div>
@@ -205,7 +205,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
           <div className="lg:hidden">
             <Link href="/">
               <a>
-                <Logo1 />
+                <LogoPrimary />
               </a>
             </Link>
           </div>
