@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Link from "next/link";
 import CustomModal from "./Modal";
 import Form from "./Form";
 
@@ -97,10 +96,7 @@ export default function ContactUsButton({
       <Form
         visible={formVisible}
         page="contactUs"
-        handleClose={() => {
-          setFormVisible(false);
-          onClose && onClose();
-        }}
+        handleClose={() => setFormVisible(false)}
       />
     </>
   );
