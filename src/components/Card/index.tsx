@@ -3,7 +3,7 @@ import TextContainer from "./TextContainer";
 import styles from "./index.module.css";
 import { Introduce } from "components/CustomAnchor/index.d";
 import CustomCarousel from "components/CustomCarousel";
-import ContactUs from "components/ContactUs";
+import ContactUs from "./contactUs";
 interface ItemConfig {
   id: string;
   itemConfig: Introduce;

@@ -68,7 +68,12 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
         <section className="bg-about-footer maxlg:bg-about-footer-mobile flex justify-center py-16 maxlg:px-6">
           <div className={`maxlg:hidden lg:grid lg:grid-cols-2 lg:gap-24`}>
             <div>
-              <Image src="/images/map.png" alt="map" width={369} height={282} />
+              <Image
+                src="/images/about-map.png"
+                alt="map"
+                width={369}
+                height={282}
+              />
             </div>
             <div className="mt-120">
               <h3 className="text-white lg:text-5xxl text-3xxl font-light mb-8">
@@ -112,7 +117,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
             </div>
             <div>
               <Image
-                src="/images/map-mobile.png"
+                src="/images/about-map-mobile.png"
                 alt="map"
                 width={327}
                 height={250}
