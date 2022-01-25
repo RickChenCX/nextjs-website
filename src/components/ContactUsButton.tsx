@@ -28,7 +28,7 @@ export default function ContactUsButton({
         {from === "default" ? (
           <button
             className={`
-                  border border-solid w-152 h-10 maxlg:h-9
+                  border border-solid w-152 h-10 maxlg:h-9 font-medium
                   ${textColor == "white" ? "text-white" : "text-primary"}
                   ${borderColor === "white" ? "border-white" : "border-primary"}
                   ${
@@ -43,11 +43,11 @@ export default function ContactUsButton({
             onClick={() => setModalVisible(true)}
             style={btnWidth ? { width: btnWidth } : {}}
           >
-            Contact us
+            Contact Us
           </button>
         ) : (
           <a
-            className="block mb-0 text-sm text-neutral12 pb-2 cursor-pointer text hover:underline hover:text-neutral12"
+            className="block mb-0 text-sm text-neutral12 pb-2 cursor-pointer text hover:underline hover:text-neutral12 font-medium"
             onClick={() => setModalVisible(true)}
           >
             Contact Us
@@ -58,7 +58,7 @@ export default function ContactUsButton({
         {from === "default" ? (
           <button
             className={`
-                  border border-solid w-152 h-10 maxlg:h-9
+                  border border-solid w-152 h-10 maxlg:h-9 font-medium
                   ${textColor == "white" ? "text-white" : "text-primary"}
                   ${borderColor === "white" ? "border-white" : "border-primary"}
                   ${
@@ -72,13 +72,13 @@ export default function ContactUsButton({
                 `}
             onClick={() => setFormVisible(true)}
           >
-            Contact us
+            Contact Us
           </button>
         ) : (
           <div>
             <a
               onClick={() => setFormVisible(true)}
-              className="block mb-0 text-base text-neutral12 cursor-pointer text hover:underline hover:text-neutral12"
+              className="block mb-0 text-base text-neutral12 cursor-pointer text hover:underline hover:text-neutral12 font-medium"
             >
               Contact Us
             </a>

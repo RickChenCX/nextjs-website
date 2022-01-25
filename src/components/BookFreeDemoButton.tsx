@@ -23,7 +23,7 @@ export default function BookFreeDemoButton({
       <div className="maxlg:hidden">
         <button
           className={`
-                border border-solid w-152 h-10 maxlg:h-9 text-sm
+                border border-solid w-152 h-10 maxlg:h-9 text-sm font-medium
                 ${textColor == "white" ? "text-white" : "text-primary"}
                 ${borderColor === "white" ? "border-white" : "border-primary"}
                 ${
@@ -44,7 +44,7 @@ export default function BookFreeDemoButton({
         <button
           onClick={() => setFormVisible(true)}
           className={`
-                border border-solid w-152 h-10 maxlg:h-9
+                border border-solid w-152 h-10 maxlg:h-9 font-medium
                 ${textColor == "white" ? "text-white" : "text-primary"}
                 ${borderColor === "white" ? "border-white" : "border-primary"}
                 ${

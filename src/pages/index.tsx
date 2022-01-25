@@ -208,7 +208,7 @@ export default function Page() {
               className={`lg:grid lg:grid-cols-2 lg:gap-16 lg:relative border-b border-solid pb-6 border-borderColor`}
             >
               <div
-                className={`lg:text-5xxl text-xl font-roboto font-light lg:max-w-642 max-w-172 italic`}
+                className={`lg:text-5xxl text-3xxl font-roboto font-light lg:max-w-642 max-w-270 italic`}
               >
                 Revolutionizing Flex & Hybrid Workspace Management & Business
               </div>

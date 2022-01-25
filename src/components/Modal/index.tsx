@@ -25,6 +25,7 @@ function CustomModal({ visible, page, handleCancel }: IProps) {
         onCancel={handleCancel}
         style={{ overflowY: "auto" }}
         destroyOnClose
+        getContainer={false}
       >
         <div className="flex">
           <article
