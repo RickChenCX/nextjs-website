@@ -201,18 +201,17 @@ function CustomForm({ page, isMobile, handleSubmit }: IProps) {
             </Form.Item>
           </Col>
           <Col span={24}>
-            <Button
-              htmlType="submit"
-              type="primary"
-              style={{
-                width: "100%",
-                height: "40px",
-                margin: "40px auto",
-                backgroundColor: "#5528ff",
-              }}
+            <button
+              className={`
+                  border border-solid w-full h-10 maxlg:h-9 text-white
+                  border-primary
+                  bg-primary
+                  text-sm
+                  hover:bg-primary2 hover:border-primary2
+                `}
             >
               Submit
-            </Button>
+            </button>
           </Col>
         </Row>
       </Form>

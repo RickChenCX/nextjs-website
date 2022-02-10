@@ -42,27 +42,27 @@ export const HomePageSectionTwoData = [
 export const HomePageSectionFourData = {
   images: [
     {
-      urllList: [
-        "/images/home-section4-lunbo1.png",
-        "/images/home-section4-lunbo2.png",
-        "/images/home-section4-lunbo3.png",
+      urlList: [
+        "/images/homePage/home-section4-lunbo1.png",
+        "/images/homePage/home-section4-lunbo2.png",
+        "/images/homePage/home-section4-lunbo3.png",
       ],
     },
     {
-      urllList: [
-        "/images/home-section4-lunbo4.png",
-        "/images/home-section4-lunbo5.png",
-        "/images/home-section4-lunbo6.png",
+      urlList: [
+        "/images/homePage/home-section4-lunbo4.png",
+        "/images/homePage/home-section4-lunbo5.png",
+        "/images/homePage/home-section4-lunbo6.png",
       ],
     },
   ],
   mobileImages: [
-    "/images/home-section4-lunbo1.png",
-    "/images/home-section4-lunbo2.png",
-    "/images/home-section4-lunbo3.png",
-    "/images/home-section4-lunbo4.png",
-    "/images/home-section4-lunbo5.png",
-    "/images/home-section4-lunbo6.png",
+    "/images/homePage/home-section4-lunbo1.png",
+    "/images/homePage/home-section4-lunbo2.png",
+    "/images/homePage/home-section4-lunbo3.png",
+    "/images/homePage/home-section4-lunbo4.png",
+    "/images/homePage/home-section4-lunbo5.png",
+    "/images/homePage/home-section4-lunbo6.png",
   ],
 };
 
