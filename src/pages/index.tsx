@@ -266,7 +266,7 @@ export default function Page() {
               {HomePageSectionFourData.images.map((item, index1) => (
                 <div key={index1}>
                   <div className="flex justify-center">
-                    {item.urlList.map((temp, index2) => (
+                    {item.urllList.map((temp, index2) => (
                       <div
                         key={index2}
                         className={`${index2 !== 0 ? "pl-10" : ""}`}
@@ -277,8 +277,6 @@ export default function Page() {
                           alt=""
                           width={322}
                           height={562}
-                          quality={100}
-                          priority
                         />
                       </div>
                     ))}
