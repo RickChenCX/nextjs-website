@@ -23,14 +23,26 @@ function Card({ itemConfig, id }: ItemConfig) {
         id={id}
       >
         {itemConfig.imageUrlInLeft && (
-          <div className={`maxlg:text-center`}>
-            <Image
-              src={`/images/${itemConfig.imageUrlInLeft}`}
-              width={480}
-              height={320}
-              alt={itemConfig.title}
-            />
-          </div>
+          <>
+            <div className={`maxlg:text-center maxlg:hidden`}>
+              <Image
+                src={`/images/${itemConfig.imageUrlInLeft}`}
+                width={480}
+                height={320}
+                unoptimized={true}
+                alt={itemConfig.title}
+              />
+            </div>
+            <div className={`maxlg:text-center lg:hidden`}>
+              <Image
+                src={`/images/${itemConfig.imageUrlInLeftMobile}`}
+                width={480}
+                height={320}
+                unoptimized={true}
+                alt={itemConfig.title}
+              />
+            </div>
+          </>
         )}
         <TextContainer
           title={itemConfig.title}
@@ -39,14 +51,26 @@ function Card({ itemConfig, id }: ItemConfig) {
           funcList={itemConfig.funcList}
         />
         {itemConfig.imageUrl && (
-          <div className={`maxlg:text-center`}>
-            <Image
-              src={`/images/${itemConfig.imageUrl}`}
-              width={360}
-              height={320}
-              alt={itemConfig.title}
-            />
-          </div>
+          <>
+            <div className={`maxlg:text-center maxlg:hidden`}>
+              <Image
+                src={`/images/${itemConfig.imageUrl}`}
+                width={360}
+                height={320}
+                unoptimized={true}
+                alt={itemConfig.title}
+              />
+            </div>
+            <div className={`maxlg:text-center lg:hidden`}>
+              <Image
+                src={`/images/${itemConfig.imageUrlMobile}`}
+                width={375}
+                height={300}
+                unoptimized={true}
+                alt={itemConfig.title}
+              />
+            </div>
+          </>
         )}
       </div>
       <div>{ChildComponent && <ChildComponent />}</div>

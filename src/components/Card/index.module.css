@@ -6,7 +6,6 @@
 
 .article{
     flex:1;
-    min-height: 320px;
 }
 .article h2{
     font-family: Roboto;
@@ -40,13 +39,6 @@
 .article ul li .text{
     margin-left: 0.53rem
 }
-
-.cardMobile{
-    flex-flow: column;
-    flex-direction: column-reverse;
-    color: red;
-}
-.cardMobile img{
-    width: 100%;
-    height: auto;
+.description{
+    margin-left: 1.2175rem
 }

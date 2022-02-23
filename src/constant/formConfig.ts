@@ -17,9 +17,15 @@ export const ModalInfo = {
     title: "Book a Demo",
     desc: "Want to find out more about how our products for flex and coworking spaces could work for you? Simply fill out the form and someone from our team will get in touch with you within 24 hours.",
     bg: "bg-primary1",
-    color: "text-neutral1",
+    color: "text-primary2",
   },
 };
+
+export type optionType =
+  | "country"
+  | "role"
+  | "numberOfLocation"
+  | "businessType";
 
 export enum BussinessType {
   CommercialProperty = "COMMERCIAL_PROPERTY",
@@ -109,11 +115,13 @@ export enum ProductType {
 
 export const productTypeOptions = [
   {
-    label: "BOSS Flex (For flex & hybrid coworking space operators)",
+    label: "BOSS Flex",
+    descripition: "(For flex & hybrid coworking space operators)",
     value: ProductType.BossFlex,
   },
   {
-    label: "BOSS Tenant Engage (For landlords or space operators)",
+    label: "BOSS Tenant Engage",
+    descripition: "(For landlords or space operators)",
     value: ProductType.BossTenantEngage,
   },
 ];

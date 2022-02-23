@@ -11,12 +11,14 @@ function TextContainer({ funcList, list, title, description }: IProps) {
       >
         {title}
       </h2>
-      <p className={`pb-2 pl-10 pr-10 xs:pl-6 xs:pr-6`}>{description}</p>
-      <ul className={`pl-10 xs:pl-6 xs:pb-6`}>
+      <p className={`pb-2 pl-10 pr-10 text-neutral9 xs:pl-6 xs:pr-6`}>
+        {description}
+      </p>
+      <ul className={`pl-10 text-neutral9 xs:pl-6 xs:pb-6`}>
         {list &&
           list.map((item: string) => {
             return (
-              <li key={item}>
+              <li key={item} className="pb-1">
                 <Image
                   src="/images/check.png"
                   width={11}
@@ -44,7 +46,7 @@ function TextContainer({ funcList, list, title, description }: IProps) {
                 </li>
                 <div
                   key={`${item.title}-div`}
-                  className="text-neutral9 pt-2 pb-6 pr-16"
+                  className={`text-neutral9 pt-2 pb-6 pr-16 ${styles.description}`}
                 >
                   {item.description}
                 </div>
