@@ -13,7 +13,7 @@ export default function Custom404() {
       </Head>
       <main className="lg:bg-bg1 w-screen h-screen flex items-center">
         <article className="lg:w-944 my-0 mx-auto bg-white lg:h-4/6  flex flex-col justify-center items-center maxlg:mx-6">
-          <div className="bg-404_title lg:w-300 maxlg:h-16 lg:h-20 maxlg:w-48 bg-no-repeat lg:bg-100% maxlg:bg-100% mb-4"></div>
+          <div className="bg-404_title lg:w-300 maxlg:h-16 lg:h-83 maxlg:w-48 bg-no-repeat lg:bg-100% maxlg:bg-100% mb-4"></div>
           <div className=" lg:text-8xl maxlg:text-5xxl font-thin text-neutral10  ">
             404
           </div>

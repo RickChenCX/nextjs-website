@@ -1,5 +1,5 @@
 import React, { ReactElement, ReactNode } from "react";
-import { ProductType } from "components/CustomAnchor/index.d";
+import { ProductType } from "constant/formConfig";
 import CustomAnchor from "components/CustomAnchor";
 import styles from "./index.module.css";
 

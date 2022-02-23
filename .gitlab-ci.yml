@@ -78,7 +78,31 @@ build_dev:
     - /^release/.*$/
     - /^feature/.*$/
   script:
-    - yarn next build
+    - yarn run build:dev
+
+build_test:
+  extends: .build_artifacts
+  variables:
+    NODE_ENV: test
+  only:
+    - master
+    - /^release/.*$/
+    - /^feature/.*$/
+  script:
+    - yarn run build:test
+  when: manual
+
+build_staging:
+  extends: .build_artifacts
+  variables:
+    NODE_ENV: staging
+  only:
+    - master
+    - /^release/.*$/
+    - /^feature/.*$/
+  script:
+    - yarn run build:staging
+  when: manual
 
 build_production:
   extends: .build_artifacts
@@ -90,7 +114,8 @@ build_production:
     - release
     - /^feature/.*$/
   script:
-    - yarn next build
+    - yarn run build:prod
+  when: manual
 
 .docker-build:
   image: docker:19.03.11
@@ -119,6 +144,26 @@ package_dev:
     - /^release/.*$/
     - /^feature/.*$/
 
+package_test:
+  extends: .docker-build
+  variables:
+    NODE_ENV: test
+  only:
+    - master
+    - /^release/.*$/
+    - /^feature/.*$/
+  when: manual
+
+package_staging:
+  extends: .docker-build
+  variables:
+    NODE_ENV: staging
+  only:
+    - master
+    - /^release/.*$/
+    - /^feature/.*$/
+  when: manual
+
 package_production:
   extends: .docker-build
   variables:
@@ -127,6 +172,7 @@ package_production:
     - master
     - /^release/.*$/
     - /^feature/.*$/
+  when: manual
 
 .k8s-deploy:
   image:
@@ -173,6 +219,35 @@ dev-deploy:
     - master
     - /^release/.*$/
     - /^feature/.*$/
+
+test-deploy:
+  extends: .k8s-deploy
+  variables:
+    ENVIRONMENT: reinvent-qa
+    NODE_ENV: test
+    K8S_NAMESPACE: boss
+    HOST_NAME: "www-test.getbossbuilding.com"
+    ISTIO_ENABLED: "true"
+  only:
+    - master
+    - /^release/.*$/
+    - /^feature/.*$/
+  when: manual
+
+staging-deploy:
+  extends: .k8s-deploy
+  variables:
+    ENVIRONMENT: flexi-boss-staging
+    K8S_NAMESPACE: app
+    NODE_ENV: staging
+    HOST_NAME: "www-staging.getbossbuilding.com"
+    ISTIO_ENABLED: "true"
+  only:
+    - master
+    - /^release/.*$/
+    - /^feature/.*$/
+  when: manual
+
 
 production-deploy:
   extends: .k8s-deploy

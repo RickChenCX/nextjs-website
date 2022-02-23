@@ -1,18 +1,18 @@
 import { Anchor, Affix } from "antd";
 import React, { useCallback, useEffect, useState, useRef } from "react";
-
 import LocalJson from "components/CustomAnchor/Custom";
-import { ConfigProps, ProductType } from "components/CustomAnchor/index.d";
+import { ConfigProps } from "components/CustomAnchor/index.d";
+import { ProductType } from "constant/formConfig";
 import styles from "./index.module.css";
 import BookFreeDemoButton from "../BookFreeDemoButton";
-
+import Router from "next/router";
 function CustomAnchor(props: ConfigProps) {
   const sections = LocalJson[props.type];
   const [activeItem, setActiveItem] = useState("");
   const [dropFlag, setDropFlag] = useState(false);
   const [fixedAside, setFixedAside] = useState(true);
   const asideHeight = useRef<HTMLDivElement>(null);
-  const handleAnchor = () => {
+  const handleAnchor = useCallback(() => {
     const anchorAsideHeight = asideHeight.current?.clientHeight ?? 0;
     const bannerHeight = document.getElementById("banner")?.clientHeight ?? 0;
     const anchorListHeight =
@@ -22,49 +22,52 @@ function CustomAnchor(props: ConfigProps) {
       bannerHeight -
       document.documentElement.scrollTop -
       anchorAsideHeight -
-      53;
+      47;
+    if (anchorListHeight - document.documentElement.scrollTop + 197 >= 0) {
+      props.handleFixTitle && props.handleFixTitle(true);
+    } else {
+      props.handleFixTitle && props.handleFixTitle(false);
+    }
     if (scrollBottom > 0) {
       return setFixedAside(true);
     }
     return setFixedAside(false);
-  };
+  }, [props]);
+
   const hanleClick = useCallback(() => {
+    document.body.style.overflow = "scroll";
     const mask = document.getElementById("detail_mask");
     setDropFlag(!dropFlag);
     mask && mask.remove();
   }, [dropFlag, setDropFlag]);
-  useEffect(() => {
-    const mask = document.getElementById("detail_mask");
-    window.addEventListener("scroll", handleAnchor);
-    mask && mask.addEventListener("click", hanleClick);
-    return () => {
-      window.removeEventListener("scroll", handleAnchor);
-      mask && mask.removeEventListener("click", hanleClick);
-    };
-  }, [hanleClick]);
 
   const onChange = (link: string) => {
     setActiveItem(link);
   };
-  const handleMask = useCallback((closeMask: boolean) => {
-    const mask = document.getElementById("detail_mask");
-    if (closeMask) {
-      mask && mask.removeEventListener("click", handleAnchor);
-      mask && mask.remove();
-    } else {
-      if (mask) return;
-      let mask_dom = document.createElement("div");
-      mask_dom.id = "detail_mask";
-      mask_dom.style.position = "fixed";
-      mask_dom.style.top = "53px";
-      mask_dom.style.left = "0px";
-      mask_dom.style.width = "100%";
-      mask_dom.style.height = "100%";
-      mask_dom.style.backgroundColor = "#777";
-      mask_dom.style.opacity = "0.8";
-      document.body.appendChild(mask_dom);
-    }
-  }, []);
+  const handleMask = useCallback(
+    (closeMask: boolean) => {
+      const mask = document.getElementById("detail_mask");
+      if (closeMask) {
+        document.body.style.overflow = "scroll";
+        mask && mask.removeEventListener("click", handleAnchor);
+        mask && mask.remove();
+      } else {
+        if (mask) return;
+        let mask_dom = document.createElement("div");
+        mask_dom.id = "detail_mask";
+        mask_dom.style.position = "fixed";
+        mask_dom.style.top = "47px";
+        mask_dom.style.left = "0px";
+        mask_dom.style.width = "100%";
+        mask_dom.style.height = "100%";
+        mask_dom.style.backgroundColor = "#777";
+        mask_dom.style.opacity = "0.8";
+        document.body.appendChild(mask_dom);
+        document.body.style.overflow = "hidden";
+      }
+    },
+    [handleAnchor]
+  );
   const changeDropFlag = useCallback(() => {
     handleMask(dropFlag);
     setDropFlag(!dropFlag);
@@ -87,8 +90,12 @@ function CustomAnchor(props: ConfigProps) {
                 behavior: "smooth",
               });
             } else {
+              const topType =
+                anchorName.indexOf("BOSS_TENANT_ENGAGE-") === 0 && !isMobile;
               window.scrollTo({
-                top: anchorElementHeight - featureListHeight - 53,
+                top: topType
+                  ? anchorElementHeight - featureListHeight - 103
+                  : anchorElementHeight - featureListHeight - 47,
                 behavior: "smooth",
               });
             }
@@ -98,6 +105,7 @@ function CustomAnchor(props: ConfigProps) {
     },
     [changeDropFlag, activeItem]
   );
+
   const handleLink = useCallback(
     (link: string, isMobile = true) => {
       setActiveItem(link);
@@ -105,6 +113,32 @@ function CustomAnchor(props: ConfigProps) {
     },
     [scrollTo]
   );
+
+  useEffect(() => {
+    const mask = document.getElementById("detail_mask");
+    window.addEventListener("scroll", handleAnchor);
+    mask && mask.addEventListener("click", hanleClick);
+    return () => {
+      window.removeEventListener("scroll", handleAnchor);
+      mask && mask.removeEventListener("click", hanleClick);
+      mask && mask.remove();
+    };
+  }, [handleAnchor, hanleClick]);
+  useEffect(() => {
+    const handleHash = (url: string) => {
+      const pathName = url.split("#&")[1];
+      pathName && scrollTo(pathName, false, false);
+    };
+    setTimeout(() => {
+      handleHash(location.href);
+    }, 0);
+    Router.events.on("hashChangeStart", handleHash);
+    return () => {
+      document.body.style.overflow = "auto";
+      Router.events.off("hashChangeStart", handleHash);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (sections.length === 0) {
     return null;
@@ -130,7 +164,7 @@ function CustomAnchor(props: ConfigProps) {
         )}
       </Anchor>
       {fixedAside ? (
-        <Affix offsetTop={57} className={`maxlg:hidden`}>
+        <Affix offsetTop={57} className={`maxlg:hidden relative z-20`}>
           <div className={styles.affixContainer} ref={asideHeight}>
             <ul className={styles.pcMode}>
               {sections.map(({ content, title: headTitle }, ind) => {
@@ -142,7 +176,6 @@ function CustomAnchor(props: ConfigProps) {
                 const contentArray = content.map(({ title }, index) => (
                   <li key={`#${props.type}-${ind}-${index}`}>
                     <span
-                      //href={`#${props.type}-${ind}-${index}`}
                       onClick={() =>
                         handleLink(`#${props.type}-${ind}-${index}`, false)
                       }
@@ -161,11 +194,7 @@ function CustomAnchor(props: ConfigProps) {
               })}
             </ul>
             <div className="mt-8 mb-8 ml-14">
-              <BookFreeDemoButton
-                textColor={"primary"}
-                bgColor={"white"}
-                borderColor={"primary"}
-              />
+              <BookFreeDemoButton type="primary2" product={[props.type]} />
             </div>
           </div>
         </Affix>
@@ -184,7 +213,6 @@ function CustomAnchor(props: ConfigProps) {
               const contentArray = content.map(({ title }, index) => (
                 <li key={`#${props.type}-${ind}-${index}`}>
                   <span
-                    //href={`#${props.type}-${ind}-${index}`}
                     onClick={() =>
                       handleLink(`#${props.type}-${ind}-${index}`, false)
                     }
@@ -203,16 +231,12 @@ function CustomAnchor(props: ConfigProps) {
             })}
           </ul>
           <div className="mt-8 mb-8 ml-14">
-            <BookFreeDemoButton
-              textColor={"primary"}
-              bgColor={"white"}
-              borderColor={"primary"}
-            />
+            <BookFreeDemoButton type="primary2" product={[props.type]} />
           </div>
         </div>
       )}
 
-      <Affix offsetTop={53}>
+      <Affix offsetTop={46}>
         <div
           id="featureList"
           className={`${styles.mobileMode} flex justify-between lg:hidden z-10`}
@@ -253,7 +277,9 @@ function CustomAnchor(props: ConfigProps) {
             </svg>
           )}
 
-          <div className={`${styles.sectionList} ${dropFlag ? "" : "hidden"}`}>
+          <div
+            className={`${styles.sectionList} ${dropFlag ? "" : "hidden"} z-10`}
+          >
             <ul>
               {sections.map(({ content, title: headTitle }, ind) => {
                 const headIteam = (
@@ -267,10 +293,9 @@ function CustomAnchor(props: ConfigProps) {
                       onClick={() =>
                         handleLink(`#${props.type}-${ind}-${index}`)
                       }
-                      //href={`#${props.type}-${ind}-${index}`}
                       className={`${styles.mobileBaseSection}
                       ${
-                        props.type === ProductType.flex
+                        props.type === ProductType.BossFlex
                           ? styles.underLineCss
                           : ""
                       }
@@ -289,7 +314,6 @@ function CustomAnchor(props: ConfigProps) {
               })}
             </ul>
           </div>
-          {/* <div className={`${dropFlag?styles.mask:""} z-1`}></div> */}
         </div>
       </Affix>
     </>

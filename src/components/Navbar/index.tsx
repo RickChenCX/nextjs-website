@@ -31,7 +31,9 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
   const handleRouter = useCallback(
     (path: string) => {
       router.push(path);
-      setShowMobileNav(false);
+      setTimeout(() => {
+        setShowMobileNav(false);
+      }, 500);
       return setCurrentSubNav(undefined);
     },
     [router]
@@ -69,13 +71,13 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
                   showMobileNav || !isBgTransparent
                     ? "text-black"
                     : "text-white"
-                } cursor-pointer hover:text-primary2`}
+                } cursor-pointer hover:text-primary`}
               >
                 {navItem.name}
               </span>
             </div>
             <div
-              className={`lg:absolute lg:z-10 lg:bg-black lg:bg-opacity-40 lg:w-screen lg:h-screen lg:left-0 lg:top-13 ${
+              className={`lg:absolute lg:z-10 lg:bg-black lg:bg-opacity-70 lg:w-screen lg:h-screen lg:left-0 lg:top-13 ${
                 currentSubNav === navItem.name ? "" : "hidden"
               }`}
               onClick={handleChangeSubNav}
@@ -115,7 +117,7 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
                   showMobileNav || !isBgTransparent
                     ? "text-black"
                     : "text-white "
-                } hover:text-primary2 cursor-pointer inline-block w-full`}
+                } hover:text-primary cursor-pointer inline-block w-full`}
               >
                 {navItem.name}
               </span>
@@ -124,15 +126,10 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
             <span
               className={`${
                 showMobileNav || !isBgTransparent ? "text-black" : "text-white "
-              } hover:text-primary2 cursor-pointer`}
+              } hover:text-primary cursor-pointer`}
             >
               {navItem.name === "Contact Us" ? (
-                <ContactUsButton
-                  textColor={isBgTransparent ? "white" : "primary"}
-                  borderColor={isBgTransparent ? "white" : "primary"}
-                  from="footer"
-                  onClose={handleCloseMobileNav}
-                />
+                <ContactUsButton from="footer" onClose={handleCloseMobileNav} />
               ) : (
                 navItem.name
               )}
@@ -167,7 +164,7 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
         </a>
       </div>
       <ul
-        className={`flex maxlg:flex-col lg:items-center lg:grow font-medium lg:text-sm maxlg:text-base maxlg:ml-6 mb-0 maxlg:px-4  ${
+        className={`flex maxlg:flex-col lg:items-center lg:grow font-medium lg:text-sm maxlg:text-base ml-6 mb-0 maxlg:px-4  ${
           showMobileNav
             ? "maxlg:fixed maxlg:z-20 maxlg:top-0 maxlg:right-0 overflow-x-hidden overflow-y-scroll maxlg:w-full maxlg:h-screen top-0 bg-white"
             : "maxlg:hidden"
@@ -186,24 +183,20 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
       </ul>
       <div className={`maxlg:hidden`}>
         <ContactUsButton
-          textColor={isBgTransparent ? "white" : "primary"}
-          borderColor={isBgTransparent ? "white" : "primary"}
-          btnWidth="117px"
+          type={isBgTransparent ? "default" : "primary2"}
+          buttonWidth={117}
         />
       </div>
       <div className="maxlg:hidden ml-4">
-        <BookFreeDemoButton
-          textColor={isBgTransparent ? "primary" : "white"}
-          bgColor={isBgTransparent ? "white" : "primary"}
-          borderColor={isBgTransparent ? "white" : "primary"}
-        />
+        <BookFreeDemoButton type={isBgTransparent ? "default" : "primary"} />
       </div>
       <div className="lg:hidden ml-4">
         <BookFreeDemoButton
-          textColor={isBgTransparent ? "primary" : "white"}
-          bgColor={isBgTransparent ? "white" : "primary"}
-          borderColor={isBgTransparent ? "white" : "primary"}
+          type={isBgTransparent ? "default" : "primary"}
           buttonText="Book Demo"
+          buttonWidth={107}
+          buttonHeight={30}
+          textSize={16}
         />
       </div>
     </nav>

@@ -9,7 +9,7 @@ interface ProductNavItemProps {
 function ProductNavItem({ items, handleRoute }: ProductNavItemProps) {
   return (
     <ul
-      className={`lg:absolute lg:z-20 bg-white  mx-8 lg:flex lg:w-1376 lg:self-center lg:justify-center maxlg:mt-8`}
+      className={`lg:absolute lg:z-20 bg-white mx-8 lg:flex lg:w-1376 lg:self-center  maxlg:mt-8`}
       onClick={(e) => {
         e.stopPropagation();
       }}
@@ -19,14 +19,12 @@ function ProductNavItem({ items, handleRoute }: ProductNavItemProps) {
             return (
               <li
                 key={i}
-                className="border-solid border-l border-neutral5 lg:pl-8 lg:ml-20 lg:my-10 pl-4 "
+                className="border-solid border-l border-neutral5 lg:pl-8 lg:ml-120 lg:my-10 pl-4 "
+                onClick={() => handleRoute(String(item?.extraPath))}
               >
                 <div className="text-neutral12   font-normal mb-4 text-2xl lg:text-3xxl  maxlg:flex items-baseline">
                   {item.name}
-                  <a
-                    className="text-primary text-sm font-medium flex items-center lg:hidden"
-                    onClick={() => handleRoute(String(item?.extraPath))}
-                  >
+                  <a className="text-primary text-sm font-medium flex items-center lg:hidden">
                     <LinkArrow className="ml-2" />
                   </a>
                 </div>
@@ -41,10 +39,11 @@ function ProductNavItem({ items, handleRoute }: ProductNavItemProps) {
                     return (
                       <li
                         key={s}
-                        className="mb-2 font-normal list-square list-inside"
+                        className="mb-2 font-normal before:w-1 before:h-1 before:bg-neutral7 before:inline-block 
+                        before:mb-0.5 before:mr-3 hover:before:bg-neutral12"
                         onClick={() => handleRoute(String(subItem?.path))}
                       >
-                        <span className="hover:border-b hover:border-primary cursor-pointer">
+                        <span className="hover:border-b hover:border-primary cursor-pointer text-neutral12">
                           {subItem.name}
                         </span>
                       </li>
@@ -53,7 +52,7 @@ function ProductNavItem({ items, handleRoute }: ProductNavItemProps) {
                 </ul>
                 {item.extraPath ? (
                   <a
-                    className="text-primary text-sm font-medium flex items-center maxlg:hidden"
+                    className="text-primary text-sm font-medium flex items-center maxlg:hidden hover:text-primary"
                     onClick={() => handleRoute(String(item?.extraPath))}
                   >
                     See All Features

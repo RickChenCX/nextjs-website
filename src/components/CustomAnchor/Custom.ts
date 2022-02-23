@@ -1,6 +1,6 @@
 import { ChildType } from "./index.d";
 const LocalJson = {
-  FLEX: [
+  BOSS_FLEX: [
     {
       title: "",
       content: [
@@ -14,6 +14,7 @@ const LocalJson = {
             "Agency management",
           ],
           imageUrl: "flex-0.jpg",
+          imageUrlMobile: "flex-0-mobile.jpg",
         },
         {
           title: "Contract Management",
@@ -27,6 +28,7 @@ const LocalJson = {
             "Streamline space access control",
           ],
           imageUrl: "flex-1.jpg",
+          imageUrlMobile: "flex-1-mobile.jpg",
         },
         {
           title: "Approval Workflows",
@@ -34,6 +36,7 @@ const LocalJson = {
             "Configure your own contract approval workflow and make sure your company's rules are fool-proof.  Once your workflow is set up, the approval process will be passed seamlessly from approver to approver.  Say goodbye to human error.  Be prepared to hear endless 'Thank yous'.",
           list: ["Configurable workflows", "Visual workflows"],
           imageUrl: "flex-2.jpg",
+          imageUrlMobile: "flex-2-mobile.jpg",
         },
         {
           title: "Inventory & Floor Plan Management",
@@ -45,6 +48,7 @@ const LocalJson = {
             "Visual floor plans",
           ],
           imageUrl: "flex-3.jpg",
+          imageUrlMobile: "flex-3-mobile.jpg",
           child: ChildType.carousel,
         },
         {
@@ -53,6 +57,7 @@ const LocalJson = {
             "The BOSS App can be white-labeled and customized to your branding.  It is your hand-held tool to engage with your customers. Through your app, your customers can view announcements, get notified about special events as well as make real-time bookings. The easy-to-use app also lets them make service requests and check invoices and make online payments.  Your app can be published in the App Store or Google Play store. ",
           list: ["Tenant engagement", "White-label app", "Available to public"],
           imageUrl: "flex-4.jpg",
+          imageUrlMobile: "flex-4-mobile.jpg",
         },
         {
           title: "Tenant Experience Management",
@@ -66,6 +71,7 @@ const LocalJson = {
             "Streamline IT services",
           ],
           imageUrl: "flex-5.jpg",
+          imageUrlMobile: "flex-5-mobile.jpg",
         },
         {
           title: "Room Booking",
@@ -77,6 +83,7 @@ const LocalJson = {
             "Allow public users to book",
           ],
           imageUrl: "flex-6.jpg",
+          imageUrlMobile: "flex-6-mobile.jpg",
           child: ChildType.contcat,
         },
         {
@@ -85,6 +92,7 @@ const LocalJson = {
             "With BOSS, all your billing and payment woes are gone with the ONE and the SAME system.  Automate invoices for lease add-on services, late fees, credits, amount balances, and billing cycles. Manage multiple-entities under one account.  All types of payments accepted in one stream.  Track payments in real-time.  Set up automatic payment reminders to customers.  Your finance team will thank you. ",
           list: ["Automate billing and invoicing", "Collect payments 24/7"],
           imageUrl: "flex-7.jpg",
+          imageUrlMobile: "flex-7-mobile.jpg",
         },
         {
           title: "User & Permissions",
@@ -95,6 +103,7 @@ const LocalJson = {
             "Streamlined permission granting",
           ],
           imageUrl: "flex-8.jpg",
+          imageUrlMobile: "flex-8-mobile.jpg",
         },
         {
           title: "Available to Public",
@@ -106,6 +115,7 @@ const LocalJson = {
             "Add-on services",
           ],
           imageUrl: "flex-9.jpg",
+          imageUrlMobile: "flex-9-mobile.jpg",
         },
         {
           title: "Multi-company Scalability",
@@ -113,6 +123,7 @@ const LocalJson = {
             "Use BOSS to manage your multi-company enterprise across cities and countries. No need for separate systems in separate locations. Easily create and add inventory in any city.  Localize billing, multi-currency accounting, and contract workflows to fit different business units with different rules, clauses and branding. ",
           list: ["Multiple businesses management", "International markets"],
           imageUrl: "flex-10.jpg",
+          imageUrlMobile: "flex-10-mobile.jpg",
         },
         {
           title: "Dashboards",
@@ -120,16 +131,17 @@ const LocalJson = {
             "BOSS provides you with a bespoke dashboard for you to customize so you can see what data matters most to you.  Our dashboard provides both historical and real-time data that includes Sales, Occupancy, Member Engagement, and Billing and Payment so that you can operate and optimize your business to the highest degree.",
           list: ["Personalize dashboard", "Key business insights"],
           imageUrl: "flex-11.jpg",
+          imageUrlMobile: "flex-11-mobile.jpg",
         },
       ],
     },
   ],
-  TEA: [
+  BOSS_TENANT_ENGAGE: [
     {
       title: "Tenant Engage Portal",
       content: [
         {
-          title: "Content Management System “CMS”",
+          title: "Content Management System",
           description:
             "A rich content editor with multiple attachments, images, and links to power the following engagement features.",
           list: [
@@ -140,6 +152,7 @@ const LocalJson = {
             "News management",
           ],
           imageUrl: "tea-0.jpg",
+          imageUrlMobile: "tea-0-mobile.jpg",
         },
         {
           title: "Meeting Room Booking",
@@ -157,6 +170,7 @@ const LocalJson = {
             "Public booking",
           ],
           imageUrl: "tea-1.jpg",
+          imageUrlMobile: "tea-1-mobile.jpg",
         },
         {
           title: "Tenant Management",
@@ -164,6 +178,7 @@ const LocalJson = {
             "A central place to manage the tenant company info, tenant accounts and permission as well as all the activities happened.",
           list: ["Account management", "Access control on app"],
           imageUrl: "tea-2.jpg",
+          imageUrlMobile: "tea-2-mobile.jpg",
         },
         {
           title: "Add-on Services Management",
@@ -171,6 +186,7 @@ const LocalJson = {
             "A place for you to manage add-on services which will help to generate additional revenue. You can customize or add more add-on services when needed.",
           list: ["Add-on a list of services", "One-off & recurring charge"],
           imageUrl: "tea-3.jpg",
+          imageUrlMobile: "tea-3-mobile.jpg",
         },
         {
           title: "Billing & Payments",
@@ -178,6 +194,7 @@ const LocalJson = {
             "BOSS has already integrated with Stripe to make payments easier. Set up automatic payment reminders to ensure customers pay on time.  Enable permitted tenants to check monthly invoices online with self-service and make in-app payments via credit or debit card directly anytime and anywhere.",
           list: ["Payment receipts", "Payment gateway integration (Stripe)"],
           imageUrl: "tea-4.jpg",
+          imageUrlMobile: "tea-4-mobile.jpg",
         },
         {
           title: "Reports & Analytics",
@@ -191,6 +208,7 @@ const LocalJson = {
             "Exportable to spreadsheet (future)",
           ],
           imageUrl: "tea-5.jpg",
+          imageUrlMobile: "tea-5-mobile.jpg",
         },
         {
           title: "Account Permission Control",
@@ -198,6 +216,8 @@ const LocalJson = {
             "You are empowered to review and manage user permissions without IT. Locate all users within seconds and deactivate users with one click.",
           list: ["Role based access control", "Portal data permission control"],
           imageUrl: "tea-6.jpg",
+          imageUrlMobile: "tea-6-mobile.jpg",
+          child: ChildType.contcat,
         },
       ],
     },
@@ -214,6 +234,7 @@ const LocalJson = {
             },
           ],
           imageUrlInLeft: "tea-7.jpg",
+          imageUrlInLeftMobile: "tea-7-mobile.jpg",
         },
         {
           title: "Community Experience",
@@ -230,6 +251,7 @@ const LocalJson = {
             },
           ],
           imageUrlInLeft: "tea-8.jpg",
+          imageUrlInLeftMobile: "tea-8-mobile.jpg",
         },
         {
           title: "Meeting Room Booking",
@@ -246,6 +268,7 @@ const LocalJson = {
             },
           ],
           imageUrlInLeft: "tea-9.jpg",
+          imageUrlInLeftMobile: "tea-9-mobile.jpg",
         },
         {
           title: "Invoicing & Payments",
@@ -267,6 +290,7 @@ const LocalJson = {
             },
           ],
           imageUrlInLeft: "tea-10.jpg",
+          imageUrlInLeftMobile: "tea-10-mobile.jpg",
         },
         {
           title: "Integration-based Service Requests",
@@ -288,6 +312,7 @@ const LocalJson = {
             },
           ],
           imageUrlInLeft: "tea-11.jpg",
+          imageUrlInLeftMobile: "tea-11-mobile.jpg",
         },
         {
           title: "Public User Experience",
@@ -309,6 +334,7 @@ const LocalJson = {
             },
           ],
           imageUrlInLeft: "tea-12.jpg",
+          imageUrlInLeftMobile: "tea-12-mobile.jpg",
         },
       ],
     },

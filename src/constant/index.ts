@@ -1,3 +1,5 @@
+import { ProductType } from "./formConfig";
+
 export const HomePageSectionOneData = {
   title: "Powering Flex & Hybrid Workspaces",
   paragraph1:
@@ -21,6 +23,7 @@ export const HomePageSectionTwoData = [
       "Customizable dashboard to maximize business results",
     ],
     linkUrl: "/product/flex",
+    product: ProductType.BossFlex,
   },
   {
     title: "BOSS Tenant Engage",
@@ -36,20 +39,21 @@ export const HomePageSectionTwoData = [
       "Various add-on service options with flexible payment options",
     ],
     linkUrl: "/product/tea",
+    product: ProductType.BossTenantEngage,
   },
 ];
 
 export const HomePageSectionFourData = {
   images: [
     {
-      urllList: [
+      urlList: [
         "/images/home-section4-lunbo1.png",
         "/images/home-section4-lunbo2.png",
         "/images/home-section4-lunbo3.png",
       ],
     },
     {
-      urllList: [
+      urlList: [
         "/images/home-section4-lunbo4.png",
         "/images/home-section4-lunbo5.png",
         "/images/home-section4-lunbo6.png",

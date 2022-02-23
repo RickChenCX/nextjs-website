@@ -2,12 +2,15 @@ import FetchError from "./errors/FetchError";
 import GeneralError from "./errors/GeneralError";
 import TokenError from "./errors/TokenError";
 import UnknownError from "./errors/UnknownError";
-
 export interface RequestParams {
   method: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
   path: string;
   data?: FormData | { [key: string]: any };
   includeCredentials?: boolean;
+}
+interface EnvPatams {
+  NEXT_PUBLIC_API_BASE_URL: string;
+  DOMAIN: string;
 }
 
 const buildPayload = (response: Response) => {
@@ -41,7 +44,9 @@ const buildResponse = async <T>(response: Response) => {
 };
 
 const request = async <T>(params: RequestParams): Promise<T> => {
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  const env = await window.fetch("/api/envConfig", { method: "GET" });
+  const envData = await env.json();
+  const baseUrl = envData.NEXT_PUBLIC_API_BASE_URL;
   const { method, path, data, includeCredentials } = params;
   const isRequestJson = method !== "GET" && !(data instanceof FormData);
   let response;

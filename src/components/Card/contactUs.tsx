@@ -1,4 +1,4 @@
-import ContactUsButton from "../ContactUsButton";
+import ContactUsButton from "./../ContactUsButton";
 function CustomContactUs() {
   return (
     <div
@@ -8,11 +8,7 @@ function CustomContactUs() {
         Discover what the BOSS platform can do for you
       </p>
       <div className={`maxlg:mt-24`}>
-        <ContactUsButton
-          textColor={"white"}
-          borderColor={"primary"}
-          bgColor={"primary"}
-        />
+        <ContactUsButton type="primary" buttonWidth={120} buttonHeight={38} />
       </div>
     </div>
   );

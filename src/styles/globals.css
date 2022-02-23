@@ -42,19 +42,59 @@ h1,h2,h3,h4,h5{
   background: #5528FF !important;
   border-radius: 50% !important;
 }
-
-.am-carousel .slider-decorator-0{
-  bottom: -40px !important;
+.ant-input:hover, .ant-input:focus{
+  border-color: #5528FF !important;
+  box-shadow: 0 0 0 2px rgba(85, 40, 255, 0.2) !important;
 }
 
-@media screen and (max-width: 500px) {
-  .am-carousel .slider-list {
-    margin-left: -16% !important;
-  }
+.ant-select-selector:hover, .ant-select-selector:focus{
+  border-color: #5528FF !important;
+  box-shadow: 0 0 0 2px rgba(85, 40, 255, 0.2) !important;
+}
+.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  border-color: #5528FF !important;
+  box-shadow: 0 0 0 2px rgba(85, 40, 255, 0.2) !important;
+}
+.ant-select-item-option-selected{
+  background-color: rgba(85, 40, 255, 0.2) !important;
+}
+.ant-checkbox:focus .ant-checkbox-inner {
+  border-color: #5528FF !important;
+}
+.ant-checkbox:hover .ant-checkbox-inner {
+  border-color: #5528FF !important;
+}
+.ant-checkbox-wrapper:hover .ant-checkbox-inner, .ant-checkbox:hover .ant-checkbox-inner, .ant-checkbox-input:focus + .ant-checkbox-inner{
+  border-color: #5528FF !important;
+}
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #5528FF !important;
+  border-color: #5528FF !important;
+}
+.ant-checkbox-wrapper + .ant-checkbox-wrapper{
+  margin-left: 0px !important;
+}
+.adm-swiper-track {
+  width: 286px !important;
 }
 
-@media screen and (min-width:501px) and (max-width:768px){
-  .am-carousel .slider-list {
-    margin-left: -34% !important;
-  }
+.adm-swiper-slide {
+  width: 286px !important;
+  height: 456px !important;
+}
+
+.adm-page-indicator-dot {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background-color: #AA94FF !important;
+  margin-right: 16px !important;
+}
+
+.adm-page-indicator-dot:last-child {
+  margin-right: 0px !important;
+}
+
+.adm-page-indicator-dot-active {
+  background-color: #fff !important;
 }

@@ -24,7 +24,7 @@ export default function Result({ visiable, onClose }: ResultProps) {
           e.stopPropagation();
         }}
       >
-        <Image src="/images/result.png" width={212} height={153} alt="result" />
+        <Image src="/images/result.svg" width={212} height={153} alt="result" />
         <p className="lg:text-5xxl maxlg:text-3xxl font-light my-4 italic">
           Thank you for registering your interest!
         </p>
@@ -32,7 +32,7 @@ export default function Result({ visiable, onClose }: ResultProps) {
           A member of our team will get in touch with you shortly.
         </p>
         <button
-          className="text-base bg-primary text-white font-medium px-6 py-2.5 "
+          className="transition ease-in-out duration-300 text-base bg-primary border-primary text-white font-medium px-6 py-2.5 hover:bg-primary2 hover:border-primary2 active:bg-primary3 active:border-primary3"
           onClick={onClose}
         >
           Back
