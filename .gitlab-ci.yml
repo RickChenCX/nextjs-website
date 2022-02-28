@@ -139,6 +139,9 @@ package_dev:
   extends: .docker-build
   variables:
     NODE_ENV: development
+  dependencies:
+    - prepare
+    - build_dev
   only:
     - master
     - /^release/.*$/
@@ -148,6 +151,8 @@ package_test:
   extends: .docker-build
   variables:
     NODE_ENV: test
+  dependencies:
+    - build_test
   only:
     - master
     - /^release/.*$/
@@ -158,6 +163,9 @@ package_staging:
   extends: .docker-build
   variables:
     NODE_ENV: staging
+  dependencies:
+    - build_staging
+    - prepare
   only:
     - master
     - /^release/.*$/
@@ -168,6 +176,8 @@ package_production:
   extends: .docker-build
   variables:
     NODE_ENV: production
+  dependencies:
+    - build_production
   only:
     - master
     - /^release/.*$/
