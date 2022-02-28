@@ -1,19 +1,31 @@
 import React, { useState } from "react";
+import { ProductType } from "../constant/formConfig";
 import CustomModal from "./Modal";
-import Form from "./Form";
+import Form from "./Form2Mobile";
 
 interface IBookFreeDemoButtonProps {
-  textColor?: "white" | "primary";
-  borderColor?: "white" | "primary";
-  bgColor?: "default" | "white" | "primary";
   buttonText?: string;
+  buttonWidth?: number;
+  buttonHeight?: number;
+  textSize?: number;
+  type?: "default" | "primary" | "primary2" | "transparent";
+  product?: ProductType[];
 }
 
+/***
+ * 说明：
+ * type = "default" => 白底白边框蓝色字体
+ * type = "primary" => 蓝底蓝边框白色字体
+ * type = "primary2" => 白底蓝边框蓝色字体
+ * type = "transparent" => 透明底白边框白色字体
+ */
 export default function BookFreeDemoButton({
-  textColor = "white",
-  borderColor = "white",
-  bgColor = "default",
   buttonText = "Book Free Demo",
+  buttonWidth = 152,
+  buttonHeight = 40,
+  textSize = 14,
+  type = "default",
+  product,
 }: IBookFreeDemoButtonProps) {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [formVisible, setFormVisible] = useState<boolean>(false);
@@ -22,18 +34,34 @@ export default function BookFreeDemoButton({
     <>
       <div className="maxlg:hidden">
         <button
+          style={{
+            width: `${buttonWidth}px`,
+            height: `${buttonHeight}px`,
+            fontSize: `${textSize}px`,
+          }}
           className={`
-                border border-solid w-152 h-10 maxlg:h-9 text-sm font-medium
-                ${textColor == "white" ? "text-white" : "text-primary"}
-                ${borderColor === "white" ? "border-white" : "border-primary"}
+                transition ease-in-out duration-300 
+                border border-solid font-medium cursor-pointer
                 ${
-                  bgColor === "default"
-                    ? ""
-                    : bgColor === "white"
-                    ? "bg-white"
-                    : "bg-primary"
+                  type === "default"
+                    ? "text-primary border-white bg-white hover:text-primary2 active:text-primary3"
+                    : ""
                 }
-                text-sm
+                ${
+                  type === "primary"
+                    ? "text-white border-primary bg-primary hover:bg-primary2 hover:border-primary2 active:bg-primary3 active:border-primary3"
+                    : ""
+                }
+                ${
+                  type === "primary2"
+                    ? "text-primary border-primary bg-white hover:text-primary2 hover:border-primary2 hover:bg-purple-50 active:text-primary3 active:border-primary3 active:bg-primary2"
+                    : ""
+                }
+                ${
+                  type === "transparent"
+                    ? "text-white border-white hover:text-primary hover:border-primary"
+                    : ""
+                }
               `}
           onClick={() => setModalVisible(true)}
         >
@@ -42,19 +70,35 @@ export default function BookFreeDemoButton({
       </div>
       <div className="lg:hidden">
         <button
+          style={{
+            width: `${buttonWidth}px`,
+            height: `${buttonHeight}px`,
+            fontSize: `${textSize}px`,
+          }}
           onClick={() => setFormVisible(true)}
           className={`
-                border border-solid w-152 h-10 maxlg:h-9 font-medium
-                ${textColor == "white" ? "text-white" : "text-primary"}
-                ${borderColor === "white" ? "border-white" : "border-primary"}
+                transition ease-in-out duration-300 
+                border border-solid font-medium cursor-pointer
                 ${
-                  bgColor === "default"
-                    ? ""
-                    : bgColor === "white"
-                    ? "bg-white"
-                    : "bg-primary"
+                  type === "default"
+                    ? "text-primary border-white bg-white hover:text-primary2 active:text-primary3"
+                    : ""
                 }
-                text-sm
+                ${
+                  type === "primary"
+                    ? "text-white border-primary bg-primary hover:bg-primary2 hover:border-primary2 active:bg-primary3 active:border-primary3"
+                    : ""
+                }
+                ${
+                  type === "primary2"
+                    ? "text-primary border-primary bg-white hover:text-primary2 hover:border-primary2 hover:bg-purple-50 active:text-primary3 active:border-primary3 active:bg-primary2"
+                    : ""
+                }
+                ${
+                  type === "transparent"
+                    ? "text-white border-white hover:text-primary hover:border-primary"
+                    : ""
+                }
               `}
         >
           {buttonText}
@@ -65,6 +109,7 @@ export default function BookFreeDemoButton({
         visible={modalVisible}
         page={"bookDemo"}
         handleCancel={() => setModalVisible(false)}
+        product={product}
       />
       <Form
         visible={formVisible}

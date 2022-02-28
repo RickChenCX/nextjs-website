@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FooterListData } from "./constant";
+import { ProductType } from "constant/formConfig";
 import BookFreeDemoButton from "./../BookFreeDemoButton";
 import ContactUsButton from "./../ContactUsButton";
 import EmailSvg from "./../../svgs/email.svg";
@@ -10,11 +11,13 @@ import { Input } from "antd";
 import { createEmail } from "api/submit";
 import Result from "components/Result";
 import LogoPrimary from "../../svgs/logo_primary.svg";
+
 interface IFooterProps {
   from?: "homePage" | "aboutPage";
+  product?: ProductType[];
 }
 
-export default function Footer({ from = "homePage" }: IFooterProps) {
+export default function Footer({ from = "homePage", product }: IFooterProps) {
   const [email, setEmail] = useState(undefined);
   const [isModalVisable, setIsModalVisable] = useState<boolean>(false);
   const handleInputChange = useCallback((e) => {
@@ -43,11 +46,11 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
   return (
     <footer>
       {from === "homePage" ? (
-        <section className="bg-home-footer maxlg:bg-home-footer-mobile justify-center lg:py-14 py-10 maxlg:pl-4">
+        <section className="bg-home-footer maxlg:bg-home-footer-mobile bg-cover justify-center lg:py-14 py-10 maxlg:pl-4">
           <div className="lg:grid lg:grid-cols-12 lg:px-32 lg:gap-2 ">
             <div className="lg:col-span-1"></div>
-            <div className="lg:col-span-7 lg:w-560 pb-2">
-              <h3 className="text-white mb-0 lg:text-5xxl text-3xxl font-light italic xs:max-w-168">
+            <div className="lg:col-span-8 xl:col-span-7 lg:w-560 pb-2">
+              <h3 className="text-white mb-0 lg:text-5xxl text-3xxl font-light italic xs:max-w-168 pb-2">
                 Ready to get started?
               </h3>
               <p className="mb-0 text-base text-neutral7 font-normal lg:w-560 xs:max-w-290">
@@ -55,18 +58,24 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
                 leading space management software today.
               </p>
             </div>
-            <div className="maxlg:flex maxlg:mt-16 lg:mt-4  lg:col-span-4">
-              <div className="lg:mb-6 maxlg:mr-2">
-                <BookFreeDemoButton textColor="primary" bgColor="white" />
+            <div className="maxlg:flex maxlg:mt-16 lg:mt-4 lg:col-span-3 xl:col-span-4">
+              <div className="maxlg:hidden lg:mb-6">
+                <BookFreeDemoButton product={product} />
               </div>
-              <div>
+              <div className="lg:hidden maxlg:mr-2">
+                <BookFreeDemoButton buttonHeight={38} product={product} />
+              </div>
+              <div className="maxlg:hidden">
                 <ContactUsButton />
+              </div>
+              <div className="lg:hidden">
+                <ContactUsButton buttonWidth={117} buttonHeight={38} />
               </div>
             </div>
           </div>
         </section>
       ) : (
-        <section className="bg-about-footer maxlg:bg-about-footer-mobile flex justify-center py-16 maxlg:px-6">
+        <section className="lg:bg-about-footer maxlg:bg-about-footer-mobile bg-cover flex justify-center py-16 maxlg:px-6">
           <div className={`maxlg:hidden lg:grid lg:grid-cols-2 lg:gap-24`}>
             <div>
               <Image
@@ -84,13 +93,13 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
                 <div className="flex pb-2">
                   <EmailSvg className="mt-1" />
                   <div className="text-base text-white font-normal pl-3">
-                    contact@reinventventures.com
+                    Contact@getbossbuilding.com
                   </div>
                 </div>
                 <div className="flex">
                   <AddressSvg className="mt-1" />
                   <div className="text-base text-white font-normal pl-3">
-                    We are based in Singpore, Shanghai and Taiwan.
+                    We are based in Singapore, Shanghai and Taiwan.
                   </div>
                 </div>
               </div>
@@ -105,18 +114,18 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
                 <div className="flex pb-2">
                   <EmailSvg className="mt-1" />
                   <span className="text-base text-white font-normal pl-3">
-                    contact@reinventventures.com
+                    Contact@getbossbuilding.com
                   </span>
                 </div>
                 <div className="flex">
                   <AddressSvg className="mt-1" />
                   <span className="text-base text-white font-normal pl-3">
-                    We are based in Singpore, Shanghai and Taiwan.
+                    We are based in Singapore, Shanghai and Taiwan.
                   </span>
                 </div>
               </div>
             </div>
-            <div>
+            <div className={`flex justify-center`}>
               <Image
                 src="/images/about-map-mobile.png"
                 alt="map"
@@ -137,7 +146,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
         </div>
         <div className="lg:grid lg:grid-cols-12 lg:gap-2 lg:px-32">
           <div className="lg:col-span-1"></div>
-          <div className="maxlg:hidden lg:col-span-7">
+          <div className="maxlg:hidden lg:col-span-5 xls:col-span-7">
             <div className="flex">
               {FooterListData.map((item, index1) => {
                 return (
@@ -148,7 +157,10 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
                     {item.children.map((temp, index2) => (
                       <div key={index2}>
                         {temp.flag ? (
-                          <ContactUsButton from="footer" />
+                          <ContactUsButton
+                            from="footer"
+                            fontWeight="font-normal"
+                          />
                         ) : (
                           <Link href={temp.link}>
                             <a className="block mb-0 text-sm text-neutral12 pb-2 cursor-pointer text hover:underline hover:text-neutral12">
@@ -168,7 +180,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
               <span className="text-xxs ">©2022 BOSS All Rights Reserved.</span>
             </div>
           </div>
-          <div className="font-normal lg:col-span-4">
+          <div className="font-normal lg:col-span-6 xls:col-span-4">
             <p className="mb-0 text-neutral12 text-2xl pb-2">Newsletter</p>
             <p className="mb-0 text-neutral12 text-sm pb-12 lg:w-488">
               Stay up to date with coworking insights, feature highlights,
@@ -185,7 +197,7 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
                 />
               </div>
               <button
-                className="maxlg:hidden border border-solid border-primary w-118 h-10 text-white bg-primary text-sm maxlg:text-base"
+                className="transition ease-in-out duration-300 maxlg:hidden border border-solid border-primary w-118 h-10 text-white bg-primary text-sm maxlg:text-base hover:bg-primary2 hover:border-primary2 active:bg-primary3 active:border-primary3"
                 onClick={handleSubscribe}
               >
                 Subscribe
@@ -194,14 +206,14 @@ export default function Footer({ from = "homePage" }: IFooterProps) {
             <p className="text-xs text-neutral7 mb-0 pt-2 lg:w-488">
               You may unsubscribe at any time. For more information please
               review our
-              <a className="text-neutral12 text-xs">
-                &nbsp;&nbsp;Privacy Policy
+              <a className="text-neutral12 text-xs hover:text-primary">
+                &nbsp;Privacy Policy
               </a>
               .
             </p>
             <div className="lg:hidden mt-6 mb-20">
               <button
-                className="border border-solid border-primary w-full h-10 text-white bg-primary text-sm maxlg:text-base"
+                className="transition ease-in-out duration-300 border border-solid border-primary w-full h-10 text-white bg-primary text-sm maxlg:text-base hover:bg-primary2 hover:border-primary2 active:bg-primary3 active:border-primary3"
                 onClick={handleSubscribe}
               >
                 Subscribe

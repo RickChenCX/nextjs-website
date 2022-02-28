@@ -1,13 +1,17 @@
 import Head from "next/head";
 import Navbar from "./Navbar/index";
 import Footer from "./Footer";
-import type { AppProps } from "next/app";
 import React, { ReactElement, ReactNode, useEffect, useState } from "react";
+import { ProductType } from "constant/formConfig";
 
 interface LayoutProps {
   children: ReactNode;
+  product?: ProductType[];
 }
-export default function Layout({ children }: LayoutProps): ReactElement {
+export default function Layout({
+  children,
+  product,
+}: LayoutProps): ReactElement {
   const [fixedNav, setFixedNav] = useState(true);
   const handleScroll = () => {
     if (window.scrollY > 54) {
@@ -35,7 +39,7 @@ export default function Layout({ children }: LayoutProps): ReactElement {
           <div className="flex justify-center h-full my-0 mx-auto  bg-white">
             {children}
           </div>
-          <Footer />
+          <Footer product={product} />
         </main>
       </div>
     </div>

@@ -16,6 +16,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/scripts/migrate-db.js", "src/lib/generate-sitemap.mjs"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/scripts/migrate-db.js", "src/lib/generate-sitemap.mjs", "src/lib/test.js"],
   "exclude": ["node_modules"]
 }

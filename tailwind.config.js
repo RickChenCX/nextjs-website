@@ -15,6 +15,7 @@ module.exports = {
       maxmd: { max: "767px" },
       maxlg: { max: "1023px" },
       ...defaultTheme.screens,
+      xls: { min: "1360px" },
       xxl: { min: "1440px" },
     },
     backgroundColor: (theme) => ({
@@ -24,6 +25,10 @@ module.exports = {
     extend: {
       margin: {
         120: "7.5rem",
+      },
+      letterSpacing: {
+        "tracking-small": "-.01em",
+        "tracking-smaller": "-.02em",
       },
       inset: {
         119: "7.4375rem",
@@ -84,6 +89,7 @@ module.exports = {
         primary: "#5528FF",
         primary1: "#4C18DB",
         primary2: "#aa94ff",
+        primary3: "#2A1480",
         grayLine: "#CCCCCC",
         neutral5: "#D9D9D9",
         neutral8: "#595959",
@@ -93,6 +99,7 @@ module.exports = {
         neutral10: "#2C2C2C",
         borderColor: "#ccc",
         bg1: "#fafafa",
+        bg2: "#FAFAFA",
       },
       borderColor: {
         neutral5: "#D9D9D9",
@@ -112,7 +119,7 @@ module.exports = {
         "home-footer-mobile": "url(/images/home-footer-mobile.png)",
         "about-footer": "url(/images/about-footer.png)",
         "about-footer-mobile": "url(/images/about-footer-mobile.png)",
-        "404_title": "url(/images/404_title.png)",
+        "404_title": "url(/images/404_title.svg)",
         "flex-pc": "url('/images/flexBannerPc.png')",
         "flex-mobile": "url('/images/flexBannerMobile.png')",
         "tea-pc": "url('/images/teaBannerPc.jpg')",
@@ -124,6 +131,8 @@ module.exports = {
         "about-article-mobile": "url('/images/aboutArticleMobile.png')",
         "arrow-white": "url(/images/ArrowDown_white.svg)",
         arrow: "url(/images/ArrowDown.svg)",
+        "home-breakimage-bg": "url(/images/BreakImage.png)",
+        "home-breakimage-mobile-bg": "url(/images/BreakImage-mobile.png)",
       },
       width: {
         1376: "calc(100vw - 4rem)",
@@ -143,6 +152,7 @@ module.exports = {
         263: "16.44rem",
         118: "7.375rem",
         568: "35.5rem",
+        1440: "90rem",
       },
       minWidth: {
         320: "20rem",
@@ -160,7 +170,7 @@ module.exports = {
         343: "21.4375rem",
         290: "18.125rem",
         270: "16.875rem",
-        172: "10.75rem",
+        212: "13.25rem",
         168: "10.5rem",
       },
       height: {
@@ -170,11 +180,14 @@ module.exports = {
         600: "37.5rem",
         620: "38.75rem",
         685: "42.8125rem",
-        1104: "69rem",
+        1024: "64rem",
         1324: "82.75rem",
         1152: "72rem",
         306: "19.125rem",
         50: "3.125rem",
+        480: "30rem",
+        125: "7.8rem",
+        83: "5.2rem",
       },
       minHeight: {
         102: "6.375rem",

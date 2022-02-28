@@ -2,7 +2,7 @@ import type { ReactElement } from "react";
 import Layout from "components/Layout";
 import Head from "next/head";
 import LocalJson from "components/CustomAnchor/Custom";
-import { ProductType } from "components/CustomAnchor/index.d";
+import { ProductType } from "constant/formConfig";
 import SectionLayout from "components/CustomLayout";
 import CustomAnchor from "components/CustomAnchor";
 import styles from "./index.module.css";
@@ -36,7 +36,7 @@ export default function Flex() {
             <h3 className={`lg:pb-4 maxlg:pb-3`}>
               For flex & hybrid coworking space operators
             </h3>
-            <h1 className={`lg:pb-2 lg:f-5xxl maxlg:pb-6 maxlg:3xxl`}>
+            <h1 className={`lg:pb-2 lg:text-5xxl maxlg:pb-6 maxlg:text-3xxl`}>
               BOSS Flex
             </h1>
             <h4 className={`lg:f-text-sml maxlg:tex-sm`}>
@@ -47,20 +47,20 @@ export default function Flex() {
             </h4>
           </div>
         </div>
-        <div className={`${styles.marginAuto} max-w-1440`}>
+        <div className={`${styles.marginAuto} overflow-x-hidden max-w-1440`}>
           <div className={`lg:hidden`}>
-            <CustomAnchor type={ProductType.flex} />
+            <CustomAnchor type={ProductType.BossFlex} />
           </div>
-          <SectionLayout type={ProductType.flex}>
+          <SectionLayout type={ProductType.BossFlex}>
             {LocalJson &&
-              LocalJson[ProductType.flex] &&
-              LocalJson[ProductType.flex].map((child, ind) => {
+              LocalJson[ProductType.BossFlex] &&
+              LocalJson[ProductType.BossFlex].map((child, ind) => {
                 const title = child.title;
                 return child.content.map((item, index) => {
                   return (
                     <Card
-                      key={`${ProductType.flex}-${ind}-${index}`}
-                      id={`${ProductType.flex}-${ind}-${index}`}
+                      key={`${ProductType.BossFlex}-${ind}-${index}`}
+                      id={`${ProductType.BossFlex}-${ind}-${index}`}
                       itemConfig={item}
                     />
                   );
@@ -74,5 +74,5 @@ export default function Flex() {
 }
 
 Flex.getLayout = function getLayout(Flex: ReactElement) {
-  return <Layout>{Flex}</Layout>;
+  return <Layout product={[ProductType.BossFlex]}>{Flex}</Layout>;
 };

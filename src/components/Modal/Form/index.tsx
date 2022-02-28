@@ -1,160 +1,203 @@
-import React from "react";
-import {
-  Form,
-  Input,
-  Select,
-  Checkbox,
-  Button,
-  Row,
-  Col,
-  FormInstance,
-} from "antd";
+import React, { useCallback, useState } from "react";
+import { Form, Input, Select, Checkbox, Row, Col } from "antd";
 
 import {
+  ProductType,
   productTypeOptions,
   businessTypeOptions,
   countryOptions,
-  phoneCodeOptions,
+  optionType,
   roleOptions,
   numberOfLocationOptions,
   commonRules,
 } from "constant/formConfig";
+import CustomPopup from "../Popup";
 
 const { TextArea } = Input;
 
-// const prefixSelector = (
-//   <Form.Item name="phoneCode" noStyle>
-//     <Select options={phoneCodeOptions} style={{ width: 70 }}></Select>
-//   </Form.Item>
-// );
-
-const FormItemConfig = [
-  {
-    name: "firstName",
-    label: "First Name",
-    tag: <Input placeholder="Input" />,
-    span: 12,
-    mobileSpan: 12,
-  },
-  {
-    name: "lastName",
-    label: "Last Name",
-    tag: <Input placeholder="Input" />,
-    span: 12,
-    mobileSpan: 12,
-  },
-  {
-    name: "businessEmail",
-    label: "Business Email",
-    tag: <Input placeholder="Input" />,
-    span: 12,
-    mobileSpan: 24,
-  },
-  {
-    name: "phoneNumber",
-    label: "Phone Number",
-    tag: <Input placeholder="Input" />,
-    rules: [],
-    span: 12,
-    mobileSpan: 24,
-  },
-  {
-    name: "companyName",
-    label: "Company Name",
-    tag: <Input placeholder="Input" />,
-    span: 12,
-    mobileSpan: 24,
-  },
-  {
-    name: "country",
-    label: "Country/Region",
-    tag: (
-      <Select
-        options={countryOptions}
-        placeholder="Select"
-        dropdownMatchSelectWidth={false}
-        getPopupContainer={() => document.getElementById("form") as HTMLElement}
-      ></Select>
-    ),
-    span: 12,
-    mobileSpan: 12,
-  },
-  {
-    name: "businessType",
-    label: "Business Type",
-    tag: (
-      <Select
-        options={businessTypeOptions}
-        dropdownMatchSelectWidth={false}
-        placeholder="Select"
-        getPopupContainer={() => document.getElementById("form") as HTMLElement}
-      ></Select>
-    ),
-    span: 8,
-    mobileSpan: 12,
-  },
-  {
-    name: "role",
-    label: "Your Role",
-    tag: (
-      <Select
-        options={roleOptions}
-        placeholder="Select"
-        dropdownMatchSelectWidth={false}
-        getPopupContainer={() => document.getElementById("form") as HTMLElement}
-      ></Select>
-    ),
-    span: 8,
-    mobileSpan: 12,
-  },
-  {
-    name: "numberOfLocation",
-    label: "Number of Locations",
-    tag: (
-      <Select
-        options={numberOfLocationOptions}
-        placeholder="Select"
-        dropdownMatchSelectWidth={false}
-        getPopupContainer={() => document.getElementById("form") as HTMLElement}
-      />
-    ),
-    span: 8,
-    mobileSpan: 12,
-    rules: [],
-  },
-  {
-    name: "product",
-    label: "Which product are you interested in?",
-    tag: <Checkbox.Group options={productTypeOptions} />,
-    span: 24,
-    mobileSpan: 24,
-    page: "bookDemo",
-  },
-  {
-    name: "questions",
-    label: "Anything else you would like to tell us?",
-    tag: (
-      <TextArea
-        showCount
-        maxLength={2000}
-        placeholder="Tell us more about your project, needs and timeline."
-      />
-    ),
-    span: 24,
-    mobileSpan: 24,
-    rules: [],
-  },
-];
-
 interface IProps {
   page: "bookDemo" | "contactUs";
+  product?: ProductType[];
   isMobile?: boolean;
   handleSubmit?: (values: any) => void;
 }
 
-function CustomForm({ page, isMobile, handleSubmit }: IProps) {
-  const formRef = React.createRef<FormInstance>();
-  const getFields = () => {
+function CustomForm({ page, isMobile, handleSubmit, product }: IProps) {
+  const [form] = Form.useForm();
+  const [visible, setVisible] = useState(true);
+  const [popupOptions, setPopupOptions] = useState<any>();
+  const [popupOptionType, setPopupOptionType] = useState<optionType>("country");
+
+  const handlePicker = (v: any, key: optionType) => {
+    setVisible(false);
+    form.setFieldsValue({ [key]: v });
+  };
+
+  const getFields = useCallback(() => {
+    const FormItemConfig = [
+      {
+        name: "firstName",
+        label: "First Name",
+        tag: <Input placeholder="Input" />,
+        span: 12,
+        mobileSpan: 12,
+      },
+      {
+        name: "lastName",
+        label: "Last Name",
+        tag: <Input placeholder="Input" />,
+        span: 12,
+        mobileSpan: 12,
+      },
+      {
+        name: "businessEmail",
+        label: "Business Email",
+        tag: <Input placeholder="Input" />,
+        span: 12,
+        mobileSpan: 24,
+      },
+      {
+        name: "phoneNumber",
+        label: "Phone Number",
+        tag: <Input placeholder="Input" />,
+        rules: [],
+        span: 12,
+        mobileSpan: 24,
+      },
+      {
+        name: "companyName",
+        label: "Company Name",
+        tag: <Input placeholder="Input" />,
+        rules: [],
+        span: 12,
+        mobileSpan: 24,
+      },
+      {
+        name: "country",
+        label: "Country/Region",
+        rules: [],
+        tag: (
+          <Select
+            options={isMobile ? undefined : countryOptions}
+            placeholder="Select"
+            dropdownMatchSelectWidth={false}
+            notFoundContent={null}
+            onClick={() => {
+              if (isMobile) {
+                setPopupOptions(countryOptions);
+                setPopupOptionType("country");
+                setVisible(true);
+              }
+            }}
+          />
+        ),
+        span: 12,
+        mobileSpan: 12,
+      },
+      {
+        name: "businessType",
+        label: "Business Type",
+        rules: [],
+        tag: (
+          <Select
+            options={isMobile ? undefined : businessTypeOptions}
+            dropdownMatchSelectWidth={false}
+            placeholder="Select"
+            notFoundContent={null}
+            onClick={() => {
+              if (isMobile) {
+                setPopupOptions(businessTypeOptions);
+                setPopupOptionType("businessType");
+                setVisible(true);
+              }
+            }}
+          />
+        ),
+        span: 8,
+        mobileSpan: 12,
+      },
+      {
+        name: "role",
+        label: "Your Role",
+        rules: [],
+        tag: (
+          <Select
+            options={isMobile ? undefined : roleOptions}
+            placeholder="Select"
+            dropdownMatchSelectWidth={false}
+            notFoundContent={null}
+            onClick={() => {
+              if (isMobile) {
+                setPopupOptions(roleOptions);
+                setPopupOptionType("role");
+                setVisible(true);
+              }
+            }}
+          />
+        ),
+        span: 8,
+        mobileSpan: 12,
+      },
+      {
+        name: "numberOfLocation",
+        label: "Number of Locations",
+        rules: [],
+        tag: (
+          <Select
+            options={isMobile ? undefined : numberOfLocationOptions}
+            placeholder="Select"
+            dropdownMatchSelectWidth={false}
+            notFoundContent={null}
+            onClick={() => {
+              if (isMobile) {
+                setPopupOptions(numberOfLocationOptions);
+                setPopupOptionType("numberOfLocation");
+                setVisible(true);
+              }
+            }}
+          />
+        ),
+        span: 8,
+        mobileSpan: 12,
+      },
+      {
+        name: "product",
+        label: "Which product are you interested in?",
+        tag: (
+          <Checkbox.Group defaultValue={product}>
+            {productTypeOptions.map((item) => {
+              return (
+                <Checkbox key={item.value} value={item.value}>
+                  {item.label}&nbsp;
+                  {
+                    <span style={{ color: "#CCCCCC" }}>
+                      {item.descripition}
+                    </span>
+                  }
+                </Checkbox>
+              );
+            })}
+          </Checkbox.Group>
+        ),
+        span: 24,
+        mobileSpan: 24,
+        page: "bookDemo",
+      },
+      {
+        name: "questions",
+        label: "Anything else you would like to tell us?",
+        tag: (
+          <TextArea
+            showCount
+            maxLength={2000}
+            placeholder="Tell us more about your project, needs and timeline."
+          />
+        ),
+        span: 24,
+        mobileSpan: 24,
+        rules: [],
+      },
+    ];
     const children: JSX.Element[] = [];
     FormItemConfig.forEach((item, index) => {
       if (!item.page || page === item.page) {
@@ -173,18 +216,28 @@ function CustomForm({ page, isMobile, handleSubmit }: IProps) {
       }
     });
     return children;
-  };
+  }, [isMobile, page, product]);
 
   return (
     <>
       <Form
         id="form"
-        ref={formRef}
+        form={form}
         name="basic"
         colon={false}
         layout="vertical"
         onFinish={handleSubmit}
+        initialValues={{ product: product }}
       >
+        {isMobile && popupOptions && (
+          <CustomPopup
+            visible={visible}
+            options={popupOptions}
+            optionType={popupOptionType}
+            handleClose={() => setVisible(false)}
+            handlePicker={handlePicker}
+          />
+        )}
         <Row gutter={24}>
           {getFields()}
           <Col span={24}>
@@ -201,18 +254,20 @@ function CustomForm({ page, isMobile, handleSubmit }: IProps) {
             </Form.Item>
           </Col>
           <Col span={24}>
-            <Button
-              htmlType="submit"
-              type="primary"
-              style={{
-                width: "100%",
-                height: "40px",
-                margin: "40px auto",
-                backgroundColor: "#5528ff",
-              }}
+            <button
+              className={`
+                  transition ease-in-out duration-300 
+                  border border-solid w-full h-10 maxlg:h-9 text-white
+                  border-primary
+                  bg-primary
+                  text-sm
+                  hover:bg-primary2 hover:border-primary2
+                  active:bg-primary3 active:border-primary3
+                  my-4
+                `}
             >
               Submit
-            </Button>
+            </button>
           </Col>
         </Row>
       </Form>

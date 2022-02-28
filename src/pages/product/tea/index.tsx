@@ -1,13 +1,18 @@
-import type { ReactElement } from "react";
+import { ReactElement, useCallback, useState } from "react";
 import Layout from "components/Layout";
 import Head from "next/head";
 import LocalJson from "components/CustomAnchor/Custom";
-import { ProductType } from "components/CustomAnchor/index.d";
+import { ProductType } from "constant/formConfig";
 import SectionLayout from "components/CustomLayout";
 import CustomAnchor from "components/CustomAnchor";
 import styles from "./index.module.css";
 import Card from "components/Card";
+import { Affix } from "antd";
 export default function Tea() {
+  const [isFixed, setIsFixed] = useState(true);
+  const handleFixTitle = useCallback((fixed: boolean) => {
+    setIsFixed(fixed);
+  }, []);
   return (
     <div className="w-full h-full">
       <Head>
@@ -36,7 +41,7 @@ export default function Tea() {
             <h3 className={`lg:pb-4 maxlg:pb-3`}>
               For landlords or space operators
             </h3>
-            <h1 className={`lg:pb-2 lg:f-5xxl maxlg:pb-6 maxlg:3xxl`}>
+            <h1 className={`lg:pb-2 lg:text-5xxl maxlg:pb-6 maxlg:text-3xxl`}>
               BOSS Tenant Engage
             </h1>
             <h4 className={`lg:f-text-sml maxlg:tex-sm`}>
@@ -50,22 +55,63 @@ export default function Tea() {
 
         <div className={`${styles.marginAuto} max-w-1440`}>
           <div className={`lg:hidden`}>
-            <CustomAnchor type={ProductType.tea} />
+            <CustomAnchor
+              type={ProductType.BossTenantEngage}
+              handleFixTitle={handleFixTitle}
+            />
           </div>
-          <SectionLayout type={ProductType.tea}>
+          <SectionLayout type={ProductType.BossTenantEngage}>
             {LocalJson &&
-              LocalJson[ProductType.tea] &&
-              LocalJson[ProductType.tea].map((child, ind) => {
+              LocalJson[ProductType.BossTenantEngage] &&
+              LocalJson[ProductType.BossTenantEngage].map((child, ind) => {
                 const title = child.title;
-                return child.content.map((item, index) => {
+                const titleHeader =
+                  title &&
+                  (isFixed
+                    ? [
+                        <Affix
+                          key={`affix-${ind}-maxlg`}
+                          offsetTop={57}
+                          className={`maxlg:hidden`}
+                        >
+                          <div
+                            key={`affix-${ind}-maxlg`}
+                            className={`h-14 max-w-1440 bg-bg2 text-base text-neutral8 lg:border-l border-b lg:pl-10 border-neutral5 flex items-center`}
+                          >
+                            {title}
+                          </div>
+                        </Affix>,
+                        <div
+                          key={`affix-${ind}-lg`}
+                          className={`lg:hidden h-8 bg-bg2 text-sm text-neutral8 flex items-center justify-center`}
+                        >
+                          {title}
+                        </div>,
+                      ]
+                    : [
+                        <div
+                          key={`${ind}-maxlg`}
+                          className={`maxlg:hidden h-14 max-w-1440 bg-bg2 text-base text-neutral8 lg:border-l border-b lg:pl-10 border-neutral5 flex items-center`}
+                        >
+                          {title}
+                        </div>,
+                        <div
+                          key={`${ind}-lg`}
+                          className={`lg:hidden h-8 bg-bg2 text-sm text-neutral8 flex items-center justify-center`}
+                        >
+                          {title}
+                        </div>,
+                      ]);
+                const CardList = child.content.map((item, index) => {
                   return (
                     <Card
-                      key={`${ProductType.tea}-${ind}-${index}`}
-                      id={`${ProductType.tea}-${ind}-${index}`}
+                      key={`${ProductType.BossTenantEngage}-${ind}-${index}`}
+                      id={`${ProductType.BossTenantEngage}-${ind}-${index}`}
                       itemConfig={item}
                     />
                   );
                 });
+                return titleHeader ? [...titleHeader, ...CardList] : CardList;
               })}
           </SectionLayout>
         </div>
@@ -75,5 +121,5 @@ export default function Tea() {
 }
 
 Tea.getLayout = function getLayout(Tea: ReactElement) {
-  return <Layout>{Tea}</Layout>;
+  return <Layout product={[ProductType.BossTenantEngage]}>{Tea}</Layout>;
 };

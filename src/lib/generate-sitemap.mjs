@@ -4,6 +4,10 @@ import prettier from "prettier";
 
 async function generate() {
   const prettierConfig = await prettier.resolveConfig("./.prettierrc.js");
+  const env = await fetch("http://127.0.0.1:3000/api/envConfig", {
+    method: "GET",
+  });
+  const data = await env.json();
   const pages = await globby([
     "./src/pages/*.tsx",
     "./src/pages/**/*.tsx",
@@ -25,9 +29,7 @@ async function generate() {
 
             return `
               <url>
-                  <loc>${`${
-                    process.env["DOMAIN_" + process.env.APP_ENV] + route
-                  }`}</loc>
+                <loc>${`${data.DOMAIN + route}`}</loc>
               </url>
             `;
           })
