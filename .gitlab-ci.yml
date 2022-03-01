@@ -152,8 +152,8 @@ package_test:
   variables:
     NODE_ENV: test
   dependencies:
-    - prepare
     - build_test
+    - prepare
   only:
     - master
     - /^release/.*$/
