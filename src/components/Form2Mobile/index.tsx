@@ -18,6 +18,7 @@ function CustomForm({ page, visible, handleClose, product }: IProps) {
   const { handleResultClose, handleSubmit, spinning, showResult } = useSubmit({
     page,
     handleCancel: handleClose,
+    isMobile: true,
   });
 
   return (
