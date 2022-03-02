@@ -152,8 +152,8 @@ package_test:
   variables:
     NODE_ENV: test
   dependencies:
-    - build_test
     - prepare
+    - build_test
   only:
     - master
     - /^release/.*$/
@@ -165,8 +165,8 @@ package_staging:
   variables:
     NODE_ENV: staging
   dependencies:
-    - build_staging
     - prepare
+    - build_staging
   only:
     - master
     - /^release/.*$/
