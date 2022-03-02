@@ -178,6 +178,7 @@ package_production:
   variables:
     NODE_ENV: production
   dependencies:
+    - prepare
     - build_production
   only:
     - master
