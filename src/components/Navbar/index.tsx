@@ -44,7 +44,7 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
         return (
           <li
             key={i}
-            className="lg:px-6 lg:py-2 maxlg:py-6 maxlg:border-b maxlg:border-grayLine relative"
+            className="lg:px-6 lg:py-2 maxlg:py-6 maxlg:border-b maxlg:border-grayLine"
           >
             <div
               className={`flex items-center maxlg:justify-between ${
