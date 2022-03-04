@@ -46,7 +46,8 @@ const buildResponse = async <T>(response: Response) => {
 const request = async <T>(params: RequestParams): Promise<T> => {
   const env = await window.fetch("/api/envConfig", { method: "GET" });
   const envData = await env.json();
-  const baseUrl = envData.NEXT_PUBLIC_API_BASE_URL;
+  const baseUrl =
+    envData.NEXT_PUBLIC_API_BASE_URL ?? process.env.NEXT_PUBLIC_API_BASE_URL;
   const { method, path, data, includeCredentials } = params;
   const isRequestJson = method !== "GET" && !(data instanceof FormData);
   let response;

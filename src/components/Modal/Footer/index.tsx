@@ -7,13 +7,6 @@ function Footer({
 }) {
   return (
     <footer className={`${page === "contactUs" ? "pt-72" : "pt-96"} text-sm`}>
-      <div className="pb-1">You can also contact us</div>
-      <a
-        href="mailto:Contact@getbossbuilding.com"
-        className="text-white hover:text-primary"
-      >
-        Contact@getbossbuilding.com
-      </a>
       <div
         className={`pt-6 ${
           color === "text-primary2" ? "text-primary2" : color

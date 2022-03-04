@@ -3,7 +3,6 @@ const path = require("path");
 
 // 从环境变量中获取
 const { NODE_ENV = "development" } = process.env;
-
 //封装 resolve
 const resolve = (p) => path.join(__dirname, p);
 
@@ -27,11 +26,7 @@ const readEnv = (p) => {
 // 读取./config/development/{RTE}中的文件，
 fs.writeFileSync(
   resolve(
-    `${
-      NODE_ENV === "local"
-        ? "./.env.development.local"
-        : "./.env.production.local"
-    }`
+    `${NODE_ENV === "local" ? "./.env.development" : "./.env.production"}`
   ),
   readEnv(`./config/${NODE_ENV}`)
     .map(([key, value]) => `${key}=${value}`)
