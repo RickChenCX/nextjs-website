@@ -99,7 +99,7 @@ export default function Page() {
               </button>
             </div>
             <div>
-              {/* 查看视频的按钮暂时隐藏，等下一sprint */}
+              {/* TODO: 查看视频的按钮暂时隐藏，等下一sprint  */}
               {/* <button
                 className={`border border-solid border-primary w-155 h-10 mr-4 text-white bg-primary lg:text-sm xs:text-base maxlg:mt-32`}
               >
@@ -255,7 +255,9 @@ export default function Page() {
         <div
           className={`w-full bg-home-section4-bg bg-cover flex justify-center`}
         >
-          <section className={`max-w-1440 pt-12 maxlg:pt-10 pb-9 maxlg:pb-10`}>
+          <section
+            className={`max-w-1440 pt-12 maxlg:pt-10 pb-9 maxlg:pb-10 overflow-hidden`}
+          >
             <div className={`pb-8 lg:pb-16 maxlg:px-4`}>
               <h4
                 className={`text-white font-roboto text-base maxlg:text-xl lg:text-center pb-2 font-normal`}

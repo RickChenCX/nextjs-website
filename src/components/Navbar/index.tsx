@@ -69,9 +69,9 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
               <span
                 className={`${
                   showMobileNav || !isBgTransparent
-                    ? "text-black"
-                    : "text-white"
-                } cursor-pointer hover:text-primary`}
+                    ? "text-black hover:text-primary"
+                    : "text-white hover:text-opacity-80"
+                } cursor-pointer transition ease-in-out duration-300 `}
               >
                 {navItem.name}
               </span>
@@ -115,9 +115,9 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
               <span
                 className={`${
                   showMobileNav || !isBgTransparent
-                    ? "text-black"
-                    : "text-white "
-                } hover:text-primary cursor-pointer inline-block w-full`}
+                    ? "text-black hover:text-primary"
+                    : "text-white hover:text-opacity-80"
+                } cursor-pointer inline-block w-full transition ease-in-out duration-300 `}
               >
                 {navItem.name}
               </span>
@@ -125,8 +125,10 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
           ) : (
             <span
               className={`${
-                showMobileNav || !isBgTransparent ? "text-black" : "text-white "
-              } hover:text-primary cursor-pointer`}
+                showMobileNav || !isBgTransparent
+                  ? "text-black hover:text-primary"
+                  : "text-white hover:text-opacity-80"
+              } cursor-pointer`}
             >
               {navItem.name === "Contact Us" ? (
                 <ContactUsButton from="footer" onClose={handleCloseMobileNav} />
