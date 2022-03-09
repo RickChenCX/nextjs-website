@@ -102,7 +102,7 @@ export default function ContactUsButton({
           <div>
             <a
               onClick={() => setFormVisible(true)}
-              className="block mb-0 text-base text-neutral12 cursor-pointer text hover:underline hover:text-neutral12 font-medium"
+              className="block mb-0 text-base text-neutral12 cursor-pointer text hover:text-primary font-medium"
             >
               Contact Us
             </a>
