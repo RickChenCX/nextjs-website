@@ -15,7 +15,7 @@ function TextContainer({ funcList, list, title, description }: IProps) {
       <p className={`pb-2 pl-10 pr-10 text-neutral9 xs:pl-6 xs:pr-6`}>
         {description}
       </p>
-      <ul className={`pl-10 text-neutral9 xs:pl-6 xs:pb-6`}>
+      <ul className={`px-10 text-neutral9 xs:px-6 xs:pb-6`}>
         {list &&
           list.map((item: string) => {
             return (

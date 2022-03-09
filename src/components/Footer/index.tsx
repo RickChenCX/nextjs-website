@@ -190,7 +190,7 @@ export default function Footer({ from = "homePage", product }: IFooterProps) {
               Stay up to date with coworking insights, feature highlights,
               company news, upcoming webinars, and eBooks.
             </p>
-            <div className="flex border-b border-solid pb-2 lg:w-488 justify-between">
+            <div className="flex border-b border-solid border-neutral11 pb-2 lg:w-488 justify-between">
               <div className="w-full lg:mr-2.5 mt-2 inputWrapper">
                 <Input
                   placeholder="Enter your business email"
