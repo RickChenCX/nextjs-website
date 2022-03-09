@@ -80,7 +80,7 @@ const HomePageCarousel = function () {
                 key={i}
                 className={`${
                   i === slideIndex ? "" : "bg-opacity-50"
-                } w-2.5 h-2.5 bg-white mx-2.5 inline-block`}
+                } w-2.5 h-2.5 bg-white mx-2.5 inline-block rounded-full`}
               ></span>
             );
           })}
@@ -135,16 +135,16 @@ const HomePageCarousel = function () {
                 <div
                   className={`${
                     slideIndex === i ? "" : "hidden"
-                  } flex items-center justify-center`}
+                  } flex items-center justify-center bottom-10 w-full left-0 absolute`}
                 >
-                  <div className="lg:flex lg:align-center lg:justify-center maxlg:ml-9">
-                    <LearnMoreButton linkUrl={item.path} />
-                  </div>
-                  <div className="flex align-center justify-center ml-6 maxlg:hidden">
+                  <div className="flex align-center justify-center mr-6 maxlg:hidden">
                     <BookFreeDemoButton
                       type="primary"
                       product={[item.product]}
                     />
+                  </div>
+                  <div className="lg:flex lg:align-center lg:justify-center maxlg:ml-9">
+                    <LearnMoreButton linkUrl={item.path} />
                   </div>
                 </div>
               </div>

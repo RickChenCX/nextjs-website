@@ -60,7 +60,7 @@
   .next {
     position: absolute;
     z-index: 3;
-    left: 1083px;
+    right: 336px;
     bottom: 130px;
   }
   .productListFrontIcon:before{
