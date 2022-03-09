@@ -12,6 +12,7 @@ import ArrowBackRight from "./../svgs/ArrowBack-right.svg";
 import ArrowBackRightActive from "./../svgs/ArrowBack-right-active.svg";
 import LearnMoreButton from "./../components/LearnMoreButton";
 import BookFreeDemoButton from "./../components/BookFreeDemoButton";
+import HomePageCarousel from "components/Carousel";
 import {
   HomePageSectionOneData,
   HomePageSectionTwoData,
@@ -113,90 +114,84 @@ export default function Page() {
           </div>
         </section>
       </div>
-      <main className={` h-full bg-white ${styles.marginAuto}`}>
-        {/* ===== section2 ======= */}
-        <div className={`w-full lg:bg-home-bg lg:bg-cover flex justify-center`}>
-          <section className={`max-w-1440  lg:h-1024`}>
-            <div className={`lg:mt-14 lg:w-1122`}>
-              <div className={`bg-primary1 py-8 maxlg:px-4`}>
-                <h4
-                  className={`text-white font-roboto text-base text-center pb-2 font-normal`}
-                >
-                  Products
-                </h4>
+      {/* ===== section2 ======= */}
+      <div
+        className={`bg-white relative maxlg:px-4 maxlg:bg-primary1 maxlg:pb-10`}
+      >
+        <div className="lg:absolute z-10 text-center lg:w-full font-normal maxlg:mb-12 ">
+          <div className="static text-white tracking-smaller text-base pt-9 pb-2 ">
+            Products
+          </div>
+          <div className="text-white lg:tracking-smaller tracking-small lg:text-4xxl text-2xl lg:font-medium">
+            The leading software for flex & hybrid workspace
+            <br className="maxlg:hidden" /> management and tenant engagement
+          </div>
+        </div>
+
+        <div className="maxlg:hidden overflow-hidden">
+          <Image
+            src="/images/2bg.svg"
+            alt=""
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+          />
+          <HomePageCarousel />
+        </div>
+        <div className="lg:hidden">
+          {HomePageSectionTwoData.map((item, index1) => (
+            <div
+              key={index1}
+              className={`bg-white box-border border border-solid border-default py-8 ${
+                index1 === 0 ? "maxlg:mb-4" : "lg:border-l-0"
+              }`}
+            >
+              <div className={`px-12 maxlg:px-4`}>
                 <h3
-                  className={`text-white font-roboto lg:text-4xxl text-2xl text-center lg:max-w-882 font-normal maxlg:font-normal ${styles.marginAuto}`}
+                  className={`text-center text-primary text-3xxl maxlg:text-2xl pb-2 font-normal`}
                 >
-                  The leading software for flex & hybrid workspace management
-                  and tenant engagement
+                  {item.title}
                 </h3>
+                <p
+                  className={`text-center font-roboto text-base maxlg:text-sm text-neutral7 lg:w-max-434 font-normal`}
+                >
+                  {item.content}
+                </p>
               </div>
-              <div className="lg:bg-white bg-bgOne grid grid-cols-1 lg:grid-cols-2 maxlg:p-4">
-                {HomePageSectionTwoData.map((item, index1) => (
-                  <div
-                    key={index1}
-                    className={`bg-white box-border border border-solid border-default py-8 ${
-                      index1 === 0 ? "maxlg:mb-4" : "lg:border-l-0"
-                    }`}
-                  >
-                    <div className={`px-12 maxlg:px-4`}>
-                      <h3
-                        className={`text-center text-primary text-3xxl maxlg:text-2xl pb-2 font-normal`}
-                      >
-                        {item.title}
-                      </h3>
-                      <p
-                        className={`text-center font-roboto text-base maxlg:text-sm text-neutral7 lg:w-max-434 font-normal`}
-                      >
-                        {item.content}
-                      </p>
-                    </div>
-                    <div className="flex justify-center">
-                      <Image
-                        src={item.url}
-                        alt={item.title}
-                        width={560}
-                        height={320}
-                        quality={100}
-                      />
-                    </div>
+              <div className="flex justify-center">
+                <Image
+                  src={item.url}
+                  alt={item.title}
+                  width={560}
+                  height={320}
+                  quality={100}
+                />
+              </div>
+              <div
+                className={`lg:px-9 xl:px-11 maxlg:p-4 maxlg:pb-0 maxlg:mb-8 mb-14`}
+              >
+                {item.desc.map((item, index2) => (
+                  <div key={index2} className={`mb-0 flex`}>
                     <div
-                      className={`lg:px-9 xl:px-11 maxlg:p-4 maxlg:pb-0 maxlg:mb-8 mb-14`}
+                      className={`text-base maxlg:text-sm text-neutral12 pb-2 pl-2.5 flex items-start font-normal tracking-tight`}
                     >
-                      {item.desc.map((item, index2) => (
-                        <div key={index2} className={`mb-0 flex`}>
-                          <div>
-                            <Image
-                              src="/images/vector.png"
-                              alt="vector"
-                              width={16}
-                              height={13}
-                              quality={100}
-                            />
-                          </div>
-                          <div
-                            className={`text-base maxlg:text-sm text-neutral12 pb-2 pl-2.5 max-w-434 maxmd:max-w-290 font-normal tracking-tight`}
-                          >
-                            {item}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="flex align-center justify-center mb-6 maxlg:hidden">
-                      <BookFreeDemoButton
-                        type="primary"
-                        product={[item.product]}
-                      />
-                    </div>
-                    <div className="lg:flex lg:align-center lg:justify-center maxlg:ml-9">
-                      <LearnMoreButton linkUrl={item.linkUrl} />
+                      <span className="productListFrontIcon-m block" />
+                      {item}
                     </div>
                   </div>
                 ))}
               </div>
+              <div className="flex align-center justify-center mb-6 maxlg:hidden">
+                <BookFreeDemoButton type="primary" product={[item.product]} />
+              </div>
+              <div className="lg:flex lg:align-center lg:justify-center maxlg:ml-9">
+                <LearnMoreButton linkUrl={item.linkUrl} />
+              </div>
             </div>
-          </section>
+          ))}
         </div>
+      </div>
+      <main className={` h-full bg-white ${styles.marginAuto}`}>
         {/* ===== section3 ======= */}
         <div className={`bg-white flex justify-center`}>
           <section

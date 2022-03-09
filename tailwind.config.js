@@ -198,6 +198,7 @@ module.exports = {
       },
       padding: {
         18: "4.5rem",
+        23: "5.75rem",
         25: "6.25rem",
         26: "6.5rem",
         39: "9.75rem",
@@ -209,8 +210,13 @@ module.exports = {
       animation: {
         rotate180: "arrowSpin1 500ms forwards",
         rotate0: "arrowSpin2 500ms forwards",
+        fullHeight: "fullHeightUl 500ms forwards",
       },
       keyframes: {
+        fullHeightUl: {
+          "0%": { display: "none" },
+          "100%": { display: "block" },
+        },
         arrowSpin1: {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(180deg)" },

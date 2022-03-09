@@ -31,14 +31,30 @@ export const HomePageSectionTwoData = [
       "A tenant engagement platform to delight tenants and boost customer satisfaction.",
     url: "/images/home-section2-2.png",
     desc: [
-      "White-label tenant app to connect with tenants as a brand",
+      "Your own branded app to connect with tenants as a community",
       "Real-time room & desk booking across buildings",
-      "Public availability to expand revenue source",
+      "Explosive revenue growth via smooth public registration",
       "Centralized view of account-based tenants",
       "Full-spectrum content management system to enrich tenant engagement",
       "Various add-on service options with flexible payment options",
     ],
     linkUrl: "/product/tea",
+    product: ProductType.BossTenantEngage,
+  },
+  {
+    title: "BOSS Employee Engage",
+    content:
+      "A smart workplace solution empowering your teams and for all your organization's needs​.",
+    url: "/images/employeeProduct.svg",
+    desc: [
+      "White-labeled employee app that reflects your branding",
+      "Hassle-free desk & meeting room booking with interactive maps",
+      "Integration with your existing calendars​",
+      "All-in-one support ticketing system",
+      "Full-spectrum content management system to boost employee engagement",
+      "Real-time workplace analytics to better understand your employees and spaces",
+    ],
+    linkUrl: "/product/employeeEngage",
     product: ProductType.BossTenantEngage,
   },
 ];

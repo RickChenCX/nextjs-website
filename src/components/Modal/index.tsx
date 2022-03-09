@@ -25,11 +25,11 @@ function CustomModal({ visible, page, handleCancel, product }: IProps) {
         onCancel={handleCancel}
         style={{ overflowY: "auto", top: 72 }}
         destroyOnClose
-        getContainer={false}
+        // getContainer={false}
       >
         <div className="flex">
           <article
-            className={`${ModalInfo[page].bg} text-white -my-6 mr-0 -ml-6`}
+            className={`${ModalInfo[page].bg} text-white -my-6 mr-0 -ml-6 `}
           >
             <section className="my-10 ml-10 mr-6" style={{ width: "264px" }}>
               <header className="text-4xxl font-medium">
