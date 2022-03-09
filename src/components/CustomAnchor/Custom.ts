@@ -272,7 +272,6 @@ const LocalJson = {
         },
         {
           title: "Invoicing & Payments",
-
           funcList: [
             {
               title: "Invoice Check",
@@ -335,6 +334,131 @@ const LocalJson = {
           ],
           imageUrlInLeft: "tea-12.jpg",
           imageUrlInLeftMobile: "tea-12-mobile.jpg",
+        },
+      ],
+    },
+  ],
+  BOSS_EMPLOYEE_ENGAGE: [
+    {
+      title: "Employee Engage",
+      content: [
+        {
+          title: "Meeting Room Bookings",
+          description:
+            "Allow employees to book meeting rooms, check facilities anywhere with just a few clicks.",
+          list: [
+            "Single dashboard view",
+            "Real-time room availability and booking",
+            "Check and manage amenities and facilities",
+          ],
+          imageUrl: "employeeEngage/booking.jpg",
+          imageUrlMobile: "employeeEngage/booking-mobile.jpg",
+        },
+        {
+          title: "Employee Engage App",
+          description: "",
+          list: [
+            "Allow your employees to self-service book from any device, anywhere.",
+            "Native iOS and Android app​",
+          ],
+          imageUrl: "employeeEngage/app.jpg",
+          imageUrlMobile: "employeeEngage/app-mobile.jpg",
+        },
+        {
+          title: "Real-time Workplace Analytics",
+          description:
+            "Drive your space management strategy with actionable usage analytics.",
+          list: [
+            "View real-time reports on bookings & occupancy",
+            "Use data to understand demand for spaces to drive planning and strategy",
+            "Export data easily to spreadsheets",
+          ],
+          imageUrl: "employeeEngage/dashboard.jpg",
+          imageUrlMobile: "employeeEngage/dashboard-mobile.jpg",
+        },
+        {
+          title: "Support Ticketing System",
+          description:
+            "All-in-one ticketing system that boosts operations, ensuring happy employees.",
+          list: [
+            "Easy ticketing management",
+            "Customizable ticket categories and forms",
+            "Self-service resolution tool for employees",
+            "Employee support reports and analytics",
+          ],
+          imageUrl: "employeeEngage/survey.jpg",
+          imageUrlMobile: "employeeEngage/survey-mobile.jpg",
+        },
+        {
+          title: "Floor Plans",
+          description:
+            "Allow your users to view availability and book directly from a live, intuitive and interactive map.",
+          list: [
+            "Color-coded floor plans to visualize capacity",
+            "Manage building, floor, rooms, desks availability all in one place and in real time",
+          ],
+          imageUrl: "employeeEngage/floor-plan.jpg",
+          imageUrlMobile: "employeeEngage/floor-plan-mobile.jpg",
+          child: ChildType.contcat,
+        },
+        {
+          title: "Calendar Integrations",
+          description: "Book workspaces with room details through Outlook.",
+          list: [],
+          imageUrl: "employeeEngage/room-bookings.jpg",
+          imageUrlMobile: "employeeEngage/room-bookings-mobile.jpg",
+        },
+        {
+          title: "Single Sign-on (SSO)",
+          description: "",
+          list: [
+            "Log in with company credentials and authentication",
+            "Seamless sign-in with Microsoft Suite",
+          ],
+          imageUrl: "employeeEngage/sso.jpg",
+          imageUrlMobile: "employeeEngage/sso-mobile.jpg",
+        },
+        {
+          title: "Flexible Pricing and Payments",
+          description: "",
+          list: [
+            "Easily set different pricing rules for internal employees and external users",
+            "Receive online payments with Stripe",
+          ],
+          imageUrl: "employeeEngage/service-charge.jpg",
+          imageUrlMobile: "employeeEngage/service-charge-mobile.jpg",
+        },
+        {
+          title: "Employee Management",
+          description: "",
+          list: [
+            "Access all your employees' schedules",
+            "Seamless employee directory sync within the app",
+          ],
+          imageUrl: "employeeEngage/tenant-profile.jpg",
+          imageUrlMobile: "employeeEngage/tenant-profile-mobile.jpg",
+        },
+        {
+          title: "Content Management System",
+          description:
+            "A user-friendly content editor to boost engagement with announcements, events, perks, and news.",
+          list: [
+            "Building guide info",
+            "Announcements management",
+            "Events management",
+            "Perks management",
+            "News management",
+          ],
+          imageUrl: "employeeEngage/building-info.jpg",
+          imageUrlMobile: "employeeEngage/building-info-mobile.jpg",
+        },
+        {
+          title: "Account Permission Control",
+          description:
+            "Review and manage user permissions without IT.  Locate all users in seconds and deactivate them with just one click.",
+          list: ["Role-based access control", "Portal data permission control"],
+          imageUrl: "employeeEngage/roles.jpg",
+          imageUrlMobile: "employeeEngage/roles-mobile.jpg",
         },
       ],
     },

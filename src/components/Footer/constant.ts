@@ -3,13 +3,18 @@ export const FooterListData = [
     title: "Products",
     children: [
       {
-        module: "BOSS Flex",
+        module: "BOSS Flex Operate",
         link: "/product/flex",
         flag: false,
       },
       {
         module: "BOSS Tenant Engage",
         link: "/product/tea",
+        flag: false,
+      },
+      {
+        module: "BOSS Employee Engage",
+        link: "/product/employeeEngage",
         flag: false,
       },
     ],

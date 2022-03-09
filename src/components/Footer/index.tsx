@@ -90,17 +90,17 @@ export default function Footer({ from = "homePage", product }: IFooterProps) {
                 Our Offices
               </h3>
               <div>
-                <div className="flex pb-2">
-                  <EmailSvg className="mt-1" />
-                  <div className="text-base text-white font-normal pl-3">
+                <div className="flex items-center pb-2">
+                  <EmailSvg />
+                  <span className="text-base text-white font-normal pl-3">
                     Contact@getbossbuilding.com
-                  </div>
+                  </span>
                 </div>
-                <div className="flex">
-                  <AddressSvg className="mt-1" />
-                  <div className="text-base text-white font-normal pl-3">
+                <div className="flex items-center">
+                  <AddressSvg />
+                  <span className="text-base text-white font-normal pl-3">
                     We are based in Singapore, Shanghai and Taiwan.
-                  </div>
+                  </span>
                 </div>
               </div>
             </div>
@@ -112,13 +112,17 @@ export default function Footer({ from = "homePage", product }: IFooterProps) {
               </h3>
               <div className="my-8">
                 <div className="flex pb-2">
-                  <EmailSvg className="mt-1" />
+                  <div className="w-5 h-5 mt-0.5">
+                    <EmailSvg />
+                  </div>
                   <span className="text-base text-white font-normal pl-3">
                     Contact@getbossbuilding.com
                   </span>
                 </div>
                 <div className="flex">
-                  <AddressSvg className="mt-1" />
+                  <div className="w-5 h-5 mt-0.5">
+                    <AddressSvg />
+                  </div>
                   <span className="text-base text-white font-normal pl-3">
                     We are based in Singapore, Shanghai and Taiwan.
                   </span>
@@ -187,7 +191,7 @@ export default function Footer({ from = "homePage", product }: IFooterProps) {
               company news, upcoming webinars, and eBooks.
             </p>
             <div className="flex border-b border-solid pb-2 lg:w-488 justify-between">
-              <div className="lg:w-80 w-full lg:mr-2.5 mt-2">
+              <div className="w-full lg:mr-2.5 mt-2 inputWrapper">
                 <Input
                   placeholder="Enter your business email"
                   style={{ width: "100%", paddingLeft: 0 }}

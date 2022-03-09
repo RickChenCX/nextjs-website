@@ -124,6 +124,9 @@ module.exports = {
         "flex-mobile": "url('/images/flexBannerMobile.png')",
         "tea-pc": "url('/images/teaBannerPc.jpg')",
         "tea-mobile": "url('/images/teaBannerMobile.jpg')",
+        "employee-engage-pc": "url('/images/employeeEngageBannerPc.svg')",
+        "employee-engage-mobile":
+          "url('/images/employeeEngageBannerMobile.svg')",
         "login-bg-mobile": "url(/images/login-bg-mobile.png)",
         "about-banner-pc": "url('/images/aboutBannerPc.png')",
         "about-banner-mobile": "url('/images/aboutBannerMobile.png')",
