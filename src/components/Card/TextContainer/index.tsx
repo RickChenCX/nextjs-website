@@ -1,6 +1,7 @@
 import { Introduce } from "components/CustomAnchor/index.d";
 import Image from "next/image";
 import styles from "../index.module.css";
+import CheckSvg from "./../../../svgs/check.svg";
 
 interface IProps extends Omit<Introduce, "imageUrl"> {}
 function TextContainer({ funcList, list, title, description }: IProps) {
@@ -18,14 +19,11 @@ function TextContainer({ funcList, list, title, description }: IProps) {
         {list &&
           list.map((item: string) => {
             return (
-              <li key={item} className="pb-1">
-                <Image
-                  src="/images/check.png"
-                  width={11}
-                  height={9.5}
-                  alt="check"
-                />
-                <span className={`${styles.text} `}>{item}</span>
+              <li key={item} className="pb-1 flex">
+                <div>
+                  <CheckSvg className="inline-block" />
+                </div>
+                <p className={`${styles.text} `}>{item}</p>
               </li>
             );
           })}
@@ -33,13 +31,10 @@ function TextContainer({ funcList, list, title, description }: IProps) {
           funcList.map((item, index) => {
             return (
               <div key={`${item.title}-${index}`}>
-                <li>
-                  <Image
-                    src="/images/check.png"
-                    width={11}
-                    height={9.5}
-                    alt="check"
-                  />
+                <li className="flex">
+                  <div>
+                    <CheckSvg className="inline-block" />
+                  </div>
                   <span className={`${styles.text} text-neutral12`}>
                     {item.title}
                   </span>

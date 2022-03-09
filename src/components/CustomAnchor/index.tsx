@@ -283,7 +283,10 @@ function CustomAnchor(props: ConfigProps) {
             <ul>
               {sections.map(({ content, title: headTitle }, ind) => {
                 const headIteam = (
-                  <li className={styles.headTitle} key={headTitle}>
+                  <li
+                    className={`${styles.headTitle} text-center`}
+                    key={headTitle}
+                  >
                     {headTitle}
                   </li>
                 );
@@ -309,7 +312,9 @@ function CustomAnchor(props: ConfigProps) {
                     </span>
                   </li>
                 ));
-                headTitle && contentArray.unshift(headIteam);
+                sections.length > 1 &&
+                  headTitle &&
+                  contentArray.unshift(headIteam);
                 return contentArray;
               })}
             </ul>

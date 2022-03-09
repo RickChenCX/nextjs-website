@@ -111,6 +111,7 @@ export const numberOfLocationOptions = [
 export enum ProductType {
   BossFlex = "BOSS_FLEX",
   BossTenantEngage = "BOSS_TENANT_ENGAGE",
+  BOSSEmployeeEngage = "BOSS_EMPLOYEE_ENGAGE",
 }
 
 export const productTypeOptions = [
@@ -123,6 +124,11 @@ export const productTypeOptions = [
     label: "BOSS Tenant Engage",
     descripition: "(For landlords or space operators)",
     value: ProductType.BossTenantEngage,
+  },
+  {
+    label: "BOSS Employee Engage",
+    descripition: "(For xxxxx)",
+    value: ProductType.BOSSEmployeeEngage,
   },
 ];
 

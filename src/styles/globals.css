@@ -98,3 +98,11 @@ h1,h2,h3,h4,h5{
 .adm-page-indicator-dot-active {
   background-color: #fff !important;
 }
+
+.inputWrapper input:hover{
+  box-shadow: 0 0 0 2px transparent !important;
+}
+
+.inputWrapper input:focus {
+  box-shadow: 0 0 0 2px transparent !important;
+}

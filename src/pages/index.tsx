@@ -38,7 +38,7 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="w-full h-full lg: bg-black">
+    <div className="w-full h-full">
       <Head>
         <title>
           BOSS - The Ultimate Software for Coworking, Flex and Hybrid Workspaces
