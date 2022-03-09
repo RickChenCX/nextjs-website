@@ -150,9 +150,11 @@ export default function Navbar({ isBgTransparent = true }: NavbarProps) {
 
   return (
     <nav
-      className={`lg:py-2 lg:px-8 maxlg:py-2 maxlg:px-4 maxlg:justify-between w-full flex items-center  z-30 top-0 ${
+      className={`lg:py-2 lg:px-8 maxlg:py-2 maxlg:px-4 maxlg:justify-between w-full flex items-center z-30 top-0 ${
         isBgTransparent
-          ? "bg-opacity-0 absolute"
+          ? currentSubNav === "Products"
+            ? "bg-opacity-70 bg-black absolute border-opacity-70 border-b border-b-borderColor0"
+            : "bg-opacity-0 absolute"
           : "bg-opacity-100 bg-white border-b boder-b-grayLine fixed"
       }`}
     >

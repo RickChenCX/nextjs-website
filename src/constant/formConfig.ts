@@ -4,6 +4,10 @@ export const commonRules = [
   {
     required: true,
   },
+  {
+    pattern: /\S/,
+    message: "The value you entered is not valid.",
+  },
 ];
 
 export const ModalInfo = {

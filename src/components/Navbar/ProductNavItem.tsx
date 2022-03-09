@@ -9,7 +9,7 @@ interface ProductNavItemProps {
 function ProductNavItem({ items, handleRoute }: ProductNavItemProps) {
   return (
     <ul
-      className={`lg:absolute lg:z-20 bg-white mx-8 lg:flex lg:w-1376 lg:self-center  maxlg:mt-8`}
+      className={`animate-modalShow lg:absolute lg:z-20 bg-white mx-8 lg:flex lg:justify-around lg:w-1376 lg:self-center lg:pr-10  maxlg:mt-8`}
       onClick={(e) => {
         e.stopPropagation();
       }}
@@ -19,7 +19,7 @@ function ProductNavItem({ items, handleRoute }: ProductNavItemProps) {
             return (
               <li
                 key={i}
-                className="border-solid border-l border-neutral5 lg:pl-8 lg:ml-120 lg:my-10 pl-4 "
+                className="border-solid border-l border-neutral5 lg:pl-8 lg:ml-10 lg:my-10 pl-4 "
                 onClick={() => handleRoute(String(item?.extraPath))}
               >
                 <div className="text-neutral12   font-normal mb-4 text-2xl lg:text-3xxl  maxlg:flex items-baseline">
@@ -29,7 +29,7 @@ function ProductNavItem({ items, handleRoute }: ProductNavItemProps) {
                   </a>
                 </div>
                 <p
-                  className="text-neutral9 font-normal lg:text-base text-sm mb-8 "
+                  className="text-neutral9 font-normal lg:min-h-72 lg:text-base text-sm mb-8 "
                   style={{ maxWidth: "464px" }}
                 >
                   {item.desc}
