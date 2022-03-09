@@ -98,6 +98,7 @@ module.exports = {
         neutral7: "#7F7F7F",
         neutral10: "#2C2C2C",
         borderColor: "#ccc",
+        borderColor0: "#000",
         bg1: "#fafafa",
         bg2: "#FAFAFA",
       },
@@ -195,6 +196,7 @@ module.exports = {
       },
       minHeight: {
         102: "6.375rem",
+        72: "4.5rem",
       },
       padding: {
         18: "4.5rem",
@@ -210,6 +212,7 @@ module.exports = {
       animation: {
         rotate180: "arrowSpin1 500ms forwards",
         rotate0: "arrowSpin2 500ms forwards",
+        modalShow: "show 500ms forwards",
         fullHeight: "fullHeightUl 500ms forwards",
       },
       keyframes: {
@@ -224,6 +227,10 @@ module.exports = {
         arrowSpin2: {
           "0%": { transform: "rotate(180deg)" },
           "100%": { transform: "rotate(0deg)" },
+        },
+        show: {
+          "0%": { display: "none", opacity: 0 },
+          "100%": { display: "block", opacity: 1 },
         },
       },
       backgroundSize: {

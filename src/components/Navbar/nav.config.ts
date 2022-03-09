@@ -69,7 +69,7 @@ const navConfig: NavConfigItem[] = [
         extraPath: "/product/tea",
         children: [
           {
-            name: "Content Management System",
+            name: "Content Management System(CMS)",
             group: "1-2",
             groupInnerId: "0",
             path: "/product/tea#&BOSS_TENANT_ENGAGE-0-0",
@@ -97,6 +97,46 @@ const navConfig: NavConfigItem[] = [
             group: "1-2",
             groupInnerId: "4",
             path: "/product/tea#&BOSS_TENANT_ENGAGE-0-5",
+          },
+        ],
+      },
+      {
+        name: "BOSS Employee Engage",
+        path: "/",
+        group: "1",
+        groupInnerId: "3",
+        desc: "A smart workplace solution empowering your teams and for all your hybrid workplace organization's needs​.",
+        extraPath: "/product/employeeEngage",
+        children: [
+          {
+            name: "Employee Engage App​",
+            group: "1-3",
+            groupInnerId: "0",
+            path: "/product/employeeEngage#&BOSS_EMPLOYEE_ENGAGE-0-1",
+          },
+          {
+            name: "Content Management System (CMS)",
+            group: "1-3",
+            groupInnerId: "1",
+            path: "/product/employeeEngage#&BOSS_EMPLOYEE_ENGAGE-0-8",
+          },
+          {
+            name: "Meeting Room Booking",
+            group: "1-3",
+            groupInnerId: "2",
+            path: "/product/employeeEngage#&BOSS_EMPLOYEE_ENGAGE-0-0",
+          },
+          {
+            name: "Workplace Analytics​",
+            group: "1-3",
+            groupInnerId: "3",
+            path: "/product/employeeEngage#&BOSS_EMPLOYEE_ENGAGE-0-2",
+          },
+          {
+            name: "Calendar Integrations",
+            group: "1-3",
+            groupInnerId: "4",
+            path: "/product/employeeEngage#&BOSS_EMPLOYEE_ENGAGE-0-5",
           },
         ],
       },
