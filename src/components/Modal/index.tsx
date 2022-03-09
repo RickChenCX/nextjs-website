@@ -29,7 +29,8 @@ function CustomModal({ visible, page, handleCancel, product }: IProps) {
       >
         <div className="flex">
           <article
-            className={`${ModalInfo[page].bg} text-white -my-6 mr-0 -ml-6 `}
+            className={`text-white -my-6 mr-0 -ml-6 `}
+            style={{ backgroundColor: ModalInfo[page].bg }}
           >
             <section className="my-10 ml-10 mr-6" style={{ width: "264px" }}>
               <header className="text-4xxl font-medium">
