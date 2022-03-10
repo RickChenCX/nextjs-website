@@ -120,7 +120,7 @@ export enum ProductType {
 
 export const productTypeOptions = [
   {
-    label: "BOSS Flex",
+    label: "BOSS Flex Operate",
     descripition: "(For flex & hybrid coworking space operators)",
     value: ProductType.BossFlex,
   },
