@@ -87,6 +87,6 @@ export const productList = [
       },
     ],
     path: "/product/employeeEngage",
-    product: ProductType.BossFlex,
+    product: ProductType.BOSSEmployeeEngage,
   },
 ];

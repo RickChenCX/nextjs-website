@@ -131,7 +131,7 @@ export const productTypeOptions = [
   },
   {
     label: "BOSS Employee Engage",
-    descripition: "(For xxxxx)",
+    descripition: "(For enterprises & organizations)",
     value: ProductType.BOSSEmployeeEngage,
   },
 ];
