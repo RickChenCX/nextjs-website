@@ -30,11 +30,15 @@ function CustomForm({ page, visible, handleClose, product }: IProps) {
           } fixed z-30 w-screen h-screen top-0 left-0 bg-white overflow-y-auto`}
         >
           <header
-            className={`${ModalInfo[page].bg} w-full flex items-center justify-end pr-4 h-11 fixed top-0 left-0 z-10`}
+            className={`w-full flex items-center justify-end pr-4 h-11 fixed top-0 left-0 z-10`}
+            style={{ backgroundColor: ModalInfo[page].bg }}
           >
             <Union onClick={() => handleClose()}></Union>
           </header>
-          <aside className={`${ModalInfo[page].bg} text-white mt-11`}>
+          <aside
+            className={`text-white mt-11`}
+            style={{ backgroundColor: ModalInfo[page].bg }}
+          >
             <header className="px-4 pt-3 pb-4">
               <span className="text-4xl font-medium">
                 {ModalInfo[page].title}
