@@ -21,7 +21,7 @@ const navConfig: NavConfigItem[] = [
     group: "1",
     children: [
       {
-        name: "BOSS Flex",
+        name: "BOSS Flex Operate",
         path: "/",
         group: "1",
         groupInnerId: "1",
