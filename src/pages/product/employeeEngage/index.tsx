@@ -33,7 +33,7 @@ export default function EmployeeEngage() {
             className={`${styles.banner} max-w-1440 relative lg:pt-25 lg:h-300 lg:pl-89  maxlg:pt-18 maxlg:h-336 maxlg:pl-4 maxlg:pr-10`}
           >
             <h3 className={`lg:pb-4 maxlg:pb-3`}>
-              For landlords or space operators
+              For enterprises & organizations
             </h3>
             <h1 className={`lg:pb-2 lg:text-5xxl maxlg:pb-6 maxlg:text-3xxl`}>
               BOSS Employee Engage
