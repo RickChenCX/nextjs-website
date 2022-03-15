@@ -29,6 +29,7 @@ export default function Custom404() {
     </div>
   );
 }
+
 Custom404.getLayout = function getLayout(page: React.ReactNode) {
   return (
     <>
