@@ -124,6 +124,8 @@ build_production:
     - docker:19.03.11-dind
   script:
     # - ls -a
+    - echo $ECR_AUTH_TOKEN
+    - echo $CI_REGISTRY
     - docker login -u AWS -p $ECR_AUTH_TOKEN $CI_REGISTRY
     - docker pull $IMAGE_REPO:latest || true
     - docker build --cache-from $IMAGE_REPO:latest --build-arg NODE_ENV=$NODE_ENV --tag $IMAGE_TAG --tag $IMAGE_REPO:latest --tag $IMAGE_REPO:branch-$CI_COMMIT_SHORT_SHA .
